@@ -1,4 +1,3 @@
-
 var pwApp = angular.module('pwApp');
 // create the controller and inject Angular's $scope
  pwApp.controller('loginController', ['$scope', 'CurrentUserService', function($scope, CurrentUserService)
@@ -26,8 +25,8 @@ var pwApp = angular.module('pwApp');
                    { alert(err.message);}
 
                  // resetto (pulisco) le caselle di input
-                 $scope.username=undefined;
-                 $scope.password=undefined;
+             //    $scope.username=undefined;
+               //  $scope.password=undefined;
                 });
       }
 
