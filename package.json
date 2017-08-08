@@ -13,10 +13,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "1.6.0",
     "ejs": "2.5.7",
     "express": "^4.15.3",
-    "mongoose": "^4.10.5",
-    "angular": "1.6.0"
+    "mongoose": "^4.11.5"
   },
   "bugs": {
     "url": "https://github.com/mriberaUnicam/Progetto-Web/issues"
