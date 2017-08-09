@@ -102,7 +102,30 @@ form:after {
 	z-index: -2;
 }
 #cont form { margin: 0 20px; position: relative }
-#cont form input[type="text"],
+#cont form input[type="text"] {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	-moz-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	-ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	-o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	background: #eae7e7 url(../img/user.png) 10px no-repeat;
+	border: 1px solid #c8c8c8;
+	color: #777;
+	font: 13px Helvetica, Arial, sans-serif;
+	margin: 0 0 10px;
+	padding: 15px 15px 15px 40px;
+	width: 80%;
+}
 #cont form input[type="password"] {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -119,7 +142,7 @@ form:after {
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
-	background: #eae7e7 url(../img/icons.png) no-repeat;
+	background: #eae7e7 url(../img/pwd.png) 9px no-repeat;
 	border: 1px solid #c8c8c8;
 	color: #777;
 	font: 13px Helvetica, Arial, sans-serif;
@@ -168,7 +191,7 @@ form:after {
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	width: 120px;
 }
-#cont form input[type="submit"]:hover {
+#cont button[type="submit"]:hover {
 	background: rgb(254,193,81);
 	background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
 	background: -webkit-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
