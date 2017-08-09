@@ -1,21 +1,24 @@
 // =======================
 // API ROUTES 
 // =======================
-var express     = require('express');
-
-var api_utilities=require('./api-utilities');
-
+var express = require('express');
+var bodyParser = require('body-parser');
+var api_utilities = require('./api-utilities');
 var adminRoutes = express.Router(); 
 var apiRoutes = express.Router();
 module.exports = apiRoutes;
 
+apiRoutes.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
+apiRoutes.use(bodyParser.json());
+// parse application/vnd.api+json as json
+apiRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-/* ======================================== 
-  Login of a user, params:
-   { name:"", password:""}  
-*/
 apiRoutes.post('/authenticate', function(req, res)
            {
+              console.log("Body: ");
+              console.log(req.body);
+
               var name = req.body.name;
               var psw  = req.body.password;
                // controllo parametri
@@ -25,6 +28,8 @@ apiRoutes.post('/authenticate', function(req, res)
                                                   code:     api_utilities.ERR_API_NOT_FOUND,
                                                   message: 'Bad Request. name and password required.' });  
                   }
+
+              console.log("Dati (api_index): "+nome+" "+psw);
                // esecuzione funzione
               api_utilities.login(name, psw)
                     .then(function(token)
@@ -46,9 +51,12 @@ apiRoutes.post('/authenticate', function(req, res)
 */
 apiRoutes.post('/signup', function(req, res)
             {
+              console.log("Body: ");
+              console.log(req.body);
+
               var name = req.body.name;
               var psw  = req.body.password;
-              var email = req.body.mail;
+              var email = req.body.email;
               // controllo parametri
               if (!name || !psw)
                   {
@@ -57,7 +65,7 @@ apiRoutes.post('/signup', function(req, res)
                                                   message: 'Bad Request. name and password required.' });  
                   } 
                // esecuzione funzione    
-              api_utilities.addUser(name, psw, mail)
+              api_utilities.addUser(name, psw, email)
                     .then(function(user)
                       {
                        res.status(201).json({ success: true , msg:"utente salvato", data:user});

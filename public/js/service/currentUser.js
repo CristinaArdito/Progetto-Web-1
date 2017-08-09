@@ -12,41 +12,40 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
 /* ========================================
     FUNCTIONS
 ================================================*/
-    
-   
-   
-   
+
+
     this.login = function(name, psw)
 	    {
-         var deferred = $q.defer(); 
+         var deferred = $q.defer();
         
          $http.post('http://localhost:8080/api/authenticate',
                     {'name':name, 'password':psw})
-             .success(function(data) 
+             .then(function(data) 
                  {
+                  console.log(data);
                   self.utenteLoggato = data;      // mi salvo l'utente corrente
                   deferred.resolve(data);
                  })
-             .error(function(err, code) 
+             .catch(function(err, code) 
                  {  
                   self.utenteLoggato = undefined; // resetto l'utente
                   deferred.reject(err);
                  });
         return deferred.promise; 
     }      
-    
-    this.signup = function(name, psw, mail)
+
+    this.signup = function(name, psw, email)
 	    {
          var deferred = $q.defer(); 
         
          $http.post('http://localhost:8080/api/signup',
-                    {'name':name, 'password':psw, 'mail':mail})
-             .success(function(data) 
+                    {'name':name, 'password':psw, 'email':email})
+             .then(function(data) 
                  {
                   self.utenteLoggato = data;      // mi salvo l'utente corrente
                   deferred.resolve(data);
                  })
-             .error(function(err, code) 
+             .catch(function(err, code) 
                  {  
                   self.utenteLoggato = undefined; // resetto l'utente
                   deferred.reject(err);

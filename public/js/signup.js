@@ -4,13 +4,19 @@ var pwApp = angular.module('pwApp');
    {
     $scope.username;
     $scope.password;
-    $scope.mail;
+    $scope.email;
+
+    console.log("Scope: ");
+    console.log($scope);
 
     $scope.signup = function()
       {
-       CurrentUserService.signup($scope.username, $scope.password,$scope.usermail)
+      console.log("signUp");
+       console.log($scope);
+       CurrentUserService.signup($scope.username, $scope.password, $scope.email)
           .then(function(data)
                {
+                console.log("Data");
                 console.log(data);
                 alert('utente registrato '+JSON.stringify(data));
                })
