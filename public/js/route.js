@@ -15,9 +15,16 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute'])
                 controller  : 'mainController'
             })
 
-            // route for the about page
+            // route for the login page
             .when('/login', {
                 templateUrl : 'views/login.ejs',
                 controller  : 'loginController'
+            })
+
+            // route for the about page
+            .when('/signup', {
+                templateUrl : 'views/signup.ejs',
+                controller  : 'signupController'
             });
+
     });

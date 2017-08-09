@@ -2,12 +2,19 @@
 <div id="login">
     <form>
         <div class="form-group">
-        <h1>Login</h1>
-        <label for="nome">E-mail</label>
+        <h1>Signup</h1>
+        <label for="nome">Nome</label>
         <input type="text" class="form-control"
                ng-model="username"
-               placeholder="Inserisci l'email" size="50"
+               placeholder="Inserisci il nome" size="50"
                id="nome" name="username" required>
+        </div>
+        <div class="form-group">
+         <label for="email">E-mail</label>
+        <input type="text" class="form-control"
+               ng-model="usermail"
+               placeholder="Inserisci l'email" size="50"
+               id="email" name="usermail" required>
         </div>
         <div class="form-group">
         <label for="psw">Password</label>
@@ -17,11 +24,7 @@
                id="psw" name="password" required>
         </div>
     <button type="submit" id="submitbutton" 
-            class="btn btn-default"  ng-click="login()">Login</button>
+            class="btn btn-default"  ng-click="signup()">Signup</button>
     </form>
-    &nbsp;&nbsp;
-    <div class="button">
-						<a href="#">Non sei ancora registrato?</a>
-					</div><!-- button -->
 </div>
 </section>

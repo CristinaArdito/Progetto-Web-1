@@ -1,10 +1,27 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var Q           = require('q');          // Q promise
+var mongoose    = require('mongoose');   // models for Mongo
+mongoose.Promise = require('q').Promise;
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
+
+app.use(function(req, res, next){
+
+  res.setHeader('Access-Control-Allow-Origin', '*');                                            //granted domains
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); //granted headers
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');             //granted http verbs
+  next();
+});
+
+var promise = mongoose.connect('mongodb://localhost/PW_DB', {
+  useMongoClient: true,
+  /* other options */
+});
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname));
@@ -20,13 +37,13 @@ app.get('/', function(req, res) {
 	
 });
 
-/*
-app.get('/login', function(req, res){
-	//res.redirect('/login');
-	res.render('login');
-	res.end();
-});
-*/
+
+// =======================
+// API ROUTES 
+// =======================
+var apiRoutes = require('./routes/api/api-index');
+app.use('/api', apiRoutes);   // put /admin as prefix
+
 app.post('/login', function(req, res){
 	res.write("Nome: "+req.username+" e Password: "+req.password);
 	res.end();
@@ -35,3 +52,4 @@ app.post('/login', function(req, res){
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
+
