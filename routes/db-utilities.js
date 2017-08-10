@@ -1,4 +1,5 @@
-var User        = require('../models/user');   // get our mongoose User model
+var user        = require('../models/user');   // get our mongoose User model
+var product     = require('../models/product');
 var Q           = require('q');  // Q promise
 
 
@@ -65,7 +66,19 @@ console.log(user);
     return deferred.promise;
   }
 
-  this.findOne = function(name)
+
+  this.getAllProducts = function()
   {
-    
+    var prodotti = new Product(product);
+
+    prodotti.find()
+    .then(function(product)
+      {
+        console.log(product);
+        deferred.resolve(product);
+      })
+    .catch(function()
+    {
+      deferred.reject();
+    });
   }

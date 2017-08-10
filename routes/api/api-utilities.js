@@ -81,3 +81,10 @@ this.login = function(name, psw)
         }); 
  return deferred.promise;
 }
+
+this.getAllProducts = function(){
+  
+  var deferred = Q.defer();
+
+  
+}

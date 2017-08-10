@@ -11,7 +11,7 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute'])
 
             // route for the home page
             .when('/', {
-                templateUrl : 'views/home.ejs',
+                templateUrl : 'views/dashboard.ejs',
                 controller  : 'mainController'
             })
 
@@ -25,6 +25,11 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute'])
             .when('/signup', {
                 templateUrl : 'views/signup.ejs',
                 controller  : 'signupController'
+            })
+
+            .when('/prodotti', {
+                templateUrl : 'views/products.ejs',
+                controller  : 'productsController'
             });
 
     });

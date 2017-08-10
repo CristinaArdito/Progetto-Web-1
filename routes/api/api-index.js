@@ -82,3 +82,12 @@ apiRoutes.post('/signup', function(req, res)
                                                 data:""}); 
                       });
             });
+
+apiRoutes.post('/producs', function(req, res)
+          {
+            api_utilities.getAllProducts()
+            .then(function()
+            {
+
+            })
+          });
