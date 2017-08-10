@@ -19,7 +19,7 @@ html {
   background-color: rgba(255, 255, 255, 0.7);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px;
+  border-radius: 10px;
   -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
@@ -39,7 +39,8 @@ html {
   padding: 5px 20px;
   vertical-align: middle;
 }
-.pageHeader .title {
+.pageHeader .titletop {
+    text-transform: uppercase;
   width: 40%;
   font-family: 'Pinyon Script', cursive;
   float: left;
@@ -47,7 +48,7 @@ html {
   font-size: 1.5em;
   font-weight: 700;
 }
-.pageHeader .title:hover {
+.pageHeader .titletop:hover {
   text-shadow: 0px 0px 8px #FFFFFF;
 }
 
@@ -97,16 +98,17 @@ html {
   float: left;
   position: relative;
   margin-top: 4%;
-  margin-left: 10%;
+
   color: #212121;
 }
 .title {
   font-weight: 700;
   font-size: 1.1em;
   text-transform: uppercase;
+  margin-left: 50%;
 }
 .menu ul {
-  padding-left: 10%;
+  padding-left: 0%;
   
 
 }
@@ -117,17 +119,14 @@ html {
 
 /* Desktop */
 @media screen and (min-width: 900px){
-    .menu ul li{font-size: 1.0em;}
+    .menu ul li{font-size: 1.1em;}
 }
 .main .nav .menu ul li {
   cursor: pointer;
   list-style: none;
-  width: 250%;
-  padding: 30%;
-  padding-right: 200%;
+  width: 518%;
+  padding: 20%;
   font-weight: 600;
-  margin-right: 10%;
-  padding-left: 10%;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
