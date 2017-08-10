@@ -77,7 +77,7 @@ html {
 }
 .searchbox input {
 	border-radius: 4px;
-  background: url(searchbox.ico) 130px no-repeat;
+  background: url(../img/searchbox.ico) 130px no-repeat;
   padding-left: 2%;
   width: 100%;
   display: inlin-block;
