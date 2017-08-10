@@ -1,5 +1,13 @@
 html {
-  background-color:#fff8e1;
+  background-color:#e8eaf6;
+  margin:0px; 
+  padding:0px;
+  margin-left:auto; 
+  margin-right:auto;
+  width: 85%;
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .page {
@@ -7,11 +15,6 @@ html {
   font-family: "Open Sans";
   font-size: 14px;
   font-smoothing: antialiased;
-  position: absolute;
-  width: 80%;
-  height: 90%;
-  left: 10%;
-  top: 7%;
   background-color: rgba(255, 255, 255, 0.7);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -23,9 +26,11 @@ html {
 
 .pageHeader {
   width: 100%;
-  height: 50px;
-  line-height: 50px;
-  background-color: #ff9800;
+  height: 55px;
+  position: relative;
+  display: block;
+  background-position: top;
+  background-color: #3f51b5;
   color: White;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -42,67 +47,72 @@ html {
 }
 
 .main {
-
   position: relative;
-  width: 80%;
-  height: 80%;
+  width: 100%;
   clear: both;
   background-color: white;
 }
-.main .nav {
-  width: 200px;
-  height: 114%;
+
+.nav {
+  width: 18%;
   float: left;
-  background-color: #fff59d;
+  height: 90%;
+  position: relative;
+  background-color: #7986cb;
 }
-.main .nav .searchbox {
-  
-  height: 30px;
+.searchbox {
+  border-radius: 4px;
+  height: 6%;
   line-height: 30px;
-  margin: 15px;
+  margin: 10%;
   background-color: White;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-.main .nav .searchbox i {
+.searchbox i {
   display: inline-block;
   color: #bbb;
-  margin-left: 5px;
-  margin-right: 5px;
   font-size: 16px;
 }
-.main .nav .searchbox input {
-  background: url(searchbox.ico)  no-repeat;
-  width: 170px;
+.searchbox input {
+	border-radius: 4px;
+  background: url(searchbox.ico) 130px no-repeat;
+  padding-left: 2%;
+  width: 100%;
   display: inlin-block;
-  width: 120px;
+  height: 100%;
   background-color: White;
   color: Black;
   font-family: "Lato";
   border: 0px;
 }
-.main .nav .menu {
-  width: 100%;
-  margin: 15px;
+.menu {
+  width: 18%;
+  float: left;
+  position: relative;
+  margin-top: 4%;
+  margin-left: 10%;
   color: #212121;
 }
-.main .nav .menu .title {
+.title {
   font-weight: 700;
   font-size: 1.0em;
   text-transform: uppercase;
 }
-.main .nav .menu ul {
-  padding-left: 0px;
+.menu ul {
+  padding-left: 10%;
+
 }
 .main .nav .menu ul li {
   cursor: pointer;
   list-style: none;
-  margin: 5px 0px;
-  padding: 5px 0px;
+  width: 250%;
+  padding: 30%;
+  padding-right: 200%;
   font-weight: 600;
-  margin-right: 30px;
-  padding-left: 10px;
+  margin-right: 10%;
+  padding-left: 10%;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -110,9 +120,14 @@ html {
 }
 
 .main .nav .menu ul li:hover {
-  background-color: #ffd54f;
+  background-color: #3f51b5;
+
 }
 .main .nav .menu ul li i {
   font-size: 1.4em;
   margin-right: 10px;
+}
+.content{
+	height: 90%;
+	background-color: 111;
 }
