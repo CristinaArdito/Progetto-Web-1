@@ -26,8 +26,9 @@ Esempio di User da passare come parametro
 
 this.addUser = function(user)
 {
+console.log("addUser in bd_utilities");
+console.log(user);
  var deferred = Q.defer();
- 
     
  // metto questo controllo sulla psw come esempio di utilizzo di deferred.reject
  // in realtà dovrei metterlo nello schema di Mongoose
@@ -41,10 +42,13 @@ this.addUser = function(user)
   // crea un Utente, che deve rispettare lo schema definito con mongoose
   var nick = new User(user);
 
+  console.log("Nick");
+  console.log(nick);
   // save the sample user
   nick.save()
-             .then(function(user) 
+             .then(function(user)
                 {
+                 console.log("Dovrebbe essere salvato");
                  logger.debug('utente salvato '+JSON.stringify(user));
                  /* eventuale invio email */
                  deferred.resolve(user);
@@ -56,7 +60,12 @@ this.addUser = function(user)
                                         msg:'questo utente esiste gia'}); }
                   else
                       {logger.error('[addUser] errore salvataggio utente '+err.errmsg);}
-                  deferred.reject(err.errmsg);    
+                  deferred.reject(err.errmsg);   
                  });
     return deferred.promise;
+  }
+
+  this.findOne = function(name)
+  {
+    
   }

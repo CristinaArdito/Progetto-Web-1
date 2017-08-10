@@ -16,8 +16,9 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
 
     this.login = function(name, psw)
 	    {
+        console.log("Login CurrentUser1");
          var deferred = $q.defer();
-        
+        console.log("Login CurrentUser2");
          $http.post('http://localhost:8080/api/authenticate',
                     {'name':name, 'password':psw})
              .then(function(data) 
@@ -36,8 +37,9 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
 
     this.signup = function(name, psw, email)
 	    {
+        console.log("SignUp CurrentUser1");
          var deferred = $q.defer(); 
-        
+        console.log("SignUp CurrentUser2");
          $http.post('http://localhost:8080/api/signup',
                     {'name':name, 'password':psw, 'email':email})
              .then(function(data) 

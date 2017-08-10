@@ -24,12 +24,13 @@ apiRoutes.post('/authenticate', function(req, res)
                // controllo parametri
               if (!name || !psw)
                   {
+                    console.log("Body error");
                     return res.status(400).json({ success: false, 
                                                   code:     api_utilities.ERR_API_NOT_FOUND,
                                                   message: 'Bad Request. name and password required.' });  
                   }
 
-              console.log("Dati (api_index): "+nome+" "+psw);
+              console.log("Dati (api_index_login): "+name+" "+psw);
                // esecuzione funzione
               api_utilities.login(name, psw)
                     .then(function(token)
@@ -60,14 +61,17 @@ apiRoutes.post('/signup', function(req, res)
               // controllo parametri
               if (!name || !psw)
                   {
+                    console.log("Body error");
                     return res.status(400).json({ success: false, 
                                                   code:api_utilities.ERR_MISSING_DATA,
                                                   message: 'Bad Request. name and password required.' });  
                   } 
                // esecuzione funzione    
+              console.log("Dati (api_index): "+name+" "+psw+""+email);
               api_utilities.addUser(name, psw, email)
                     .then(function(user)
                       {
+                       Console.log("In teoria è salvato");
                        res.status(201).json({ success: true , msg:"utente salvato", data:user});
                       })
                     .catch(function(err)

@@ -28,6 +28,7 @@ this.ERR_MISSING_DATA  = 'ERR_MISSING_DATA';
 /* registra e aggiunge un utente al db */
 this.addUser = function(name, password, email)
 {
+   console.log("Dati (api_utilities): "+name+" "+password+" "+email);
   return db_utilities.addUser({name:name, 
                                password:password,
                                email:email,
@@ -40,7 +41,8 @@ this.addUser = function(name, password, email)
 this.login = function(name, psw) 
 { 
 
-  console.log("Dati (api utilities): "+nome+" "+psw);
+  console.log("Dati (api utilities login): "+name+" "+psw);
+  console.log(User);
   var deferred = Q.defer();
     
   // find the user

@@ -7,7 +7,6 @@ var pwApp = angular.module('pwApp');
 
     $scope.login = function()
       {
-       console.log("Data "+data);
        CurrentUserService.login($scope.username, $scope.password)
           .then(function(data)
                {
