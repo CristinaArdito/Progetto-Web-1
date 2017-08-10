@@ -1,0 +1,120 @@
+/*@import url(https://fonts.googleapis.com/css?family=Dosis:300|Lato:300,400,600,700|Roboto+Condensed:300,700|Open+Sans+Condensed:300,600|Open+Sans:400,300,600,700|Maven+Pro:400,700);
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");*/
+html {
+  background-color:#fff8e1;
+}
+
+.page {
+
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-smoothing: antialiased;
+  position: absolute;
+  width: 80%;
+  height: 90%;
+  left: 10%;
+  top: 7%;
+  background-color: rgba(255, 255, 255, 0.7);
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.pageHeader {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #ff9800;
+  color: White;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px 20px;
+  vertical-align: middle;
+}
+.pageHeader .title {
+  width: 40%;
+  float: left;
+  line-height: 40px;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.main {
+
+  position: relative;
+  width: 80%;
+  height: 80%;
+  clear: both;
+  background-color: white;
+}
+.main .nav {
+  width: 200px;
+  height: 114%;
+  float: left;
+  background-color: #fff59d;
+}
+.main .nav .searchbox {
+  
+  height: 30px;
+  line-height: 30px;
+  margin: 15px;
+  background-color: White;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.main .nav .searchbox i {
+  display: inline-block;
+  color: #bbb;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 16px;
+}
+.main .nav .searchbox input {
+  background: url(searchbox.ico)  no-repeat;
+  width: 170px;
+  display: inlin-block;
+  width: 120px;
+  background-color: White;
+  color: Black;
+  font-family: "Lato";
+  border: 0px;
+}
+.main .nav .menu {
+  width: 100%;
+  margin: 15px;
+  color: #212121;
+}
+.main .nav .menu .title {
+  font-weight: 700;
+  font-size: 1.0em;
+  text-transform: uppercase;
+}
+.main .nav .menu ul {
+  padding-left: 0px;
+}
+.main .nav .menu ul li {
+  cursor: pointer;
+  list-style: none;
+  margin: 5px 0px;
+  padding: 5px 0px;
+  font-weight: 600;
+  margin-right: 30px;
+  padding-left: 10px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  transition: 0.25s all;
+}
+
+.main .nav .menu ul li:hover {
+  background-color: #ffd54f;
+}
+.main .nav .menu ul li i {
+  font-size: 1.4em;
+  margin-right: 10px;
+}
