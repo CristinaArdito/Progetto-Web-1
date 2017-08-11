@@ -38,35 +38,36 @@ this.addUser = function(name, password, email)
 
 
 
-this.login = function(name, psw) 
+this.login = function(email, psw) 
 { 
 
-  console.log("Dati (api utilities login): "+name+" "+psw);
-  console.log(User);
+  console.log("Dati (api utilities login): "+email+" "+psw);
+  //console.log(User);
   var deferred = Q.defer();
     
   // find the user
-  User.findOne({ name: name})
-      .then(function(user) 
+  User.findOne({ email: email})
+      .then(function(User) 
         {
-         if (!user) 
-          { deferred.reject({code:this.ERR_API_NOT_FOUND,
+         if (!User) 
+          {             
+            deferred.reject({code:this.ERR_API_NOT_FOUND,
                              msg:'utente non trovato'});  
           } 
         else 
           {
             // check if password matches
-            if (user.password != psw) 
-              { deferred.reject({code:this.ERR_API_WRONG_PSW,
+            if (User.password != psw) 
+              { 
+                deferred.reject({code:this.ERR_API_WRONG_PSW,
                                  msg:'credenziali errate'}); 
               } 
             else 
               {
                // if user is found and password is right
                // create a token
-               console.log( config.secret);
-               var token = jwt.sign(user, 
-                                    config.secret, 
+               var token = jwt.sign(User, 
+                                    '!La|R5Rb1sp^V8VKrWqiQw£z\cb&/WJ#7FUSvC8rvyLtY\ZTwrF4bstRt@x!XN&', 
                                     {expiresIn: 1440}
                                  );
                // return the information including token as JSON
