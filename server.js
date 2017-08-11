@@ -18,10 +18,11 @@ app.use(function(req, res, next){
   next();
 });
 
-var promise = mongoose.connect('mongodb://localhost/PW_DB', {
-  useMongoClient: true,
-  /* other options */
+mongoose.connect('mongodb://admin:progettoweb2017@ds033966.mlab.com:33966/pw-db',{
+  useMongoClient:true
 });
+var db = mongoose.connection;
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname));

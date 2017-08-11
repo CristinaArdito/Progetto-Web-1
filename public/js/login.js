@@ -2,12 +2,12 @@ var pwApp = angular.module('pwApp');
 // create the controller and inject Angular's $scope
  pwApp.controller('loginController', ['$scope', 'CurrentUserService', function($scope, CurrentUserService)
    {
-    $scope.username;
+    $scope.email;
     $scope.password;
 
     $scope.login = function()
       {
-       CurrentUserService.login($scope.username, $scope.password)
+       CurrentUserService.login($scope.email, $scope.password)
           .then(function(data)
                {
                 console.log("Data "+data);

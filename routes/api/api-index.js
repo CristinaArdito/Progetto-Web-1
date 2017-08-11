@@ -19,20 +19,20 @@ apiRoutes.post('/authenticate', function(req, res)
               console.log("Body: ");
               console.log(req.body);
 
-              var name = req.body.name;
+              var email = req.body.email;
               var psw  = req.body.password;
                // controllo parametri
-              if (!name || !psw)
+              if (!email || !psw)
                   {
-                    console.log("Body error");
+                    console.log("Body error qui");
                     return res.status(400).json({ success: false, 
                                                   code:     api_utilities.ERR_API_NOT_FOUND,
                                                   message: 'Bad Request. name and password required.' });  
                   }
 
-              console.log("Dati (api_index_login): "+name+" "+psw);
+              console.log("Dati (api_index_login): "+email+" "+psw);
                // esecuzione funzione
-              api_utilities.login(name, psw)
+              api_utilities.login(email, psw)
                     .then(function(token)
                       {
                         res.status(201).json({success: true, 

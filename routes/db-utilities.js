@@ -64,8 +64,3 @@ console.log(user);
                  });
     return deferred.promise;
   }
-
-  this.findOne = function(name)
-  {
-    
-  }
