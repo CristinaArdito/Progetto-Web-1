@@ -3,10 +3,6 @@ angular.module('myApp.controllers')
     
     
     
-    
-    
-    
-    
     var prodotti = "";
 
     for (i = 0; i < 5; i++) {
