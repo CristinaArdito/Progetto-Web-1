@@ -13,7 +13,7 @@ angular.module('myApp.controllers')
                                     "</ul><br>";
         }
 
-
+        console.log(prodotti);
 
         $scope.showProdotti = $sce.trustAsHtml(prodotti);
 

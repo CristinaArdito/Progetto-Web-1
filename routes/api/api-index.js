@@ -83,7 +83,7 @@ apiRoutes.post('/signup', function(req, res)
                       });
             });
 
-apiRoutes.post('/producs', function(req, res)
+apiRoutes.post('/product', function(req, res)
           {
             api_utilities.getAllProducts()
             .then(function()
