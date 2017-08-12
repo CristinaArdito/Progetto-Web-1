@@ -11,7 +11,7 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute'])
 
             // route for the home page
             .when('/', {
-                templateUrl : 'views/dashboard.ejs',
+                templateUrl : 'views/home.ejs',
                 controller  : 'mainController'
             })
 
