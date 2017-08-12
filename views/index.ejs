@@ -4,9 +4,10 @@
     <head>
       <!-- SCROLLS -->
       <!-- load bootstrap and fontawesome via CDN -->
-      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
 	  <link rel="stylesheet" href="././public/css/style_login.css"/>
+    <link rel="stylesheet" href="././public/css/style.css"/>
 
       <!-- SPELLS -->
       <!-- load angular and angular route via CDN -->
@@ -24,23 +25,34 @@
 
         <!-- HEADER AND NAVBAR -->
         <header>
-            <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Angular Routing Example</a>
+           
+            <div class="header">
+                <div class="logo">
+                    <a class="logol" href="/">E-commerce</a>
                 </div>
+            <div class="searchbox">
+             <form>
+             <input type="search" class="form-control" placeholder="Search"/>
+                 <button type="submit" id="submitbutton" 
+            class="idbutton" ></button>
+            </form>
+             </div>
+                <div class="shopCar">
+                <span class="shopText">Carrello</span>
+                <a href="#">
+                    <span class="shopNum">0</span>
+                </a>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="#/about"><i class="fa fa-shield"></i> About</a></li>
-                    <li><a href="#/contact"><i class="fa fa-comment"></i> Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            </div>
+                <ul class="navtop">
+
 
                     <li><a href="#!/login"><i class="fa fa-login"></i> Login</a></li>
                     <li><a href="#!/signup"><i class="fa fa-signup"></i> Signup</a></li>
 
                 </ul>
             </div>
-            </nav>
+            
         </header>
 
         <!-- MAIN CONTENT AND INJECTED VIEWS -->
