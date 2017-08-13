@@ -83,7 +83,7 @@ html {
 }
 .searchbox input {
 	border-radius: 4px;
-  background: url(../img/searchbox.ico) 130px no-repeat;
+  background: url(../img/icon/searchbox.ico) 130px no-repeat;
   padding-left: 2%;
   width: 100%;
   display: inlin-block;
@@ -138,20 +138,20 @@ html {
    color: #212121;
 }
 .menu .iconhome {
-  background: url(../img/homeicon.png) 10px no-repeat;
+  background: url(../img/icon/homeicon.png) 10px no-repeat;
 }
 
 .menu .iconproduct {
-    background: url(../img/producticon.png) 10px no-repeat;
+    background: url(../img/icon/producticon.png) 10px no-repeat;
 }
 .menu .iconuser {
-    background: url(../img/usersicon.png) 10px no-repeat;
+    background: url(../img/icon/usersicon.png) 10px no-repeat;
 }
 .menu .iconprovider {
-    background: url(../img/providericon.png) 10px no-repeat;
+    background: url(../img/icon/providericon.png) 10px no-repeat;
 }
 .menu .iconorder {
-    background: url(../img/ordersicon.png) 10px no-repeat;
+    background: url(../img/icon/ordersicon.png) 10px no-repeat;
 }
 .main .nav .menu ul li:hover {
   background-color: #3f51b5;
