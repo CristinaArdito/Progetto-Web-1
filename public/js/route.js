@@ -26,8 +26,12 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute'])
                 templateUrl : 'views/signup.ejs',
                 controller  : 'signupController'
             })
+            .when('/offerts', {
+                templateUrl : 'views/dashboard.ejs',
+                controller  : 'dashController'
+            })
 
-            .when('/product', {
+            .when('/dashboard', {
                 templateUrl : 'views/products.ejs',
                 controller  : 'productsController'
             });
