@@ -50,6 +50,10 @@ app.post('/login', function(req, res){
 	res.end();
 });
 
+app.get('/dashboard', function(req,res){
+  res.redirect("/Admin/dashboard.ejs");
+});
+
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });

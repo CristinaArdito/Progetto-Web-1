@@ -1,12 +1,12 @@
 // create the module and name it pwApp
 angular.module('myApp.controllers', []); 
-angular.module('myApp.services', []); 
+angular.module('myApp.services', []);
 
-angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute'])
+angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.router'])
 .run(function(){
 
 })
-.config(function($routeProvider) {
+.config(function($routeProvider,  $stateProvider, $urlRouterProvider) {
         $routeProvider
 
             // route for the home page
@@ -27,13 +27,35 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute'])
                 controller  : 'signupController'
             })
             .when('/offerts', {
-                templateUrl : 'views/dashboard.ejs',
-                controller  : 'dashController'
-            })
-
-            .when('/dashboard', {
                 templateUrl : 'views/products.ejs',
                 controller  : 'productsController'
             });
+        
 
-    });
+        //======================================================================
+        // ROUTER DELLA VIEW UI
+        console.log("UI ROUTER1");
+        console.log("UI ROUTER2");
+        $stateProvider
+
+        .state('home', {
+            templateUrl: 'views/index2.ejs',
+            controller: 'mainController'
+        })
+
+        .state('dashboard', {
+           url: '/dashboard',
+           templateUrl: 'views/admin/dashboard.ejs',
+           controller: 'mainController'
+        });
+    })
+
+    //Controller delle VIEW
+    .controller('MyCtrl', function($state) {
+    $state.go('home')
+    })
+
+    //Silenzia errori di codice del router delle view, non è influente per il funzionamento
+    .config(['$qProvider', function ($qProvider) {
+            $qProvider.errorOnUnhandledRejections(false);
+        }]);

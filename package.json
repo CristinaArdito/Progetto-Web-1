@@ -13,14 +13,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.5",
     "angular": "1.6.0",
+    "angular-ui-router": "^1.0.3",
     "async": "^2.5.0",
     "body-parser": "^1.17.2",
     "ejs": "2.5.7",
     "express": "^4.15.3",
     "jsonwebtoken": "7.4.2",
     "mongoose": "^4.11.6",
-    "q": "^1.5.0"
+    "q": "^1.5.0",
+    "ui-router": "^1.0.0-alpha.3"
   },
   "bugs": {
     "url": "https://github.com/mriberaUnicam/Progetto-Web/issues"
