@@ -89,3 +89,7 @@ this.getAllProducts = function(){
 
   
 }
+
+this.orderProducts = function(){
+  console.log("api_utilities ordine");
+}

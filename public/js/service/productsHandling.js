@@ -6,4 +6,4 @@ pwApp.service('ProductsHandle', ['$q','$http', function ($q, $http)
         $http.post('http://localhost:8080/api/products');
     }
   }])
-.run(function(CurrentUserService) {});
+.run(function(ProductsHandle) {});

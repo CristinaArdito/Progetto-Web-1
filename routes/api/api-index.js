@@ -91,3 +91,14 @@ apiRoutes.post('/product', function(req, res)
 
             })
           });
+
+apiRoutes.post('/orders', function(req, res)
+          {
+            console.log("Sono l'handler degli ordini");
+            console.log(req);
+            api_utilities.orderProducts(req)
+            .then(function()
+            {
+
+            })
+          });

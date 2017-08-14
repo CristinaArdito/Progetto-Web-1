@@ -29,6 +29,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
             .when('/offerts', {
                 templateUrl : 'views/products.ejs',
                 controller  : 'productsController'
+            })
+            .when('/orders', {
+                templateUrl : 'views/order.ejs',
+                controller  : 'orderController'
             });
         
 
@@ -39,6 +43,7 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
         $stateProvider
 
         .state('home', {
+            url: '/',
             templateUrl: 'views/index2.ejs',
             controller: 'mainController'
         })
