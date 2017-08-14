@@ -12,7 +12,7 @@ html {
 
 
 .page {
-
+  height: 100%;
   font-family: "Open Sans";
   font-size: 14px;
   font-smoothing: antialiased;
@@ -26,10 +26,10 @@ html {
 }
 
 .pageHeader {
-  width: 100%;
-  height: 55px;
-  position: relative;
+  position: absolute;
   display: block;
+  width: 80%;
+  height: 55px;
   background-position: top;
   background-color: #3f51b5;
   color: White;
@@ -40,6 +40,10 @@ html {
   vertical-align: middle;
 }
 .pageHeader .titletop {
+  position: absolute;
+  display: block;
+  color: White;
+  text-decoration: none;
     text-transform: uppercase;
   width: 40%;
   font-family: 'Pinyon Script', cursive;
@@ -53,20 +57,47 @@ html {
 }
 
 .main {
-  position: relative;
-  width: 100%;
+  height: auto;
+  width: auto;
   clear: both;
-  background-color: white;
 }
-
+/* Tablet */
+@media screen and (min-width: 600px){
+.menu ul li{ font-size: 0.9em; } 
 .nav {
+  top: 13%;
+  position: absolute;
+  display: block;
   width: 18%;
   float: left;
-  height: 90%;
-  position: relative;
+  height: 109.5%;
   background-color: #7986cb;
 }
+.ord {
+  margin-left:25.5%;
+}
+}
+
+/* Desktop */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px){
+.menu ul li{font-size: 1.1em;}
+.nav {
+  top: 9.9%;
+  position: absolute;
+  display: block;
+  width: 15%;
+  float: left;
+  height: 87.1%;
+  background-color: #7986cb;
+}
+.ord {
+  margin-left:22%;
+}
+}
 .searchbox {
+  width: 75%;
+  position: absolute;
+  display: block;
   border-radius: 4px;
   height: 6%;
   line-height: 30px;
@@ -76,28 +107,26 @@ html {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-.searchbox i {
-  display: inline-block;
-  color: #bbb;
-  font-size: 16px;
-}
+
 .searchbox input {
 	border-radius: 4px;
   background: url(../img/icon/searchbox.ico) 130px no-repeat;
   padding-left: 2%;
   width: 100%;
   display: inlin-block;
-  height: 100%;
+  height: 50%;
   background-color: White;
   color: Black;
   font-family: "Lato";
   border: 0px;
 }
 .menu {
+  height: 85%;
   width: 18%;
   float: left;
-  position: relative;
-  margin-top: 4%;
+    position: absolute;
+  display: block;
+  margin-top: 30%;
 
   color: #212121;
 }
@@ -112,15 +141,7 @@ html {
   
 
 }
-/* Tablet */
-@media screen and (min-width: 600px){
-    .menu ul li{ font-size: 0.9em; } 
-}    
 
-/* Desktop */
-@media screen and (min-width: 900px){
-    .menu ul li{font-size: 1.1em;}
-}
 .main .nav .menu ul li {
   cursor: pointer;
   list-style: none;
@@ -161,7 +182,35 @@ html {
   font-size: 1.4em;
   margin-right: 10px;
 }
-.content{
-	height: 90%;
-	background-color: 111;
+
+#products{
+  background-color: #c5cae9;
+  margin-top: 4.82%;
+  width: 95.4%;
+  height: 100%;
+}
+.title {
+  top:5%;
+  color: Black;
+  height: 15%;
+}
+
+.productable {
+  margin-left: 18%;
+  color: Black;
+}
+
+.productable li {
+  list-style: none;
+}
+
+#products .reorders {
+  text-decoration: none;
+}
+
+.num {
+  width: 40px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #3f51b5;
 }
