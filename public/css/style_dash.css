@@ -94,6 +94,11 @@ html {
   margin-left:22%;
 }
 }
+.menu .down {
+  width: 100%;
+   background: url("../img/icon/arrows.png")  no-repeat;
+   background-position: left 105px top 15px;
+}
 .searchbox {
   width: 75%;
   position: absolute;
@@ -138,8 +143,6 @@ html {
 }
 .menu ul {
   padding-left: 0%;
-  
-
 }
 
 .main .nav .menu ul li {
@@ -154,10 +157,25 @@ html {
   transition: 0.25s all;
 }
 
-.menu a {
+.menu li a {
   text-decoration: none;
    color: #212121;
 }
+
+.menu ul ul {
+  width: 100%;
+    position: absolute;
+    top: 20%;
+    margin-left: 535%;
+    visibility: hidden;
+}
+
+.menu ul li:hover ul {
+    visibility: visible;
+    width: 100%;
+}
+
+
 .menu .iconhome {
   background: url(../img/icon/homeicon.png) 10px no-repeat;
 }
