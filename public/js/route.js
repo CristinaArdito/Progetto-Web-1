@@ -50,7 +50,7 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
         });
     })
 
-    //Controller delle VIEW
+    //Controller delle UI-VIEW
     .controller('MyCtrl', function($state) {
     $state.go('home')
     })
