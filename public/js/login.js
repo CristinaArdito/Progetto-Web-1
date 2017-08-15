@@ -29,7 +29,4 @@ var pwApp = angular.module('pwApp');
                //  $scope.password=undefined;
                 });
       }
-
-       // create a message to display in our view
-     //  $scope.message = 'Prova a cambiare questo messaggio';
    }]);
