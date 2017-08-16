@@ -1,10 +1,11 @@
 var pwApp = angular.module('pwApp');
 
-pwApp.service('orderHandle', ['$q','$http', function ($q, $http) 
+pwApp.service('orderHandleService', ['$q','$http', function ($q, $http) 
   {
+    console.log("Servizio Ordini");
+
     this.orderProducts = function(){
         console.log("OrderHandeler");
-        $http.post('#!/orders');
     }
   }])
-.run(function(orderHandle) {});
+.run(function(orderHandleService) {});

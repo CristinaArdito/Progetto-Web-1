@@ -91,5 +91,7 @@ this.getAllProducts = function(){
 }
 
 this.orderProducts = function(){
-  console.log("api_utilities ordine");
+  var deferred = Q.defer();
+  console.log("ordine prodotti");
+  return deferred.promise;
 }

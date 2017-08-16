@@ -3,9 +3,6 @@
 <div id="order" >   
     
     <div class="title"><p>Ordini</p></div>
-
-    <ul ng-bind-html="orders" ng-controller="orderController">
-    </ul>
-
-</div>
+    <form id="orderForm" ng-controller="orderController" ng-init="showOrders()">
+    </form>
 </section>

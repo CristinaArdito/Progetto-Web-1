@@ -1,9 +1,9 @@
 var pwApp = angular.module('pwApp');
 
-pwApp.service('ProductsHandle', ['$q','$http', function ($q, $http) 
+pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http) 
   {
     this.getAllProducts = function(){
-        $http.post('http://localhost:8080/api/products');
+        $http.post('http://localhost:8080/orders');
     }
   }])
-.run(function(ProductsHandle) {});
+.run(function(ProductsHandleService) {});

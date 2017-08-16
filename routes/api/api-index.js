@@ -85,20 +85,11 @@ apiRoutes.post('/signup', function(req, res)
 
 apiRoutes.post('/product', function(req, res)
           {
-            api_utilities.getAllProducts()
-            .then(function()
-            {
-
-            })
+           //Da fare
           });
 
 apiRoutes.post('/orders', function(req, res)
           {
             console.log("Sono l'handler degli ordini");
             console.log(req);
-            api_utilities.orderProducts(req)
-            .then(function()
-            {
-
-            })
           });
