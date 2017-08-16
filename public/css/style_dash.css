@@ -130,6 +130,13 @@ html {
   width: 95.4%;
   height: 100%;
 }
+#order{
+  background-color: #c5cae9;
+  margin-top: 3.4%;
+  padding-bottom: 11.9%;
+  width: 95.4%;
+  height: 100%;
+}
 
 .title {
   top:5%;
@@ -151,8 +158,12 @@ html {
 
 #products .reorders {
   text-decoration: none;
+  color: Black;
 }
-
+#order .reorders {
+  text-decoration: none;
+  color: Black;
+}
 .num {
   width: 40px;
   border-radius: 3px;
@@ -231,6 +242,12 @@ html {
   width: 95.4%;
   height: 100%;
 }
+#order{
+  background-color: #c5cae9;
+  margin-top: 4.82%;
+  width: 95.4%;
+  height: 100%;
+}
 .title {
   top:5%;
   color: Black;
@@ -248,8 +265,12 @@ html {
 
 #products .reorders {
   text-decoration: none;
+  color: Black;
 }
-
+#order .reorders {
+  text-decoration: none;
+  color: Black;
+}
 .num {
   width: 40px;
   border-radius: 3px;

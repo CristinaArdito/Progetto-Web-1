@@ -9,7 +9,7 @@ angular.module('myApp.controllers')
                                     "<li>Prezzo prodotto: Prezzo prodotto "+i+"</li>"+
                                     "<li>Quantità rimanente: Quantità rimanente prodotto "+i+"</li>"+
                                     "</ul></div><div class='ord'><a class='reorders' href='#!/orders'>Riordina: </a>"+
-                                    "<input class='num' type='number' min='0'></input></div>";
+                                    "<input class='num' type='number' min='0'></input></div><br>";
         }
         
         prodotti = prodotti + "<br><button type='submit' class='ord' ng-click = 'ordinaProdotto()'>Ordina</button></form>";
