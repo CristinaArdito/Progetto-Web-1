@@ -39,13 +39,16 @@
 @media screen and (min-device-width: 1600px) and (max-device-width: 2000px){
 .menu ul li{ font-size: 0.9em; } 
 .nav {
-  top: 5.7%;
+  top: 5.8%;
   position: absolute;
   display: block;
   width: 15%;
   float: left;
-  height: 85%;
+  height: 94%;
   background-color: #7986cb;
+}
+.home {
+  margin-left: 15%;
 }
 .ord {
   margin-left:25.5%;
@@ -82,6 +85,33 @@
   border: 0px;
 }
 
+.searchboxproduct {
+  width: 75%;
+  border-radius: 4px;
+  height: 4%;
+  line-height: 30px;
+  margin-left: 18%;
+  margin-top: 1%;
+  background-color: White;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.searchboxproduct input {
+  background-color: #c5cae9;
+  border-radius: 4px;
+  background: url(../img/icon/searchbox.ico) 230px no-repeat;
+  padding-left: 2%;
+  width: 20%;
+  display: inlin-block;
+  height: 34px;
+  color: Black;
+  font-family: "Lato";
+  border: 1px solid Black;
+  font-size: 1em;
+}
+
 .menu ul ul {
   background-color: #7986cb;
   width: 70%;
@@ -97,10 +127,26 @@
     width: 63%;
     border-radius: 0;
 }
+
+.panel .title {
+  margin-top: 5%;
+  margin: 0px;
+  padding: 0px;
+
+  background-color: Red;
+}
+.panel {
+
+  height: 50%;
+  width: 25%;
+  background-color: Orange;
+  margin-left: 18%;
+  margin-top: 2%;
+}
 #products{
-  background-color: #c5cae9;
-  margin-top: 3.4%;
-  padding-bottom: 14.5%;
+    position: absolute;
+  display: block;
+  
   width: 95.4%;
   height: 100%;
 }
@@ -119,11 +165,11 @@
 }
 
 .productable {
-  margin-left: 18%;
+  margin-left: 50%;
   color: Black;
 }
 .ord {
-  margin-left: 20.7%;
+  margin-left: 50%;
 }
 
 .productable li {
@@ -162,7 +208,9 @@
 .ord {
   margin-left:22%;
 }
-
+.home {
+  margin-left: 15%;
+}
 .menu .down {
   width: 100%;
    background: url("../img/icon/arrows.png")  no-repeat;

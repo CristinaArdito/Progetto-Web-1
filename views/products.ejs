@@ -3,8 +3,20 @@
 <section id ="cont">
 <div id="products">
     
-    <div class="title"><p>Prodotti</p></div>
+      <div class="searchboxproduct">
+          <input type="search" placeholder="Search product"/>
+      </div>
 
+      <section class="panel">
+      	      <div class="title" > Categorie </div>
+      <ul>
+        <li><a href='#'>Computer</a></li>
+        <li><a href="#">Smartphone</a></li>
+        <li><a href="#">Altro</a></li>
+        <li><a href="#">Altro</a></li>
+        <li><a href="#">Altro</a></li>
+      </ul>  
+      </section>
     <ul ng-bind-html="showProdotti" >
     </ul>
 
