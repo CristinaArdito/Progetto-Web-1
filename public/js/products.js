@@ -6,13 +6,14 @@ angular.module('myApp.controllers')
     var prodotti = "";
 
     for (i = 0; i < 5; i++) {
-            prodotti = prodotti + "<div class='productable'><ul><li>Nome prodotto: Prodotto "+i+"</li>"+
-                                    "<li>Prezzo prodotto: Prezzo prodotto "+i+"</li>"+
-                                    "<li>Quantità rimanente: Quantità rimanente prodotto "+i+"</li>"+
-                                    "</ul></div><div class='ord'><a class='reorders' href='#!/orders'>Riordina</a>"+
-                                    "</div><br>";
-        }
+            prodotti = prodotti + "<div class='product'><h2>Nome: Prodotto "+i+"</h2>"+
+                                    "<ul><li>Img : "+i+"</li>"+
+                                    "<li>Prezzo : "+i+"</li>"+
+                                    "<li>Quantità rimanente: "+i+"</li>"+
+                                    "<li><a class='btn' href='#!/orders'>Riordina</a></li>"+
+                                    "</ul></div>";                                          
 
+        }
         console.log(prodotti);
 
         $scope.showProdotti = $sce.trustAsHtml(prodotti);
