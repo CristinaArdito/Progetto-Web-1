@@ -3,18 +3,18 @@
 // =======================
 var express = require('express');
 var bodyParser = require('body-parser');
-var api_utilities = require('./api-utilities');
+var api_utilities = require('./user-utilities');
 var adminRoutes = express.Router(); 
-var apiRoutes = express.Router();
-module.exports = apiRoutes;
+var userRoutes = express.Router();
+module.exports = userRoutes;
 
-apiRoutes.use(bodyParser.urlencoded({ extended: true }));
+userRoutes.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
-apiRoutes.use(bodyParser.json());
+userRoutes.use(bodyParser.json());
 // parse application/vnd.api+json as json
-apiRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+userRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-apiRoutes.post('/authenticate', function(req, res)
+userRoutes.post('/authenticate', function(req, res)
            {
               console.log("Body: ");
               console.log(req.body);
@@ -50,7 +50,7 @@ apiRoutes.post('/authenticate', function(req, res)
   Signup of a user, params:
    { name:"", password:""}  
 */
-apiRoutes.post('/signup', function(req, res)
+userRoutes.post('/signup', function(req, res)
             {
               console.log("Body: ");
               console.log(req.body);
@@ -82,6 +82,7 @@ apiRoutes.post('/signup', function(req, res)
                                                 data:""}); 
                       });
             });
+<<<<<<< Updated upstream:routes/api/api-index.js
 
 apiRoutes.post('/product', function(req, res)
           {
@@ -92,3 +93,5 @@ apiRoutes.post('/orders', function(req, res)
           {
             //console.log(req.prodotto1);
           });
+=======
+>>>>>>> Stashed changes:routes/api/user/user-index.js

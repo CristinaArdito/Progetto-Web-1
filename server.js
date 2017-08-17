@@ -42,8 +42,11 @@ app.get('/', function(req, res) {
 // =======================
 // API ROUTES 
 // =======================
-var apiRoutes = require('./routes/api/api-index');
-app.use('/api', apiRoutes);   // put /admin as prefix
+var userRoutes = require('./routes/api/user/user-index');
+app.use('/api/user', userRoutes);  
+
+var productRoutes = require('./routes/api/product/product-index');
+app.use('/api/product', userRoutes);  
 
 app.post('/login', function(req, res){
 	res.write("Nome: "+req.username+" e Password: "+req.password);

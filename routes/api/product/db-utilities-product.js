@@ -1,10 +1,9 @@
-var user        = require('../models/user');   // get our mongoose User model
-var product     = require('../models/product');
+var product     = require('../../../models/product');
 var Q           = require('q');  // Q promise
 
 
-var db_utilities = this;
-module.exports = db_utilities;
+var db_utilities_product = this;
+module.exports = db_utilities_product;
 // esporto db_utilities così posso utilizzare i suoi metodi e attributi,
 // come fosse una libreria
 
@@ -15,44 +14,29 @@ module.exports = db_utilities;
 // codici di errore di MongoDb
 var ERR_DB_DUPLICATE_KEY = '11000';
 
+  this.addProduct = function(producto){
+    console.log("addProduct in bd_utilities");
+    console.log(producto);
+    var deferred = Q.defer();
 
-/* ========================================
-Esempio di User da passare come parametro
-  { 
-    'name':       name, 
-    'password':   password,
-    'admin':      true 
-  }
-*/
-
-this.addUser = function(user)
-{
-console.log("addUser in bd_utilities");
-console.log(user);
- var deferred = Q.defer();
-    
- // metto questo controllo sulla psw come esempio di utilizzo di deferred.reject
- // in realtà dovrei metterlo nello schema di Mongoose
- if (!user.password || user.password == "" || user.password.length<4)
-      { deferred.reject('la password deve avere almeno 4 caratteri');  
+    if(!producto.name || producto.name == "")
+      {
+        deferred.reject('inserire nome del prodotto');
         return deferred.promise;
       }
-  if (!user.admin)
-      { user.admin = false; }
     
-  // crea un Utente, che deve rispettare lo schema definito con mongoose
-  var nick = new User(user);
+    var prodotto = new Prodotto(producto);
 
-  console.log("Nick");
-  console.log(nick);
-  // save the sample user
-  nick.save()
-             .then(function(user)
+    console.log("prodotto");
+    console.log(prodotto);
+
+   prodotto.save()
+             .then(function(producto)
                 {
                  console.log("Dovrebbe essere salvato");
-                 logger.debug('utente salvato '+JSON.stringify(user));
+                 logger.debug('utente salvato '+JSON.stringify(producto));
                  /* eventuale invio email */
-                 deferred.resolve(user);
+                 deferred.resolve(producto);
                 })
               .catch(function(err)
                  {
@@ -65,6 +49,7 @@ console.log(user);
                  });
     return deferred.promise;
   }
+  
 
 
   this.getAllProducts = function()

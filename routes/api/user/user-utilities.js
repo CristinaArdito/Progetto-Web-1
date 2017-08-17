@@ -1,16 +1,13 @@
 var jwt         = require('jsonwebtoken');    // used to create, sign, and verify tokens
-var User        = require('../../models/user');   // get our mongoose User model
+var User        = require('../../../models/user');   // get our mongoose User model
 var Q           = require('q');  // Q promise
 
-var db_utilities=require('../db-utilities');
+var db_utilities=require('./db-utilities-user');
 
-var api_utilities = this;
+var user_utilities = this;
 // esporto api_utilities così posso utilizzare i suoi metodi e attributi,
 // come fosse una libreria
-module.exports = api_utilities;
-
-
-
+module.exports = user_utilities;
 
 // =======================
 // ERROR CODES
@@ -28,20 +25,20 @@ this.ERR_MISSING_DATA  = 'ERR_MISSING_DATA';
 /* registra e aggiunge un utente al db */
 this.addUser = function(name, password, email)
 {
-   console.log("Dati (api_utilities): "+name+" "+password+" "+email);
+   console.log("Dati (user_utilities): "+name+" "+password+" "+email);
   return db_utilities.addUser({name:name, 
                                password:password,
                                email:email,
                                admin:false
                               });  //ritorna una promessa
-  }
+}
 
 
 
 this.login = function(email, psw) 
 { 
 
-  console.log("Dati (api utilities login): "+email+" "+psw);
+  console.log("Dati (user_utilities login): "+email+" "+psw);
   //console.log(User);
   var deferred = Q.defer();
     
@@ -81,17 +78,4 @@ this.login = function(email, psw)
          deferred.reject({code:"", msg:err}); 
         }); 
  return deferred.promise;
-}
-
-this.getAllProducts = function(){
-  
-  var deferred = Q.defer();
-
-  
-}
-
-this.orderProducts = function(){
-  var deferred = Q.defer();
-  console.log("ordine prodotti");
-  return deferred.promise;
 }
