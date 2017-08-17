@@ -90,6 +90,5 @@ apiRoutes.post('/product', function(req, res)
 
 apiRoutes.post('/orders', function(req, res)
           {
-            console.log("Sono l'handler degli ordini");
-            console.log(req);
+            //console.log(req.prodotto1);
           });
