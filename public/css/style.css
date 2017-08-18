@@ -18,7 +18,7 @@
 .header .logo {
     height: 100%;
     width: 20%;
-    background: url("../img/logo.svg") no-repeat;
+    background: url("../img/logo.png") no-repeat;
     background-size: 78%;
     margin-left: 2%;
 }
