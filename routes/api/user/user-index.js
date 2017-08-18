@@ -82,7 +82,7 @@ userRoutes.post('/signup', function(req, res)
                                                 data:""}); 
                       });
             });
-<<<<<<< Updated upstream:routes/api/api-index.js
+/*<<<<<<< Updated upstream:routes/api/api-index.js
 
 apiRoutes.post('/product', function(req, res)
           {
@@ -94,4 +94,4 @@ apiRoutes.post('/orders', function(req, res)
             //console.log(req.prodotto1);
           });
 =======
->>>>>>> Stashed changes:routes/api/user/user-index.js
+>>>>>>> Stashed changes:routes/api/user/user-index.js*/
