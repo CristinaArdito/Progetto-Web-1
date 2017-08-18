@@ -1,12 +1,12 @@
 angular.module('myApp.controllers')
-.controller('productsController', function($scope, $sce) {
+.controller('productsController', function($scope, $compile) {
     
     
     $scope.showProducts = function(){
     var prodotti = "";
 
     for (i = 0; i < 5; i++) {
-            prodotti = prodotti + "<div class='product'><h2>Nome: Prodotto "+i+"</h2>"+
+            prodotti = prodotti + "<div class='product'><h2 id='nNome'>Nome: Prodotto "+i+"</h2>"+
                                     "<ul><li>Img : "+i+"</li>"+
                                     "<li>Prezzo : "+i+"</li>"+
                                     "<li>Quantità rimanente: "+i+"</li>"+
@@ -17,4 +17,8 @@ angular.module('myApp.controllers')
 
         angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
         }
+
+   $scope.redirectToOrder = function(){
+        console.log("funziona");
+   }
 });
