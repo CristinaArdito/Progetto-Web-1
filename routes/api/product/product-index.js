@@ -69,3 +69,7 @@ productRoutes.post('/orders', function(req, res)
             var data = JSON.parse(req.body.data);
             console.log(data);
           });
+
+productRoutes.post('/specOrders', function(req, res){
+    console.log(req.body.name);
+});
