@@ -236,7 +236,7 @@ text-decoration: none;
   text-shadow: 0px -1px 1px #000;
 }
 
-a.btn{
+button.btn{
   width: 160px;
   margin: 0 auto;
   padding: 12px 0;
@@ -258,8 +258,8 @@ a.btn{
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
-a.btn:hover,
-a.btn:focus {
+button.btn:hover,
+button.btn:focus {
   background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
     background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);

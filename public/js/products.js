@@ -10,7 +10,7 @@ angular.module('myApp.controllers')
                                     "<ul><li>Img : "+i+"</li>"+
                                     "<li>Prezzo : "+i+"</li>"+
                                     "<li>Quantità rimanente: "+i+"</li>"+
-                                    "<li><a class='btn' ng-click='redirectToOrder()'>Riordina</a></li>"+
+                                    "<li><button class='btn' ng-click='redirectToOrder()'>Riordina</button></li>"+
                                     "</ul></div>";
         }
         //console.log(prodotti);
