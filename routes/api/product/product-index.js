@@ -14,7 +14,7 @@ productRoutes.use(bodyParser.json());
 // parse application/vnd.api+json as json
 productRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-productRoutes.get('/products', function(req, res){
+productRoutes.get('/all', function(req, res){
   product_utilities.getAllProducts()
     .then(function(products)
       {
