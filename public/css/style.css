@@ -18,13 +18,11 @@
 .header .logo {
     height: 100%;
     width: 20%;
+    background: url("../img/logo.svg") no-repeat;
+    background-size: 78%;
+    margin-left: 2%;
 }
-.logol {
-    font-size: 500%;
-    text-decoration: none;
-    color: White;
-    text-transform: uppercase;
-}
+
 .header .searchbox {
   width: 50%;
   height: auto;
