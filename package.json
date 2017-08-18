@@ -13,8 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@uirouter/angularjs": "^1.0.5",
     "angular": "1.6.0",
+    "angular-animate": "^1.6.5",
+    "angular-touch": "^1.6.5",
     "angular-ui-router": "^1.0.3",
     "async": "^2.5.0",
     "body-parser": "^1.17.2",
