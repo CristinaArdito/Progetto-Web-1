@@ -35,7 +35,7 @@ angular.module('myApp.controllers')
        }
 
        console.log(data);
-       $http.post("/api/orders");
+       $http.post("api/product/orders");
     }
 }
 );
