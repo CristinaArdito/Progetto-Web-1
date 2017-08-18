@@ -1,4 +1,4 @@
-var product     = require('../../../models/product');
+var Prodotto     = require('../../../models/product');
 var Q           = require('q');  // Q promise
 
 var db_utilities_product = this;

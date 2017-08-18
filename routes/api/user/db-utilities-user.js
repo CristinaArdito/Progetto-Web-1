@@ -1,6 +1,5 @@
-var user        = require('../../../models/user');   // get our mongoose User model
+var User        = require('../../../models/user');   // get our mongoose User model
 var Q           = require('q');  // Q promise
-
 
 var db_utilities_user = this;
 module.exports = db_utilities_user;
@@ -26,8 +25,6 @@ Esempio di User da passare come parametro
 
 this.addUser = function(user)
 {
-console.log("addUser in bd_utilities_user");
-console.log(user);
  var deferred = Q.defer();
     
  // metto questo controllo sulla psw come esempio di utilizzo di deferred.reject
@@ -42,8 +39,6 @@ console.log(user);
   // crea un Utente, che deve rispettare lo schema definito con mongoose
   var nick = new User(user);
 
-  console.log("Nick");
-  console.log(nick);
   // save the sample user
   nick.save()
              .then(function(user)
