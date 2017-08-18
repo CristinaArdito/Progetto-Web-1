@@ -48,7 +48,7 @@ this.addProduct = function(product){
 }
 
 this.getAllProducts = function(){
-  var prodotti = new Product(product);
+  var prodotti = new Prodotto(product);
 
   prodotti.find()
     .then(function(product)

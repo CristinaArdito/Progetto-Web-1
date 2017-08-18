@@ -14,7 +14,7 @@ productRoutes.use(bodyParser.json());
 // parse application/vnd.api+json as json
 productRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-productRoutes.get('/products', function(req, res){
+productRoutes.get('/all', function(req, res){
   product_utilities.getAllProducts()
     .then(function(products)
       {
@@ -65,5 +65,7 @@ productRoutes.post('/add', function(req,res){
 productRoutes.post('/orders', function(req, res)
           {
             console.log("Sono l'handler degli ordini");
-            console.log(req);
+            console.log(req.body.data);
+            var data = JSON.parse(req.body.data);
+            console.log(data);
           });

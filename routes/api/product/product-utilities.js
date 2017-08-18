@@ -33,7 +33,7 @@ this.getAllProducts = function(){
     Product.find({})
         .then(function(product) 
             { 
-             logger.debug("getAllProducts "+JSON.stringify(product));
+             console.log("getAllProducts "+JSON.stringify(product));
              deferred.resolve(product); 
             })
         .catch(function(err)
