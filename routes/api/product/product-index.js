@@ -65,5 +65,7 @@ productRoutes.post('/add', function(req,res){
 productRoutes.post('/orders', function(req, res)
           {
             console.log("Sono l'handler degli ordini");
-            console.log(req);
+            console.log(req.body.data);
+            var data = JSON.parse(req.body.data);
+            console.log(data);
           });

@@ -2,7 +2,7 @@ angular.module('myApp.controllers')
 .controller('productsController', function($scope, $sce) {
     
     
-    
+    $scope.showProducts = function(){
     var prodotti = "";
 
     for (i = 0; i < 5; i++) {
@@ -10,12 +10,11 @@ angular.module('myApp.controllers')
                                     "<ul><li>Img : "+i+"</li>"+
                                     "<li>Prezzo : "+i+"</li>"+
                                     "<li>Quantità rimanente: "+i+"</li>"+
-                                    "<li><a class='btn' href='#!/orders'>Riordina</a></li>"+
-                                    "</ul></div>";                                          
-
+                                    "<li><a class='btn' ng-click='redirectToOrder()'>Riordina</a></li>"+
+                                    "</ul></div>";
         }
         //console.log(prodotti);
 
-        $scope.showProdotti = $sce.trustAsHtml(prodotti);
-
+        angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+        }
 });
