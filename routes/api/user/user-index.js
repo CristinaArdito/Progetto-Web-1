@@ -3,7 +3,7 @@
 // =======================
 var express = require('express');
 var bodyParser = require('body-parser');
-var api_utilities = require('./user-utilities');
+var user_utilities = require('./user-utilities');
 var adminRoutes = express.Router(); 
 var userRoutes = express.Router();
 module.exports = userRoutes;
@@ -26,13 +26,13 @@ userRoutes.post('/authenticate', function(req, res)
                   {
                     console.log("Body error qui");
                     return res.status(400).json({ success: false, 
-                                                  code:     api_utilities.ERR_API_NOT_FOUND,
+                                                  code:     user_utilities.ERR_API_NOT_FOUND,
                                                   message: 'Bad Request. name and password required.' });  
                   }
 
               console.log("Dati (api_index_login): "+email+" "+psw);
                // esecuzione funzione
-              api_utilities.login(email, psw)
+               user_utilities.login(email, psw)
                     .then(function(token)
                       {
                         res.status(201).json({success: true, 
@@ -63,12 +63,12 @@ userRoutes.post('/signup', function(req, res)
                   {
                     console.log("Body error");
                     return res.status(400).json({ success: false, 
-                                                  code:api_utilities.ERR_MISSING_DATA,
+                                                  code:user_utilities.ERR_MISSING_DATA,
                                                   message: 'Bad Request. name and password required.' });  
                   } 
                // esecuzione funzione    
               console.log("Dati (api_index): "+name+" "+psw+""+email);
-              api_utilities.addUser(name, psw, email)
+              user_utilities.addUser(name, psw, email)
                     .then(function(user)
                       {
                        Console.log("In teoria è salvato");
@@ -82,16 +82,3 @@ userRoutes.post('/signup', function(req, res)
                                                 data:""}); 
                       });
             });
-/*<<<<<<< Updated upstream:routes/api/api-index.js
-
-apiRoutes.post('/product', function(req, res)
-          {
-           //Da fare
-          });
-
-apiRoutes.post('/orders', function(req, res)
-          {
-            //console.log(req.prodotto1);
-          });
-=======
->>>>>>> Stashed changes:routes/api/user/user-index.js*/
