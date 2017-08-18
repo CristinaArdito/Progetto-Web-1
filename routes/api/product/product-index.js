@@ -14,22 +14,53 @@ productRoutes.use(bodyParser.json());
 // parse application/vnd.api+json as json
 productRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-productRoutes.get('/products', function(req, res)
+productRoutes.get('/products', function(req, res){
+  product_utilities.getAllProducts()
+    .then(function(products)
+      {
+        res.status(201).json({ success: true , 
+        msg:"lista di tutti i prodotti", 
+        data:products});
+      })
+      .catch(function(err)
+      {
+        res.status(400).json({ success: false , 
+        msg:err, 
+        data:""}); 
+      });
+});
+
+productRoutes.post('/add', function(req,res){
+  console.log("Body: ");
+  console.log(req.body);
+
+  var name = req.body.name;
+  var desc  = req.body.desc;
+  var price = req.body.price;
+  // controllo parametri
+  if (!name || !desc)
+      {
+        console.log("Body error");
+        return res.status(400).json({ success: false, 
+                                      code:product_utilities.ERR_MISSING_DATA,
+                                      message: 'Bad Request. name and password required.' });  
+      } 
+   // esecuzione funzione    
+  console.log("Dati (api_index): "+desc+" "+name+" "+price);
+  product_utilities.addProduct(name, desc, price)
+        .then(function(product)
           {
-            product_utilities.getAllUsers()
-            .then(function(users)
-              {
-               res.status(201).json({ success: true , 
-                                      msg:"lista di tutti gli utenti", 
-                                      data:users});
-              })
-            .catch(function(err)
-              {
-                 res.status(400).json({ success: false , 
-                                        msg:err, 
-                                        data:""}); 
-              });
+           Console.log("In teoria è salvato");
+           res.status(201).json({ success: true , msg:"utente salvato", data:product});
+          })
+        .catch(function(err)
+          {
+             res.status(400).json({ success: false , 
+                                    code:err.code,
+                                    msg:err.msg, 
+                                    data:""}); 
           });
+})
 
 productRoutes.post('/orders', function(req, res)
           {

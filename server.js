@@ -46,7 +46,7 @@ var userRoutes = require('./routes/api/user/user-index');
 app.use('/api/user', userRoutes);  
 
 var productRoutes = require('./routes/api/product/product-index');
-app.use('/api/product', userRoutes);  
+app.use('/api/product', productRoutes);  
 
 app.post('/login', function(req, res){
 	res.write("Nome: "+req.username+" e Password: "+req.password);

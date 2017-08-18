@@ -11,5 +11,3 @@ var User = mongoose.model('User', new Schema({
 }));
 
 module.exports = User;
-
-

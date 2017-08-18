@@ -7,7 +7,7 @@ var Product = mongoose.model('Product', new Schema({
     name    : { type:String , unique:true, required:true },
     desc   : String,
     price: String,
-    url: String, //for img refer
+    url: {type:String , default:"0"}, //for img refer
     quantity   : {type:String , default:"0"}
 }));
 
