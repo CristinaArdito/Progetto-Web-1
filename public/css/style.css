@@ -119,6 +119,7 @@
     left: 20%;
 }
 .menu li {
+    z-index: 999;
     position: relative;
     float: left;
     width: 120px;
