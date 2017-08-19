@@ -4,12 +4,15 @@ pwApp.factory('DataService', function() {
 
     console.log("Sono il data storer");
 
-    var savedData = {}
+    var savedData = null;
+    
     function set(data) {
       savedData = data;
     }
     function get() {
-     return savedData;
+     var ret = savedData;
+     savedData = null;
+     return ret;
     }
    
     return {

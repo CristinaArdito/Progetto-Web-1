@@ -33,6 +33,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
             .when('/orders', {
                 templateUrl : 'views/order.ejs',
                 controller  : 'orderController'
+            })
+            .when('/orderSuccess', {
+                templateUrl : 'views/orderS.ejs',
+                controller  : 'orderSuccessController'
             });
         
 
