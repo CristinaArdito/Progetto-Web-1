@@ -1,5 +1,6 @@
 angular.module('myApp.controllers')
-.controller('productsController', function($scope, $compile, $http) {
+.controller('productsController', ['$scope', '$compile', '$http' , '$location' ,'DataService' ,
+function($scope, $compile, $http, $location, DataService) {
     
     
     $scope.showProducts = function(){
@@ -20,8 +21,9 @@ angular.module('myApp.controllers')
 
    $scope.redirectToOrder = function(){
 
-       var param = angular.element(document.getElementById('nNome'))[0].innerText;
+       var param = angular.element(document.getElementById('nNome'))[0].innetHtml;
        console.log(param);
-       $http.post("api/product/specOrders", { 'name' : param});
+       $location.path("/orders");
+       DataService.set(param);
    }
-});
+}]);

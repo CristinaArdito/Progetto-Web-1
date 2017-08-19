@@ -70,6 +70,3 @@ productRoutes.post('/orders', function(req, res)
             console.log(data);
           });
 
-productRoutes.post('/specOrders', function(req, res){
-    console.log(req.body.name);
-});
