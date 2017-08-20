@@ -254,6 +254,25 @@ text-decoration: none;
         background-size: 55%;
 }
 
+.banner2 {
+    position: absolute;
+    margin-left: 73%;
+    width: 25%;
+    height: 25%;
+    background: url("../img/banner2.png") no-repeat;
+    background-size: 55%;
+    margin-top: 11.5%;
+}
+
+.banner3 {
+    position: absolute;
+    margin-left: 73%;
+    width: 25%;
+    height: 25%;
+    background: url("../img/banner3.jpg") no-repeat;
+    background-size: 55%;
+    margin-top: 22.9%;
+}
 
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px){
  .ng-fader {
