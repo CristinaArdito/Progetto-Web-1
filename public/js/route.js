@@ -26,6 +26,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/signup.ejs',
                 controller  : 'signupController'
             })
+       /*     .when('/where', {
+                templateUrl : 'views/where.ejs',
+                controller  : 'whereController'
+            })*/
             .when('/offerts', {
                 templateUrl : 'views/products.ejs',
                 controller  : 'productsController'
