@@ -16,7 +16,7 @@ pwApp.controller('whereController', ['$scope', 'Markers', function($scope, Marke
         "longitude": "13.0688"
       },
       "window": {
-        "title": "Camerino, MC"
+        "title": "Via Madonna delle Carceri 9, Camerino"
       }
     }
   ];
