@@ -1,4 +1,4 @@
-var pwApp = angular.module('myApp.controllers')
+var pwApp = angular.module('myApp.controllers');
 
 pwApp.controller('whereController', ['$scope', 'Markers', function($scope, Markers) {
   $scope.map = { 
