@@ -6,7 +6,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
     $scope.showProducts = function(){
 
     // Data sarà poi il risultato del servizio di fetch dei prodotti
-    var data = [{'name':"scheda video", 'price':"€ 249,90", 'quantity':"4"}, {'name':"scheda madre", 'price':"€ 128,90", 'quantity':"3"}];
+    var data = [{'name':"scheda video", 'price':"€ 249,90", 'quantity':"4", 'category':"hardware"}, {'name':"scheda madre", 'price':"€ 128,90", 'quantity':"3", 'category':"hardware"}];
 
     var prodotti = "";
     var nNome = ""
@@ -15,6 +15,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
             prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+data[i].name+"</span></h2>"+
                                     "<ul><li>Img : "+i+"</li>"+
                                     "<li>Prezzo : <span id='nPrice"+i+"'>"+data[i].price+"</span></li>"+
+                                    "<li>Categoria: <span>"+data[i].category+"</span></li>"+
                                     "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+data[i].quantity+"</span></li>"+
                                     "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
                                     "</ul></div>";
