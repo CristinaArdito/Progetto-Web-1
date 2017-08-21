@@ -6,7 +6,7 @@ angular.module('myApp.controllers')
         console.log("entro in showOrders");
         var data = DataService.get();
         if(data != null){
-            showSingleOrder(data);
+            showSingleOrder(JSON.parse(data));
         }else{
 
         //Bisogna ridefinire la funzione getAllProducts dentro productsHandling
@@ -30,13 +30,15 @@ angular.module('myApp.controllers')
 
     showSingleOrder = function(data){
 
+        console.log("Data da mostrare");
+        console.log(data);
         var prodotti = "";
         var i=0;
         var numProd = 'ordinaProdotto("'+i+'")';
 
-        prodotti = prodotti + "<div class='orderproduct'><ul><li>Nome prodotto: <span id='nProd"+i+"'>"+data+"</span></li>"+
-                                            "<li>Prezzo prodotto: Prezzo "+data+"</li>"+
-                                            "<li>Quantità rimanente: Quantità rimanente "+data+"</li>"+
+        prodotti = prodotti + "<div class='orderproduct'><ul><li>Nome prodotto: <span id='nProd"+i+"'>"+data[0]+"</span></li>"+
+                                            "<li>Prezzo prodotto: "+data[1]+"</li>"+
+                                            "<li>Quantità rimanente: "+data[2]+"</li>"+
                                             "</ul></div><div class='ord'><a class='reorders' href='#!/orders'>Riordina: </a>"+
                                             "<input name='prodotto"+i+"' class='num' type='number' min='0' value='0'></input></div><br>";
                 
@@ -80,4 +82,7 @@ angular.module('myApp.controllers')
     }
 }
 ]
-);
+)
+.controller('orderSuccessController', ['$scope' , function($scope){
+    console.log("entro in orderSuccessController");
+}]);;

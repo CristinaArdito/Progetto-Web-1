@@ -70,3 +70,7 @@ productRoutes.post('/orders', function(req, res)
             console.log(data);
           });
 
+productRoutes.post('/searchProduct', function(req, res){
+  console.log(req.body.value);
+})
+

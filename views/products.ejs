@@ -4,7 +4,7 @@
 <div id="products">
     
       <div class="searchboxproduct">
-          <input type="search" placeholder="Search product"/>
+          <input type="search" id="searchBox" placeholder="Search product" ng-keyup="event = $event; callOnEnter(event);"/>
       </div>
 
       <section class="panel">
