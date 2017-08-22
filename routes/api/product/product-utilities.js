@@ -20,10 +20,11 @@ this.ERR_MISSING_DATA  = 'ERR_MISSING_DATA';
 // FUNCTIONS
 // =======================
 
-this.addProduct = function(name, desc, price){
+this.addProduct = function(name, desc, price, categories){
   return db_utilities_product.addProduct({name:name, 
                                desc:desc,
                                price:price,
+                               categories: categories,
                                url:"test"
                               });  //ritorna una promessa
 }
@@ -40,6 +41,45 @@ this.getAllProducts = function(){
             {
              logger.error('[getAllProducts] '+err);
              deferred.reject({code:"", msg:err});  
+            });
+    return deferred.promise;
+}
+
+this.searchProduct = function(q){
+    var deferred = Q.defer();
+    Product.findOne({"name":q})
+        .then(function(product)
+            {
+                if(product!=null){
+                    console.log("get product by name (single) "+JSON.stringify(product));
+                    deferred.resolve(product);
+                }else{
+                    Product.find({ "name" : {$regex : q}})
+                        .then(function(product) 
+                            { 
+                                if(product!=null){
+                                console.log("get product by name "+JSON.stringify(product));
+                                deferred.resolve(product); 
+                                }else{
+                                      Product.find({ "categories" : {$regex : q}})
+                                        .then(function(product) 
+                                        { 
+                                            console.log("get product by categories "+JSON.stringify(product));
+                                            deferred.resolve(product); 
+                                        })
+                                        .catch(function(err)
+                                        {
+                                            logger.error('[getAllProducts] '+err);
+                                            deferred.reject({code:"", msg:err});  
+                                        })
+                                }
+                            });
+                }
+            })
+            .catch(function(err)
+            {
+                logger.error('[getAllProducts] '+err);
+                deferred.reject({code:"", msg:err});  
             });
     return deferred.promise;
 }

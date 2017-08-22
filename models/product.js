@@ -8,6 +8,7 @@ var Product = mongoose.model('Product', new Schema({
     desc   : String,
     price: String,
     url: {type:String , default:"0"}, //for img refer
+    categories : [{ type:String }],
     quantity   : {type:String , default:"0"}
 }));
 

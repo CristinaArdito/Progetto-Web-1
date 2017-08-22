@@ -37,21 +37,23 @@ productRoutes.post('/add', function(req,res){
   var name = req.body.name;
   var desc  = req.body.desc;
   var price = req.body.price;
+  var categories = req.body.cat.split(",");
+
   // controllo parametri
-  if (!name || !desc)
+  if (!name || !desc || !categories)
       {
         console.log("Body error");
         return res.status(400).json({ success: false, 
                                       code:product_utilities.ERR_MISSING_DATA,
-                                      message: 'Bad Request. name and password required.' });  
+                                      message: 'Bad Request name desc or categories missing' });  
       } 
    // esecuzione funzione    
-  console.log("Dati (api_index): "+desc+" "+name+" "+price);
-  product_utilities.addProduct(name, desc, price)
+  console.log("Dati (api_index): "+desc+" "+name+" "+price+" "+categories);
+  product_utilities.addProduct(name, desc, price, categories)
         .then(function(product)
           {
            Console.log("In teoria è salvato");
-           res.status(201).json({ success: true , msg:"utente salvato", data:product});
+           res.status(201).json({ success: true , msg:"prodotto salvato", data:product});
           })
         .catch(function(err)
           {
@@ -70,7 +72,12 @@ productRoutes.post('/orders', function(req, res)
             console.log(data);
           });
 
-productRoutes.post('/searchProduct', function(req, res){
-  console.log(req.body.value);
-})
+productRoutes.post('/search', function(req, res){
+    product_utilities.searchProduct(req.body.q)
+      .then(function(product){
+        res.status(201).json({ success: true , 
+        msg:"prodotti trovati", 
+        data:product});
+    });
+});
 
