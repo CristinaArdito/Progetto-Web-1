@@ -115,6 +115,7 @@
 }
 
 ul.menuprodotti{
+  z-index: 999;
   background-color: #7986cb;
   width: 70%;
   padding-right: 150px;
@@ -125,6 +126,7 @@ ul.menuprodotti{
 }
 
 ul.menuordini{
+  z-index: 999;
   background-color: #7986cb;
   width: 70%;
   padding-right: 150px;
@@ -411,19 +413,31 @@ button.btn:focus {
   font-size: 1em;
 }
 
-.menu ul ul {
+ul.menuprodotti{
+  z-index: 999;
   background-color: #7986cb;
   width: 70%;
   padding-right: 150px;
     position: absolute;
-    top: 12%;
+    top: 5%;
+    margin-left: 535%;
+    visibility: hidden;
+}
+
+ul.menuordini{
+  z-index: 999;
+  background-color: #7986cb;
+  width: 70%;
+  padding-right: 150px;
+    position: absolute;
+    top: 10%;
     margin-left: 535%;
     visibility: hidden;
 }
 
 .menu ul li:hover ul {
     visibility: visible;
-    width: 63%;
+    width: 90%;
     border-radius: 0;
 }
 
