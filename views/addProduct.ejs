@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="../public/css/style_dash.css"/>
+
+<section id ="cont">
+<div style="margin-left: 50%; margin-top: 5%;" id="addProducts" ng-controller="addProductController">
+
+        <span>Nome prodotto: </span><input type="text" id="name"></input><br>
+        <span>Codice prodotto: </span><input type="text" id="code"></input><br>
+        <span>Categoria prodotto: </span><input type="text" id="cat"></input><br>
+        <span>Peso prodotto: </span><input type="text" id="peso"></input><br>
+        <span>Prezzo prodotto: </span><input type="text" id="price"></input><br>
+        <span>Quantità prodotto: </span><input type="number" min="0" value='0' id="q"></input><br>
+
+        <span>Immagine prodotto: </span><input type="file" name="pic" accept="image/*" id="img"></input><br>
+
+        <span>Descrizione prodotto: </span><textarea id="desc" rows="4" cols="50"></textarea><br>
+
+        <button ng-click="addProduct()">Inserisci prodotto</button>
+
+</div>
