@@ -20,12 +20,15 @@ this.ERR_MISSING_DATA  = 'ERR_MISSING_DATA';
 // FUNCTIONS
 // =======================
 
-this.addProduct = function(name, desc, price, categories){
+this.addProduct = function(name, desc, price, categories, code, url, weight, quantity){
   return db_utilities_product.addProduct({name:name, 
                                desc:desc,
                                price:price,
                                categories: categories,
-                               url:"test"
+                               url:url,
+                               code:code,
+                               weight:weight,
+                               quantity:quantity
                               });  //ritorna una promessa
 }
 

@@ -34,10 +34,14 @@ productRoutes.post('/add', function(req,res){
   console.log("Body: ");
   console.log(req.body);
 
+  var code = req.body.code;
   var name = req.body.name;
   var desc  = req.body.desc;
   var price = req.body.price;
+  var url = req.body.url.split(",");
+  var weight = req.body.weight;
   var categories = req.body.cat.split(",");
+  var quantity =  req.body.quantity;
 
   // controllo parametri
   if (!name || !desc || !categories)
@@ -49,7 +53,7 @@ productRoutes.post('/add', function(req,res){
       } 
    // esecuzione funzione    
   console.log("Dati (api_index): "+desc+" "+name+" "+price+" "+categories);
-  product_utilities.addProduct(name, desc, price, categories)
+  product_utilities.addProduct(name, desc, price, categories, code, url, weight, quantity)
         .then(function(product)
           {
            Console.log("In teoria è salvato");

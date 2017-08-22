@@ -22,6 +22,10 @@ this.addProduct = function(product){
       deferred.reject('inserire nome del prodotto');
       return deferred.promise;
     }
+  if(!product.code || product.code == "")
+    {
+      deferred.reject('Inserire il codice del prodotto');
+    }
     
   var prodotto = new Prodotto(product);
 
