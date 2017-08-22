@@ -37,8 +37,8 @@ this.getAllProducts = function(){
     Product.find({})
         .then(function(product) 
             { 
-             console.log("getAllProducts "+JSON.stringify(product));
-             deferred.resolve(product); 
+             console.log("\n\ngetAllProducts "+JSON.stringify(product));
+             deferred.resolve(product);
             })
         .catch(function(err)
             {

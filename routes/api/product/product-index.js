@@ -14,13 +14,16 @@ productRoutes.use(bodyParser.json());
 // parse application/vnd.api+json as json
 productRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-productRoutes.get('/all', function(req, res){
+productRoutes.post('/all', function(req, res){
   product_utilities.getAllProducts()
     .then(function(products)
       {
-        res.status(201).json({ success: true , 
-        msg:"lista di tutti i prodotti", 
-        data:products});
+
+        console.log("\n\nProdotti: "+products);
+
+        res.status(200).json({ success: true , 
+                               msg:"lista di tutti i prodotti", 
+                               data:products});
       })
       .catch(function(err)
       {
