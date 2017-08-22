@@ -293,6 +293,10 @@ text-decoration: none;
   transition: transform 0.4s ease-in-out; 
 }
 
+.product a {
+    text-decoration: none;
+}
+
 .product:hover {
 
   -webkit-transform: scale(1.1, 1.2);
@@ -323,6 +327,7 @@ text-decoration: none;
   font-size: 1.3em;
 }
 .product .nome {
+    color: Black;
     padding-top: 7px;
     font-size: 1.5em;
     border-top-left-radius: 10px;

@@ -30,6 +30,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/where.ejs',
                 controller  : 'whereController'
             })
+            .when('/singleproduct', {
+                templateUrl : 'views/singleproduct.ejs',
+                controller  : 'singleController'
+            })            
             .when('/offerts', {
                 templateUrl : 'views/products.ejs',
                 controller  : 'productsController'
