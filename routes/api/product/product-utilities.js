@@ -57,21 +57,17 @@ this.searchProduct = function(q){
                     Product.find({ "name" : {$regex : q}})
                         .then(function(product) 
                             { 
-                                if(product!=null){
-                                console.log("get product by name "+JSON.stringify(product));
-                                deferred.resolve(product); 
+                                if(product.length!=0){
+                                    console.log("get aproduct by name "+JSON.stringify(product));
+                                    deferred.resolve(product); 
                                 }else{
-                                      Product.find({ "categories" : {$regex : q}})
+                                    console.log("entro in categories");
+                                    Product.find({ "categories" : q})
                                         .then(function(product) 
                                         { 
                                             console.log("get product by categories "+JSON.stringify(product));
                                             deferred.resolve(product); 
-                                        })
-                                        .catch(function(err)
-                                        {
-                                            logger.error('[getAllProducts] '+err);
-                                            deferred.reject({code:"", msg:err});  
-                                        })
+                                        });
                                 }
                             });
                 }
