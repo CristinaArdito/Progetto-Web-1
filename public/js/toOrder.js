@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-.controller('orderController', [ '$scope', '$compile', '$http', '$location', 'DataService',
-        function($scope, $compile, $http, $location, DataService) {
+.controller('orderController', [ '$scope', '$compile', '$http', '$location', 'DataService', 'ProductsHandleService',
+        function($scope, $compile, $http, $location, DataService, ProductsHandleService) {
     
     $scope.showOrders = function(){
         console.log("entro in showOrders");
@@ -8,23 +8,27 @@ angular.module('myApp.controllers')
         if(data != null){
             showSingleOrder(JSON.parse(data));
         }else{
-
+        
+        ProductsHandleService.getAllProducts()
+        .then(function(value){
+            var prodotti = "";
+            var n = 5;
+    
+                for (i = 0; i < value.length; i++) {
+                        prodotti = prodotti + "<div class='orderproduct'><ul>"+
+                                                "<li>Nome prodotto: <span id='nProd"+i+"'>"+value[i].name+"</span></li>"+
+                                                "<li>Prezzo prodotto:"+value[i].price+"</li>"+
+                                                "<li>Quantità rimanente:"+value[i].quantity+"</li>"+
+                                                "</ul></div><div class='ord'><a class='reorders' href='#!/orders'>Riordina: </a>"+
+                                                "<input name='prodotto"+i+"' class='num' type='number' min='0' value='0'></input></div><br>";
+                    }
+                    
+                    prodotti = prodotti + "<br><button type='submit' class='ordbutton' ng-click = 'ordinaProdotto()'>Ordina</button>";
+                    console.log(prodotti);
+    
+            angular.element(document.getElementById('orderForm')).append($compile(prodotti)($scope));
+        });
         //Bisogna ridefinire la funzione getAllProducts dentro productsHandling
-        var prodotti = "";
-        var n = 5;
-
-            for (i = 0; i < n; i++) {
-                    prodotti = prodotti + "<div class='orderproduct'><ul><li>Nome prodotto: <span id='nProd"+i+"'>Prodotto "+i+"</span></li>"+
-                                            "<li>Prezzo prodotto: Prezzo prodotto "+i+"</li>"+
-                                            "<li>Quantità rimanente: Quantità rimanente prodotto "+i+"</li>"+
-                                            "</ul></div><div class='ord'><a class='reorders' href='#!/orders'>Riordina: </a>"+
-                                            "<input name='prodotto"+i+"' class='num' type='number' min='0' value='0'></input></div><br>";
-                }
-                
-                prodotti = prodotti + "<br><button type='submit' class='ordbutton' ng-click = 'ordinaProdotto()'>Ordina</button>";
-                console.log(prodotti);
-
-        angular.element(document.getElementById('orderForm')).append($compile(prodotti)($scope));
         }
     }
 

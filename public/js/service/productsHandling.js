@@ -3,13 +3,14 @@ var pwApp = angular.module('pwApp');
 pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http) 
   {
     this.getAllProducts = function(){
-        $http.post('././api/product/all')
+        return $http.post('././api/product/all')
         .then(function(response){
-          console.log("Prodotti trovati: "+JSON.parse(response.data));
-          return JSON.parse(data);
+          console.log("Prodotti trovati: ");
+          console.log(response.data.data);
+          return response.data.data;
         })
-        .catch(function(){
-          console.log("errore");
+        .catch(function(status){
+          console.log(status);
         })
     }
 

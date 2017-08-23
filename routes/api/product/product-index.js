@@ -22,8 +22,8 @@ productRoutes.post('/all', function(req, res){
         console.log("\n\nProdotti: "+products);
 
         res.status(200).json({ success: true , 
-                               msg:"lista di tutti i prodotti", 
-                               data:products});
+                               msg: "lista di tutti i prodotti", 
+                               data: products});
       })
       .catch(function(err)
       {

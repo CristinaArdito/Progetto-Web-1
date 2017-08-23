@@ -7,25 +7,27 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
     // Data sarà poi il risultato del servizio di fetch dei prodotti
     var data = [{'name':"scheda video", 'price':"€ 249,90", 'quantity':"4", 'category':"hardware"}, {'name':"scheda madre", 'price':"€ 128,90", 'quantity':"3", 'category':"hardware"}];
+    var data2 = [];
 
-    var data2 = ProductsHandleService.getAllProducts();
-
-    console.log(data2);
+   ProductsHandleService.getAllProducts()
+   .then(function(value){    
+    console.log(value);
     
     var prodotti = "";
     var nNome = ""
-    for (i = 0; i < data.length; i++) {
+    for (i = 0; i < value.length; i++) {
             nParam = 'redirectToOrder("'+i+'");';
-            prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+data[i].name+"</span></h2>"+
+            prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                     "<ul><li>Img : "+i+"</li>"+
-                                    "<li>Prezzo : <span id='nPrice"+i+"'>"+data[i].price+"</span></li>"+
-                                    "<li>Categoria: <span>"+data[i].category+"</span></li>"+
-                                    "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+data[i].quantity+"</span></li>"+
+                                    "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
+                                    "<li>Categoria: <span>"+value[i].name+"</span></li>"+
+                                    "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
                                     "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
                                     "</ul></div>";
         }
 
         angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+   });
         }
 
    $scope.redirectToOrder = function(n){
@@ -81,4 +83,6 @@ function($scope, ProductsHandleService){
         } 
     }
 
+}])
+.controller('singleController', ['$scope', function($scope) {
 }]);
