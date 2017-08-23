@@ -33,7 +33,11 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
             .when('/singleproduct', {
                 templateUrl : 'views/singleproduct.ejs',
                 controller  : 'singleController'
-            })            
+            })   
+            .when('/offers', {
+                templateUrl : 'views/offers.ejs',
+                controller  : 'offersController'
+            })         
             .when('/offerts', {
                 templateUrl : 'views/products.ejs',
                 controller  : 'productsController'
