@@ -20,7 +20,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/login.ejs',
                 controller  : 'loginController'
             })
-
+            .when('/cart', {
+                templateUrl : 'views/cart.ejs',
+                controller  : 'cartController'
+            })
             // route for the about page
             .when('/signup', {
                 templateUrl : 'views/signup.ejs',

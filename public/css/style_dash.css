@@ -253,6 +253,7 @@ text-decoration: none;
 }
 
 button.btn{
+  cursor: pointer;
   width: 160px;
   margin: 0 auto;
   padding: 12px 0;
@@ -301,6 +302,7 @@ button.btn:focus {
   border-color: #3f51b5;
 }
 .ordbutton{
+  cursor: pointer;
   float: left;
   width: 160px;
   margin: 0 auto;
