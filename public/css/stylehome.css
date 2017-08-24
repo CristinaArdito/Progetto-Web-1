@@ -1,5 +1,12 @@
 /* ------ Slideshow ------- */
 
+.ng-fader {
+        background-color: #fff;
+        position: relative;
+        margin-left: 33%;
+        margin-top: -62%;
+        width: 40%;
+}
 .ng-fader ul {
     height: 100%;
     margin: 0;
@@ -367,7 +374,6 @@ text-decoration: none;
     margin-top: 35%;
     color: #FFF;
     text-align: center;
-    margin-left: 5px;
     border-top: 2px solid #ccc;
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
@@ -408,6 +414,28 @@ text-decoration: none;
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
     }
+    
+    .product {
+  background-color:White;
+  float: left;
+  height: 260px;
+  width: 48%;
+  margin-left: 1%;
+  margin-top: 1%;
+  color: #000;
+  border-style: solid;
+  border-width: 0.01px;
+  border-color:Gray;
+  border-radius: 10px;
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
+  -moz-transition: -moz-transform 0.4s ease-in-out;
+  -o-transition: -o-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out; 
+}
+    .product li{
+  padding: 10px;
+  text-align: center;
+}
     .product li:first-child{
       background: url("../img/product/galaxys8.jpg") no-repeat;
       background-size: 80%;
@@ -425,7 +453,6 @@ text-decoration: none;
         margin-top: 49%;
         color: #FFF;
         text-align: center;
-        margin-left: 5px;
         border-top: 2px solid #ccc;
         border-bottom: 2px solid #ccc;
         margin-bottom: 5px;
@@ -435,8 +462,19 @@ text-decoration: none;
     }
 }
 
+@media only screen and (min-width: 1600px) and (max-width: 1800px){
+    .ng-fader {
+        background-color: #fff;
+        position: relative;
+        margin-left: 33%;
+        margin-top: -49.6%;
+        width: 40%;
+    }
+
+}
+
 /* Desktop */
-@media only screen and (min-width: 1600px) and (max-width: 2000px){
+@media only screen and (min-width: 1800px) and (max-width: 2000px){
     .ng-fader {
         background-color: #fff;
         position: relative;
@@ -446,17 +484,7 @@ text-decoration: none;
     }
 
 }
-/* Desktop2 */
-@media only screen and (min-width: 2000px) and (max-width: 2400px){
-    .ng-fader {
-        background-color: #fff;
-        position: relative;
-        margin-left: 33%;
-        margin-top: -33%;
-        width: 40%;
-    }
 
-}
 
 
 

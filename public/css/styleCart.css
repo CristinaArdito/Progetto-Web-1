@@ -27,7 +27,7 @@ h1 {
 .qta {
   position: relative;
   margin-top: -1%;
-  margin-left: 70%;
+  margin-left: 63%;
 }
 
 .total {
@@ -68,4 +68,75 @@ h1 {
   font-weight: bold;
   margin-left: 20%;
   margin-top: -5.7%;
+}
+
+.descr {
+  position: relative;
+  margin-left: 20%;
+}
+
+.prezzoprod {
+  position: relative;
+  margin-left: 49.5%;
+  margin-top: -2%;
+}
+
+.buttoncontainer {
+  position: relative;
+  margin-left: 75%;
+  margin-top: -2.5%;
+}
+.prod button {
+  background: rgb(254,231,154);
+  background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+  background: -o-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+  background: linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fee79a', endColorstr='#fec151',GradientType=0 );
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+  -ms-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+  -o-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+  border: 1px solid #D69E31;
+  color: #85592e;
+  cursor: pointer;
+  font: bold 15px Helvetica, Arial, sans-serif;
+  height: 30px;
+  margin: 15px 0 35px 15px;
+  position: relative;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  width: 75px;
+}
+.prod button:hover {
+  background: rgb(254,193,81);
+  background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+  background: -o-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+  background: linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
+}
+
+.qtacart {
+  position: relative;
+  left: 63%;
+  margin-top: -3%;
+}
+
+.qtacart input {
+  border-color: Black;
+  border-radius: 3px;
+  border-width: 1px;
+}
+
+.tot {
+  margin-left: 90%;
+  margin-top: -1%;
 }
