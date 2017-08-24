@@ -24,7 +24,15 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
     }
 
     this.addProduct = function(data){
-      console.log(data);
+      return $http.post("././api/product/add", {
+        'data' : data
+      })
+      .then(function(){
+          return "success";
+      })
+      .catch(function(){
+        return "error";
+      })
     }
   }])
 .run(function(ProductsHandleService) {});

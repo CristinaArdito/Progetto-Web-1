@@ -54,8 +54,14 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
        ProductsHandleService.getSingleProduct(search);
    }
 }])
-.controller('addProductController', ['$scope', 'ProductsHandleService', 
-function($scope, ProductsHandleService){
+.controller('addProductController', ['$scope', 'ProductsHandleService','FileUpload', 
+function($scope, ProductsHandleService, FileUpload){
+
+
+    $scope.loadFile = function(){
+        var file = angular.element(document.getElementById("img"))[0].files[0];
+        FileUpload.fileReader(file);
+    }
 
     $scope.addProduct = function($scope){
         var data = [];
@@ -64,12 +70,15 @@ function($scope, ProductsHandleService){
         data[0] = angular.element(document.getElementById("name"))[0].value;
         data[1] = angular.element(document.getElementById("code"))[0].value;
         data[2] = angular.element(document.getElementById("cat"))[0].value;
+        if(data[2].includes(",") == false) data[2] = data[2]+",";
         data[3] = angular.element(document.getElementById("peso"))[0].value;
         data[4] = angular.element(document.getElementById("price"))[0].value;
         data[5] = angular.element(document.getElementById("q"))[0].value;
-        data[6] = angular.element(document.getElementById("img"));
+        data[6] = angular.element(document.getElementById("img"))[0].files[0];
         data[7] = angular.element(document.getElementById("desc"))[0].value;
         
+        console.log(FileUpload.fileReader(data[6]));
+
         for(i=0;i<data.length;i++){
             if(data[i] == ""){
                 alert("Dati non completi");
@@ -82,7 +91,6 @@ function($scope, ProductsHandleService){
             ProductsHandleService.addProduct(data);
         } 
     }
-
 }])
 .controller('singleController', ['$scope', function($scope) {
 }]);

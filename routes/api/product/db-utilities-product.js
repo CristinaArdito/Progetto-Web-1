@@ -30,23 +30,23 @@ this.addProduct = function(product){
   var prodotto = new Prodotto(product);
 
   console.log("prodotto");
-  console.log(prodotto);
 
   prodotto.save()
             .then(function(product)
               {
                 console.log("Dovrebbe essere salvato");
-                logger.debug('utente salvato '+JSON.stringify(product));
                 deferred.resolve(product);
                 })
             .catch(function(err)
                 {
+                  console.log("Errore in db-utilities-product");  
+                console.log(err);
                 if (err.code == ERR_DB_DUPLICATE_KEY)
                     {deferred.reject({code:'ERR_DB_DUPLICATE_KEY', 
-                                      msg:'questo utente esiste gia'}); }
+                                      msg:'questo prodotto esiste gia'}); }
                 else
                     {logger.error('[addUser] errore salvataggio utente '+err.errmsg);}
-                deferred.reject(err.errmsg);   
+                deferred.reject(err.errmsg);
                 });
   return deferred.promise;
 }

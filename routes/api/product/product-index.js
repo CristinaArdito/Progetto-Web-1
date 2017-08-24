@@ -4,6 +4,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var product_utilities = require('./product-utilities');
+var fs = require('fs');
 var adminRoutes = express.Router(); 
 var productRoutes = express.Router();
 module.exports = productRoutes;
@@ -35,16 +36,17 @@ productRoutes.post('/all', function(req, res){
 
 productRoutes.post('/add', function(req,res){
   console.log("Body: ");
-  console.log(req.body);
 
-  var code = req.body.code;
-  var name = req.body.name;
-  var desc  = req.body.desc;
-  var price = req.body.price;
-  var url = req.body.url.split(",");
-  var weight = req.body.weight;
-  var categories = req.body.cat.split(",");
-  var quantity =  req.body.quantity;
+  var name = req.body.data[0];
+  var code = req.body.data[1];
+  var categories = req.body.data[2].split(",");
+  var weight = req.body.data[3];
+  var price = req.body.data[4];
+  var quantity =  req.body.data[5];
+  var url = JSON.stringify(req.body.data[6]);
+  var desc  = req.body.data[7];
+
+  console.log(name);
 
   // controllo parametri
   if (!name || !desc || !categories)

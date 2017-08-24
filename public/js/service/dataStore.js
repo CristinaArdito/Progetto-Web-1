@@ -14,10 +14,15 @@ pwApp.factory('DataService', function() {
      savedData = null;
      return ret;
     }
+    function get_nonreset() {
+      var ret = savedData;
+      return ret;
+    }
    
     return {
      set: set,
-     get: get
+     get: get,
+     get_nonreset: get_nonreset
     }
    
    })
