@@ -14,7 +14,8 @@ h1 {
   margin-left: 3%;
 }
 
-.price, .qta, .total {
+.price, .qta, .total, .subtotaltit, .taxtit,
+.shippingtit, .grantotaltit {
   color: #bdbdbd;
 }
 
@@ -44,49 +45,65 @@ h1 {
   margin-top: 0.5%;
 }
 
-.headercart br {
-  line-height: 1%;
-}
-
 .prod {
-  margin-left: 1%;
-  margin-top: 1%;
+  width: 100%
+  height: auto;
 }
 
-.img {
+.prod .img {
   position: relative;
   margin-left: 5%;
-  width: 6%;
+  margin-top: 1%;
+  max-width: 6%;
   height: 115px;
   background: url("../img/product/galaxys8.jpg") no-repeat;
   background-size: 100%;
 }
 
-.nomeprod {
-  position: relative;
+.prod .nomeprod {
+  position: absolute;
   font-size: 1.1em;
   font-weight: bold;
-  margin-left: 20%;
+  margin-left: 17%;
   margin-top: -5.7%;
 }
 
 .descr {
-  position: relative;
-  margin-left: 20%;
+  position: absolute;
+  margin-left: 17%;
+  margin-top: -4.5%;
 }
 
 .prezzoprod {
-  position: relative;
-  margin-left: 49.5%;
-  margin-top: -2%;
+  position: absolute;
+  margin-left: 50%;
+  margin-top: -4.5%;
+}
+
+.qtacart {
+  position: absolute;
+  left: 63%;
+  margin-top: -4.5%;
+}
+
+.qtacart input {
+  border-color: Black;
+  border-radius: 3px;
+  border-width: 1px;
+  width: 50px;
 }
 
 .buttoncontainer {
-  position: relative;
+  position: absolute;
   margin-left: 75%;
-  margin-top: -2.5%;
+  margin-top: -5.5%;
 }
-.prod button {
+
+.buttoncontainer2 {
+  margin-left: 89%;
+  margin-top: 2%;
+}
+button {
   background: rgb(254,231,154);
   background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
   background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
@@ -114,7 +131,7 @@ h1 {
   text-shadow: 0 1px 0 rgba(255,255,255,0.5);
   width: 75px;
 }
-.prod button:hover {
+button:hover {
   background: rgb(254,193,81);
   background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
   background: -webkit-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
@@ -124,19 +141,104 @@ h1 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
 }
 
-.qtacart {
-  position: relative;
-  left: 63%;
-  margin-top: -3%;
-}
-
-.qtacart input {
-  border-color: Black;
-  border-radius: 3px;
-  border-width: 1px;
-}
-
 .tot {
   margin-left: 90%;
+  margin-top: -4.5%;
+}
+
+hr {
+  border-style: solid;
+  border-bottom: 3px #e0e0e0;
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 5%;
+}
+
+.subtotaltit, .taxtit, .shippingtit, .grantotaltit {
+  margin-left: 76.5%;
+  margin-top: 1%;
+}
+
+.subtotal, .tax, .shipping, .grantotal {
+  margin-left: 90%;
   margin-top: -1%;
+}
+
+ /* ------ FOOTER ------- */   
+.footer {
+    position: relative;
+    background-color: #232f3e;
+    width: 100%;
+    height: 10%;
+    margin-top: 15%;
+    color: #FFF;
+    text-align: center;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 5px;
+}
+.titlefooter {
+    font-size: 1.2em;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px){
+
+  .prod .img {
+    max-width: 7.8%;
+      margin-left: 3%;
+    background-size: 110%;
+  }
+  .prod .nomeprod {
+    position: absolute;
+    margin-left: 15%;
+    margin-top: -8.7%;
+  }
+
+  .descr {
+    margin-left: 15%;
+    margin-top: -6.5%;
+  }
+  .prezzoprod {
+    margin-top: -5.5%;
+  }
+  .qtacart {
+    margin-top: -5.5%;
+  }
+
+  .buttoncontainer {
+    margin-left: 78%;
+    margin-top: -7%;
+  }
+  .tot {
+    margin-top: -5.5%;
+  }
+
+  .subtotal, .tax, .shipping, .grantotal {
+    margin-top: -1.5%;
+  }
+
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px){
+
+  .prod .img {
+    max-width: 7%;
+    margin-left: 3%;
+    background-size: 110%;
+  }
+  .prod .nomeprod {
+    position: absolute;
+    margin-left: 15%;
+    margin-top: -7.7%;
+  }
+
+  .descr {
+    margin-left: 15%;
+    margin-top: -6%;
+
+  }
+  .subtotal, .tax, .shipping, .grantotal {
+    margin-left: 90%;
+    margin-top: -10%;
+  }
 }
