@@ -1,10 +1,10 @@
 /* ------ Slideshow ------- */
 
-.ng-fader {
+.cont .ng-fader {
         background-color: #fff;
         position: relative;
         margin-left: 33%;
-        margin-top: -62%;
+        margin-top: 3%;
         width: 40%;
 }
 .ng-fader ul {
@@ -198,13 +198,13 @@
 }
 
 /* ----- TAB CATEGORIE ----- */
-.panel {
-    position: relative;
+.cont .panel {
+    position: absolute;
   text-decoration: none;
   height: 50%;
   width: 14%;
   margin-left: 18%;
-  margin-top: 2%;
+  margin-top: -30.3%;
 
 }
 
@@ -248,11 +248,12 @@ text-decoration: none;
 /* ----- Banner ------ */
 .banner {
     position: absolute;
+    margin-top: -30.3%;
     margin-left: 73%;
     width: 25%;
     height: 25%;
     background: url("../img/banner1.jpg") no-repeat;
-        background-size: 55%;
+    background-size: 55%;
 }
 
 .banner2 {
@@ -262,7 +263,7 @@ text-decoration: none;
     height: 25%;
     background: url("../img/banner2.png") no-repeat;
     background-size: 55%;
-    margin-top: 11.5%;
+    margin-top: -18.8%;
 }
 
 .banner3 {
@@ -272,7 +273,7 @@ text-decoration: none;
     height: 25%;
     background: url("../img/banner3.jpg") no-repeat;
     background-size: 55%;
-    margin-top: 22.9%;
+    margin-top: -7.4%;
 }
 
  
@@ -353,7 +354,7 @@ text-decoration: none;
     text-transform: none;
     padding: 5px;
     background-color: #232f3e;
-    width: 739px;
+    width: 39%;
     text-align: center;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -366,6 +367,8 @@ text-decoration: none;
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
     }
+
+ /* ------ FOOTER ------- */   
 .footer {
     position: relative;
     background-color: #232f3e;
@@ -383,109 +386,28 @@ text-decoration: none;
 }
 
 /* Notebook */
-@media only screen and (min-width: 1200px) and (max-width: 1600px){
-    .ng-fader {
-        background-color: #fff;
-        position: relative;
-        margin-left: 33%;
-        margin-top: -62%;
-        width: 40%;
-    }
-    .titolo_vetrina {
-    position: relative; 
-    left: 33%;
-    top: 3px;
-    font-size: 13px;
-    color: #FFF;
-    font-weight: normal;
-    text-transform: none;
-    padding: 5px;
-    background-color: #232f3e;
-    width: 520px;
-    text-align: center;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    margin-left: 5px;
-    border-top: 2px solid #ccc;
-    border-bottom: 2px solid #ccc;
-    margin-bottom: 5px;
-    }
-    
+@media only screen and (min-width: 1200px) and (max-width: 1400px){
+
+
     .product {
-  background-color:White;
-  float: left;
-  height: 260px;
-  width: 48%;
-  margin-left: 1%;
-  margin-top: 1%;
-  color: #000;
-  border-style: solid;
-  border-width: 0.01px;
-  border-color:Gray;
-  border-radius: 10px;
-  -webkit-transition: -webkit-transform 0.4s ease-in-out;
-  -moz-transition: -moz-transform 0.4s ease-in-out;
-  -o-transition: -o-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out; 
-}
+        height: 260px;
+    }
+
     .product li{
-  padding: 10px;
-  text-align: center;
-}
+        padding: 10px;
+    }
     .product li:first-child{
-      background: url("../img/product/galaxys8.jpg") no-repeat;
       background-size: 80%;
       height: 200px;
       margin-left: 20%;
     }
+
     .product li:last-child {
         margin-top: -20%;
     }
+
     .footer {
-        position: relative;
-        background-color: #232f3e;
-        width: 100%;
-        height: 10%;
         margin-top: 49%;
-        color: #FFF;
-        text-align: center;
-        border-top: 2px solid #ccc;
-        border-bottom: 2px solid #ccc;
-        margin-bottom: 5px;
-    }
-    .titlefooter {
-        font-size: 1.2em;
     }
 }
-
-@media only screen and (min-width: 1600px) and (max-width: 1800px){
-    .ng-fader {
-        background-color: #fff;
-        position: relative;
-        margin-left: 33%;
-        margin-top: -49.6%;
-        width: 40%;
-    }
-
-}
-
-/* Desktop */
-@media only screen and (min-width: 1800px) and (max-width: 2000px){
-    .ng-fader {
-        background-color: #fff;
-        position: relative;
-        margin-left: 33%;
-        margin-top: -43%;
-        width: 40%;
-    }
-
-}
-
-
-
-
 
