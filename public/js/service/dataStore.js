@@ -22,7 +22,7 @@ pwApp.factory('DataService', function() {
     return {
      set: set,
      get: get,
-     get_nonreset: get_nonreset
+     get_nonreset: get_nonreset,
     }
    
    })

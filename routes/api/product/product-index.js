@@ -43,7 +43,7 @@ productRoutes.post('/add', function(req,res){
   var weight = req.body.data[3];
   var price = req.body.data[4];
   var quantity =  req.body.data[5];
-  var url = JSON.stringify(req.body.data[6]);
+  var url = req.body.data[6];
   var desc  = req.body.data[7];
 
   console.log(name);
@@ -90,3 +90,33 @@ productRoutes.post('/search', function(req, res){
     });
 });
 
+productRoutes.post('/loadImg', function(req, res){
+    console.log("Load Image");
+    var names = [];
+    var i=0;
+
+    fs.readdirSync("././public/img/product_2 (TEST)").forEach(file => {
+      names[i] = file;
+      i++;
+    });
+
+    var imgData = req.body.data.replace(/^data:image\/\w+;base64,/, "");
+
+    if(names[0] == undefined){
+      res.status(200).json({ success: true , 
+        msg: "url file", 
+        urlName: "././public/img/product_2 (TEST)/0.jpg"});
+      fs.writeFile("././public/img/product_2 (TEST)/0.jpg", new Buffer(imgData,"base64"));
+    }else{
+      var nome = names[names.length-1];
+      console.log(nome);
+      nome = nome.substring(0, nome.length-4);
+      nome = "././public/img/product_2 (TEST)/"+(parseInt(nome)+1)+".jpg";
+
+      res.status(200).json({ success: true , 
+        msg: "url file", 
+        urlName: nome});
+
+      fs.writeFile(nome, new Buffer(imgData,"base64"));
+    }
+  });

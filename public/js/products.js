@@ -15,7 +15,11 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
     
     var prodotti = "";
     var nNome = ""
+
+    console.log("Stampa prodotti");
+
     for (i = 0; i < value.length; i++) {
+
             nParam = 'redirectToOrder("'+i+'");';
             prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                     "<ul><li>Img : "+i+"</li>"+
@@ -54,8 +58,8 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
        ProductsHandleService.getSingleProduct(search);
    }
 }])
-.controller('addProductController', ['$scope', 'ProductsHandleService','FileUpload', 
-function($scope, ProductsHandleService, FileUpload){
+.controller('addProductController', ['$scope', 'ProductsHandleService','FileUpload','DataService', 
+function($scope, ProductsHandleService, FileUpload, DataService){
 
 
     $scope.loadFile = function(){
@@ -77,19 +81,21 @@ function($scope, ProductsHandleService, FileUpload){
         data[6] = angular.element(document.getElementById("img"))[0].files[0];
         data[7] = angular.element(document.getElementById("desc"))[0].value;
         
-        console.log(FileUpload.fileReader(data[6]));
-
-        for(i=0;i<data.length;i++){
-            if(data[i] == ""){
-                alert("Dati non completi");
-                flag = true;
-                break;
+        ProductsHandleService.storeImage(DataService.get_nonreset())
+        .then(function(urlValue){
+            data[6] = urlValue.data.urlName;
+            for(i=0;i<data.length;i++){
+                if(data[i] == ""){
+                    alert("Dati non completi");
+                    flag = true;
+                    break;
+                }
             }
-        }
-
-        if(flag == false){
-            ProductsHandleService.addProduct(data);
-        } 
+            
+            if(flag == false){
+                ProductsHandleService.addProduct(data);
+            }
+        });
     }
 }])
 .controller('singleController', ['$scope', function($scope) {

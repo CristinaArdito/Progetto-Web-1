@@ -23,6 +23,20 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
       })
     }
 
+    this.storeImage = function(data){
+      var deferred = $q.defer();
+
+      $http.post("././api/product/loadImg", {
+        'data' : data
+      })
+      .then(function(urlName){
+        console.log("Success");
+        deferred.resolve(urlName);
+      })
+
+      return deferred.promise;
+    }
+
     this.addProduct = function(data){
       return $http.post("././api/product/add", {
         'data' : data
