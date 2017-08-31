@@ -176,6 +176,7 @@ height: 100%;
 color: Black;
 display: block;
 text-decoration: none;
+cursor: pointer;
 }
 
 .panel li:hover {
