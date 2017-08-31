@@ -72,7 +72,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
 
                 if(value.length == 0){
-                    prodotti = "<div style='margin-left: 45%; margin-top: 5%;'>Nessun prodotto nella categoria: "+data+"</div>"
+                    prodotti = "<div class='noproduct'><span>Nessun prodotto nella categoria: "+data+"</span></div>"
                     angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
                 }else{
                     for (i = 0; i < value.length; i++) {
