@@ -79,3 +79,17 @@ this.login = function(email, psw)
         }); 
  return deferred.promise;
 }
+
+this.getAllUser = function(){
+  var deferred = Q.defer();
+  User.find({})
+    .then(function(user){
+      console.log("\n\ngetAllUser" + JSON.stringify(user));
+      deferred.resolve(user);
+    })
+    .catch(function(err){
+      logger.error('[getAllProducts]' +err);
+      deferred.reject({code:"",msg:err});
+    });
+  return deferred.promise;
+}

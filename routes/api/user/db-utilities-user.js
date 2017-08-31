@@ -57,5 +57,18 @@ this.addUser = function(user)
                       {logger.error('[addUser] errore salvataggio utente '+err.errmsg);}
                   deferred.reject(err.errmsg);   
                  });
-    return deferred.promise;
+  return deferred.promise;
+}
+
+  this.getAllUser = function(){
+    var utenti =  new User(user);
+
+    utenti.find()
+      .then(function(user){
+        console.log(user);
+        deferred.resolve(user);
+      })
+      .catch(function(){
+        deferred.reject;
+      })
   }

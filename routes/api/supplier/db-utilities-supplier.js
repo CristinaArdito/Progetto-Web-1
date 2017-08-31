@@ -16,10 +16,13 @@ var ERR_DB_DUPLICATE_KEY = '11000';
 this.addSupplier = function(supplier)
 {
  var deferred = Q.defer();
-    
- // metto questo controllo sulla psw come esempio di utilizzo di deferred.reject
- // in realtà dovrei metterlo nello schema di Mongoose
-    
+
+ if(!supplier.name || supplier.name == "")
+  {
+    deferred.reject('inserire nome del fornitore');
+    return deferred.promise;
+  }
+
   // crea un Utente, che deve rispettare lo schema definito con mongoose
   var supp = new Supplier(supplier);
 
@@ -29,7 +32,6 @@ this.addSupplier = function(supplier)
                 {
                  console.log("Dovrebbe essere salvato");
                  logger.debug('utente salvato '+JSON.stringify(supplier));
-                 /* eventuale invio email */
                  deferred.resolve(supplier);
                 })
               .catch(function(err)
