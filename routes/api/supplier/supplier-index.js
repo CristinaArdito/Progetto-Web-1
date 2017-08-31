@@ -35,7 +35,7 @@ supplierRoutes.post('/add', function(req, res)
                                                   message: 'Bad Request. Name and Email required.' });  
                   } 
                // esecuzione funzione    
-              console.log("Dati (api_index): "+name+" "+psw+""+email);
+              console.log("Dati (api_index): "+name+" "+email);
               supplier_utilities.addSupplier(name, ntel, email, city, via, cap)
                     .then(function(supplier)
                       {
