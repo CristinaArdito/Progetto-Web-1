@@ -16,11 +16,26 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
 
     this.getSingleProduct = function(product){
       $http.post('././api/product/search', {
-        'q': JSON.stringify(product)
+        'q': product
       })
       .then(function(data){
         console.log(JSON.parse(data));
       })
+    }
+
+    this.getCategory = function(product){
+      console.log(product);
+      
+      var deferred = $q.defer();
+
+      $http.post('././api/product/search', {
+        'q': product
+      })
+      .then(function(data){
+        deferred.resolve(data.data);
+      })
+
+      return deferred.promise;
     }
 
     this.storeImage = function(data){
@@ -30,7 +45,6 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
         'data' : data
       })
       .then(function(urlName){
-        console.log("Success");
         deferred.resolve(urlName);
       })
 

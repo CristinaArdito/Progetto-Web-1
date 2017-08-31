@@ -7,58 +7,9 @@
           <input type="search" id="searchBox" placeholder="Search product" ng-keyup="event = $event; callOnEnter(event);"/>
       </div>
 
-      <section class="panel">
-      	      <div class="title" >&nbsp;Categorie </div>
-      <ul>
-		      <li><a href='#'>&nbsp; &#x21AA; Hardware</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Software</a></li>
-		        <hr>
-		        <li><a href='#'>&nbsp; &#x21AA; Pc / Workstation</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Pc preconfigurati</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Notebook</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Smartphone</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Tablet</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Monitor</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Gaming</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Periferiche</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Cavetteria</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Fax</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Televisori</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Stampanti / Plotter</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Multifunzione / Copiatrici</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Cd / Dvd</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Scanner</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Server</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Memorie / Pendrive</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Audio</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Networking</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; E-book readers</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Droni</a></li>
-		        <hr>
-      </ul>  
+      <section class="panel" id="categoryForm" ng-init="showCategories()">
       </section>
-    <div class='table' id="productForm" ng-controller="productsController" ng-init="showProducts()">
+    <div class='table' id="productForm" ng-controller="productsController" ng-init="showProducts(0)">
     </div>
 
 </div>

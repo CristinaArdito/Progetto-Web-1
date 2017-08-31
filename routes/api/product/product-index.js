@@ -82,6 +82,7 @@ productRoutes.post('/orders', function(req, res)
           });
 
 productRoutes.post('/search', function(req, res){
+    console.log(req.body.q);
     product_utilities.searchProduct(req.body.q)
       .then(function(product){
         res.status(201).json({ success: true , 

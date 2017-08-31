@@ -3,36 +3,95 @@ angular.module('myApp.controllers')
 function($scope, $compile, $http, $location, DataService, ProductsHandleService) {
     
     
-    $scope.showProducts = function(){
+    $scope.showCategories = function(){
 
-    // Data sarà poi il risultato del servizio di fetch dei prodotti
-    var data = [{'name':"scheda video", 'price':"€ 249,90", 'quantity':"4", 'category':"hardware"}, {'name':"scheda madre", 'price':"€ 128,90", 'quantity':"3", 'category':"hardware"}];
-    var data2 = [];
+        var data = ['Tutti', 'Hardware',"Software","Pc-Workstation","Pc-preconfigurati","Notebook",
+                    "Smartphone","Tablet","Monitor","Gaming", "Periferiche","Cavetteria",
+                    "Fax","Televisori","Stampanti-Plotter","Multifunzione-Copiatrici",
+                    "Cd-Dvd", "Scanner", "Server", "Memorie-Pendrive", "Audio", "Networking",
+                    "Ebook-readers", "Droni"];
+        
+        var html = '<div class="title" >&nbsp;Categorie </div><ul>';
+        var param = "";
 
-   ProductsHandleService.getAllProducts()
-   .then(function(value){    
-    console.log(value);
-    
-    var prodotti = "";
-    var nNome = ""
-
-    console.log("Stampa prodotti");
-
-    for (i = 0; i < value.length; i++) {
-
-            nParam = 'redirectToOrder("'+i+'");';
-            prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
-                                    "<ul><li>Img : "+i+"</li>"+
-                                    "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
-                                    "<li>Categoria: <span>"+value[i].name+"</span></li>"+
-                                    "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
-                                    "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
-                                    "</ul></div>";
+        for(i=0;i<data.length;i++){
+            if(data[i] == "Tutti"){
+                html = html+"<li><a ng-click='showProducts(0)'>&nbsp; &#x21AA;<span id='catId'>"+data[i]+"</span></a></li><hr>";
+            }else{
+                param = "showProducts('"+data[i]+"')";
+                html = html+"<li><a ng-click="+param+">&nbsp; &#x21AA; "+data[i]+"</a></li><hr>";
+            }
         }
 
-        angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
-   });
+        html = html + "<ul>";
+
+        angular.element(document.getElementById('categoryForm')).append($compile(html)($scope));
+    }
+
+    $scope.Delete = function(){
+        angular.element(document.getElementById('productForm')).empty();
+    }
+
+    $scope.showProducts = function(data){
+        console.log(data);
+        if(data == 0){
+            this.Delete();
+            ProductsHandleService.getAllProducts()
+            .then(function(value){    
+                console.log(value);
+                
+                var prodotti = "";
+                var nNome = ""
+
+                console.log("Stampa prodotti");
+
+                for (i = 0; i < value.length; i++) {
+
+                        nParam = 'redirectToOrder("'+i+'");';
+                        prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
+                                                "<ul><li>Img : "+i+"</li>"+
+                                                "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
+                                                "<li>Categoria: <span>"+value[i].name+"</span></li>"+
+                                                "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
+                                                "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
+                                                "</ul></div>";
+                    }
+
+                    angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+            });
+        }else{
+            console.log("Categories");
+            this.Delete();
+            ProductsHandleService.getCategory(data)
+            .then(function(value){    
+                console.log(value);
+                
+                value = value.data;
+                var prodotti = "";
+                var nNome = ""
+
+
+                if(value.length == 0){
+                    prodotti = "<div style='margin-left: 45%; margin-top: 5%;'>Nessun prodotto nella categoria: "+data+"</div>"
+                    angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+                }else{
+                    for (i = 0; i < value.length; i++) {
+
+                            nParam = 'redirectToOrder("'+i+'");';
+                            prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
+                                                    "<ul><li>Img : "+i+"</li>"+
+                                                    "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
+                                                    "<li>Categoria: <span>"+value[i].name+"</span></li>"+
+                                                    "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
+                                                    "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
+                                                    "</ul></div>";
+                        }
+
+                        angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+                }
+            });
         }
+    }
 
    $scope.redirectToOrder = function(n){
 

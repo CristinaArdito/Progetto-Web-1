@@ -61,7 +61,7 @@ this.searchProduct = function(q){
                         .then(function(product) 
                             { 
                                 if(product.length!=0){
-                                    console.log("get aproduct by name "+JSON.stringify(product));
+                                    console.log("get product by name "+JSON.stringify(product));
                                     deferred.resolve(product); 
                                 }else{
                                     console.log("entro in categories");
