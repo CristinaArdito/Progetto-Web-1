@@ -33,3 +33,17 @@ this.addSupplier = function(name, ntel, email, city, via, cap)
                                cap:cap
                               });  //ritorna una promessa
 }
+
+this.getAllSupplier = function(){
+    var deferred = Q.defer();
+    Supplier.find({})
+      .then(function(supplier){
+        console.log("\n\ngetAllUser" + JSON.stringify(supplier));
+        deferred.resolve(supplier);
+      })
+      .catch(function(err){
+        logger.error('[getAllProducts]' +err);
+        deferred.reject({code:"",msg:err});
+      });
+    return deferred.promise;
+  }

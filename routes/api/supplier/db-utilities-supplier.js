@@ -45,3 +45,16 @@ this.addSupplier = function(supplier)
                  });
     return deferred.promise;
   }
+
+  this.getAllSupplier = function(){
+    var supp =  new Supplier(supplier);
+
+    supp.find()
+      .then(function(supplier){
+        console.log(supplier);
+        deferred.resolve(supplier);
+      })
+      .catch(function(){
+        deferred.reject;
+      })
+  }

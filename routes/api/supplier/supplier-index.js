@@ -50,3 +50,22 @@ supplierRoutes.post('/add', function(req, res)
                                                 data:""}); 
                       });
             });
+
+supplierRoutes.get('/all', function(req,res){
+  supplier_utilities.getAllSupplier()
+  .then(function(supplier){
+    console.log("\n\nUser: "+supplier);
+    res.status(200).json({
+      success: true,
+      msg: "Lista di tutti i fornitori",
+      data : supplier
+    });
+  })
+  .catch(function(err){
+    res.status(400).json({
+      success: false,
+      msg:err,
+      data:""
+    });
+  });
+});
