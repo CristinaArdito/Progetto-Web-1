@@ -176,6 +176,7 @@ height: 100%;
 color: Black;
 display: block;
 text-decoration: none;
+cursor: pointer;
 }
 
 .panel li:hover {
@@ -281,6 +282,18 @@ button.btn:focus {
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
     background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+}
+
+.noproduct {
+  margin-top: 5%;
+  width: 70%;
+  margin-left: 5%;
+  background: url(../img/icon/unchecked.png) 1px no-repeat;
+}
+
+.noproduct span {
+  font-size: 1.2em;
+  margin-left: 5%;
 }
 
 /* ------- ORDINI ------- */

@@ -35,7 +35,7 @@ supplierRoutes.post('/add', function(req, res)
                                                   message: 'Bad Request. Name and Email required.' });  
                   } 
                // esecuzione funzione    
-              console.log("Dati (api_index): "+name+" "+psw+""+email);
+              console.log("Dati (api_index): "+name+" "+email);
               supplier_utilities.addSupplier(name, ntel, email, city, via, cap)
                     .then(function(supplier)
                       {
@@ -50,3 +50,22 @@ supplierRoutes.post('/add', function(req, res)
                                                 data:""}); 
                       });
             });
+
+supplierRoutes.get('/all', function(req,res){
+  supplier_utilities.getAllSupplier()
+  .then(function(supplier){
+    console.log("\n\nUser: "+supplier);
+    res.status(200).json({
+      success: true,
+      msg: "Lista di tutti i fornitori",
+      data : supplier
+    });
+  })
+  .catch(function(err){
+    res.status(400).json({
+      success: false,
+      msg:err,
+      data:""
+    });
+  });
+});
