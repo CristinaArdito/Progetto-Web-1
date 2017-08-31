@@ -64,7 +64,8 @@ function($scope, ProductsHandleService, FileUpload, DataService){
 
     $scope.loadFile = function(){
         var file = angular.element(document.getElementById("img"))[0].files[0];
-        FileUpload.fileReader(file);
+        if(file.size>2097152) alert("File troppo grande, dimensione massima 2MB");
+        else FileUpload.fileReader(file);
     }
 
     $scope.addProduct = function($scope){

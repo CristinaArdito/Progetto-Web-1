@@ -12,7 +12,7 @@
         <span>Prezzo prodotto: </span><input type="text" id="price"></input><br>
         <span>Quantità prodotto: </span><input type="number" min="0" value='0' id="q"></input><br>
 
-        <span>Immagine prodotto: </span><input type="file" name="pic" accept="image/*" id="img"></input>
+        <span>Immagine prodotto (Dimensione massima 2MB): </span><input type="file" name="pic" accept=".png, .jpg"  id="img"></input>
         <input type="submit" ng-click="loadFile()" value="Carica file"></input><br>
 
         <span class="desc">Descrizione prodotto: </span><textarea id="desc" rows="4" cols="50"></textarea><br>
