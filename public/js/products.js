@@ -119,7 +119,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
             if(value.length == 0){
                 console.log("Empty")
-                var message = "<div style='margin-left: 45%; margin-top: 5%;'>Nessun prodotto corrispondente a: "+search+"</div>";
+                var message = "<div class='noproduct'><span>Nessun prodotto corrispondente a: "+search+"</span></div>";
                 angular.element(document.getElementById('productForm')).append($compile(message)($scope));
             }
 
