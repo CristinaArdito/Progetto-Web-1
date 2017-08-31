@@ -15,12 +15,19 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
     }
 
     this.getSingleProduct = function(product){
+      var deferred = $q.defer();
+
+      console.log("Ricerca");
+
       $http.post('././api/product/search', {
         'q': product
       })
       .then(function(data){
-        console.log(JSON.parse(data));
+        console.log(data);
+        deferred.resolve(data.data);
       })
+
+      return deferred.promise;
     }
 
     this.getCategory = function(product){

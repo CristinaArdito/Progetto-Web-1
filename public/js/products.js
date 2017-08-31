@@ -33,12 +33,10 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
     }
 
     $scope.showProducts = function(data){
-        console.log(data);
         if(data == 0){
             this.Delete();
             ProductsHandleService.getAllProducts()
-            .then(function(value){    
-                console.log(value);
+            .then(function(value){
                 
                 var prodotti = "";
                 var nNome = ""
@@ -60,11 +58,9 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                     angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
             });
         }else{
-            console.log("Categories");
             this.Delete();
             ProductsHandleService.getCategory(data)
-            .then(function(value){    
-                console.log(value);
+            .then(function(value){
                 
                 value = value.data;
                 var prodotti = "";
@@ -96,7 +92,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
    $scope.redirectToOrder = function(n){
 
        var param = [];
-       console.log("nName"+n);
        param[0] = angular.element(document.getElementById("nNome"+n))[0].innerHTML;
        param[1] = angular.element(document.getElementById("nPrice"+n))[0].innerHTML;
        param[2] = angular.element(document.getElementById("nQuantity"+n))[0].innerHTML;
@@ -114,7 +109,37 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
    $scope.searchProducts = function(){
        var search = angular.element(document.getElementById("searchBox"))[0].value;
-       ProductsHandleService.getSingleProduct(search);
+       search = search.charAt(0).toUpperCase() + search.slice(1);
+       console.log(search);
+       this.Delete();
+       ProductsHandleService.getSingleProduct(search)
+       .then(function(value){
+
+            value = value.data;
+
+            if(value.length == 0){
+                console.log("Empty")
+                var message = "<div style='margin-left: 45%; margin-top: 5%;'>Nessun prodotto corrispondente a: "+search+"</div>";
+                angular.element(document.getElementById('productForm')).append($compile(message)($scope));
+            }
+
+            var prodotti = "";
+            var nNome = ""
+
+            for (i = 0; i < value.length; i++) {
+
+                    nParam = 'redirectToOrder("'+i+'");';
+                    prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
+                                            "<ul><li>Img : "+i+"</li>"+
+                                            "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
+                                            "<li>Categoria: <span>"+value[i].name+"</span></li>"+
+                                            "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
+                                            "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
+                                            "</ul></div>";
+            }
+
+            angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+       });
    }
 }])
 .controller('addProductController', ['$scope', 'ProductsHandleService','FileUpload','DataService', 
@@ -132,6 +157,8 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         var flag = false;
 
         data[0] = angular.element(document.getElementById("name"))[0].value;
+        data[0] = data[0].charAt(0).toUpperCase() + data[0].slice(1);
+        console.log(data[0]);
         data[1] = angular.element(document.getElementById("code"))[0].value;
         data[2] = angular.element(document.getElementById("cat"))[0].value;
         if(data[2].includes(",") == false) data[2] = data[2]+",";
@@ -141,6 +168,10 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         data[6] = angular.element(document.getElementById("img"))[0].files[0];
         data[7] = angular.element(document.getElementById("desc"))[0].value;
         
+        if(data[6] == null){
+            alert("Dati non completi");
+        }
+        else
         ProductsHandleService.storeImage(DataService.get_nonreset())
         .then(function(urlValue){
             data[6] = urlValue.data.urlName;
