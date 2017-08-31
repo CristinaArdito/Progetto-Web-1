@@ -59,3 +59,16 @@ this.addUser = function(user)
                  });
     return deferred.promise;
   }
+
+  this.getAllUser = function(){
+    var utenti =  new User(user);
+
+    utenti.find()
+      .then(function(user){
+        console.log(user);
+        deferred.resolve(user);
+      })
+      .catch(function(){
+        deferred.reject;
+      })
+  }

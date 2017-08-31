@@ -82,3 +82,22 @@ userRoutes.post('/signup', function(req, res)
                                                 data:""}); 
                       });
             });
+
+userRoutes.get('/all', function(req, res){
+  user_utilities.getAllUser()
+    .then(function(user){
+      console.log("\n\nUser: "+user);
+      res.status(200).json({
+        success: true,
+        msg: "Lista di tutti gli utenti",
+        data : user
+      });
+    })
+    .catch(function(err){
+      res.status(400).json({
+        success: false,
+        msg:err,
+        data:""
+      });
+    });
+});
