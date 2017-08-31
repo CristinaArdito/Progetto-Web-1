@@ -27,6 +27,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/cart.ejs',
                 controller  : 'cartController'
             })
+            .when('/categ', {
+                templateUrl : 'views/categ.ejs',
+                controller  : 'categController'
+            })
             // route for the about page
             .when('/signup', {
                 templateUrl : 'views/signup.ejs',
