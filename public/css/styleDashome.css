@@ -2,7 +2,7 @@
 	width: 85%;
 	height: 100%;
 }
-.chart {
+#chart{
 	margin-top: 25%;
     border: 1px solid #ddd;
   -moz-border-radius: 4px;
@@ -13,6 +13,19 @@
 	 width: 35%; 
 	 height: 20%;
 }
+
+#chartwo{
+  margin-top: -20.5%;
+    border: 1px solid #ddd;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  margin-left: 75%;
+   width: 35%; 
+   height: 20%;
+}
+
 .chart-header {
 	width: 94.8%;
 	height: auto;
@@ -30,7 +43,7 @@
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
-.chart canvas {
+#chart canvas {
 	margin-top: 2%;
 	margin-left: 1%;
  width: 97% !important; 
@@ -38,3 +51,10 @@
  border: 0px !important;
 }
 
+#chartwo canvas {
+  margin-top: 2%;
+  margin-left: 1%;
+ width: 97% !important; 
+ height: 100% !important;
+ border: 0px !important;
+}
