@@ -83,7 +83,7 @@ userRoutes.post('/signup', function(req, res)
                       });
             });
 
-userRoutes.get('/all', function(req, res){
+userRoutes.post('/all', function(req, res){
   user_utilities.getAllUser()
     .then(function(user){
       console.log("\n\nUser: "+user);

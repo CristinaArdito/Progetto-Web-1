@@ -56,8 +56,43 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
     
     /* quando dovrò fare richieste, e mi serve il token dell'utente,
      lo riprendo con: self.utenteLoggato.token    */
+    
+    this.getAllUser = function(){
+        var deferred = $q.defer();
+
+        $http.post("././api/user/all")
+        .then(function(data){
+            deferred.resolve(data.data);
+        })
+
+        return deferred.promise;
+    }
+
+    this.removeUser = function(par1,par2){
+        var deferred = $q.defer();
         
+        $http.post("././api/user/remove", {
+            'name': par1, 'email' : par2
+        })
+        .then(function(data){
+               deferred.resolve(data.data);
+        })
         
+        return deferred.promise;
+    }
+    
+    this.promoteAdmin = function(par1,par2){
+        var deferred = $q.defer();
+        
+        $http.post("././api/user/promote", {
+            'name': par1, 'email' : par2
+        })
+        .then(function(data){
+               deferred.resolve(data.data);
+        })
+        
+        return deferred.promise;
+    } 
     
   }])
 

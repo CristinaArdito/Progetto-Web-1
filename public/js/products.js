@@ -42,12 +42,15 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                 var nNome = ""
 
                 console.log("Stampa prodotti");
+                
 
                 for (i = 0; i < value.length; i++) {
 
+                    background = 'background: url('+value[i].url+'); no-repeat;'
+
                         nParam = 'redirectToOrder("'+i+'");';
                         prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
-                                                "<ul><li>Img : "+i+"</li>"+
+                                                "<ul><li style='"+background+"'></li>"+
                                                 "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                                 "<li>Categoria: <span>"+value[i].name+"</span></li>"+
                                                 "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
@@ -73,9 +76,11 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                 }else{
                     for (i = 0; i < value.length; i++) {
 
+                        background = 'background: url('+value[i].url+'); no-repeat;'
+
                             nParam = 'redirectToOrder("'+i+'");';
                             prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
-                                                    "<ul><li>Img : "+i+"</li>"+
+                                                    "<ul><li style='"+background+"'></li>"+
                                                     "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                                     "<li>Categoria: <span>"+value[i].name+"</span></li>"+
                                                     "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
@@ -128,9 +133,11 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
             for (i = 0; i < value.length; i++) {
 
+                background = 'background: url('+value[i].url+'); no-repeat;'
+
                     nParam = 'redirectToOrder("'+i+'");';
                     prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
-                                            "<ul><li>Img : "+i+"</li>"+
+                                            "<ul><li style='"+background+"'></li>"+
                                             "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                             "<li>Categoria: <span>"+value[i].name+"</span></li>"+
                                             "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+

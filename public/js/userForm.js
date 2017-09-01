@@ -1,0 +1,70 @@
+angular.module('myApp.controllers')
+.controller('showUserController', ['$scope', 'CurrentUserService','$compile', function($scope, CurrentUserService, $compile){
+    console.log("showUserController");
+
+    $scope.showUser = function(){
+
+        console.log("ShowUser");
+        CurrentUserService.getAllUser()
+        .then(function(data){
+
+            data = data.data;
+
+            console.log(data);
+
+            var table = "<table style='margin-left: 45%;'><tr><th>Nome</th>"+
+                        "<th>Email</th>"+
+                        "<th>Password</th>"+
+                        "<th>Admin</th>"+
+                        "<th>Rimuovi</th>"+
+                        "<th>Promuovi ad Admin</th></tr>";
+
+            for(i=0;i<data.length;i++){
+                
+                removeUser = 'removeUser("'+data[i].name+'","'+data[i].email+'")';
+                promoteAdmin = 'promoteAdmin("'+data[i].name+'","'+data[i].email+'")';
+
+                table = table + "<tr><td>"+data[i].name+"</td>"+
+                                "<td>"+data[i].email+"</td>"+
+                                "<td>********</td>"+
+                                "<td>"+data[i].admin+"</td>"+
+                                "<td><button ng-click='"+removeUser+"'>Rimuovi utente</button></td>"+
+                                "<td><button ng-click='"+promoteAdmin+"'>Promuovi ad Admin</button></td></tr>";
+            }
+
+            table = table + "</table>";
+
+            console.log(table);
+
+            angular.element(document.getElementById('showUserDiv')).append($compile(table)($scope));
+
+        })
+    }
+
+    $scope.removeUser = function(par1,par2){
+
+        console.log(par1);
+        console.log(par2);
+
+        /*
+        CurrentUserService.removeUser(par1, par2)
+        .then(function(data){
+            console.log(data);
+        })
+        */
+    }
+
+    $scope.promoteAdmin = function(par1, par2){
+        
+        console.log(par1);
+        console.log(par2);
+
+        /*
+        CurrentUserService.promoteAdmin(par1, par2)
+        .then(function(data){
+            console.log(data);
+        })
+        */
+    }
+
+}]);
