@@ -35,12 +35,6 @@
   text-shadow: 0px 0px 8px #FFFFFF;
 }
 
-/* Desktop */
-@media screen and (min-device-width: 1600px) and (max-device-width: 2000px){
-
-.menu ul li{ 
-  font-size: 0.9em; 
-} 
 /*------- MENU -------*/
 .nav {
   top: 5.8%;
@@ -51,6 +45,66 @@
   height: 94%;
   background-color: #7986cb;
 }
+.menu {
+  height: 85%;
+  width: 18%;
+  float: left;
+    position: absolute;
+  display: block;
+  margin-top: 18%;
+
+  color: #212121;
+}
+.title {
+  font-weight: 700;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  margin-left: 50%;
+}
+.menu ul {
+  padding-left: 0%;
+}
+
+.main .nav .menu ul li {
+  cursor: pointer;
+  list-style: none;
+  width: 518%;
+  padding: 20%;
+  font-weight: 600;
+
+  transition: 0.25s all;
+}
+
+.menu li a {
+  text-decoration: none;
+   color: #212121;
+}
+
+.menu .iconhome {
+  background: url(../img/icon/homeicon.png) 10px no-repeat;
+}
+
+.menu .iconproduct {
+    background: url(../img/icon/producticon.png) 10px no-repeat;
+}
+.menu .iconuser {
+    background: url(../img/icon/usersicon.png) 10px no-repeat;
+}
+.menu .iconprovider {
+    background: url(../img/icon/providericon.png) 10px no-repeat;
+}
+.menu .iconorder {
+    background: url(../img/icon/ordersicon.png) 10px no-repeat;
+}
+.main .nav .menu ul li:hover {
+  background-color: #3f51b5;
+
+}
+.main .nav .menu ul li i {
+  font-size: 1.4em;
+  margin-right: 10px;
+}
+
 .home {
   margin-left: 15%;
 }
@@ -67,32 +121,6 @@
    background-position: left 115px top 8px;
 } 
 
-.searchbox {
-  width: 75%;
-  position: absolute;
-  display: block;
-  border-radius: 4px;
-  height: 4%;
-  line-height: 30px;
-  margin: 10%;
-  background-color: White;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.searchbox input {
-  border-radius: 4px;
-  background: url(../img/icon/searchbox.ico) 180px no-repeat;
-  padding-left: 2%;
-  width: 100%;
-  display: inlin-block;
-  height: 50%;
-  background-color: White;
-  color: Black;
-  font-family: "Lato";
-  border: 0px;
-}
 
 .searchboxproduct {
   width: 18%;
@@ -137,10 +165,10 @@ ul.menuordini{
   background-color: #7986cb;
   width: 70%;
   padding-right: 150px;
-    position: absolute;
-    top: 10%;
-    margin-left: 535%;
-    visibility: hidden;
+  position: absolute;
+  top: 10%;
+  margin-left: 535%;
+  visibility: hidden;
 }
 
 ul.menufornitori{
@@ -157,13 +185,12 @@ ul.menufornitori{
 .menu ul li:hover ul {
     visibility: visible;
     width: 63%;
-    border-radius: 0;
 }
 
 /*------- PRODOTTI ------- */
 .panel .title {
-	color: White;
-	background-color: #4D4D4D;
+  color: White;
+  background-color: #4D4D4D;
   margin-top: 5%;
   margin: 0px;
   padding: 3px;
@@ -184,28 +211,29 @@ ul.menufornitori{
 }
 
 .panel li {
-	padding: 4px;
+  padding: 4px;
   list-style: none;
 }
 
 .panel li a{
-width: 100%
-height: 100%;
-color: Black;
-display: block;
-text-decoration: none;
-cursor: pointer;
+  width: 100%
+  height: 100%;
+  color: Black;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .panel li:hover {
-	background-color: #3576B6;
-	padding: 4px;
+  background-color: #3576B6;
+  padding: 4px;
 }
 
 .panel hr {
-	border-style: dotted;
-	border-bottom: 5px #999933;
+  border-style: dotted;
+  border-bottom: 5px #999933;
 }
+
 #products{
   width: 100%;
   height: 100%;
@@ -219,8 +247,6 @@ cursor: pointer;
 .table {
   margin-top: -44%;
   margin-left: 35%;
-
-
 }
 
 .product {
@@ -259,17 +285,17 @@ cursor: pointer;
 }
 
 .product li{
-  padding: 14px;
+  padding: 8px;
   text-align: center;
 }
 
 .product li:first-child{
-  padding: 1.1em;
+  padding: 1.8em;
   background-color: #e4e7e7;
-  
   font-size: 1.6em;
   text-shadow: 0px -1px 1px #000;
 }
+
 
 button.btn{
   cursor: pointer;
@@ -356,377 +382,76 @@ button.btn:focus {
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
+
 .ordbutton:hover,
 .ordbutton:focus {
   background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
+/* Desktop */
+@media screen and (min-device-width: 1600px) and (max-device-width: 2000px){
+
+    .menu ul li{ 
+      font-size: 0.9em; 
+    } 
+    .product li:first-child{
+      padding: 2.1em;
+    }
 
 } /* End desktop */
 
 
 /* Laptop */
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px){
-* {
-	font-size: 0.99em;
-}
-/*------- MENU -------*/
-.nav {
-  top: 8.6%;
-  position: absolute;
-  display: block;
-  width: 15%;
-  float: left;
-  height: 94%;
-  background-color: #7986cb;
-}
-.home {
-  margin-left: 15%;
-}
+    * {
+    	font-size: 0.99em;
+    }
+    /*------- MENU -------*/
+    .nav {
+      top: 8.6%;
+      height: 138%;
+    }
 
-.menu .down {
-  width: 100%;
-   background: url("../img/icon/arrows-black.png")  no-repeat;
-   background-position: left 105px top 8px;
-}
-.searchbox {
-  width: 75%;
-  position: absolute;
-  display: block;
-  border-radius: 4px;
-  height: 4%;
-  line-height: 30px;
-  margin: 10%;
-  background-color: White;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-}
+    .menu ul li:hover ul {
+     width: 90%;
+    }
 
-.searchbox input {
-  border-radius: 4px;
-  background: url(../img/icon/searchbox.ico) 180px no-repeat;
-  padding-left: 2%;
-  width: 100%;
-  display: inlin-block;
-  height: 50%;
-  background-color: White;
-  color: Black;
-  font-family: "Lato";
-  border: 0px;
-}
+    ul.menuordini{
+      top: 7.5%;
+    }  
 
-.searchboxproduct {
-  width: 18%;
-  border-radius: 4px;
-  height: 4%;
-  line-height: 30px;
-  margin-left: 18%;
-  margin-top: 1%;
-  background-color: White;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-}
+    ul.menuprodotti{
+      width: 75%;
+      top: 3.5%;
+    }
 
-.searchboxproduct input {
-  background-color: #c5cae9;
-  border-radius: 4px;
-  background: url(../img/icon/searchbox.ico) 310px no-repeat;
-  padding-left: 2%;
-  width: 100%;
-  display: inlin-block;
-  height: 34px;
-  color: Black;
-  font-family: "Lato";
-  border: 1px solid Black;
-  font-size: 1em;
-}
+    ul.menufornitori{
+      width: 80%;
+      top: 12%;
+    }  
 
-ul.menuprodotti{
-  z-index: 999;
-  background-color: #7986cb;
-  width: 70%;
-  padding-right: 150px;
-    position: absolute;
-    top: 5%;
-    margin-left: 535%;
-    visibility: hidden;
-}
+    .table {
+      margin-top: -60%;
+    }
 
-ul.menuordini{
-  z-index: 999;
-  background-color: #7986cb;
-  width: 70%;
-  padding-right: 150px;
-    position: absolute;
-    top: 10%;
-    margin-left: 535%;
-    visibility: hidden;
-}
+    .product {
+      float: left;
+      width: 23%;
+    }
 
-.menu ul li:hover ul {
-    visibility: visible;
-    width: 90%;
-    border-radius: 0;
-}
+    .product li{
+      padding: 4px;
+    }
 
-/*------- PRODOTTI ------- */
-.panel .title {
-	color: White;
-	background-color: #4D4D4D;
-  margin-top: 5%;
-  margin: 0px;
-  padding: 3px;
-    border: 1px solid Black;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  margin-bottom: 2px;
-}
+  button.btn{
+    width: 110px;
+    padding: 9px 0;
+  }
 
-.panel {
-  text-decoration: none;
-  height: 50%;
-  width: 14%;
-  margin-left: 18%;
-  margin-top: 2%;
-
-}
-
-.panel li {
-	padding: 4px;
-  list-style: none;
-}
-
-.panel li a{
-width: 100%
-height: 100%;
-color: Black;
-display: block;
-text-decoration: none;
-}
-
-.panel li:hover {
-	background-color: #3576B6;
-	padding: 4px;
-}
-
-.panel hr {
-	border-style: dotted;
-	border-bottom: 5px #999933;
-}
-#products{
-  width: 100%;
-  height: 100%;
-}
-
-.title {
-  top:5%;
-  color: Black;
-  height: 15%;
-}
-.table {
-  margin-top: -60%;
-  margin-left: 35%;
-
-
-}
-
-.product {
-  float: left;
-  width: 23%;
-  margin-left: 17%;
-  margin-top: 5%;
-  background-color: #F4F7F7;
-  color: #000;
-  border-radius: 16px;
-  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.8);
-  -webkit-transition: -webkit-transform 0.4s ease-in-out;
-  -moz-transition: -moz-transform 0.4s ease-in-out;
-  -o-transition: -o-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out; 
-}
-
-.product:hover {
-  -webkit-transform: scale(1.1, 1.2);
-  -moz-transform: scale(1.1, 1.2);
-  -o-transform: scale(1.1, 1.2);
-  transform: scale(1.1, 1.2);
-}
-
-.product h2 {
-  text-align: center;
-  text-transform: uppercase;
-  margin: 1.4em 0 .2em;
-  
-}
-
-.product ul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.product li{
-  padding: 14px;
-  text-align: center;
-}
-
-.product li:first-child{
-  padding: 1.1em;
-  background-color: #e4e7e7;
-  
-  font-size: 1.6em;
-  text-shadow: 0px -1px 1px #000;
-}
-
-button.btn{
-  width: 160px;
-  margin: 0 auto;
-  padding: 12px 0;
-  display: block;
-  
-  border-radius: 14px;
-  color: #F4F7F7;
-  text-decoration: none;
-  font-size: 1.1em;
-  
-  text-shadow: 0px -1px 2px #000;
-  
-  border: 1px solid #607176;
-  
-  background: #607176;
-  background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-  background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-  background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-}
-
-button.btn:hover,
-button.btn:focus {
-  background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-  background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-  background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-}
-
-/* ------- ORDINI ------- */
-#orderForm {
-  margin-left: 20%;
-  margin-top: 1%;
-}
-.title {
-  margin-top: 1%;
-}
-.reorders {
-  text-decoration: none;
-  color: Black;
-}
-.num {
-  width: 40px;
-  border-radius: 3px;
-  border-style: solid;
-  border-color: #3f51b5;
-}
-.ordbutton{
-  float: left;
-  width: 160px;
-  margin: 0 auto;
-  padding: 8px 0;
-  display: block;
-  
-  border-radius: 14px;
-  color: #F4F7F7;
-  text-decoration: none;
-  font-size: 1.1em;
-  
-  text-shadow: 0px -1px 2px #000;
-  
-  border: 1px solid #607176;
-  
-  background: #607176;
-  background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-  background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-  background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-}
-
-.ordbutton:hover,
-.ordbutton:focus {
-  background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-  background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-  background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-}
 } /* End laptop */
 
 
-.menu {
-  height: 85%;
-  width: 18%;
-  float: left;
-    position: absolute;
-  display: block;
-  margin-top: 30%;
-
-  color: #212121;
-}
-.title {
-  font-weight: 700;
-  font-size: 1.1em;
-  text-transform: uppercase;
-  margin-left: 50%;
-}
-.menu ul {
-  padding-left: 0%;
-}
-
-.main .nav .menu ul li {
-  cursor: pointer;
-  list-style: none;
-  width: 518%;
-  padding: 20%;
-  font-weight: 600;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  transition: 0.25s all;
-}
-
-.menu li a {
-  text-decoration: none;
-   color: #212121;
-}
-
-
-
-
-.menu .iconhome {
-  background: url(../img/icon/homeicon.png) 10px no-repeat;
-}
-
-.menu .iconproduct {
-    background: url(../img/icon/producticon.png) 10px no-repeat;
-}
-.menu .iconuser {
-    background: url(../img/icon/usersicon.png) 10px no-repeat;
-}
-.menu .iconprovider {
-    background: url(../img/icon/providericon.png) 10px no-repeat;
-}
-.menu .iconorder {
-    background: url(../img/icon/ordersicon.png) 10px no-repeat;
-}
-.main .nav .menu ul li:hover {
-  background-color: #3f51b5;
-
-}
-.main .nav .menu ul li i {
-  font-size: 1.4em;
-  margin-right: 10px;
-}
 
