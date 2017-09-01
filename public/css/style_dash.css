@@ -58,8 +58,15 @@
 .menu .down {
   width: 100%;
    background: url("../img/icon/arrows-black.png")  no-repeat;
-   background-position: left 105px top 8px;
+   background-position: left 100px top 8px;
 }
+
+.menu .down2 {
+  width: 100%;
+   background: url("../img/icon/arrows-black.png")  no-repeat;
+   background-position: left 115px top 8px;
+} 
+
 .searchbox {
   width: 75%;
   position: absolute;
@@ -132,6 +139,17 @@ ul.menuordini{
   padding-right: 150px;
     position: absolute;
     top: 10%;
+    margin-left: 535%;
+    visibility: hidden;
+}
+
+ul.menufornitori{
+  z-index: 999;
+  background-color: #7986cb;
+  width: 70%;
+  padding-right: 150px;
+    position: absolute;
+    top: 15%;
     margin-left: 535%;
     visibility: hidden;
 }
