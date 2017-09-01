@@ -67,4 +67,62 @@ angular.module('myApp.controllers')
         */
     }
 
+}])
+.controller('showSupplierController', ['$scope', 'SupplierService','$compile', function($scope, SupplierService, $compile){
+    console.log("showSupplierController");
+
+    $scope.showSupplier = function(){
+
+        console.log("ShowSupplier");
+        SupplierService.getAllSupplier()
+        .then(function(data){
+
+            console.log(data);
+
+            data = data.data.data;
+
+            console.log(data);
+
+            var table = "<table style='margin-left: 45%;'><tr><th>Nome</th>"+
+                        "<th>Email</th>"+
+                        "<th>Numero Tel.</th>"+
+                        "<th>Via</th>"+
+                        "<th>Città</th>"+
+                        "<th>CAP</th>"+
+                        "<th>Rimuovi fornitore</th></tr>";
+
+            for(i=0;i<data.length;i++){
+                
+                removeSupplier = 'removeSupplier("'+data[i].name+'","'+data[i].email+'")';
+
+                table = table + "<tr><td>"+data[i].name+"</td>"+
+                                "<td>"+data[i].email+"</td>"+
+                                "<td>"+data[i].ntel+"</td>"+
+                                "<td>"+data[i].via+"</td>"+
+                                "<td>"+data[i].city+"</td>"+
+                                "<td>"+data[i].cap+"</td>"+
+                                "<td><button ng-click='"+removeSupplier+"'>Rimuovi utente</button></td></tr>";
+            }
+
+            table = table + "</table>";
+
+            console.log(table);
+
+            angular.element(document.getElementById('showSupplierDiv')).append($compile(table)($scope));
+
+        })
+    }
+
+    $scope.removeSupplier = function(par1,par2){
+
+        console.log(par1);
+        console.log(par2);
+
+        /*
+        CurrentUserService.removeUser(par1, par2)
+        .then(function(data){
+            console.log(data);
+        })
+        */
+    }
 }]);

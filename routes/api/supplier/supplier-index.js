@@ -51,7 +51,7 @@ supplierRoutes.post('/add', function(req, res)
                       });
             });
 
-supplierRoutes.get('/all', function(req,res){
+supplierRoutes.post('/all', function(req,res){
   supplier_utilities.getAllSupplier()
   .then(function(supplier){
     console.log("\n\nUser: "+supplier);
