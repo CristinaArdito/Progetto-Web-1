@@ -12,7 +12,7 @@ angular.module('myApp.controllers')
 
             console.log(data);
 
-            var table = "<table style='margin-left: 45%;'><tr><th>Nome</th>"+
+            var table = "<table cellspacing='0'><tr><th>Nome</th>"+
                         "<th>Email</th>"+
                         "<th>Password</th>"+
                         "<th>Admin</th>"+
@@ -29,7 +29,7 @@ angular.module('myApp.controllers')
                                 "<td>********</td>"+
                                 "<td>"+data[i].admin+"</td>"+
                                 "<td><button ng-click='"+removeUser+"'>Rimuovi utente</button></td>"+
-                                "<td><button ng-click='"+promoteAdmin+"'>Promuovi ad Admin</button></td></tr>";
+                                "<td><button class='promote' ng-click='"+promoteAdmin+"'>Promuovi ad Admin</button></td></tr>";
             }
 
             table = table + "</table>";
@@ -83,7 +83,7 @@ angular.module('myApp.controllers')
 
             console.log(data);
 
-            var table = "<table style='margin-left: 45%;'><tr><th>Nome</th>"+
+            var table = "<table cellspacing='0'><tr><th>Nome</th>"+
                         "<th>Email</th>"+
                         "<th>Numero Tel.</th>"+
                         "<th>Via</th>"+
@@ -101,7 +101,7 @@ angular.module('myApp.controllers')
                                 "<td>"+data[i].via+"</td>"+
                                 "<td>"+data[i].city+"</td>"+
                                 "<td>"+data[i].cap+"</td>"+
-                                "<td><button ng-click='"+removeSupplier+"'>Rimuovi utente</button></td></tr>";
+                                "<td><button class='supplier' ng-click='"+removeSupplier+"'>Rimuovi fornitore</button></td></tr>";
             }
 
             table = table + "</table>";

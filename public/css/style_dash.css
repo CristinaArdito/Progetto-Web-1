@@ -118,7 +118,7 @@
 .menu .down2 {
   width: 100%;
    background: url("../img/icon/arrows-black.png")  no-repeat;
-   background-position: left 115px top 8px;
+   background-position: left 120px top 8px;
 } 
 
 
@@ -253,7 +253,7 @@ ul.menufornitori{
   float: left;
   width: 23%;
   margin-left: 17%;
-  margin-top: 5%;
+  margin-top: 2%;
   background-color: #F4F7F7;
   color: #000;
   border-radius: 16px;
@@ -274,8 +274,7 @@ ul.menufornitori{
 .product h2 {
   text-align: center;
   text-transform: uppercase;
-  margin: 1.4em 0 .2em;
-  
+  margin: 0.8em 0 .4em;
 }
 
 .product ul{
@@ -291,7 +290,6 @@ ul.menufornitori{
 
 .product li:first-child{
   padding: 1.8em;
-  background-color: #e4e7e7;
   font-size: 1.6em;
   text-shadow: 0px -1px 1px #000;
 }
@@ -338,6 +336,85 @@ button.btn:focus {
 .noproduct span {
   font-size: 1.2em;
   margin-left: 5%;
+}
+
+/* ------- AGGIUNGI PRODOTTO ------- */
+
+.titleadd {
+  margin-left: 50%;
+  margin-top: 1%;
+}
+
+#addProducts {
+  position: relative;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+
+#addProducts br {
+  margin: 7px;
+}
+
+#addProducts input[type="text"] {
+  padding: 3px;
+  width: 250px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: Black;
+}
+
+#addProducts input[type="text"]:focus {
+    width: 400px;
+    transition: ease-in-out, width .35s ease-in-out;
+}
+
+#addProducts input[type="number"] {
+  padding: 3px;
+  width: 150px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: Black;
+}
+
+#addProducts .desc {
+  position: relative;
+  top: -40px;
+}
+#addProducts textarea{
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: Black;
+}
+
+#addProducts button{
+  cursor: pointer;
+  margin-top: 2.5%;
+  width: 160px;
+  padding: 8px 0;
+  display: block;
+  
+  border-radius: 14px;
+  color: #F4F7F7;
+  text-decoration: none;
+  font-size: 1.1em;
+  
+  text-shadow: 0px -1px 2px #000;
+  
+  border: 1px solid #607176;
+  
+  background: #607176;
+  background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+    background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+}
+
+#addProducts button:hover,
+#addProducts button:focus {
+  background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+    background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
 /* ------- ORDINI ------- */
@@ -391,11 +468,116 @@ button.btn:focus {
   background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
+/* -------- USER PAGE --------- */
+#contUser {
+  width: 85%;
+  margin-left: 15%;
+  height: auto;
+}
+
+#contSupplier {
+  width: 85%;
+  margin-left: 15%;
+  height: auto;
+}
+
+.tableUser {
+  border: 1px solid #327a81;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 2em);
+  margin-top: 3%;
+  margin-left: 17%;
+  overflow: hidden;
+  width: 65%;
+}
+
+.headerUser {
+  background-color: #91ced4;
+  color: Black;
+  font-size: 1.5em;
+  padding: 1rem;
+  text-align: center;
+}
+
+.tableUser table {
+  width: 100%;
+}
+
+.tableUser table th{
+  color: Black;
+}
+
+.tableUser table td, table th {
+  color: #2b686e;
+  padding: 10px;
+}
+.tableUser table td {
+  text-align: center;
+  vertical-align: middle;
+}
+.tableUser table td:last-child {
+  font-size: 0.95em;
+  line-height: 1.4;
+  text-align: left;
+}
+.tableUser table th {
+  background-color: #daeff1;
+  font-weight: 300;
+}
+.tableUser table tr:nth-child(2n) {
+  background-color: white;
+}
+.tableUser table tr:nth-child(2n+1) {
+  background-color: #edf7f8;
+}
+
+.tableUser button{
+  cursor: pointer;
+  float: left;
+  width: 110px;
+  margin-left: 18%;
+  padding: 5px 0;
+  display: block;
+  
+  border-radius: 14px;
+  color: White;
+  text-decoration: none;
+  font-size: 0.9em;
+  
+  text-shadow: 0px -1px 2px #000;
+  
+  border: 1px solid #607176;
+  
+  background: #607176;
+  background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+    background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+}
+
+.tableUser .promote {
+    width: 140px;
+}
+
+.tableUser .supplier {
+    width: 140px;
+    margin-left: 0%;
+}
+
+.tableUser button:hover,
+.tableUser button:focus {
+  background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+}
+
 /* Desktop */
 @media screen and (min-device-width: 1600px) and (max-device-width: 2000px){
 
     .menu ul li{ 
-      font-size: 0.9em; 
+      font-size: 1.0em; 
     } 
     .product li:first-child{
       padding: 2.1em;
@@ -406,10 +588,11 @@ button.btn:focus {
 
 /* Laptop */
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px){
+
     * {
     	font-size: 0.99em;
     }
-    /*------- MENU -------*/
+
     .nav {
       top: 8.6%;
       height: 138%;
@@ -446,10 +629,28 @@ button.btn:focus {
       padding: 4px;
     }
 
-  button.btn{
-    width: 110px;
-    padding: 9px 0;
-  }
+    button.btn{
+      width: 110px;
+      padding: 9px 0;
+    }
+
+    .tableUser button{
+      margin-left: 15%;
+    }  
+
+    .tableUser .promote {
+      margin-left: 3%;
+    }
+
+    .tableUser .supplier {
+      margin-left: 3%;
+      width: 130px;
+    }
+
+    .tableUser {
+        width: 75%;
+          margin-left: 12%;
+    }
 
 } /* End laptop */
 
