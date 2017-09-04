@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser', {limit: '3mb'});
 var Q           = require('q');          // Q promise
 var mongoose    = require('mongoose');   // models for Mongo
 mongoose.Promise = require('q').Promise;
@@ -37,6 +37,9 @@ app.get('/', function(req, res) {
 	res.render('index');
 	
 });
+
+app.use(bodyParser.json({limit: '3mb'}));
+app.use(bodyParser.urlencoded({limit: '3mb'}));
 
 
 // =======================
