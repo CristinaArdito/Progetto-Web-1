@@ -31,11 +31,12 @@ this.addSupplier = function(supplier)
              .then(function(supplier)
                 {
                  console.log("Dovrebbe essere salvato");
-                 logger.debug('utente salvato '+JSON.stringify(supplier));
                  deferred.resolve(supplier);
                 })
               .catch(function(err)
                  {
+                   console.log("Errore");
+                   console.log(err);
                   if (err.code == ERR_DB_DUPLICATE_KEY)
                       {deferred.reject({code:'ERR_DB_DUPLICATE_KEY', 
                                         msg:'questo utente esiste gia'}); }

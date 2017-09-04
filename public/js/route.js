@@ -76,6 +76,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/showSupplier.ejs',
                 controller  : 'showSupplierController'
             })
+            .when('/addSupplier', {
+                templateUrl : 'views/addSupplier.ejs',
+                controller  : 'addSupplierController'
+            })
         
 
         //======================================================================
