@@ -338,7 +338,7 @@ button.btn:focus {
   margin-left: 5%;
 }
 
-/* ------- AGGIUNGI PRODOTTO ------- */
+/* ------- AGGIUNGI PRODOTTO & FORNITORE ------- */
 
 .titleadd {
   margin-left: 50%;
@@ -351,11 +351,17 @@ button.btn:focus {
   margin-top: 3%;
 }
 
-#addProducts br {
+#addSupplier {
+  position: relative;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+
+#addProducts br , #addSupplier br {
   margin: 7px;
 }
 
-#addProducts input[type="text"] {
+#addProducts input[type="text"] , #addSupplier input[type="text"] {
   padding: 3px;
   width: 250px;
   border-radius: 3px;
@@ -363,7 +369,7 @@ button.btn:focus {
   border-color: Black;
 }
 
-#addProducts input[type="text"]:focus {
+#addProducts input[type="text"]:focus, #addSupplier input[type="text"]:focus {
     width: 400px;
     transition: ease-in-out, width .35s ease-in-out;
 }
@@ -386,7 +392,7 @@ button.btn:focus {
   border-color: Black;
 }
 
-#addProducts button{
+#addProducts button, #addSupplier button{
   cursor: pointer;
   margin-top: 2.5%;
   width: 160px;
@@ -409,8 +415,8 @@ button.btn:focus {
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
-#addProducts button:hover,
-#addProducts button:focus {
+#addProducts button:hover, #addSupplier button:hover,
+#addProducts button:focus, #addSupplier button:focus {
   background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
     background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
