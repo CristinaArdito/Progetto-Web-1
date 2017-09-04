@@ -1,4 +1,6 @@
-angular.module('myApp.controllers').controller("dashomeController", function ($scope, $compile) {
+angular.module('myApp.controllers')
+.controller("dashomeController", ['$scope', '$compile', 'CurrentUserService', 'ProductsHandleService', 
+function ($scope, $compile, CurrentUserService, ProductsHandleService) {
 
 
   $scope.chartOne = function() {
@@ -88,6 +90,27 @@ angular.module('myApp.controllers').controller("dashomeController", function ($s
              "</canvas>"; 
     angular.element(document.getElementById('chartfour')).append($compile(chart)($scope));
 
-  }  
+  }
+  
+  $scope.countUser = function(){
+    
+    CurrentUserService.getAllUser()
+    .then(function(data){
 
-});
+      var number = "<h2>"+data.data.length+"</h2>New Users";
+      angular.element(document.getElementById('userCount')).append($compile(number)($scope));
+    })
+  }
+
+  $scope.countProducts = function(){
+    
+    ProductsHandleService.getAllProducts()
+    .then(function(data){
+
+      console.log(data);
+      var number = "<h2>"+data.length+"</h2>Products";
+      angular.element(document.getElementById('productCount')).append($compile(number)($scope));
+    })
+  }
+
+}]);
