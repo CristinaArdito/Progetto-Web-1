@@ -6,10 +6,10 @@ var Schema = mongoose.Schema;
 var Supplier = mongoose.model('Supplier', new Schema({ 
     name    : { type:String , unique:true, required:true },
     email   : String,
-    ntel : Number,
+    ntel : String,
     city : String,
     via : String,
-    cap : Number
+    cap : String
 }));
 
 module.exports = Supplier;
