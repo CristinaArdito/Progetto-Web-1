@@ -45,7 +45,7 @@
     width: auto
 }
 .ng-fader-pagination li {
-    background-color: #fff;
+    background-color: Black;
     border-radius: 10px;
     display: inline-block;
     height: 12px;
@@ -59,7 +59,7 @@
     margin: 4px 4px 4px 20px;
 }
 .ng-fader-pagination li.current {
-    background-color: #666
+    background-color: #666;
 }
 .ng-fader-controls {
     bottom: 10px;
@@ -88,14 +88,14 @@
     display: inline-block;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-left: 15px solid #FFF;
+    border-left: 15px solid #000000;
     cursor: pointer
 }
 .ngfader-play.active {
     border-left: 15px solid #666
 }
 .ngfader-stop {
-    background-color: #FFF;
+    background-color: #000000;
     height: 15px;
     margin: 0;
     display: inline-block;
@@ -106,7 +106,7 @@
     background-color: #666
 }
 .ngfader-pause {
-    background-color: #FFF;
+    background-color: #000000;
     height: 15px;
     margin: 0;
     width: 5px;
@@ -114,7 +114,7 @@
     display: inline-block
 }
 .ngfader-pause:after {
-    background-color: #FFF;
+    background-color: #000000;
     height: 15px;
     margin-left: 3px;
     width: 5px;
@@ -129,7 +129,7 @@
 }
 .ngfader-forward {
     border-bottom: 8px solid transparent;
-    border-left: 8px solid #FFF;
+    border-left: 8px solid #000000;
     border-top: 8px solid transparent;
     height: 0;
     margin: 0;
@@ -139,7 +139,7 @@
 }
 .ngfader-forward:after {
     border-bottom: 8px solid transparent;
-    border-left: 8px solid #FFF;
+    border-left: 8px solid #000000;
     border-top: 8px solid transparent;
     bottom: 8px;
     content: "";
@@ -156,7 +156,7 @@
 }
 .ngfader-back {
     border-bottom: 8px solid transparent;
-    border-right: 8px solid #FFF;
+    border-right: 8px solid #000000;
     border-top: 8px solid transparent;
     height: 0;
     margin: 0;
@@ -166,7 +166,7 @@
 }
 .ngfader-back:after {
     border-bottom: 8px solid transparent;
-    border-right: 8px solid #FFF;
+    border-right: 8px solid #000000;
     border-top: 8px solid transparent;
     bottom: 8px;
     content: "";

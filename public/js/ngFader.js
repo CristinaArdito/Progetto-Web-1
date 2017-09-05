@@ -10,20 +10,17 @@
 
 		//List your images here. 
 		scope.images = [{
-			src: '../public/img/img00.jpg',
-			alt: 'The Beach'
+			src: '../public/img/slideshow1.jpg',
+			alt: 'Master Cart Record'
 		}, {
-			src: '../public/img/img01.jpg',
-			alt: 'The Beach'
+			src: '../public/img/slideshow2.jpg',
+			alt: 'Master Cart Record'
 		}, {
-			src: '../public/img/img02.jpg',
-			alt: 'The Beach'
+			src: '../public/img/slideshow3.jpg',
+			alt: 'Master Cart Record'
 		}, {
-			src: '../public/img/img03.jpg',
-			alt: 'The Beach'
-		}, {
-			src: '../public/img/img04.jpg',
-			alt: 'The Beach'
+			src: '../public/img/slideshow4.jpg',
+			alt: 'Master Cart Record'
 		}];
 
 		/*****************************************************
