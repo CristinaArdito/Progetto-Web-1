@@ -32,35 +32,82 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
         angular.element(document.getElementById('productForm')).empty();
     }
 
+    $scope.showContent = function(value,x,y){
+        
+        var prodotti = "";
+        for (i = x; i < y; i++) {
+
+            if(i>=value.length) break;
+
+            background = 'background: url("'+value[i].url+'") no-repeat;'+
+                            '  background-size: 55%; margin-left: 32%;';
+
+                nParam = 'redirectToOrder("'+i+'");';
+                prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
+                                        "<ul><li style='"+background+"'></li>"+
+                                        "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
+                                        "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
+                                        "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
+                                        "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
+                                        "</ul></div>";
+        }
+
+        angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+    }
+
+
+    //=============================================================================================
+    //Pager per creazione pagine
+    $scope.showPager = function(index){
+        
+        var total = DataService.get_nonreset().length;
+        var pages = Math.ceil(total/4);
+
+        html = "<div style='margin-top: 5%;'><button id='prev' ng-click='Previous("+index+")'>Precedente</button>";
+
+        for(i=0;i<pages;i++){
+            if(i==index){
+                html += "<button style='background: #3576B6;' ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
+            }else html += "<button ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
+        }
+
+        html += "<button id='succ' ng-click='Succesive("+index+")'>Successivo</button></div>";
+
+        angular.element(document.getElementById('productForm')).append($compile(html)($scope));
+
+        
+    }
+
+    $scope.showPage = function(n){
+        
+        angular.element(document.getElementById('productForm')).empty();
+        $scope.showContent(DataService.get_nonreset(),n,(n+4));
+        $scope.showPager((n/4));
+    }
+
+    $scope.Previous = function(index){
+        if(index > 0){
+            $scope.showPage((index-1)*4);
+        }
+    }
+
+    $scope.Succesive = function(index){
+        if(((index+1)*4) < DataService.get_nonreset().length){
+            $scope.showPage((index+1)*4);
+        }
+    }
+    //=============================================================================================
+
+
     $scope.showProducts = function(data){
         if(data == 0){
             this.Delete();
             ProductsHandleService.getAllProducts()
             .then(function(value){
-                
-                var prodotti = "";
-                var nNome = ""
 
-                console.log("Stampa prodotti");
-                console.log(value);
-                
-
-                for (i = 0; i < value.length; i++) {
-
-                    background = 'background: url("'+value[i].url+'") no-repeat;'+
-                                 '  background-size: 55%; margin-left: 32%;';
-
-                        nParam = 'redirectToOrder("'+i+'");';
-                        prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
-                                                "<ul><li style='"+background+"'></li>"+
-                                                "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
-                                                "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
-                                                "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
-                                                "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
-                                                "</ul></div>";
-                    }
-
-                    angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+                DataService.set(value);
+                $scope.showContent(value,0,4);
+                $scope.showPager(0);
             });
         }else{
             this.Delete();
@@ -68,30 +115,14 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
             .then(function(value){
                 
                 value = value.data;
-                var prodotti = "";
-                var nNome = ""
-
 
                 if(value.length == 0){
                     prodotti = "<div class='noproduct'><span>Nessun prodotto nella categoria: "+data+"</span></div>"
                     angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
                 }else{
-                    for (i = 0; i < value.length; i++) {
-                        
-                    background = 'background: url("'+value[i].url+'") no-repeat;'+
-                                 '  background-size: 55%; margin-left: 32%;';
-
-                            nParam = 'redirectToOrder("'+i+'");';
-                            prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
-                                                    "<ul><li style='"+background+"'></li>"+
-                                                    "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
-                                                    "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
-                                                    "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
-                                                    "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
-                                                    "</ul></div>";
-                        }
-
-                        angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+                    DataService.set(value);
+                    $scope.showContent(value,0,4);
+                    $scope.showPager(0);
                 }
             });
         }
@@ -131,25 +162,8 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                 angular.element(document.getElementById('productForm')).append($compile(message)($scope));
             }
 
-            var prodotti = "";
-            var nNome = ""
-
-            for (i = 0; i < value.length; i++) {
-
-                    background = 'background: url("'+value[i].url+'") no-repeat;'+
-                                 '  background-size: 55%; margin-left: 32%;';
-
-                    nParam = 'redirectToOrder("'+i+'");';
-                    prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
-                                            "<ul><li style='"+background+"'></li>"+
-                                            "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
-                                            "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
-                                            "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
-                                            "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
-                                            "</ul></div>";
-            }
-
-            angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
+            $scope.showContent(value,0,4);
+            $scope.showPager();
        });
    }
 }])
