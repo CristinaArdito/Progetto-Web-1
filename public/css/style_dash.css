@@ -593,7 +593,7 @@ button.btn:focus {
 
 
 /* Laptop */
-@media screen and (min-device-width: 1200px) and (max-device-width: 1600px){
+@media screen and (min-device-width: 1200px) and (max-device-width: 1400px){
 
     * {
     	font-size: 0.99em;
@@ -661,4 +661,70 @@ button.btn:focus {
 } /* End laptop */
 
 
+/* Laptop */
+@media screen and (min-device-width: 1400px) and (max-device-width: 1600px){
 
+    * {
+    	font-size: 1em;
+    }
+
+    .nav {
+      top: 7.6%;
+      height: 138%;
+    }
+
+    .menu ul li:hover ul {
+     width: 90%;
+    }
+
+    ul.menuordini{
+      top: 7.5%;
+    }  
+
+    ul.menuprodotti{
+      width: 75%;
+      top: 3.5%;
+    }
+
+    ul.menufornitori{
+      width: 80%;
+      top: 12%;
+    }  
+
+    .table {
+      margin-top: -60%;
+    }
+
+    .product {
+      float: left;
+      width: 23%;
+    }
+
+    .product li{
+      padding: 4px;
+    }
+
+    button.btn{
+      width: 110px;
+      padding: 9px 0;
+    }
+
+    .tableUser button{
+      margin-left: 15%;
+    }  
+
+    .tableUser .promote {
+      margin-left: 3%;
+    }
+
+    .tableUser .supplier {
+      margin-left: 3%;
+      width: 130px;
+    }
+
+    .tableUser {
+        width: 75%;
+          margin-left: 12%;
+    }
+
+} /* End laptop */
