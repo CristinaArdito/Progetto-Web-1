@@ -136,7 +136,8 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
             for (i = 0; i < value.length; i++) {
 
-                background = 'background: url("'+value[i].url+'"); no-repeat;'
+                    background = 'background: url("'+value[i].url+'") no-repeat;'+
+                                 '  background-size: 55%; margin-left: 32%;';
 
                     nParam = 'redirectToOrder("'+i+'");';
                     prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
