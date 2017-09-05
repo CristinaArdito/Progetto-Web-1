@@ -85,7 +85,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                             prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                                     "<ul><li style='"+background+"'></li>"+
                                                     "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
-                                                    "<li>Categoria: <span>"+value[i].name+"</span></li>"+
+                                                    "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
                                                     "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
                                                     "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
                                                     "</ul></div>";
@@ -142,7 +142,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                     prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                             "<ul><li style='"+background+"'></li>"+
                                             "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
-                                            "<li>Categoria: <span>"+value[i].name+"</span></li>"+
+                                            "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
                                             "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
                                             "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
                                             "</ul></div>";
@@ -171,7 +171,6 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         console.log(data[0]);
         data[1] = angular.element(document.getElementById("code"))[0].value;
         data[2] = angular.element(document.getElementById("selectionForm"))[0].value;
-        console.log(data[2]);
         if(data[2].includes(",") == false) data[2] = data[2]+",";
         data[3] = angular.element(document.getElementById("peso"))[0].value;
         data[4] = angular.element(document.getElementById("price"))[0].value;
