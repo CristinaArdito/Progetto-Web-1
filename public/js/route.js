@@ -23,6 +23,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
             .when('/who', {
                 templateUrl : 'views/who.ejs'
             })
+            .when('/useraccount', {
+                templateUrl : 'views/user.ejs',
+                controller  : 'userController'
+            })
             .when('/cart', {
                 templateUrl : 'views/cart.ejs',
                 controller  : 'cartController'
