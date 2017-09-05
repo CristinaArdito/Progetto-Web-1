@@ -8,52 +8,18 @@
       <hr>
   </div>
   <div class="prod">
-          <div class="img"></div>
-          <div class="nomeprod">Samsung Galaxy S8</div>
-            <div class="descr">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco.."
-            </div>
-            <div class="prezzoprod">&euro;549.00</div>
-            <div class="buttoncontainer"><button type="submit" id="submitbutton" ng-click="remove()">Elimina</button></div>
-            <div class="qtacart"><input type="number" min="0" value='0' id="q"></input></div>
-            <div class="tot">&euro;549.00</div> 
-           <br><br><br>
-
-          <div class="img"></div>
-          <div class="nomeprod">Samsung Galaxy S8</div>
-            <div class="descr">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco.."
-            </div>
-            <div class="prezzoprod">&euro;549.00</div>
-             <div class="buttoncontainer"><button type="submit" id="submitbutton" ng-click="remove()">Elimina</button></div>
-            <div class="qtacart"><input type="number" min="0" value='0' id="q"></input></div>
-            <div class="tot">&euro;549.00</div>
-
-          <br><br><br>
-          <div class="img"></div>
-          <div class="nomeprod">Samsung Galaxy S8</div>
-            <div class="descr">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco.."
-            </div>
-            <div class="prezzoprod">&euro;549.00</div>
-             <div class="buttoncontainer"><button type="submit" id="submitbutton" ng-click="remove()">Elimina</button></div>
-            <div class="qtacart"><input type="number" min="0" value='0' id="q"></input></div>
-            <div class="tot">&euro;549.00</div>
-            </div>
-
-            <hr>
-              <div class="subtotaltit">Totale</div><div class="subtotal">&euro;1000</div>
-              <div class="taxtit">Tasse (%22)</div><div class="tax">&euro;220</div>  
-              <div class="shippingtit">Spese di spedizione</div><div class="shipping">&euro;10</div>
-              <div class="grantotaltit">Prezzo finale</div><div class="grantotal">&euro;1230</div> 
-              <div class="buttoncontainer2"><button type="submit" id="submitbutton" ng-click="checkout()">Acquista</button></div>   
-</div>
-        <footer class="footer">
-            <div class="titlefooter">Master Cart Record</div>
-          
-                Ardito Cristina &nbsp;&nbsp; Contigiani Mattia &nbsp;&nbsp; Ribera Marco  &nbsp;&nbsp;&copy;2017 - All rights reserved.
-        </footer>
+  <div id="showProduct" ng-init="getCart()">
+  </div>
+  <div>
+      <hr><div class="subtotaltit">Totale</div><div class="subtotal" ng-model="subtotal">&euro; {{ subtotal }}</div>
+      <div class="taxtit">Tasse (22%)</div><div class="tax" ng-model="tax">&euro; {{ tax }}</div>
+      <div class="shippingtit">Spese di spedizione</div><div class="shipping">&euro; 8</div>
+      <div class="grantotaltit">Prezzo finale</div><div class="grantotal" ng-model="total">&euro; {{ total }}</div>
+      <div class="buttoncontainer2"><button type="submit" id="submitbutton" ng-click="checkout()">Acquista</button></div></hr>
+  </div>
+  <footer class="footer">
+      <div class="titlefooter">Master Cart Record</div>
+    
+          Ardito Cristina &nbsp;&nbsp; Contigiani Mattia &nbsp;&nbsp; Ribera Marco  &nbsp;&nbsp;&copy;2017 - All rights reserved.
+  </footer>
                     
