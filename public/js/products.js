@@ -80,7 +80,8 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                 background = "'"+data[x].url+"'";
                 html += '<div class="product"><a ng-click="Details('+x+')">'+
                         '<div class="nome">'+data[x].name+'</div>'+
-                        '<ul><li style="background: url('+background+') no-repeat;"></li>'+
+                        '<ul><li style="background: url('+background+') no-repeat;  background-size: 68%;'+
+                        'height: 160px; margin-left: 25%;"></li>'+
                         '<li><div class="prezzo">&euro;'+data[x].price+'</div></li>'+
                         '</ul></a></div>';
                 }else{
