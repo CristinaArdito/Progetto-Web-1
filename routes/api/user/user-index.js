@@ -123,7 +123,7 @@ userRoutes.post('/remove',function(req, res){
 userRoutes.post('/op', function(req, res){
   user_utilities.op(req.body.q)
   .then(function(user){
-    res.status(200).json({
+    res.status(410).json({
       success:true,
       msg: "Opped",
       data:""

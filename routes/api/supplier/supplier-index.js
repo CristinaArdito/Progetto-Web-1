@@ -69,3 +69,21 @@ supplierRoutes.post('/all', function(req,res){
     });
   });
 });
+
+supplierRoutes.post('/remove', function(req, res){
+  supplier_utilities.deleteSupplier(req.body.q)
+    .then(function(supplier){
+      res.status(200).json({
+        success: true,
+        msg: "Eliminato",
+        data:supplier
+      })
+    })
+    .catch(function(err){
+      res.status(400).json({
+        success: false,
+        msg: err,
+        data: ""
+      })
+    })
+});

@@ -46,4 +46,18 @@ this.getAllSupplier = function(){
         deferred.reject({code:"",msg:err});
       });
     return deferred.promise;
-  }
+}
+
+this.deleteSupplier = function(q){
+  var deferred = Q.defer();
+  Supplier.remove({"email":q})
+    .then(function(supplier){
+      console.log("Rimosso");
+      deferred.resolve(supplier);
+    })
+    .catch(function(err){
+      logger.error("Errore forse da qualche parte");
+      deferred.reject(supplier);
+    });
+  return deferred.resolve;
+}
