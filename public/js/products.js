@@ -265,7 +265,7 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         background = "'"+data.url+"'";
         html = '<div class="nomeprod">'+data.name+'</div>'+
                '<div class="img" style="background: url('+background+') no-repeat; margin-left: 20%; width: 20%;'+
-                                       'height: 350px; margin-left: 15%; background-size: 100%;'+
+                                       'height: 380px; margin-left: 15%; background-size: 100%;'+
                                        'position: relative"></div>'+
                '<div class="titolodesc">DESCRIZIONE: </div>'+
                '<div class="descr">'+data.desc+'</div>'+
