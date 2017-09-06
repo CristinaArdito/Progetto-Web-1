@@ -388,7 +388,6 @@ text-decoration: none;
 /* Notebook */
 @media only screen and (min-width: 1200px) and (max-width: 1400px){
 
-
     .product {
         height: 260px;
     }
@@ -411,3 +410,26 @@ text-decoration: none;
     }
 }
 
+/* Notebook */
+@media only screen and (min-width: 1400px) and (max-width: 1600px){
+    .product {
+        height: 260px;
+    }
+
+    .product li{
+        padding: 10px;
+    }
+    .product li:first-child{
+      background-size: 73%;
+      height: 200px;
+      margin-left: 20%;
+    }
+
+    .product li:last-child {
+        margin-top: -20%;
+    }
+
+    .footer {
+        margin-top: 49%;
+    }
+}

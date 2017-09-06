@@ -6,7 +6,7 @@
 .container {
     position: absolute;
   margin-top: 6%;
-  margin-left: 40%;
+  margin-left: 37%;
     background: #f9f9f9;
     background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
     background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
@@ -180,8 +180,8 @@ button.btn:focus {
 
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px){
-.container {
-height: 70%;
-margin-top: 3%;
-  margin-left: 35%;
-}    
+    .container {
+        height: 70%;
+        margin-top: 3%;
+        margin-left: 35%;
+    }    
