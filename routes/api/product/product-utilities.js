@@ -94,11 +94,11 @@ this.deleteProduct = function(q){
     Product.remove({"code":q})
         .then(function(product){
             console.log("\n\nProdotto eliminato");
-            defer.resolve();
+            deferred.resolve(product);
         })
-        .catch(function(err){
-            console.log("Errore mentre eliminavo");
-            defer.reject();
-        });
-        return deferred.promise;
+        .catch(function(product){
+            console.log("Qualcosa è andato stroto");
+            deferred.reject(product);
+        })
+    return deferred.promise;
 }

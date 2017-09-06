@@ -101,3 +101,57 @@ userRoutes.post('/all', function(req, res){
       });
     });
 });
+
+userRoutes.post('/remove',function(req, res){
+  user_utilities.deleteUser(req.body.q)
+    .then(function(user){
+      res.status(200).json({
+        success:true,
+        msg: "Rimosso",
+        data:""
+      })
+    })
+    .catch(function(err){
+      res.status(400).json({
+        success: false,
+        msg: err,
+        data:""
+      })
+    })
+});
+
+userRoutes.post('/op', function(req, res){
+  user_utilities.op(req.body.q)
+  .then(function(user){
+    res.status(200).json({
+      success:true,
+      msg: "Opped",
+      data:""
+    })
+  })
+  .catch(function(err){
+    res.status(400).json({
+      success: false,
+      msg: err,
+      data:""
+    })
+  })
+});
+
+userRoutes.post('/deop', function(req, res){
+  user_utilities.deOp(req.body.q)
+  .then(function(user){
+    res.status(200).json({
+      success:true,
+      msg: "DeOpped",
+      data:""
+    })
+  })
+  .catch(function(err){
+    res.status(400).json({
+      success: false,
+      msg: err,
+      data:""
+    })
+  })
+});

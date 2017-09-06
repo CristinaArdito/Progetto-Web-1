@@ -127,7 +127,14 @@ productRoutes.post('/remove',function(req,res){
     product_utilities.deleteProduct(req.body.q)
       .then(function(product){
         res.status(201).json({success: true,
-        msg: "",
+        msg: "Rimosso",
         data:""})
+      })
+      .catch(function(err){
+        res.status(400).json({
+          success: false,
+          msg: err,
+          data:""
+        })
       })
 });

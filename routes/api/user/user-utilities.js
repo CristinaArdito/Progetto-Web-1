@@ -93,3 +93,46 @@ this.getAllUser = function(){
     });
   return deferred.promise;
 }
+
+this.deleteUser = function(q){
+  var deferred = Q.defer();
+  User.remove({"email":q})
+    .then(function(user){
+      console.log("\n\n Rimosso");
+      deferred.resolve(user);
+    })
+    .catch(function(err){
+      console.log("Errore?");
+      deferred.reject(user);
+    });
+  return deferred.promise;
+}
+
+this.op = function(q){
+  var deferred = Q.defer();
+  User.update({"email":q}, {$set:{"admin":true}}, function(err, resoult){
+    if(err){
+      console.log("ops");
+      deferred.reject(resoult);
+    }else{
+      console.log("yeaa");
+      deferred.resolve(resoult);
+    }
+  });
+  return deferred.promise;
+}
+
+this.deOp = function(q){
+  var deferred = Q.defer();
+  User.update({"email":q}, {$set:{"admin":false}}, function(err, resoult){
+    if(err){
+      console.log("ops");
+      deferred.reject(resoult);
+    }else{
+      console.log("yeaa");
+      deferred.resolve(resoult);
+    }
+  });
+  return deferred.promise;
+}
+
