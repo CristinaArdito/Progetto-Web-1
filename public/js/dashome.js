@@ -114,6 +114,9 @@ function ($scope, $compile, CurrentUserService, ProductsHandleService) {
   }
 
 }])
-.controller("dashController", ['DataService' , function(DataService){
-  DataService.reset();
+.controller("dashController", ['$scope', 'DataService' , function($scope, DataService){
+    
+    $scope.resetData = function(){
+      DataService.reset();
+    }
 }]);

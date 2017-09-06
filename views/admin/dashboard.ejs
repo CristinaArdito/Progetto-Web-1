@@ -1,7 +1,7 @@
 <html>
 <link rel="stylesheet" href="../public/css/style_dash.css"/>
 <div class="page">
-  <div class="pageHeader"  ng-init="resetData()">
+  <div class="pageHeader"  ng-init="resetData()" ng-controller="dashController">
    <a ui-sref="dashboard"><div class="titletop">Dashboard</div></a>
   </div>
   <div class="main">
@@ -11,13 +11,13 @@
         <li><div class="iconhome"><a class="home" ui-sref="home" href='#!/'>Homepage</a></div></li>
         <li><div class="iconproduct"><div class="down2"><a class="home">Prodotti</a></div></div>
         <ul class="menuprodotti">
-            <li><a href="#!/offerts">Lista</a></li>
+            <li><a href="#!/offerts" ng-click="resetData()" ng-controller="dashController">Lista</a></li>
             <li><a href="#!/addProduct">Aggiungi prodotto</a></li>
         </ul>
         </li>
         <li><div class="iconorder"><div class="down"><a class="home">Ordini</a></div></div>
         <ul class ="menuordini">
-            <li><a href="#!/orders" ng-click="resetData()">Da ordinare</a></li>
+            <li><a href="#!/orders" ng-click="resetData()" ng-controller="dashController">Da ordinare</a></li>
             <li><a href="#">Ordinati</a></li>
         </ul>
         </li>
