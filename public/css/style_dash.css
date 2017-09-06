@@ -121,34 +121,6 @@
    background-position: left 120px top 8px;
 } 
 
-
-.searchboxproduct {
-  width: 18%;
-  border-radius: 4px;
-  height: 4%;
-  line-height: 30px;
-  margin-left: 18%;
-  margin-top: 1%;
-  background-color: White;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.searchboxproduct input {
-  background-color: #c5cae9;
-  border-radius: 4px;
-  background: url(../img/icon/searchbox.ico) 310px no-repeat;
-  padding-left: 2%;
-  width: 100%;
-  display: inlin-block;
-  height: 34px;
-  color: Black;
-  font-family: "Lato";
-  border: 1px solid Black;
-  font-size: 1em;
-}
-
 ul.menuprodotti{
   z-index: 999;
   background-color: #7986cb;
@@ -188,6 +160,33 @@ ul.menufornitori{
 }
 
 /*------- PRODOTTI ------- */
+.searchboxproduct {
+  width: 18%;
+  border-radius: 4px;
+  height: 4%;
+  line-height: 30px;
+  margin-left: 18%;
+  margin-top: 1%;
+  background-color: White;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.searchboxproduct input {
+  background-color: #c5cae9;
+  border-radius: 4px;
+  background: url(../img/icon/searchbox.ico) 310px no-repeat;
+  padding-left: 2%;
+  width: 100%;
+  display: inlin-block;
+  height: 34px;
+  color: Black;
+  font-family: "Lato";
+  border: 1px solid Black;
+  font-size: 1em;
+}
+
 .panel .title {
   color: White;
   background-color: #4D4D4D;
@@ -245,19 +244,20 @@ ul.menufornitori{
   height: 15%;
 }
 .table {
-  margin-top: -44%;
+  margin-top: -43%;
   margin-left: 35%;
 }
 
 .product {
+  position: relative;
   float: left;
   width: 23%;
   margin-left: 17%;
-  margin-top: 2%;
+  margin-top: 3%;
   background-color: #F4F7F7;
   color: #000;
   border-radius: 16px;
-  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
   -webkit-transition: -webkit-transform 0.4s ease-in-out;
   -moz-transition: -moz-transform 0.4s ease-in-out;
   -o-transition: -o-transform 0.4s ease-in-out;
@@ -265,6 +265,7 @@ ul.menufornitori{
 }
 
 .product:hover {
+  z-index: 999;
   -webkit-transform: scale(1.1, 1.2);
   -moz-transform: scale(1.1, 1.2);
   -o-transform: scale(1.1, 1.2);
@@ -272,9 +273,15 @@ ul.menufornitori{
 }
 
 .product h2 {
+  color: Black !important;
   text-align: center;
   text-transform: uppercase;
   margin: 0.8em 0 .4em;
+  font-size: 1.1em;
+}
+
+.product span{
+  color: #3476B6;
 }
 
 .product ul{
@@ -284,6 +291,7 @@ ul.menufornitori{
 }
 
 .product li{
+  font-size: 1em;
   padding: 8px;
   text-align: center;
 }
@@ -294,27 +302,22 @@ ul.menufornitori{
   text-shadow: 0px -1px 1px #000;
 }
 
-
 button.btn{
   cursor: pointer;
-  width: 160px;
+  width: 140px;
   margin: 0 auto;
-  padding: 12px 0;
+  padding: 9px 0;
   display: block;
-  
   border-radius: 14px;
   color: #F4F7F7;
   text-decoration: none;
   font-size: 1.1em;
-  
   text-shadow: 0px -1px 2px #000;
-  
   border: 1px solid #607176;
-  
   background: #607176;
   background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
@@ -322,7 +325,7 @@ button.btn:hover,
 button.btn:focus {
   background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
@@ -336,6 +339,32 @@ button.btn:focus {
 .noproduct span {
   font-size: 1.2em;
   margin-left: 5%;
+}
+
+.topbutton {
+	width: 14%;
+	height: 3%;
+	position: absolute;
+	margin-top: -2%;
+	margin-left: 47%;
+}
+.topbutton button{
+	cursor: pointer;
+	height: 100%;
+	width: 10%;
+	font-size: 1.1em;
+	background-color: #fff;
+	border: 0px;
+}
+.topbutton #prev, .topbutton #succ{
+	background-color: #fff;
+	border: 0px;
+	cursor: pointer;
+	font-size: 1.1em;
+}
+
+.topbutton #prev:hover, .topbutton #succ:hover{
+	color: #42a5f5;
 }
 
 /* ------- AGGIUNGI PRODOTTO & FORNITORE ------- */
@@ -398,20 +427,16 @@ button.btn:focus {
   width: 160px;
   padding: 8px 0;
   display: block;
-  
   border-radius: 14px;
   color: #F4F7F7;
   text-decoration: none;
   font-size: 1.1em;
-  
-  text-shadow: 0px -1px 2px #000;
-  
+  text-shadow: 0px -1px 2px #000; 
   border: 1px solid #607176;
-  
   background: #607176;
   background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
@@ -419,7 +444,7 @@ button.btn:focus {
 #addProducts button:focus, #addSupplier button:focus {
   background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
@@ -431,6 +456,7 @@ button.btn:focus {
 .title {
   margin-top: 1%;
 }
+
 .reorders {
   text-decoration: none;
   color: Black;
@@ -448,20 +474,16 @@ button.btn:focus {
   margin: 0 auto;
   padding: 8px 0;
   display: block;
-  
   border-radius: 14px;
   color: #F4F7F7;
   text-decoration: none;
-  font-size: 1.1em;
-  
+  font-size: 1.1em; 
   text-shadow: 0px -1px 2px #000;
-  
   border: 1px solid #607176;
-  
   background: #607176;
   background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
@@ -545,20 +567,16 @@ button.btn:focus {
   margin-left: 18%;
   padding: 5px 0;
   display: block;
-  
   border-radius: 14px;
   color: White;
   text-decoration: none;
-  font-size: 0.9em;
-  
+  font-size: 0.9em; 
   text-shadow: 0px -1px 2px #000;
-  
   border: 1px solid #607176;
-  
   background: #607176;
   background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
-    background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
@@ -592,7 +610,7 @@ button.btn:focus {
 } /* End desktop */
 
 
-/* Laptop */
+/* Notebook */
 @media screen and (min-device-width: 1200px) and (max-device-width: 1400px){
 
     * {
@@ -622,10 +640,25 @@ button.btn:focus {
       top: 12%;
     }  
 
+	.searchboxproduct {
+	  width: 22%;
+	}
+
+	.searchboxproduct input {
+	  background: url(../img/icon/searchbox.ico) 260px no-repeat;
+	}
+
+	.panel {
+	  width: 17%;
+	}
+
     .table {
-      margin-top: -60%;
+      margin-top: -58%;
     }
 
+	.topbutton {
+		height: 4%;
+	}	
     .product {
       float: left;
       width: 23%;
@@ -636,8 +669,8 @@ button.btn:focus {
     }
 
     button.btn{
-      width: 110px;
-      padding: 9px 0;
+      width: 105px;
+      padding: 5px 0;
     }
 
     .tableUser button{
@@ -654,14 +687,14 @@ button.btn:focus {
     }
 
     .tableUser {
-        width: 75%;
-          margin-left: 12%;
+       width: 75%;
+       margin-left: 12%;
     }
 
-} /* End laptop */
+} /* End Notebook */
 
 
-/* Laptop */
+/* Notebook 2*/
 @media screen and (min-device-width: 1400px) and (max-device-width: 1600px){
 
     * {
@@ -695,6 +728,10 @@ button.btn:focus {
       margin-top: -60%;
     }
 
+    .topbutton {
+		height: 4%;
+	}
+
     .product {
       float: left;
       width: 23%;
@@ -727,4 +764,4 @@ button.btn:focus {
           margin-left: 12%;
     }
 
-} /* End laptop */
+} /* End Notebook */

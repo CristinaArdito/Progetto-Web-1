@@ -43,7 +43,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                             '  background-size: 55%; margin-left: 32%;';
 
                 nParam = 'redirectToOrder("'+i+'");';
-                prodotti = prodotti + "<div class='product'><h2><span id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
+                prodotti = prodotti + "<div class='product'><h2><span style='color:Black;' id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                         "<ul><li style='"+background+"'></li>"+
                                         "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                         "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
@@ -63,15 +63,15 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
         var total = DataService.get_nonreset().length;
         var pages = Math.ceil(total/4);
 
-        html = "<div style='margin-top: 5%;'><button id='prev' ng-click='Previous("+index+")'>Precedente</button>";
+        html = "<div class='topbutton'><button id='prev' ng-click='Previous("+index+")'>◀</button>";
 
         for(i=0;i<pages;i++){
             if(i==index){
-                html += "<button style='background: #3576B6;' ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
+                html += "<button style='color: #bbdefb;' ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
             }else html += "<button ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
         }
 
-        html += "<button id='succ' ng-click='Succesive("+index+")'>Successivo</button></div>";
+        html += "<button id='succ' ng-click='Succesive("+index+")'>▶</button></div>";
 
         angular.element(document.getElementById('productForm')).append($compile(html)($scope));
 
