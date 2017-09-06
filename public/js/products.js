@@ -72,6 +72,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
             for(i=0;i<n;i++){
 
+               if(i>= data.length) break;
                x = Math.floor(Math.random() * data.length);
                if(numbers[x] == false){
                 

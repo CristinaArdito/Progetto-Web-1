@@ -21,13 +21,13 @@
             <li><a href="#">Ordinati</a></li>
         </ul>
         </li>
-        <li><div class="iconprovider"><div class="down2"><a class="home">Fornitori</a></div></div>
+        <li><div class="iconprovider"><div class="down2"><a class="home" >Fornitori</a></div></div>
         <ul class ="menufornitori">
-            <li><a href="#!/supplier">Lista</a></li>
+            <li><a href="#!/supplier" ng-click="resetData()" ng-controller="dashController">Lista</a></li>
             <li><a href="#!/addSupplier">Aggiungi fornitore</a></li>
         </ul>
         </li>
-        <li><div class="iconuser"><a class="home" href="#!/user">Utenti</a></div></li>
+        <li><div class="iconuser"><a class="home" href="#!/user" ng-click="resetData()" ng-controller="dashController">Utenti</a></div></li>
         </ul>
       </div>
     </div>

@@ -9,8 +9,7 @@ pwApp.service('SupplierService', ['$q','$http',function ($q, $http)
 
         $http.post('././api/supplier/all')
         .then(function(data){
-            console.log(data);
-            deferred.resolve(data);
+            deferred.resolve(data.data.data);
         })
 
         return deferred.promise;
