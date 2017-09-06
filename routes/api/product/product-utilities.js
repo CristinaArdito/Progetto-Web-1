@@ -88,3 +88,17 @@ this.orderProducts = function(){
   console.log("ordine prodotti");
   return deferred.promise;
 }
+
+this.deleteProduct = function(q){
+    var deferred = Q.defer();
+    Product.remove({"code":q})
+        .then(function(product){
+            console.log("\n\nProdotto eliminato");
+            deferred.resolve(product);
+        })
+        .catch(function(product){
+            console.log("Qualcosa è andato stroto");
+            deferred.reject(product);
+        })
+    return deferred.promise;
+}

@@ -28,6 +28,10 @@ pwApp.factory('DataService', function() {
     function getIndice(){
       return indice;
     }
+    function reset(){
+      savedData = null;
+      indice = -1;
+    }
    
     return {
      set: set,
@@ -36,6 +40,7 @@ pwApp.factory('DataService', function() {
      getIndex: getIndex,
      setIndice: setIndice,
      getIndice: getIndice,
+     reset: reset,
     }
    
    })

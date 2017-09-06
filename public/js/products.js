@@ -173,7 +173,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
        param[0] = angular.element(document.getElementById("nNome"+n))[0].innerHTML;
        param[1] = angular.element(document.getElementById("nPrice"+n))[0].innerHTML;
        param[2] = angular.element(document.getElementById("nQuantity"+n))[0].innerHTML;
-       console.log(param);
        $location.path("/orders");
        DataService.set(JSON.stringify(param));
    }
@@ -188,7 +187,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
    $scope.searchProducts = function(){
        var search = angular.element(document.getElementById("searchBox"))[0].value;
        search = search.charAt(0).toUpperCase() + search.slice(1);
-       console.log(search);
        this.Delete();
        ProductsHandleService.getSingleProduct(search)
        .then(function(value){
@@ -196,7 +194,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
             value = value.data;
 
             if(value.length == 0){
-                console.log("Empty")
                 var message = "<div class='noproduct'><span>Nessun prodotto corrispondente a: "+search+"</span></div>";
                 angular.element(document.getElementById('productForm')).append($compile(message)($scope));
             }
@@ -208,7 +205,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
     $scope.Details = function(n){
 
-        console.log("Dettagli");
         DataService.setIndice(n);
         $location.path("/singleproduct");
     }
@@ -229,7 +225,6 @@ function($scope, ProductsHandleService, FileUpload, DataService){
 
         data[0] = angular.element(document.getElementById("name"))[0].value;
         data[0] = data[0].charAt(0).toUpperCase() + data[0].slice(1);
-        console.log(data[0]);
         data[1] = angular.element(document.getElementById("code"))[0].value;
         data[2] = angular.element(document.getElementById("selectionForm"))[0].value;
         if(data[2].includes(",") == false) data[2] = data[2]+",";
@@ -266,9 +261,6 @@ function($scope, ProductsHandleService, FileUpload, DataService){
 
         var indice = DataService.getIndice();
         var data = DataService.getIndex(indice);
-        
-
-        console.log(data);
 
         background = "'"+data.url+"'";
         html = '<div class="nomeprod">'+data.name+'</div>'+

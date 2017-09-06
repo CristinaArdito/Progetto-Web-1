@@ -120,4 +120,21 @@ productRoutes.post('/loadImg', function(req, res){
 
       fs.writeFile(nome, new Buffer(imgData,"base64"));
     }
-  });
+});
+
+productRoutes.post('/remove',function(req,res){
+    console.log(req.body.q);
+    product_utilities.deleteProduct(req.body.q)
+      .then(function(product){
+        res.status(201).json({success: true,
+        msg: "Rimosso",
+        data:""})
+      })
+      .catch(function(err){
+        res.status(400).json({
+          success: false,
+          msg: err,
+          data:""
+        })
+      })
+});

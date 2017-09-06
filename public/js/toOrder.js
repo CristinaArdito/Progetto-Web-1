@@ -3,7 +3,6 @@ angular.module('myApp.controllers')
         function($scope, $compile, $http, $location, DataService, ProductsHandleService) {
     
     $scope.showOrders = function(){
-        console.log("entro in showOrders");
         var data = DataService.get();
         if(data != null){
             showSingleOrder(JSON.parse(data));
@@ -24,18 +23,14 @@ angular.module('myApp.controllers')
                     }
                     
                     prodotti = prodotti + "<br><button type='submit' class='ordbutton' ng-click = 'ordinaProdotto()'>Ordina</button>";
-                    console.log(prodotti);
     
             angular.element(document.getElementById('orderForm')).append($compile(prodotti)($scope));
         });
-        //Bisogna ridefinire la funzione getAllProducts dentro productsHandling
         }
     }
 
     showSingleOrder = function(data){
 
-        console.log("Data da mostrare");
-        console.log(data);
         var prodotti = "";
         var i=0;
         var numProd = 'ordinaProdotto("'+i+'")';
@@ -47,7 +42,6 @@ angular.module('myApp.controllers')
                                             "<input name='prodotto"+i+"' class='num' type='number' min='0' value='0'></input></div><br>";
                 
         prodotti = prodotti + "<br><button type='submit' class='ordbutton' ng-click = '"+numProd+"'>Ordina</button>";
-        // console.log(prodotti);
 
         angular.element(document.getElementById('orderForm')).append($compile(prodotti)($scope));
     }
@@ -78,7 +72,6 @@ angular.module('myApp.controllers')
        }while(angular.element(document.getElementsByName(nome)) != undefined != '0' != 0);
 
        data = [c1,c2];
-       console.log(data);
        $location.path("/orderSuccess");
        $http.post("api/product/orders", {
             'data' : JSON.stringify(data)
