@@ -52,7 +52,6 @@
 }
 
 .product li:first-child{
-  background: url("../img/product/galaxys8.jpg") no-repeat;
   background-size: 65%;
   height: 150px;
   margin-left: 25%;

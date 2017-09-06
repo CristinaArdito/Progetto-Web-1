@@ -1,22 +1,7 @@
 <link rel="stylesheet" href="././public/css/stylehome.css"/>
 <link rel="stylesheet" href="././public/css/stylesingleproduct.css"/>
 			<a href="#"><div class="prec"></div></a>
-<div class="cont">
-      		<div class="nomeprod">Samsung Galaxy S8</div>
-            <div class="img"></div>
-            <div class="titolodesc">DESCRIZIONE: </div>
-            <div class="descr">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
-            								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
-            								Ut enim ad minim veniam, quis nostrud exercitation ullamco.."
-            </div>
-            <div class="titolocat">CATEGORIA: </div> <div class="cat">Smartphone</div>
-            <div class="titolopeso">PESO: </div> <div class="peso">2kg</div>
-            <div class="titoloprez">PREZZO: </div><div class="prezzoprod">&euro;549.00</div>
-            <div class="addtitolo">Aggiungi al carrello:</div>
-            <div class="addproduct"><input name="addproduct" class="inputprod" type="text" min="0" value="0"></input></div>
-            <div class="but"><button type="submit" id="submitbutton" 
-            class="idbutton" ></button></div>
-<div class="iconavv"></div><div class="avviso">Avvisami quando ritornerà disponibile</div>
+<div class="cont" id="signleProduct" ng-init="showSingleProduct()" ng-controller="singleController">
 </div>  
 <footer class="footer">
             <div class="titlefooter">Master Cart Record</div>

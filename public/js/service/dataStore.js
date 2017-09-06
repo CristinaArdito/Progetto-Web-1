@@ -5,6 +5,7 @@ pwApp.factory('DataService', function() {
     console.log("Sono il data storer");
 
     var savedData = null;
+    var indice = -1;
     
     function set(data) {
       savedData = data;
@@ -18,11 +19,23 @@ pwApp.factory('DataService', function() {
       var ret = savedData;
       return ret;
     }
+    function getIndex(index){
+      return savedData[index];
+    }
+    function setIndice(n){
+      indice = n;
+    }
+    function getIndice(){
+      return indice;
+    }
    
     return {
      set: set,
      get: get,
      get_nonreset: get_nonreset,
+     getIndex: getIndex,
+     setIndice: setIndice,
+     getIndice: getIndice,
     }
    
    })

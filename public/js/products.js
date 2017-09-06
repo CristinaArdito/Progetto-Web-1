@@ -55,6 +55,44 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
         angular.element(document.getElementById('productForm')).append($compile(prodotti)($scope));
     }
 
+    $scope.showOfferts = function(n){
+
+        ProductsHandleService.getAllProducts()
+        .then(function(data){
+
+            var html = "";
+            var x;
+
+            DataService.set(data);
+
+            var numbers = [];
+            for(i=0;i<data.length;i++){
+                numbers[i] = false;
+            }
+
+            for(i=0;i<n;i++){
+
+               x = Math.floor(Math.random() * data.length);
+               if(numbers[x] == false){
+                
+                numbers[x] = true;
+
+                background = "'"+data[x].url+"'";
+                html += '<div class="product"><a ng-click="Details('+x+')">'+
+                        '<div class="nome">'+data[x].name+'</div>'+
+                        '<ul><li style="background: url('+background+') no-repeat;"></li>'+
+                        '<li><div class="prezzo">&euro;'+data[x].price+'</div></li>'+
+                        '</ul></a></div>';
+                }else{
+                    i--;
+                }
+            }
+
+            angular.element(document.getElementById('vetrina')).append($compile(html)($scope));
+
+        })
+    }
+
 
     //=============================================================================================
     //Pager per creazione pagine
@@ -165,7 +203,14 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
             $scope.showContent(value,0,4);
             $scope.showPager();
        });
-   }
+    }
+
+    $scope.Details = function(n){
+
+        console.log("Dettagli");
+        DataService.setIndice(n);
+        $location.path("/singleproduct");
+    }
 }])
 .controller('addProductController', ['$scope', 'ProductsHandleService','FileUpload','DataService', 
 function($scope, ProductsHandleService, FileUpload, DataService){
@@ -214,5 +259,34 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         });
     }
 }])
-.controller('singleController', ['$scope', function($scope) {
+.controller('singleController', ['$scope', '$compile', 'DataService', function($scope, $compile, DataService) {
+
+    $scope.showSingleProduct = function(){
+
+        var indice = DataService.getIndice();
+        var data = DataService.getIndex(indice);
+        
+
+        console.log(data);
+
+        background = "'"+data.url+"'";
+        html = '<div class="nomeprod">'+data.name+'</div>'+
+               '<div class="img" style="background: url('+background+') no-repeat;"></div>'+
+               '<div class="titolodesc">DESCRIZIONE: </div>'+
+               '<div class="descr">'+data.desc+'</div>'+
+               '<div class="titolocat">CATEGORIA: </div><div class="cat">'+data.categories[0]+'</div>'+
+               '<div class="titolopeso">PESO: </div> <div class="peso">'+data.weight+'</div>'+
+               '<div class="titoloprez">PREZZO: </div><div class="prezzoprod">&euro;'+data.price+'</div>';
+               if(data.quantity > 0)
+                    html += '<div class="titoloprez">QUANTIT&#193;: </div><div class="prezzoprod">'+data.quantity+'</div>'+
+                            '<div class="addtitolo">Aggiungi al carrello:</div>'+
+                            '<div class="addproduct"><input name="addproduct" class="inputprod" type="text" min="0" value="0"></input></div>'+
+                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton"></button></div>';
+               else html += '<div class="addtitolo">Aggiungi al carrello:</div>'+
+                            '<div class="addproduct"><input name="addproduct" class="inputprod" type="text" min="0" value="0"></input></div>'+
+                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton"></button></div>'+
+                            '<div class="iconavv"></div><div class="avviso">Avvisami quando ritornerà disponibile</div>';
+
+               angular.element(document.getElementById('signleProduct')).append($compile(html)($scope));
+    }
 }]);
