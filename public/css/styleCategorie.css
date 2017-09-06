@@ -134,3 +134,52 @@ text-decoration: none;
   }
 
 }
+
+@media only screen and (min-width: 320px) and (max-width: 1000px){ 
+    .cont .panel {
+      margin-left: 2%;
+      width: 20%;
+    }
+
+  .productcat {
+    width: 93%;
+  }
+
+  .productcat .img {
+    background-size: 15%;
+    height: 120px;
+    margin-left: 1%;
+    margin-top: 2%;
+  }
+
+  .productcat .nome, .descr, .prezzoprod, .disp {
+    margin-left: 16%;
+  }
+
+  .productcat .nome {
+    position: absolute;
+    margin-top: -15%;
+  }
+
+  .productcat .prezzoprod {
+    position: absolute;
+    margin-top: -6%;
+  }
+
+  .productcat .disp {
+    background: url("../img/icon/checked.png") 80px no-repeat;
+    background-size: 10%;
+    width: 20%;
+    position: absolute;
+    margin-top: -3%;
+  }
+    .productcat .descr {
+      width: 75%;
+      margin-top: -11.5%;
+    }
+
+    .footer {
+      margin-top: 100%;
+
+  }
+}  

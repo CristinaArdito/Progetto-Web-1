@@ -284,9 +284,10 @@ text-decoration: none;
 
 }
 .product {
+  cursor: pointer;
   background-color:White;
   float: left;
-  height: 300px;
+  height: 280px;
   width: 48%;
   margin-left: 1%;
   margin-top: 1%;
@@ -334,6 +335,10 @@ text-decoration: none;
   color: #3476B6;
   font-size: 1.3em;
 }
+
+.product li:last-child {
+        margin-top: -3%;
+    }
 .product .nome {
     color: Black;
     padding-top: 7px;
