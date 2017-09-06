@@ -242,3 +242,70 @@ hr {
     margin-top: -10%;
   }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 1000px){
+
+  .prod .img {
+    margin-left: 3%;
+    max-width: 12%;
+    background-size: 100%;
+  }
+
+  .price {
+    margin-top: -2.2%;
+  }
+
+  .qta {
+    margin-top: -2.5%;
+  }
+
+  .total {
+    margin-top: -2.5%;
+  }
+
+  .prod .nomeprod {
+    margin-left: 22%;
+    margin-top: -10.7%;
+  }
+
+  .descr {
+    visibility: hidden;
+  }
+
+  .prezzoprod {
+    margin-left: 49%;
+    margin-top: -10.5%;
+  }
+
+  .qtacart {
+    margin-top: -10.5%;
+  }
+
+  .buttoncontainer {
+    margin-top: -13%;
+      margin-left: 73%;
+  }
+
+  .tot {
+    margin-top: -10.5%;
+  }
+
+  .subtotaltit, .taxtit, .shippingtit, .grantotaltit {
+    margin-left: 70.5%;
+  }
+
+  .subtotal, .tax, .shipping, .grantotal {
+    margin-left: 89%;
+    margin-top: -2.1%;
+  }
+
+  .buttoncontainer2 {
+    margin-left: 86%;
+    margin-top: 2%;
+  }
+
+  .footer {
+      margin-top: 25%;
+
+  }
+}  

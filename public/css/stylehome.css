@@ -575,3 +575,83 @@ text-decoration: none;
         margin-top: 43%;
     }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 1000px){
+
+    .ng-fader-pagination li {
+        height: 6px;
+        padding: 4px;
+
+        width: 6px;
+    }
+
+    .ng-fader-pagination {
+        bottom: 5px;
+    }
+
+    .ng-fader-controls {
+        bottom: 5px;
+    }
+
+    .ng-fader-controls li {
+
+        padding: 0 10px;
+
+    }
+
+    .cont .panel {
+      margin-left: 7%;
+      width: 25%;
+    }
+
+     /* ----- Banner ------ */
+    .banner {
+        margin-left: 75%;
+        background-size: 80%;
+    }
+
+    .banner2 {
+   margin-left: 75%;
+        background-size: 80%;
+        margin-top: -13.1%;
+    }
+
+    .banner3 {
+     margin-left: 75%;
+     background-size: 80%;
+     margin-top: 3.5%;
+    }
+
+    .vetrina {
+        width: 42%;
+
+    }
+    .product {
+        height: 220px;
+        width: 47%;
+    }
+
+    .product .nome {
+    font-size: 1.2em;
+    }
+
+    .product .prezzo{
+      font-size: 1em;
+    }
+
+    .product li{
+        padding: 10px;
+    }
+    .product li:first-child{
+      background-size: 100%;
+      height: 150px;
+      margin-left: 5%;
+    }
+
+    .product li:last-child {
+        margin-top: -15%;
+    }
+    .footer {
+        margin-top: 90%;
+    }
+}    
