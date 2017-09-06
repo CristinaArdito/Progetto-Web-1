@@ -54,7 +54,7 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
             })   
             .when('/offers', {
                 templateUrl : 'views/offers.ejs',
-                controller  : 'offersController'
+                controller  : 'productsController'
             })         
             .when('/offerts', {
                 templateUrl : 'views/products.ejs',
