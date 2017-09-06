@@ -272,7 +272,9 @@ function($scope, ProductsHandleService, FileUpload, DataService){
 
         background = "'"+data.url+"'";
         html = '<div class="nomeprod">'+data.name+'</div>'+
-               '<div class="img" style="background: url('+background+') no-repeat;"></div>'+
+               '<div class="img" style="background: url('+background+') no-repeat; margin-left: 20%; width: 20%;'+
+                                       'height: 350px; margin-left: 15%; background-size: 100%;'+
+                                       'position: relative"></div>'+
                '<div class="titolodesc">DESCRIZIONE: </div>'+
                '<div class="descr">'+data.desc+'</div>'+
                '<div class="titolocat">CATEGORIA: </div><div class="cat">'+data.categories[0]+'</div>'+
@@ -282,7 +284,7 @@ function($scope, ProductsHandleService, FileUpload, DataService){
                     html += '<div class="titoloprez">QUANTIT&#193;: </div><div class="prezzoprod">'+data.quantity+'</div>'+
                             '<div class="addtitolo">Aggiungi al carrello:</div>'+
                             '<div class="addproduct"><input name="addproduct" class="inputprod" type="text" min="0" value="0"></input></div>'+
-                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton"></button></div>';
+                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton"></button></div>'
                else html += '<div class="addtitolo">Aggiungi al carrello:</div>'+
                             '<div class="addproduct"><input name="addproduct" class="inputprod" type="text" min="0" value="0"></input></div>'+
                             '<div class="but"><button type="submit" id="submitbutton" class="idbutton"></button></div>'+

@@ -334,11 +334,8 @@ text-decoration: none;
 .product .prezzo{
   color: #3476B6;
   font-size: 1.3em;
+  margin-top: 7%;
 }
-
-.product li:last-child {
-        margin-top: -3%;
-    }
 .product .nome {
     color: Black;
     padding-top: 7px;

@@ -25,15 +25,6 @@
 	margin-left: 40%;
 }
 
-.img {
-	position: relative;
-	margin-left: 20%;
-	width: 20%;
-	height: 350px;
-	background: url("../img/product/galaxys8.jpg") no-repeat;
-	margin-left: 15%;
-}
-
 .titolodesc {
 	position: relative;
 	margin-left: 40%;
@@ -99,8 +90,8 @@
 
 .but {
 	position: relative;
-    margin-left: 58.30%;
-    margin-top: -1.75%;
+    margin-left: 60.30%;
+    margin-top: -1.98%;
 }
 button{
 
@@ -121,7 +112,7 @@ button{
     border: 1px solid #D69E31;
     color: #85592e;
     cursor: pointer;
-    height: 33.8px;
+    height: 35px;
     width: 50px;
 }
 
