@@ -166,12 +166,12 @@
 
     .product li:first-child{
     
-      background-size: 95%;
+      background-size: 90%;
       height: 200px;
       margin-left: 12%;
     }
     .product li:last-child {
-        margin-top: -60%;
+        margin-top: -50%;
     }
     .footer {
         margin-top: 80%;
