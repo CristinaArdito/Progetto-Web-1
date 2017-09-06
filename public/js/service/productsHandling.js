@@ -5,8 +5,6 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
     this.getAllProducts = function(){
         return $http.post('././api/product/all')
         .then(function(response){
-          console.log("Prodotti trovati: ");
-          console.log(response.data.data);
           return response.data.data;
         })
         .catch(function(status){
