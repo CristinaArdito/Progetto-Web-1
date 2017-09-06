@@ -101,7 +101,7 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
         .state('dashboard', {
            url: '/dashboard',
            templateUrl: 'views/admin/dashboard.ejs',
-           controller: 'mainController'
+           controller: 'dashController'
         });
     })
 

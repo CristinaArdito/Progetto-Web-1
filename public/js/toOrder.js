@@ -3,7 +3,7 @@ angular.module('myApp.controllers')
         function($scope, $compile, $http, $location, DataService, ProductsHandleService) {
     
     $scope.showOrders = function(){
-        console.log("entro in showOrders");
+       // console.log("entro in showOrders");
         var data = DataService.get();
         if(data != null){
             showSingleOrder(JSON.parse(data));
@@ -24,7 +24,7 @@ angular.module('myApp.controllers')
                     }
                     
                     prodotti = prodotti + "<br><button type='submit' class='ordbutton' ng-click = 'ordinaProdotto()'>Ordina</button>";
-                    console.log(prodotti);
+                   // console.log(prodotti);
     
             angular.element(document.getElementById('orderForm')).append($compile(prodotti)($scope));
         });

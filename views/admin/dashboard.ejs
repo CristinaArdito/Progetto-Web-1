@@ -1,7 +1,7 @@
 <html>
 <link rel="stylesheet" href="../public/css/style_dash.css"/>
 <div class="page">
-  <div class="pageHeader">
+  <div class="pageHeader"  ng-init="resetData()">
    <a ui-sref="dashboard"><div class="titletop">Dashboard</div></a>
   </div>
   <div class="main">
@@ -17,7 +17,7 @@
         </li>
         <li><div class="iconorder"><div class="down"><a class="home">Ordini</a></div></div>
         <ul class ="menuordini">
-            <li><a href="#!/orders">Da ordinare</a></li>
+            <li><a href="#!/orders" ng-click="resetData()">Da ordinare</a></li>
             <li><a href="#">Ordinati</a></li>
         </ul>
         </li>
