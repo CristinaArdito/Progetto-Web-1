@@ -8,15 +8,18 @@ pwApp.factory('CartStorage', function() {
     
     function set(data) {
       savedData = data;
+      console.log(savedData);
     }
     function get() {
      return savedData;
     }
     function add(data){
-        if(savedData == []){
+        if(savedData.length == 0){
             savedData[0] = data;
+            console.log(savedData);
         }else{
             savedData[savedData.length] = data;
+            console.log(savedData);
         }
     }
     function remove(index){
@@ -35,7 +38,7 @@ pwApp.factory('CartStorage', function() {
         else return false;
     }
     function setQuantity(index,number){
-        savedData[index][3] = number;
+        savedData[index-1][3] = number;
     }
    
     return {

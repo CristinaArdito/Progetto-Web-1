@@ -280,12 +280,14 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         });
     }
 }])
-.controller('singleController', ['$scope', '$compile', 'DataService', function($scope, $compile, DataService) {
+.controller('singleController', ['$scope', '$compile', 'DataService', 'CartStorage', function($scope, $compile, DataService, CartStorage) {
 
     $scope.showSingleProduct = function(){
 
         var indice = DataService.getIndice();
         var data = DataService.getIndex(indice);
+
+        console.log("PRODOTTO SINGOLO");
 
         background = "'"+data.url+"'";
         html = '<div class="nomeprod">'+data.name+'</div>'+
@@ -300,14 +302,30 @@ function($scope, ProductsHandleService, FileUpload, DataService){
                if(data.quantity > 0)
                     html += '<div class="titoloprez">QUANTIT&#193;: </div><div class="prezzoprod">'+data.quantity+'</div>'+
                             '<div class="addtitolo">Aggiungi al carrello:</div>'+
-                            '<div class="addproduct"><input name="addproduct" class="inputprod" type="text" min="0" value="0"></input></div>'+
-                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton"></button></div>'
+                            '<div class="addproduct"><input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
+                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton" ng-click="addToCart('+indice+')"></button></div>'
                else html += '<div class="addtitolo">Aggiungi al carrello:</div>'+
-                            '<div class="addproduct"><input name="addproduct" class="inputprod" type="text" min="0" value="0"></input></div>'+
+                            '<div class="addproduct">'+
+                            '<input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
                             '<div class="but"><button type="submit" id="submitbutton" class="idbutton"></button></div>'+
                             '<div class="iconavv"></div><div class="avviso">Avvisami quando ritornerà disponibile</div>';
 
                angular.element(document.getElementById('signleProduct')).append($compile(html)($scope));
+    }
+
+    $scope.addToCart = function(index){
+        
+        var item = DataService.getIndex(index);
+        n = angular.element(document.getElementById('addproduct'))[0].value;
+        var toLoad = [item.name,item.desc,item.price,n];
+
+        console.log(index);
+        console.log(toLoad);
+
+        //if(CartStorage.isEmpty()) CartStorage.set(toLoad);
+        //else 
+            CartStorage.add(toLoad);
+        CartStorage.setQuantity(n);
     }
 }])
 .controller('categoryController', ['$scope', '$compile', 'DataService','ProductsHandleService','$location', 
