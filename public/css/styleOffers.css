@@ -3,6 +3,8 @@
   padding: 0;
   width: 100%;
 }
+
+/* ----- Vetrina prodotti ------ */
 .vetrina {
     position: relative;
     width: 88%;
@@ -57,10 +59,12 @@
   height: 150px;
   margin-left: 25%;
 }
+
 .product .prezzo{
   color: #3476B6;
   font-size: 1.3em;
 }
+
 .product .nome {
     color: Black;
     padding-top: 7px;
@@ -94,6 +98,8 @@
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
     }
+
+/* ----- Footer ------ */    
 .footer {
     position: relative;
     background-color: #232f3e;
@@ -106,37 +112,38 @@
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
 }
+
 .titlefooter {
     font-size: 1.2em;
 }
 
 /* Notebook */
 @media only screen and (min-width: 1200px) and (max-width: 1600px){
-    .titolo_vetrina { 
-    width: 820px;
 
+    .titolo_vetrina { 
+        width: 820px;
     }
 
     .product {
-  height: 260px;
+      height: 260px;
+    }
 
-}
-.product li{
-  padding: 10px;
-}
+    .product li{
+      padding: 10px;
+    }
+
     .product li:first-child{
-    
       background-size: 80%;
       height: 200px;
       margin-left: 20%;
     }
+
     .product li:last-child {
         margin-top: -20%;
     }
+
     .footer {
-
         margin-top: 49%;
-
     }
 
 }
@@ -144,7 +151,7 @@
 @media only screen and (min-width: 320px) and (max-width: 1000px){
 
     .titolo_vetrina { 
-    width: 70%;
+        width: 70%;
         left: 14%;
     }
 
@@ -165,14 +172,15 @@
     }
 
     .product li:first-child{
-    
       background-size: 90%;
       height: 200px;
       margin-left: 12%;
     }
+
     .product li:last-child {
         margin-top: -50%;
     }
+    
     .footer {
         margin-top: 140%;
 

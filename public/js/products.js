@@ -51,7 +51,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                                         "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
                                         "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
                                         "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
-                                        "<li><button class='btn' ng-click='"+remove+"'>Rimuovi</button></li>"+
+                                        "<li><button class='btnremove' ng-click='"+remove+"'>Rimuovi</button></li>"+
                                         "</ul></div>";
         }
 

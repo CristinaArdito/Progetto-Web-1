@@ -304,10 +304,31 @@ ul.menufornitori{
 
 button.btn{
   cursor: pointer;
-  width: 140px;
-  margin: 0 auto;
-  padding: 9px 0;
-  display: block;
+  width: 110px;
+  float: left;
+  padding: 5px 0;
+  margin-bottom: 1.5%;
+  margin-left: 8%;
+  border-radius: 14px;
+  color: #F4F7F7;
+  text-decoration: none;
+  font-size: 1.1em;
+  text-shadow: 0px -1px 2px #000;
+  border: 1px solid #607176;
+  background: #607176;
+  background: -o-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -moz-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: -webkit-linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+  background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+}
+
+button.btnremove{
+  cursor: pointer;
+  width: 110px;
+  padding: 5px 0;
+  margin-left: 2%;
+  margin-top: -6%;
+  float: left;
   border-radius: 14px;
   color: #F4F7F7;
   text-decoration: none;
@@ -322,7 +343,9 @@ button.btn{
 }
 
 button.btn:hover,
-button.btn:focus {
+button.btn:focus,
+button.btnremove:hover,
+button.btnremove:focus {
   background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
@@ -529,8 +552,8 @@ button.btn:focus {
 }
 
 #contSupplier {
-  width: 85%;
-  margin-left: 15%;
+  width: 95%;
+  margin-left: 9%;
   height: auto;
 }
 
@@ -545,7 +568,7 @@ button.btn:focus {
   width: 65%;
 }
 
-.headerUser {
+.headerUser{
   background-color: #91ced4;
   color: Black;
   font-size: 1.5em;
@@ -553,11 +576,11 @@ button.btn:focus {
   text-align: center;
 }
 
-.tableUser table {
+.tableUser table{
   width: 100%;
 }
 
-.tableUser table th{
+.tableUser table th {
   color: Black;
 }
 
@@ -724,8 +747,16 @@ button.supplier:focus{
     }
 
     button.btn{
-      width: 105px;
-      padding: 5px 0;
+      width: 85px;
+      padding: 3px 0;
+      margin-left: 4%;
+      margin-bottom: 2.5%;
+    }
+
+    button.btnremove{
+      width: 85px;
+      padding: 3px 0;
+      margin-top: -4.3%;
     }
 
     .tableUser button{
@@ -802,8 +833,16 @@ button.supplier:focus{
     }
 
     button.btn{
-      width: 110px;
-      padding: 9px 0;
+      width: 85px;
+      padding: 3px 0;
+      margin-left: 4%;
+      margin-bottom: 2.5%;
+    }
+
+    button.btnremove{
+      width: 85px;
+      padding: 3px 0;
+        margin-top: -4.3%;
     }
 
     .tableUser button{

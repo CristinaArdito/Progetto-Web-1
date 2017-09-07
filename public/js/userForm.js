@@ -163,7 +163,7 @@ angular.module('myApp.controllers')
         "<th>Via</th>"+
         "<th>Città</th>"+
         "<th>CAP</th>"+
-        "<th>Modifica fornitore</th></tr>"+
+        "<th>Modifica fornitore</th>"+
         "<th>Rimuovi fornitore</th></tr>";
 
         console.log("showSupplierForm");
@@ -182,7 +182,7 @@ angular.module('myApp.controllers')
                         "<td>"+data[i].via+"</td>"+
                         "<td>"+data[i].city+"</td>"+
                         "<td>"+data[i].cap+"</td>"+
-                        "<td><button class='supplier' ng-click='"+modifySupplier+"'>Modifica fornitore</button></td></tr>"+
+                        "<td><button class='supplier' ng-click='"+modifySupplier+"'>Modifica fornitore</button></td>"+
                         "<td><button class='supplier' ng-click='"+removeSupplier+"'>Rimuovi fornitore</button></td></tr>";
         }
 
