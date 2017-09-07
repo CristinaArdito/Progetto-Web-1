@@ -318,39 +318,39 @@ function($scope, ProductsHandleService, FileUpload, DataService){
     $scope.showPager = function(index){
         
         var total = DataService.get_nonreset().length;
-        var pages = Math.ceil(total/4);
+        var pages = Math.ceil(total/10);
 
         html = "<div class='topbutton'><button id='prev' ng-click='Previous("+index+")'>◀</button>";
 
         for(i=0;i<pages;i++){
             if(i==index){
-                html += "<button style='color: #bbdefb;' ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
-            }else html += "<button ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
+                html += "<button style='color: #bbdefb;' ng-click='showPage("+(i*10)+")'>"+(i+1)+"</button>";
+            }else html += "<button ng-click='showPage("+(i*10)+")'>"+(i+1)+"</button>";
         }
 
         html += "<button id='succ' ng-click='Succesive("+index+")'>▶</button></div>";
 
-        angular.element(document.getElementById('productForm')).append($compile(html)($scope));
+        angular.element(document.getElementById('showCat')).append($compile(html)($scope));
 
         
     }
 
     $scope.showPage = function(n){
         
-        angular.element(document.getElementById('productForm')).empty();
-        $scope.showContent(DataService.get_nonreset(),n,(n+4));
-        $scope.showPager((n/4));
+        angular.element(document.getElementById('showCat')).empty();
+        $scope.showContent(DataService.get_nonreset(),n,(n+10));
+        $scope.showPager((n/10));
     }
 
     $scope.Previous = function(index){
         if(index > 0){
-            $scope.showPage((index-1)*4);
+            $scope.showPage((index-1)*10);
         }
     }
 
     $scope.Succesive = function(index){
-        if(((index+1)*4) < DataService.get_nonreset().length){
-            $scope.showPage((index+1)*4);
+        if(((index+1)*10) < DataService.get_nonreset().length){
+            $scope.showPage((index+1)*10);
         }
     }
     //============================================================================================
@@ -368,37 +368,39 @@ function($scope, ProductsHandleService, FileUpload, DataService){
                 for(i=0;i<data.length;i++){
 
                         param = 'showCategories("'+data[i]+'")';
-                        html = html+"<li><a ng-click="+param+">&nbsp; &#x21AA; "+data[i]+"</a></li><hr>";
+                        html = html+"<li><a href ng-click="+param+">&nbsp; &#x21AA; "+data[i]+"</a></li><hr>";
                     
                 }
         
                 html = html + "<ul>";
         
-                angular.element(document.getElementById('categoryForm')).append($compile(html)($scope));
+                angular.element(document.getElementById('categoryShowList')).append($compile(html)($scope));
             }
-    
 
     $scope.showContent = function(value,x,y){
         
         html = "";
 
-        for(i=x;i<y;i++){
+        if(value.length == 0){
+            html = "<div class='productcat'>Nessun prodotto disponibile in questa categoria</div>"
+        }else{
+            for(i=x;i<y;i++){
 
-            if(i>=value.length) break;
+                if(i>=value.length) break;
 
-            background = "'"+value[i].url+"'";
-            html += '<div class="productcat">'+
-                    '<div class="img" style="background: url('+background+') no repeat;"></div>'+
-                    '<div class="nome"><h3>'+value[i].name+'</h3></div>'+
-                    '<div class="descr">'+value[i].desc+'</div>'+
-                    '<div class="prezzoprod">&euro;'+value[i].price+'</div>';
-            if(value[i].quantity > 0){
-                html += '<div class="disp">Disponibile</div></div>';
-            }else{
-                html += '<div class="disp">Non disponibile</div></div>';
+                background = '"'+value[i].url+'"';
+                html += '<div class="productcat">'+
+                        "<div class='img' style='background: url("+background+") no-repeat;'></div>"+
+                        '<div class="nome"><h3>'+value[i].name+'</h3></div>'+
+                        '<div class="descr">'+value[i].desc+'</div>'+
+                        '<div class="prezzoprod">&euro;'+value[i].price+'</div>';
+                if(value[i].quantity > 0){
+                    html += '<div class="disp">Disponibile</div></div>';
+                }else{
+                    html += '<div class="disp">Non disponibile</div></div>';
+                }
             }
-        }
-
+        }   
         angular.element(document.getElementById('showCat')).append($compile(html)($scope));
     }
 
@@ -407,6 +409,7 @@ function($scope, ProductsHandleService, FileUpload, DataService){
 
         ProductsHandleService.getCategory(data)
         .then(function(data){
+           angular.element(document.getElementById('showCat')).empty();
            DataService.set(data.data);
            $scope.showContent(data.data,0,10);
            $scope.showPager(0);
