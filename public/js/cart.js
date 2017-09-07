@@ -7,11 +7,14 @@ function($scope, $compile, CartStorage) {
         var remove = "";
         var somma = 0;
 
+        /*
         if(CartStorage.isEmpty() == true)
             this.inizializza();
+        */
 
         var data = CartStorage.get();
 
+        console.log("Carrello");
         console.log(data);
 
         if(data == []){
@@ -21,7 +24,7 @@ function($scope, $compile, CartStorage) {
 
             for(i=0;i<data.length;i++){
                 remove = "remove('"+i+"')";
-                data[i][2] = data[i][2].replace(",",".");
+                if(data[i][2].includes(",")) data[i][2] = data[i][2].replace(",",".");
                 adjustPrice = "adjustPrice('"+i+"')";
 
                 prodotti = prodotti + '<div id="prodotto'+i+'">'+
