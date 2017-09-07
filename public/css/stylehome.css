@@ -621,7 +621,7 @@ text-decoration: none;
     .product {
         height: 220px;
         width: 47%;
-        border-width: 5px;
+        border-width: 1px;
     }
 
     .product .nome {
@@ -645,6 +645,6 @@ text-decoration: none;
         margin-top: -45%;
     }
     .footer {
-        margin-top: 105%;
+        margin-top: 106%;
     }
 }    
