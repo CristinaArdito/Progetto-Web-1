@@ -641,9 +641,9 @@ text-decoration: none;
     }
 
     .product li:last-child {
-        margin-top: -50%;
+        margin-top: -47%;
     }
     .footer {
-        margin-top: 90%;
+        margin-top: 100%;
     }
 }    
