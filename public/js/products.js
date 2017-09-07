@@ -391,7 +391,7 @@ function($scope, $compile, DataService, ProductsHandleService, $location) {
 
                 background = '"'+value[i].url+'"';
                 html += '<div class="productcat" ng-click="showSingleProduct('+i+')">'+
-                        "<div class='img' style='background: url("+background+") no-repeat;'></div>"+
+                        "<div class='img' style='background: url("+background+") no-repeat; background-size: 10%; height: 120px; margin-left: 3%; margin-top: 0.5%;'></div>"+
                         '<div class="nome"><h3>'+value[i].name+'</h3></div>'+
                         '<div class="descr">'+value[i].desc+'</div>'+
                         '<div class="prezzoprod">&euro;'+value[i].price+'</div>';
