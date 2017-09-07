@@ -621,6 +621,7 @@ text-decoration: none;
     .product {
         height: 220px;
         width: 47%;
+        border-width: 0.1px;
     }
 
     .product .nome {
@@ -641,9 +642,9 @@ text-decoration: none;
     }
 
     .product li:last-child {
-        margin-top: -47%;
+        margin-top: -46%;
     }
     .footer {
-        margin-top: 100%;
+        margin-top: 110%;
     }
 }    
