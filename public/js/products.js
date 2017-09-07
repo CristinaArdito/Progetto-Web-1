@@ -32,6 +32,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
         angular.element(document.getElementById('productForm')).empty();
     }
 
+
     $scope.showContent = function(value,x,y){
         
         var prodotti = "";
@@ -43,12 +44,14 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                             '  background-size: 55%; margin-left: 32%;';
 
                 nParam = 'redirectToOrder("'+i+'");';
+                remove = 'removeProduct("'+value[i].code+'","'+value[i].url+'")';
                 prodotti = prodotti + "<div class='product'><h2><span style='color:Black;' id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                         "<ul><li style='"+background+"'></li>"+
                                         "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                         "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
                                         "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
                                         "<li><button class='btn' ng-click='"+nParam+"'>Riordina</button></li>"+
+                                        "<li><button class='btn' ng-click='"+remove+"'>Rimuovi</button></li>"+
                                         "</ul></div>";
         }
 
@@ -95,6 +98,18 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
         })
     }
 
+    $scope.removeProduct = function(code,url){
+
+        ProductsHandleService.removeProduct(code,url)
+        .then(function(response){
+            console.log(response);
+        })
+        .catch(function(err){
+            console.log(err);
+        })
+
+
+    }
 
     //=============================================================================================
     //Pager per creazione pagine

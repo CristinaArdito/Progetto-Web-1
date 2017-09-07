@@ -124,6 +124,9 @@ productRoutes.post('/loadImg', function(req, res){
 
 productRoutes.post('/remove',function(req,res){
     console.log(req.body.q);
+
+    fs.unlink(req.body.url);
+
     product_utilities.deleteProduct(req.body.q)
       .then(function(product){
         res.status(410).json({success: true,

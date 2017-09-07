@@ -67,5 +67,17 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
         return "error";
       })
     }
+
+    this.removeProduct = function(code,url){
+      return $http.post("././api/product/remove", {
+        'q' : code, 'url': url
+      })
+      .then(function(){
+        return "success";
+      })
+      .catch(function(){
+        return "error";
+      })
+    }
   }])
 .run(function(ProductsHandleService) {});
