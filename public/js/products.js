@@ -310,7 +310,8 @@ function($scope, ProductsHandleService, FileUpload, DataService){
                angular.element(document.getElementById('signleProduct')).append($compile(html)($scope));
     }
 }])
-.controller('categoryController', ['$scope', '$compile', 'DataService','ProductsHandleService', function($scope, $compile, DataService, ProductsHandleService) {
+.controller('categoryController', ['$scope', '$compile', 'DataService','ProductsHandleService','$location', 
+function($scope, $compile, DataService, ProductsHandleService, $location) {
 
     
     //=============================================================================================
@@ -389,7 +390,7 @@ function($scope, ProductsHandleService, FileUpload, DataService){
                 if(i>=value.length) break;
 
                 background = '"'+value[i].url+'"';
-                html += '<div class="productcat">'+
+                html += '<div class="productcat" ng-click="showSingleProduct('+i+')">'+
                         "<div class='img' style='background: url("+background+") no-repeat;'></div>"+
                         '<div class="nome"><h3>'+value[i].name+'</h3></div>'+
                         '<div class="descr">'+value[i].desc+'</div>'+
@@ -404,6 +405,10 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         angular.element(document.getElementById('showCat')).append($compile(html)($scope));
     }
 
+    $scope.showSingleProduct = function(data){
+        DataService.setIndice(data);
+        $location.path('/singleproduct');
+    }
 
     $scope.showCategories = function(data){
 
