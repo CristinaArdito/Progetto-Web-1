@@ -94,8 +94,8 @@
     margin-left: 58.30%;
     margin-top: -1.78%;
 }
-button{
 
+button {
     background-color: rgb(254,231,154) !important; 
     background-color: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%) !important;
     background-color: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%) !important;
@@ -103,8 +103,7 @@ button{
     background-color: -ms-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%) !important;
     background-color: linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%) !important;
     background: url("../img/icon/commerce2.png") 15px no-repeat;
-   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
-
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
     -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
     -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
     -ms-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
@@ -113,7 +112,7 @@ button{
     border: 1px solid #D69E31;
     color: #85592e;
     cursor: pointer;
-    height: 35px;
+    height: 34px;
     width: 50px;
 }
 
@@ -222,5 +221,72 @@ button:hover {
 		margin-left: 42%;
 		margin-top: -1.65%;
 	}
+}	
+
+@media only screen and (min-width: 320px) and (max-width: 1000px){
+	.titolodesc {
+		position: relative;
+		margin-left: 40%;
+		margin-top: -38%;
+	}
+	.descr {
+		position: relative;
+		margin-left: 55%;
+		width: 40%;
+		margin-top: -2.3%;
+	}
+
+
+	.cat {
+		position: relative;
+		margin-left: 55%;
+		margin-top: -2.3%;
+		margin-bottom: 2%;
+	}
+
+
+	.peso {
+		position: relative;
+		margin-left: 55%;
+		margin-top: -2.3%;
+		margin-bottom: 2%;
+	}
+
+
+	.prezzoprod {
+		position: relative;
+		margin-left: 55%;
+		margin-top: -2.3%;
+		margin-bottom: 2%;
+	}
+
+	.addtitolo {
+		position: relative;
+		margin-left: 40%;
+		margin-top: 5%;
+	}
+
+	.addproduct {
+		position: relative;
+		margin-left: 60%;
+		margin-top: -3%;
+	}
+
+	.inputprod {
+		padding: 7.5px;
+	}
+
+	.but {
+		position: relative;
+	    margin-left: 77%;
+	    margin-top: -3.9%;
+	}
+	.footer {
+
+    margin-top: 65%;
+
+}
+
+}
 
 }

@@ -63,7 +63,7 @@ angular.module('myApp.controllers')
                         "<td>"+data[i].email+"</td>"+
                         "<td>********</td>"+
                         "<td>"+data[i].admin+"</td>"+
-                        "<td><button ng-click='"+removeUser+"'>Rimuovi utente</button></td>"+
+                        "<td><button class='remove' ng-click='"+removeUser+"'>Rimuovi utente</button></td>"+
                         "<td><button class='promote' ng-click='"+promoteAdmin+"'>Promuovi ad Admin</button></td></tr>";
         }
 

@@ -10,6 +10,7 @@
 
 }
 .product {
+  cursor: pointer;
   position: relative;
   background-color:White;
   float: left;

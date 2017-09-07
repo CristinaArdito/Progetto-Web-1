@@ -487,13 +487,38 @@ button.btn:focus {
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
-
 .ordbutton:hover,
 .ordbutton:focus {
   background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+}
+
+.topbuttonord {
+  width: 14%;
+  height: 3%;
+  position: absolute;
+  margin-top: 0.5%;
+  margin-left: 13%;
+}
+.topbuttonord button{
+  cursor: pointer;
+  height: 100%;
+  width: 10%;
+  font-size: 1.1em;
+  background-color: #fff;
+  border: 0px;
+}
+.topbuttonord #prev, .topbuttonord #succ{
+  background-color: #fff;
+  border: 0px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.topbuttonord #prev:hover, .topbuttonord #succ:hover{
+  color: #42a5f5;
 }
 
 /* -------- USER PAGE --------- */
@@ -514,7 +539,7 @@ button.btn:focus {
   border-radius: 10px;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
   max-width: calc(100% - 2em);
-  margin-top: 3%;
+  margin-top: 5%;
   margin-left: 17%;
   overflow: hidden;
   width: 65%;
@@ -560,7 +585,7 @@ button.btn:focus {
   background-color: #edf7f8;
 }
 
-.tableUser button{
+button.remove, button.promote, button.supplier{
   cursor: pointer;
   float: left;
   width: 110px;
@@ -580,21 +605,51 @@ button.btn:focus {
   background: linear-gradient(top, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
 }
 
-.tableUser .promote {
+button.promote {
     width: 140px;
 }
 
-.tableUser .supplier {
+button.supplier{
     width: 140px;
-    margin-left: 0%;
+    margin-left: 20%;
 }
 
-.tableUser button:hover,
-.tableUser button:focus {
+button.remove:hover,
+button.remove:focus, 
+button.promote:hover,
+button.promote:focus,
+button.supplier:hover,
+button.supplier:focus{
   background: -o-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -moz-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: -webkit-linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
   background: linear-gradient(bottom, #b3d3dc 0%, #abc9d2 2%, #6d8086 97%, #607176 100%);
+}
+
+.tableUser .topbutton {
+  width: 14%;
+  height: 3%;
+  position: absolute;
+  margin-top: -13%;
+  margin-left: 50%;
+}
+.tableUser .topbutton button{
+  cursor: pointer;
+  height: 100%;
+  width: 10%;
+  font-size: 1.1em;
+  background-color: #fff;
+  border: 0px;
+}
+.tableUser .topbutton #prev, .topbutton #succ{
+  background-color: #fff;
+  border: 0px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.tableUser .topbutton #prev:hover, .topbutton #succ:hover{
+  color: #42a5f5;
 }
 
 /* Desktop */
@@ -640,25 +695,25 @@ button.btn:focus {
       top: 12%;
     }  
 
-	.searchboxproduct {
+  	.searchboxproduct {
 	  width: 22%;
-	}
+	   }
 
-	.searchboxproduct input {
-	  background: url(../img/icon/searchbox.ico) 260px no-repeat;
-	}
+  	.searchboxproduct input {
+	     background: url(../img/icon/searchbox.ico) 260px no-repeat;
+	   }
 
-	.panel {
-	  width: 17%;
-	}
+  	.panel {
+  	  width: 17%;
+  	}
 
     .table {
-      margin-top: -58%;
+        margin-top: -58%;
     }
 
-	.topbutton {
-		height: 4%;
-	}	
+  	.topbutton {
+  		height: 4%;
+  	}	
     .product {
       float: left;
       width: 23%;
@@ -682,13 +737,18 @@ button.btn:focus {
     }
 
     .tableUser .supplier {
-      margin-left: 3%;
+      margin-left: 14%;
       width: 130px;
     }
 
     .tableUser {
        width: 75%;
        margin-left: 12%;
+    }
+
+    .tableUser .topbutton {
+      margin-top: -17.5%;
+      margin-left: 45%;
     }
 
 } /* End Notebook */

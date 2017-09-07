@@ -11,7 +11,7 @@ angular.module('myApp.controllers')
         var total = DataService.get_nonreset().length;
         var pages = Math.ceil(total/6);
 
-        html = "<div class='topbutton'><button id='prev' ng-click='Previous("+index+")'>◀</button>";
+        html = "<div class='topbuttonord'><button id='prev' ng-click='Previous("+index+")'>◀</button>";
 
         for(i=0;i<pages;i++){
             if(i==index){
