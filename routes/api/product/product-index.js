@@ -109,23 +109,28 @@ productRoutes.post('/loadImg', function(req, res){
         urlName: "././public/img/product_2 (TEST)/0.jpg"});
       fs.writeFile("././public/img/product_2 (TEST)/0.jpg", new Buffer(imgData,"base64"));
     }else{
-      var nome = names[names.length-1];
-      console.log(nome);
-      nome = nome.substring(0, nome.length-4);
-      nome = "././public/img/product_2 (TEST)/"+(parseInt(nome)+1)+".jpg";
+
+      var numero = fs.readFileSync("././public/img/product_2 (TEST)/index.txt");
+      console.log("Numero letto: "+numero);
+      nome = "././public/img/product_2 (TEST)/"+(parseInt(numero)+1)+".jpg";
 
       res.status(200).json({ success: true , 
-        msg: "url file", 
+        msg: "url file",
         urlName: nome});
-
-      fs.writeFile(nome, new Buffer(imgData,"base64"));
+      
+      fs.writeFileSync(nome, new Buffer(imgData,"base64"));
+      var n = (parseInt(numero)+1);
+      console.log(n);
+      fs.writeFileSync("././public/img/product_2 (TEST)/index.txt", ""+n);
     }
 });
 
 productRoutes.post('/remove',function(req,res){
     console.log(req.body.q);
 
-    fs.unlink(req.body.url);
+    if(fs.existsSync(req.body.url)){
+      fs.unlinkSync(req.body.url);
+    }
 
     product_utilities.deleteProduct(req.body.q)
       .then(function(product){
