@@ -2,58 +2,35 @@
 <div class="cont">
 	  <ng-fader></ng-fader>
 	  <div class="banner"></div>
-	  <div class="banner2"></div>
-	  <div class="banner3"></div>
-      <section class="panel">
-      	      <div class="title" >&nbsp;Categorie </div>
-		      <ul>
-		      <li><a href='#!/categ'>&nbsp; &#x21AA; Hardware</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Software</a></li>
-		        <hr>
-		        <li><a href='#'>&nbsp; &#x21AA; Pc-Workstation</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Pc-preconfigurati</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Notebook</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Smartphone</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Tablet</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Monitor</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Gaming</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Periferiche</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Cavetteria</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Fax</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Televisori</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Stampanti-Plotter</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Multifunzione-Copiatrici</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Cd-Dvd</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Scanner</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Server</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Memorie-Pendrive</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Audio</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Networking</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Ebook-readers</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Droni</a></li>
-		        <hr>
-		      </ul>  
+	  <a href="#!/categ" class="banner2"></a>
+	  <a href="#!/offers" class="banner3"></a>
+
+      <section class="panel" id="categoryForm">
+                <div class="title" >&nbsp;Categorie </div>
+                <ul>
+                <li><a href='#!/categ' ng-click="initCategory('Hardware')">&nbsp; &#x21AA; Hardware</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Software')">&nbsp; &#x21AA; Software</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Pc-Workstation')">&nbsp; &#x21AA; Pc-Workstation</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Pc-preconfigurati')">&nbsp; &#x21AA; Pc-preconfigurati</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Notebook')">&nbsp; &#x21AA; Notebook</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Smartphone')">&nbsp; &#x21AA; Smartphone</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Tablet')">&nbsp; &#x21AA; Tablet</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Monitor')">&nbsp; &#x21AA; Monitor</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Gaming')">&nbsp; &#x21AA; Gaming</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Periferiche')">&nbsp; &#x21AA; Periferiche</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Cavetteria')">&nbsp; &#x21AA; Cavetteria</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Fax')">&nbsp; &#x21AA; Fax</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Televisori')">&nbsp; &#x21AA; Televisori</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Stampanti-Plotter')">&nbsp; &#x21AA; Stampanti-Plotter</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Multifunzione-Copiatrici')">&nbsp; &#x21AA; Multifunzione-Copiatrici</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Cd-Dvd')">&nbsp; &#x21AA; Cd-Dvd</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Scanner')">&nbsp; &#x21AA; Scanner</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Server')">&nbsp; &#x21AA; Server</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Memorie-Pendrive')">&nbsp; &#x21AA; Memorie-Pendrive</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Audio')">&nbsp; &#x21AA; Audio</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Networking')">&nbsp; &#x21AA; Networking</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Ebook-readers')">&nbsp; &#x21AA; Ebook-readers</a></li>
+                <hr><li><a href='#!/categ' ng-click="initCategory('Droni')">&nbsp; &#x21AA; Droni</a></li><hr><ul>
 	  </section>
 
 	  <div class="titolo_vetrina">VETRINA PRODOTTI </div>

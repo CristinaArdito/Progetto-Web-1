@@ -309,4 +309,121 @@ function($scope, ProductsHandleService, FileUpload, DataService){
 
                angular.element(document.getElementById('signleProduct')).append($compile(html)($scope));
     }
-}]);
+}])
+.controller('categoryController', ['$scope', '$compile', 'DataService','ProductsHandleService', function($scope, $compile, DataService, ProductsHandleService) {
+
+    
+    //=============================================================================================
+    //Pager per creazione pagine
+    $scope.showPager = function(index){
+        
+        var total = DataService.get_nonreset().length;
+        var pages = Math.ceil(total/4);
+
+        html = "<div class='topbutton'><button id='prev' ng-click='Previous("+index+")'>◀</button>";
+
+        for(i=0;i<pages;i++){
+            if(i==index){
+                html += "<button style='color: #bbdefb;' ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
+            }else html += "<button ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
+        }
+
+        html += "<button id='succ' ng-click='Succesive("+index+")'>▶</button></div>";
+
+        angular.element(document.getElementById('productForm')).append($compile(html)($scope));
+
+        
+    }
+
+    $scope.showPage = function(n){
+        
+        angular.element(document.getElementById('productForm')).empty();
+        $scope.showContent(DataService.get_nonreset(),n,(n+4));
+        $scope.showPager((n/4));
+    }
+
+    $scope.Previous = function(index){
+        if(index > 0){
+            $scope.showPage((index-1)*4);
+        }
+    }
+
+    $scope.Succesive = function(index){
+        if(((index+1)*4) < DataService.get_nonreset().length){
+            $scope.showPage((index+1)*4);
+        }
+    }
+    //============================================================================================
+    $scope.showCategoriesList = function(){
+        
+                var data = ['Hardware',"Software","Pc-Workstation","Pc-preconfigurati","Notebook",
+                            "Smartphone","Tablet","Monitor","Gaming", "Periferiche","Cavetteria",
+                            "Fax","Televisori","Stampanti-Plotter","Multifunzione-Copiatrici",
+                            "Cd-Dvd", "Scanner", "Server", "Memorie-Pendrive", "Audio", "Networking",
+                            "Ebook-readers", "Droni"];
+                
+                var html = '<div class="title" >&nbsp;Categorie </div><ul>';
+                var param = "";
+        
+                for(i=0;i<data.length;i++){
+
+                        param = 'showCategories("'+data[i]+'")';
+                        html = html+"<li><a ng-click="+param+">&nbsp; &#x21AA; "+data[i]+"</a></li><hr>";
+                    
+                }
+        
+                html = html + "<ul>";
+        
+                angular.element(document.getElementById('categoryForm')).append($compile(html)($scope));
+            }
+    
+
+    $scope.showContent = function(value,x,y){
+        
+        html = "";
+
+        for(i=x;i<y;i++){
+
+            if(i>=value.length) break;
+
+            background = "'"+value[i].url+"'";
+            html += '<div class="productcat">'+
+                    '<div class="img" style="background: url('+background+') no repeat;"></div>'+
+                    '<div class="nome"><h3>'+value[i].name+'</h3></div>'+
+                    '<div class="descr">'+value[i].desc+'</div>'+
+                    '<div class="prezzoprod">&euro;'+value[i].price+'</div>';
+            if(value[i].quantity > 0){
+                html += '<div class="disp">Disponibile</div></div>';
+            }else{
+                html += '<div class="disp">Non disponibile</div></div>';
+            }
+        }
+
+        angular.element(document.getElementById('showCat')).append($compile(html)($scope));
+    }
+
+
+    $scope.showCategories = function(data){
+
+        ProductsHandleService.getCategory(data)
+        .then(function(data){
+           DataService.set(data.data);
+           $scope.showContent(data.data,0,10);
+           $scope.showPager(0);
+        });        
+    }
+  
+
+    $scope.showCategoriesInit = function(){
+
+        data = DataService.get();
+
+        ProductsHandleService.getCategory(data)
+        .then(function(data){
+            DataService.set(data.data);
+            $scope.showContent(data.data,0,10);
+            $scope.showPager(0);
+        });
+    }
+    
+}]);    

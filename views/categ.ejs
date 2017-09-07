@@ -1,86 +1,11 @@
 <link rel="stylesheet" href="././public/css/styleCategorie.css"/>
-<div class="cont">
-	  <section class="cat">
-	  		<div class="productcat">
-	  			<div class="img"></div>
-	  			<div class="nome"><h3>Samsung Galaxy S8</h3></div>
-	  			<div class="descr">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-	  			<div class="prezzoprod">&euro;549.00</div>
-	  			<div class="disp">Disponibile</div>
-	  		</div>
-	  		<div class="productcat">
-	  			<div class="img"></div>
-	  			<div class="nome"><h3>Samsung Galaxy S8</h3></div>
-	  			<div class="descr">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-           		</div>
-	  			<div class="prezzoprod">&euro;549.00</div>
-	  			<div class="disp">Disponibile</div>
-	  		</div>
-	  		<div class="productcat">
-	  			<div class="img"></div>
-	  			<div class="nome"><h3>Samsung Galaxy S8</h3></div>
-	  			<div class="descr">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          	    </div>
-	  			<div class="prezzoprod">&euro;549.00</div>
-	  			<div class="disp">Disponibile</div>
-	  		</div>
-	  </section>
-      <section class="panel">
-      	      <div class="title" >&nbsp;Categorie </div>
-		      <ul>
-		      <li><a href='#!/categ'>&nbsp; &#x21AA; Hardware</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Software</a></li>
-		        <hr>
-		        <li><a href='#'>&nbsp; &#x21AA; Pc / Workstation</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Pc preconfigurati</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Notebook</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Smartphone</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Tablet</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Monitor</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Gaming</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Periferiche</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Cavetteria</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Fax</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Televisori</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Stampanti / Plotter</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Multifunzione / Copiatrici</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Cd / Dvd</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Scanner</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Server</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Memorie / Pendrive</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Audio</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Networking</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; E-book readers</a></li>
-		        <hr>
-		        <li><a href="#">&nbsp; &#x21AA; Droni</a></li>
-		        <hr>
-		      </ul>  
-	  </section>
+<div class="cont" ng-controller="categoryController">
 
+	  <section class="cat" id="showCat" ng-init="showCategoriesInit()">
+	  </section>
+	  
+	  <section class="panel" id="categoryForm" ng-init="showCategoriesList()">
+	  </section>
 
 </div>	  
         <footer class="footer">

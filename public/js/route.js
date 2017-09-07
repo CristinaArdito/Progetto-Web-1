@@ -33,7 +33,7 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
             })
             .when('/categ', {
                 templateUrl : 'views/categ.ejs',
-                controller  : 'categController'
+                controller  : 'categoryController'
             })
             // route for the about page
             .when('/signup', {
