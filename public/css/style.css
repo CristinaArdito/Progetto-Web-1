@@ -133,6 +133,7 @@
 .menu .down {
    background: url("../img/icon/arrows.png")  no-repeat;
    background-position: left 92px top 23px;
+   cursor: pointer;
 }
 
 .menu li a {
