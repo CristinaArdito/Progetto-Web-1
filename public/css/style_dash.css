@@ -687,6 +687,105 @@ button.supplier:focus{
   color: #42a5f5;
 }
 
+@media screen and (min-device-width: 1000px) and (max-device-width: 1100px){
+
+    * {
+      font-size: 0.99em;
+    }
+
+    .nav {
+      top: 11%;
+      height: 138%;
+    }
+
+    .menu ul li:hover ul {
+     width: 117%;
+    }
+
+    ul.menuordini{
+      top: 7.5%;
+    }  
+
+    ul.menuprodotti{
+      width: 75%;
+      top: 3.5%;
+    }
+
+    ul.menufornitori{
+      width: 80%;
+      top: 12%;
+    }  
+
+    .home {
+      margin-left: 22%;
+    }
+
+    .searchboxproduct {
+       width: 22%;
+     }
+
+    .searchboxproduct input {
+       background: url(../img/icon/searchbox.ico) 260px no-repeat;
+     }
+
+    .panel {
+      width: 17%;
+    }
+
+    .table {
+        margin-top: -58%;
+    }
+
+    .topbutton {
+      height: 4%;
+    } 
+    .product {
+      float: left;
+      width: 23%;
+    }
+
+    .product li{
+      padding: 4px;
+    }
+
+    button.btn{
+      width: 85px;
+      padding: 3px 0;
+      margin-left: 4%;
+      margin-bottom: 2.5%;
+    }
+
+    button.btnremove{
+      width: 85px;
+      padding: 3px 0;
+      margin-top: -4.3%;
+    }
+
+    .tableUser button{
+      margin-left: 15%;
+    }  
+
+    .tableUser .promote {
+      margin-left: 3%;
+    }
+
+    .tableUser .supplier {
+      margin-left: 14%;
+      width: 130px;
+    }
+
+    .tableUser {
+       width: 75%;
+       margin-left: 12%;
+    }
+
+    .tableUser .topbutton {
+      margin-top: -17.5%;
+      margin-left: 45%;
+    }
+
+}
+
 @media screen and (min-device-width: 1100px) and (max-device-width: 1200px){
 
     * {
@@ -814,12 +913,16 @@ button.supplier:focus{
       top: 12%;
     }  
 
+    .home {
+      margin-left: 19%;
+    }
+
   	.searchboxproduct {
 	  width: 22%;
 	   }
 
   	.searchboxproduct input {
-	     background: url(../img/icon/searchbox.ico) 260px no-repeat;
+	     background: url(../img/icon/searchbox.ico) 240px no-repeat;
 	   }
 
   	.panel {
@@ -831,8 +934,14 @@ button.supplier:focus{
     }
 
   	.topbutton {
-  		height: 4%;
-  	}	
+      width: 36%;
+      margin-left: 24%;
+    }
+
+    .topbutton button{
+      width: 5%;
+    }
+
     .product {
       float: left;
       width: 23%;
@@ -843,14 +952,14 @@ button.supplier:focus{
     }
 
     button.btn{
-      width: 85px;
+      width: 80px;
       padding: 3px 0;
       margin-left: 4%;
       margin-bottom: 2.5%;
     }
 
     button.btnremove{
-      width: 85px;
+      width: 80px;
       padding: 3px 0;
       margin-top: -4.3%;
     }
@@ -927,7 +1036,14 @@ button.supplier:focus{
 
     .topbutton {
       height: 4%;
-    } 
+      width: 35%;
+      margin-left: 22%;
+    }
+
+    .topbutton button{
+      width: 5%;
+    }
+
     .product {
       float: left;
       width: 23%;
@@ -1103,7 +1219,7 @@ button.supplier:focus{
     button.btn{
       width: 85px;
       padding: 3px 0;
-      margin-left: 4%;
+      margin-left: 9%;
       margin-bottom: 2.5%;
     }
 
