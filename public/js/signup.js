@@ -12,8 +12,22 @@ var pwApp = angular.module('pwApp');
     $scope.signup = function()
       {
       console.log("signUp");
-       console.log($scope);
-       CurrentUserService.signup($scope.username, $scope.password, $scope.email)
+
+      CurrentUserService.getAllUser().
+      then(function(data){
+        
+        data = data.data;
+        flag = 0;
+
+        for(i=0;i<data.length;i++){
+          if(data[i].email == $scope.email){
+            alert("Email già in uso");
+            flag=1;
+          }
+        }
+
+        if(flag == 0){
+          CurrentUserService.signup($scope.username, $scope.password, $scope.email)
           .then(function(data)
                {
                 console.log("Data");
@@ -22,15 +36,9 @@ var pwApp = angular.module('pwApp');
                })
           .catch(function(err)
                 { 
-                
-                alert(err.message);
-
-                 // resetto (pulisco) le caselle di input
-             //    $scope.username=undefined;
-               //  $scope.password=undefined;
+                alert(err);
                 });
+        }
+      })
       }
-
-       // create a message to display in our view
-     //  $scope.message = 'Prova a cambiare questo messaggio';
    }]);

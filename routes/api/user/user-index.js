@@ -16,8 +16,6 @@ userRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 userRoutes.post('/authenticate', function(req, res)
            {
-              console.log("Body: ");
-              console.log(req.body);
 
               var email = req.body.email;
               var psw  = req.body.password;
@@ -35,12 +33,13 @@ userRoutes.post('/authenticate', function(req, res)
                user_utilities.login(email, psw)
                     .then(function(token)
                       {
-                        res.status(201).json({success: true, 
+                        return res.status(201).json({success: true, 
                                               message: 'Enjoy your token!', 
                                               data: {'token':token}});
                       })
                     .catch(function(err)
-                      { res.status(400).json({ success: false, 
+                      { 
+                        return res.status(400).json({ success: false, 
                                                code: err.code,
                                                message: err.msg 
                                               }); });
@@ -121,9 +120,10 @@ userRoutes.post('/remove',function(req, res){
 });
 
 userRoutes.post('/op', function(req, res){
+  console.log(req.body.q);
   user_utilities.op(req.body.q)
   .then(function(user){
-    res.status(410).json({
+    res.status(201).json({
       success:true,
       msg: "Opped",
       data:""

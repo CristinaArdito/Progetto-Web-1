@@ -1,5 +1,6 @@
 angular.module('myApp.controllers')
-.controller('showUserController', ['$scope', 'CurrentUserService','$compile', 'DataService', function($scope, CurrentUserService, $compile, DataService){
+.controller('showUserController', ['$scope', 'CurrentUserService','$compile', 'DataService', 
+function($scope, CurrentUserService, $compile, DataService){
     console.log("showUserController");
 
 
@@ -56,8 +57,8 @@ angular.module('myApp.controllers')
         for(i=x;i<y;i++){
 
         if(i>= data.length) break;
-        removeUser = 'removeUser("'+data[i].name+'","'+data[i].email+'")';
-        promoteAdmin = 'promoteAdmin("'+data[i].name+'","'+data[i].email+'")';
+        removeUser = 'removeUser("'+data[i].email+'")';
+        promoteAdmin = 'promoteAdmin("'+data[i].email+'")';
 
         table = table + "<tr><td>"+data[i].name+"</td>"+
                         "<td>"+data[i].email+"</td>"+
@@ -75,6 +76,8 @@ angular.module('myApp.controllers')
     $scope.showUser = function(){
 
         console.log("ShowUser");
+        angular.element(document.getElementById('showUserDiv')).empty();
+
         CurrentUserService.getAllUser()
         .then(function(data){
 
@@ -86,30 +89,29 @@ angular.module('myApp.controllers')
         })
     }
 
-    $scope.removeUser = function(par1,par2){
+    $scope.removeUser = function(par){
 
-        console.log(par1);
-        console.log(par2);
+        console.log(par);
 
-        /*
-        CurrentUserService.removeUser(par1, par2)
+        CurrentUserService.removeUser(par)
         .then(function(data){
             console.log(data);
+            $scope.showUser();
         })
-        */
     }
 
-    $scope.promoteAdmin = function(par1, par2){
+    $scope.promoteAdmin = function(par){
         
-        console.log(par1);
-        console.log(par2);
-
-        /*
-        CurrentUserService.promoteAdmin(par1, par2)
+        CurrentUserService.promoteAdmin(par)
         .then(function(data){
             console.log(data);
+            $scope.showUser();
         })
-        */
+        .catch(function(data){
+            console.log(data);
+            $scope.showUser();
+        })
+        
     }
 
 }])

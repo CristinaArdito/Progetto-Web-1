@@ -92,13 +92,11 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
 
         //======================================================================
         // ROUTER DELLA VIEW UI
-        console.log("UI ROUTER1");
-        console.log("UI ROUTER2");
         $stateProvider
 
         .state('home', {
             url: '/',
-            templateUrl: 'views/index2.ejs',
+            templateUrl: 'views/indexLogout.ejs',
             controller: 'mainController'
         })
 
@@ -106,13 +104,26 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
            url: '/dashboard',
            templateUrl: 'views/admin/dashboard.ejs',
            controller: 'dashController'
+        })
+        
+        .state('loggedHome', {
+            url: '/',
+            templateUrl: 'views/indexLogin.ejs',
+            controller: 'mainController'
         });
     })
 
     //Controller delle UI-VIEW
-    .controller('MyCtrl', function($state) {
-    $state.go('home')
-    })
+    .controller('MyCtrl', ['$state', 'CurrentUserService', function($state, CurrentUserService) {
+
+    console.log(CurrentUserService.isLogged());
+    if(CurrentUserService.isLogged() == true){
+        $state.go('loggedHome');
+    }
+    else{ 
+        $state.go('home');
+    }
+    }])
 
     //Silenzia errori di codice del router delle view, non è influente per il funzionamento
     .config(['$qProvider', function ($qProvider) {

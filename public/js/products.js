@@ -307,11 +307,7 @@ function($scope, $compile, $location, DataService, CartStorage) {
                             '<div class="addtitolo">Aggiungi al carrello:</div>'+
                             '<div class="addproduct"><input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
                             '<div class="but"><button type="submit" id="submitbutton" class="idbutton" ng-click="addToCart('+indice+')"></button></div>'
-               else html += '<div class="addtitolo">Aggiungi al carrello:</div>'+
-                            '<div class="addproduct">'+
-                            '<input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
-                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton"></button></div>'+
-                            '<div class="iconavv"></div><div class="avviso">Avvisami quando ritornerà disponibile</div>';
+               else html += '<div class="iconavv"></div><div class="avviso">Avvisami quando ritornerà disponibile</div>';
 
                angular.element(document.getElementById('signleProduct')).append($compile(html)($scope));
     }
