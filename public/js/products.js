@@ -417,7 +417,7 @@ function($scope, $compile, DataService, ProductsHandleService, $location) {
                 if(value[i].quantity > 0){
                     html += '<div class="disp">Disponibile</div></div>';
                 }else{
-                    html += '<div class="disp">Non disponibile</div></div>';
+                    html += '<div class="nodisp">Non disponibile</div></div>';
                 }
             }
         }   

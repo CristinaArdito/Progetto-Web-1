@@ -9,8 +9,8 @@
   width: 9%;
   height: 11%;
   background-color: #6ccac9 !important;
-   background: url("../img/icon/user2.png")  no-repeat;
-   background-position: left 50px top 18px;
+  background: url("../img/icon/user2.png")  no-repeat;
+  background-position: left 50px top 18px;
   margin-left: 20%;
   margin-top: -43%;
   border-top-left-radius: 6px;
@@ -37,7 +37,7 @@
 }
 
 .usercounter h2 {
-  margin-left: 20%;
+  margin-left: 32%;
 }
 
 /* ----- COUNTER PRODOTTI ------ */
@@ -74,7 +74,7 @@
 }
 
 .productcounter h2 {
-  margin-left: 15%;
+  margin-left: 24%;
 }
 
 /* ------- COUNTER ORDINI ------- */

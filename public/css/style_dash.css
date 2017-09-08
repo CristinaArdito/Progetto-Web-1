@@ -18,12 +18,13 @@
   padding: 5px 20px;
   vertical-align: middle;
 }
+
 .pageHeader .titletop {
   position: absolute;
   display: block;
   color: White;
   text-decoration: none;
-    text-transform: uppercase;
+  text-transform: uppercase;
   width: 40%;
   font-family: 'Pinyon Script', cursive;
   float: left;
@@ -31,6 +32,7 @@
   font-size: 1.5em;
   font-weight: 700;
 }
+
 .pageHeader .titletop:hover {
   text-shadow: 0px 0px 8px #FFFFFF;
 }
@@ -45,25 +47,31 @@
   height: 94%;
   background-color: #7986cb;
 }
+
 .menu {
   height: 85%;
   width: 18%;
   float: left;
-    position: absolute;
+  position: absolute;
   display: block;
   margin-top: 18%;
-
   color: #212121;
 }
+
 .title {
   font-weight: 700;
   font-size: 1.1em;
   text-transform: uppercase;
   margin-left: 50%;
 }
+
 .menu ul {
   padding-left: 0%;
 }
+
+    .menu ul li{ 
+      font-size: 1.0em; 
+    }
 
 .main .nav .menu ul li {
   cursor: pointer;
@@ -71,7 +79,6 @@
   width: 518%;
   padding: 20%;
   font-weight: 600;
-
   transition: 0.25s all;
 }
 
@@ -297,7 +304,7 @@ ul.menufornitori{
 }
 
 .product li:first-child{
-  padding: 1.8em;
+ padding: 2.1em;
   font-size: 1.6em;
   text-shadow: 0px -1px 1px #000;
 }
@@ -394,6 +401,11 @@ button.btnremove:focus {
 
 .titleadd {
   margin-left: 50%;
+  margin-top: 1%;
+}
+
+.titledit {
+  margin-left: 40%;
   margin-top: 1%;
 }
 
@@ -675,20 +687,7 @@ button.supplier:focus{
   color: #42a5f5;
 }
 
-/* Desktop */
-@media screen and (min-device-width: 1600px) and (max-device-width: 2000px){
 
-    .menu ul li{ 
-      font-size: 1.0em; 
-    } 
-    .product li:first-child{
-      padding: 2.1em;
-    }
-
-} /* End desktop */
-
-
-/* Notebook */
 @media screen and (min-device-width: 1200px) and (max-device-width: 1400px){
 
     * {
@@ -782,10 +781,9 @@ button.supplier:focus{
       margin-left: 45%;
     }
 
-} /* End Notebook */
+}
 
 
-/* Notebook 2*/
 @media screen and (min-device-width: 1400px) and (max-device-width: 1600px){
 
     * {
@@ -793,7 +791,7 @@ button.supplier:focus{
     }
 
     .nav {
-      top: 7.6%;
+      top: 6.6%;
       height: 138%;
     }
 
@@ -863,4 +861,12 @@ button.supplier:focus{
           margin-left: 12%;
     }
 
-} /* End Notebook */
+} 
+
+@media only screen and (min-width: 1700px) and (max-width: 1800px){
+
+    .nav {
+      top: 6.18%;
+      height: 138%;
+    }
+} 

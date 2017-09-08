@@ -107,6 +107,15 @@ text-decoration: none;
   margin-top: -1.5%;
 }
 
+.productcat .nodisp {
+  background: url("../img/icon/unchecked.png") 110px no-repeat;
+  background-size: 10%;
+  margin-left: 13%;
+  width: 10%;
+  position: absolute;
+  margin-top: -1.5%;
+}
+
 .noproduct {
   margin-top: 5%;
   width: 70%;
@@ -201,6 +210,14 @@ text-decoration: none;
     margin-top: -3%;
   }
 
+  .productcat .nodisp {
+    background: url("../img/icon/unchecked.png") 95px no-repeat;
+    background-size: 10%;
+    width: 25%;
+    position: absolute;
+    margin-top: -3%;
+  }
+
   .productcat .descr {
       width: 75%;
       margin-top: -11.5%;
@@ -243,6 +260,10 @@ text-decoration: none;
     margin-top: -2%;
   }
 
+  .productcat .nodisp {
+    margin-top: -2%;
+  }
+
 }
 
 @media only screen and (min-width: 1400px) and (max-width: 1600px){
@@ -268,6 +289,10 @@ text-decoration: none;
   }
 
   .productcat .disp {
+    margin-top: -2%;
+  }
+
+  .productcat .nodisp {
     margin-top: -2%;
   }
 
@@ -299,6 +324,10 @@ text-decoration: none;
     margin-top: -2%;
   }
 
+  .productcat .nodisp {
+    margin-top: -2%;
+  }
+
 }
 
 @media only screen and (min-width: 2000px) and (max-width: 2200px){
@@ -319,8 +348,13 @@ text-decoration: none;
     margin-top: -1.5%;
   }
 
+  .productcat .nodisp {
+    margin-top: -1.5%;
+  }
+
 }  
-  @media only screen and (min-width: 2200px) and (max-width: 2400px){
+
+@media only screen and (min-width: 2200px) and (max-width: 2400px){
 
   .productcat .nome {
     margin-top: -7%;
@@ -338,6 +372,8 @@ text-decoration: none;
     margin-top: -2%;
   }
 
-  }  
+  .productcat .nodisp {
+    margin-top: -2%;
+  }
 
 }  
