@@ -665,6 +665,11 @@
 
     .product .nome {
         font-size: 1.2em;
+        text-transform: lowercase;
+    }
+
+    .product .nome:first-letter {
+        text-transform: capitalize;
     }
 
     .product .prezzo{
@@ -756,6 +761,11 @@
 
     .product .nome {
         font-size: 1.2em;
+        text-transform: lowercase;
+    }
+
+    .product .nome:first-letter {
+        text-transform: capitalize;
     }
 
     .product .prezzo{
