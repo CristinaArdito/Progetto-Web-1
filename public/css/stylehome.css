@@ -186,14 +186,14 @@
         display: none
     }
     .ng-fader-pagination {
-    	bottom: 0;
+        bottom: 0;
     }
     .ng-fader-pagination li {
-    	width: 6px;
-    	height: 6px;
+        width: 6px;
+        height: 6px;
     }
     .ng-fader-pagination li:first-child {
-    	margin: 4px;
+        margin: 4px;
     }
 }
 
@@ -281,8 +281,8 @@
     position: relative;
     width: 40%;
     left: 31.5%;
-
 }
+
 .product {
   cursor: pointer;
   background-color:White;
@@ -610,6 +610,11 @@
 @media only screen and (min-width: 320px) and (max-width: 800px){
 
     /* ----- Slideshow ------ */
+    .cont .ng-fader {
+        margin-left: 26.5%;
+        width: 50%;
+    }
+
     .ng-fader-pagination li {
         height: 6px;
         padding: 4px;
@@ -629,36 +634,49 @@
     }
 
     .cont .panel {
-      margin-left: 7%;
-      width: 25%;
+      margin-left: 3%;
+      width: 22%;
+      margin-top: -37%;
     }
 
      /* ----- Banner ------ */
     .banner {
-        margin-left: 75%;
-        background-size: 80%;
+        margin-top: -36.3%;
+        margin-left: 77%;
+        width: 20%;
+        height: 30%;
+        background-size: 100%;
     }
 
     .banner2 {
-        margin-left: 75%;
-        background-size: 80%;
-        margin-top: -13.1%;
+        margin-left: 77%;
+        width: 20%;
+        height: 30%;
+        background-size: 100%;
+        margin-top: -18.9%;
     }
 
     .banner3 {
-     margin-left: 75%;
-     background-size: 80%;
-     margin-top: 3.5%;
+        margin-left: 77%;
+        width: 20%;
+        height: 30%;
+        background-size: 100%;
+        margin-top: -2.1%;
     }
 
     /* ----- Vetrina prodotti ----- */
     .vetrina {
-        width: 42%;
+        width: 50%;
+        left: 27%;
+    }
 
+    .titolo_vetrina { 
+        left: 26%;
+        width: 48%;
     }
 
     .product {
-        height: 220px;
+        height: 210px;
         width: 47%;
         border-width: 1px;
     }
@@ -687,7 +705,7 @@
     }
 
     .product li:last-child {
-        margin-top: -39%;
+        margin-top: -35%;
     }
 
     /* ------ Footer ------ */
@@ -699,6 +717,11 @@
 @media only screen and (min-width: 800px) and (max-width: 1000px){
 
     /* ----- Slideshow ------ */
+    .cont .ng-fader {
+        margin-left: 26.5%;
+        width: 50%;
+    }
+
     .ng-fader-pagination li {
         height: 6px;
         padding: 4px;
@@ -719,42 +742,49 @@
     }
 
     .cont .panel {
-      margin-left: 8%;
-      width: 20%;
+      margin-left: 3%;
+      width: 22%;
+        margin-top: -37%;
     }
 
     /* ----- Banner ------ */
     .banner {
-        margin-top: -30.3%;
-        margin-left: 73%;
-        width: 27%;
+        margin-top: -36.3%;
+        margin-left: 77%;
+        width: 20%;
         height: 30%;
-        background-size: 55%;
+        background-size: 100%;
     }
 
     .banner2 {
-        margin-left: 73%;
-        width: 27%;
+        margin-left: 77%;
+        width: 20%;
         height: 30%;
-        background-size: 55%;
-        margin-top: -17.5%;
+        background-size: 100%;
+        margin-top: -18.9%;
     }
 
     .banner3 {
-        margin-left: 73%;
-        width: 27%;
+        margin-left: 77%;
+        width: 20%;
         height: 30%;
-        background-size: 55%;
-        margin-top: -4.8%;
+        background-size: 100%;
+        margin-top: -2.1%;
     }
 
     /* ----- Vetrina prodotti ----- */
     .vetrina {
-        width: 42%;
+        width: 50%;
+            left: 27%;
+    }
+
+    .titolo_vetrina { 
+        left: 26%;
+        width: 48%;
     }
 
     .product {
-        height: 220px;
+        height: 210px;
         width: 47%;
         border-width: 1px;
     }
@@ -783,7 +813,7 @@
     }
 
     .product li:last-child {
-        margin-top: -39%;
+        margin-top: -35%;
     }
 
     /* ------ Footer ------ */
