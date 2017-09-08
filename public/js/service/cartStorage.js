@@ -38,8 +38,23 @@ pwApp.factory('CartStorage', function() {
         else return false;
     }
     function setQuantity(index,number){
-        savedData[index-1][3] = number;
+        savedData[index][3] = number;
     }
+    function getQuantity(n){
+        if(n>=savedData.length) return -1;
+        else return savedData[n][3];
+    }
+    function getItem(name, desc){
+        for(i=0;i<savedData.length;i++){
+            if(savedData[i][0] == name){
+                if(savedData[i][1] == desc){
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+    
    
     return {
      set: set,
@@ -47,7 +62,9 @@ pwApp.factory('CartStorage', function() {
      add: add,
      remove: remove,
      isEmpty: isEmpty,
-     setQuantity: setQuantity
+     setQuantity: setQuantity,
+     getQuantity: getQuantity,
+     getItem: getItem,
     }
    
    })

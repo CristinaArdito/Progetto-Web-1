@@ -7,29 +7,32 @@ function($scope, $compile, CartStorage) {
         var remove = "";
         var somma = 0;
 
-        /*
-        if(CartStorage.isEmpty() == true)
-            this.inizializza();
-        */
+        
+        if(CartStorage.isEmpty() == true){
 
+            prodotti = "<div style:'margin-left: 45%'>Nessun prodotto nel carrello</div>"
+            angular.element(document.getElementById('showProduct')).append($compile(prodotti)($scope));
+            angular.element(document.getElementById('showBill')).empty();
+            $scope.subtotal = 0;
+            $scope.tax = 0;
+            $scope.total = 0;
+        }
+        else{
         var data = CartStorage.get();
 
         console.log("Carrello");
         console.log(data);
 
-        if(data == []){
-            prodotti = "<div style:'margin-left: 45%'>Nessun prodotto nel carrello</div>"
-            angular.element(document.getElementById('showProduct')).append($compile(prodotti)($scope));
-        }else{
+        
 
             for(i=0;i<data.length;i++){
                 remove = "remove('"+i+"')";
                 if(data[i][2].includes(",")) data[i][2] = data[i][2].replace(",",".");
                 adjustPrice = "adjustPrice('"+i+"')";
+                url = "'"+data[i][4]+"'";
 
                 prodotti = prodotti + '<div id="prodotto'+i+'">'+
-                '<div class="img"></div><div class="nomeprod">'+data[i][0]+'</div>'+
-                '<div class="descr">'+data[i][1]+'</div>'+
+                '<div class="img" style="background: url('+url+') no-repeat;"></div><div class="nomeprod">'+data[i][0]+'</div>'+
                 '<div class="prezzoprod">&euro; <span id="price'+i+'">'+data[i][2]+'</span></div>'+
                 '<div class="buttoncontainer"><button type="submit" id="submitbutton" ng-click="'+remove+'">Elimina</button></div>'+
                 '<div class="qtacart"><input type="number" min="1" value="'+data[i][3]+'" id="q'+i+'" ng-click="'+adjustPrice+'"></input></div>'+

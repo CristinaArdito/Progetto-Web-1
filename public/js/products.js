@@ -280,7 +280,10 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         });
     }
 }])
-.controller('singleController', ['$scope', '$compile', 'DataService', 'CartStorage', function($scope, $compile, DataService, CartStorage) {
+//================================================================================================================================================
+// Singolo prodotto (dettaglio)
+.controller('singleController', ['$scope', '$compile', '$location', 'DataService', 'CartStorage', 
+function($scope, $compile, $location, DataService, CartStorage) {
 
     $scope.showSingleProduct = function(){
 
@@ -317,17 +320,20 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         
         var item = DataService.getIndex(index);
         n = angular.element(document.getElementById('addproduct'))[0].value;
-        var toLoad = [item.name,item.desc,item.price,n];
+        var toLoad = [item.name,item.desc,item.price,n,item.url];
 
         console.log(index);
         console.log(toLoad);
+        console.log(n);
 
-        //if(CartStorage.isEmpty()) CartStorage.set(toLoad);
-        //else 
-            CartStorage.add(toLoad);
-        CartStorage.setQuantity(n);
+        var element = CartStorage.getItem(item.name, item.desc);
+        if(element > -1){
+            CartStorage.setQuantity(element,parseInt(CartStorage.getQuantity(element))+parseInt(n));
+        }else CartStorage.add(toLoad);
+        $location.path('/cart');
     }
 }])
+//===================================================================================================================================================
 .controller('categoryController', ['$scope', '$compile', 'DataService','ProductsHandleService','$location', 
 function($scope, $compile, DataService, ProductsHandleService, $location) {
 
