@@ -10,7 +10,7 @@ function($scope, $compile, CartStorage) {
         
         if(CartStorage.isEmpty() == true){
 
-            prodotti = "<div style:'margin-left: 45%'>Nessun prodotto nel carrello</div>"
+            prodotti = "<div class='noproduct'>Nessun prodotto nel carrello</div>"
             angular.element(document.getElementById('showProduct')).append($compile(prodotti)($scope));
             angular.element(document.getElementById('showBill')).empty();
             $scope.subtotal = 0;
@@ -32,7 +32,8 @@ function($scope, $compile, CartStorage) {
                 url = "'"+data[i][4]+"'";
 
                 prodotti = prodotti + '<div id="prodotto'+i+'">'+
-                '<div class="img" style="background: url('+url+') no-repeat;"></div><div class="nomeprod">'+data[i][0]+'</div>'+
+                '<div class="img" style="background: url('+url+') no-repeat;position: relative; margin-left: 5%;'+
+                'margin-top: 1%; max-width: 6%; height: 115px; background-size: 100%;"></div><div class="nomeprod">'+data[i][0]+'</div>'+
                 '<div class="prezzoprod">&euro; <span id="price'+i+'">'+data[i][2]+'</span></div>'+
                 '<div class="buttoncontainer"><button type="submit" id="submitbutton" ng-click="'+remove+'">Elimina</button></div>'+
                 '<div class="qtacart"><input type="number" min="1" value="'+data[i][3]+'" id="q'+i+'" ng-click="'+adjustPrice+'"></input></div>'+

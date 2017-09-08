@@ -50,6 +50,14 @@ h1 {
   height: auto;
 }
 
+.noproduct {
+  font-size: 1.2em;
+  margin-top: 5%;
+  width: 70%;
+  margin-left: 40%;
+  background: url(../img/icon/unchecked.png) 240px no-repeat;
+}
+
 .prod .img {
   position: relative;
   margin-left: 5%;
@@ -169,7 +177,7 @@ hr {
     background-color: #232f3e;
     width: 100%;
     height: 10%;
-    margin-top: 15%;
+    margin-top: 31.5%;
     color: #FFF;
     text-align: center;
     border-top: 2px solid #ccc;
@@ -205,7 +213,7 @@ hr {
   }
 
   .buttoncontainer {
-    margin-left: 78%;
+    margin-left: 76%;
     margin-top: -7%;
   }
   .tot {
