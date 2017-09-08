@@ -84,7 +84,11 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/addSupplier.ejs',
                 controller  : 'addSupplierController'
             })
-        
+            .when('/searchprod', {
+                templateUrl : 'views/searchForm.ejs',
+                controller  : 'searchProductHomeController'
+            })
+            
 
         //======================================================================
         // ROUTER DELLA VIEW UI
