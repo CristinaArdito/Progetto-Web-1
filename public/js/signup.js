@@ -1,6 +1,6 @@
 var pwApp = angular.module('pwApp');
 // create the controller and inject Angular's $scope
- pwApp.controller('signupController', ['$scope', 'CurrentUserService', function($scope, CurrentUserService)
+ pwApp.controller('signupController', ['$scope', 'CurrentUserService','$state', function($scope, CurrentUserService, $state)
    {
     $scope.username;
     $scope.password;
@@ -13,8 +13,8 @@ var pwApp = angular.module('pwApp');
       {
       console.log("signUp");
 
-      CurrentUserService.getAllUser().
-      then(function(data){
+      CurrentUserService.getAllUser()
+      .then(function(data){
         
         data = data.data;
         flag = 0;
@@ -31,12 +31,11 @@ var pwApp = angular.module('pwApp');
           .then(function(data)
                {
                 console.log("Data");
-                console.log(data);
-                alert('utente registrato '+JSON.stringify(data));
+                $state.go('home');
                })
           .catch(function(err)
                 { 
-                alert(err);
+                alert("Errore durante la creazione dell'account, riprovare più tardi");
                 });
         }
       })

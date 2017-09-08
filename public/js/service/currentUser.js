@@ -42,13 +42,11 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
     this.signup = function(name, psw, email)
 	    {
          var deferred = $q.defer(); 
-         return $http.post('././api/user/signup',
+         $http.post('././api/user/signup',
                     {'name':name, 'password':psw, 'email':email})
              .then(function(data) 
                  {
-                  self.utenteLoggato = data;      // mi salvo l'utente corrente
                   deferred.resolve(data);
-                  console.log(data);
                  })
              .catch(function(err, code) 
                  {  
