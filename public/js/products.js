@@ -122,7 +122,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
         for(i=0;i<pages;i++){
             if(i==index){
-                html += "<button style='color: #bbdefb;' ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
+                html += "<button style='color: #2196f3;' ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
             }else html += "<button ng-click='showPage("+(i*4)+")'>"+(i+1)+"</button>";
         }
 
@@ -343,7 +343,7 @@ function($scope, $compile, DataService, ProductsHandleService, $location) {
 
         for(i=0;i<pages;i++){
             if(i==index){
-                html += "<button style='color: #bbdefb;' ng-click='showPage("+(i*10)+")'>"+(i+1)+"</button>";
+                html += "<button style='color: #1976d2;' ng-click='showPage("+(i*10)+")'>"+(i+1)+"</button>";
             }else html += "<button ng-click='showPage("+(i*10)+")'>"+(i+1)+"</button>";
         }
 
@@ -401,15 +401,16 @@ function($scope, $compile, DataService, ProductsHandleService, $location) {
         html = "";
 
         if(value.length == 0){
-            html = "<div class='productcat'>Nessun prodotto disponibile in questa categoria</div>"
+            html = "<div class='noproduct'><span>Nessun prodotto disponibile in questa categoria</span></div>"
         }else{
             for(i=x;i<y;i++){
 
                 if(i>=value.length) break;
 
-                background = '"'+value[i].url+'"';
+            background = 'background: url("'+value[i].url+'") no-repeat;'+
+                         'background-size: 10%; height: 120px; margin-left: 3%; margin-top: 0.8%;';
                 html += '<div class="productcat" ng-click="showSingleProduct('+i+')">'+
-                        "<div class='img' style='background: url("+background+") no-repeat; background-size: 10%; height: 120px; margin-left: 3%; margin-top: 0.5%;'></div>"+
+                        "<div class='img' style='"+background+"'></div>"+
                         '<div class="nome"><h3>'+value[i].name+'</h3></div>'+
                         '<div class="descr">'+value[i].desc+'</div>'+
                         '<div class="prezzoprod">&euro;'+value[i].price+'</div>';
