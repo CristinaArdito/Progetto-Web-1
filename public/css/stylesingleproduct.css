@@ -159,7 +159,7 @@ button:hover {
     font-size: 1.2em;
 }
 
-/* Notebook */
+
 @media only screen and (min-width: 1200px) and (max-width: 1600px){
 
 	.titolodesc {
@@ -280,7 +280,7 @@ button:hover {
 	}
 
 	.footer {
-    	margin-top: 65%;
+    	margin-top: 95%;
 	}
 
 }

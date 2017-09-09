@@ -258,10 +258,6 @@
 	   background-position: left 80px top 10px;
 	}
 
-	.menu .nav-center li:last-child {
-		visibility: hidden;
-	}
-
 	/*.menu .nav-right li{
 	    left: 80%;
 	    margin-top: -4.4%;
@@ -294,4 +290,4 @@
 	    left: 88%;
 	}
 
-} /* Fine smartphone */
+}

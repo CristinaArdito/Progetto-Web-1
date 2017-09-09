@@ -330,8 +330,8 @@ function($scope, $compile, $location, DataService, CartStorage) {
     }
 }])
 //===================================================================================================================================================
-.controller('categoryController', ['$scope', '$compile', 'DataService','ProductsHandleService','$location', 
-function($scope, $compile, DataService, ProductsHandleService, $location) {
+.controller('categoryController', ['$scope', '$compile', 'DataService','ProductsHandleService','$location', '$window', 
+function($scope, $compile, DataService, ProductsHandleService, $location, $window) {
 
     
     //=============================================================================================
@@ -361,17 +361,20 @@ function($scope, $compile, DataService, ProductsHandleService, $location) {
         angular.element(document.getElementById('showCat')).empty();
         $scope.showContent(DataService.get_nonreset(),n,(n+10));
         $scope.showPager((n/10));
+        $window.scrollTo(0, 0);
     }
 
     $scope.Previous = function(index){
         if(index > 0){
             $scope.showPage((index-1)*10);
+            $window.scrollTo(0, 0);
         }
     }
 
     $scope.Succesive = function(index){
         if(((index+1)*10) < DataService.get_nonreset().length){
             $scope.showPage((index+1)*10);
+            $window.scrollTo(0, 0);
         }
     }
     //============================================================================================

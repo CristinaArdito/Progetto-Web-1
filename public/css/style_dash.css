@@ -378,6 +378,7 @@ button.btnremove:focus {
 	margin-top: -2%;
 	margin-left: 30%;
 }
+
 .topbutton button{
 	cursor: pointer;
 	height: 100%;
@@ -386,6 +387,7 @@ button.btnremove:focus {
 	background-color: #fff;
 	border: 0px;
 }
+
 .topbutton #prev, .topbutton #succ{
 	background-color: #fff;
 	border: 0px;
@@ -531,20 +533,22 @@ button.btnremove:focus {
 }
 
 .topbuttonord {
-  width: 14%;
+  width: 29%;
   height: 3%;
   position: absolute;
   margin-top: 0.5%;
   margin-left: 13%;
 }
+
 .topbuttonord button{
   cursor: pointer;
   height: 100%;
-  width: 10%;
+  width: 5%;
   font-size: 1.1em;
   background-color: #fff;
   border: 0px;
 }
+
 .topbuttonord #prev, .topbuttonord #succ{
   background-color: #fff;
   border: 0px;
@@ -569,7 +573,7 @@ button.btnremove:focus {
   height: auto;
 }
 
-.tableUser {
+.tableUser, .tableSupplier {
   border: 1px solid #327a81;
   border-radius: 10px;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
@@ -588,8 +592,36 @@ button.btnremove:focus {
   text-align: center;
 }
 
-.tableUser table{
+.tableUser table, .tableSupplier table{
   width: 100%;
+}
+
+.tableSupplier table th {
+  color: Black;
+}
+
+.tableSupplier table td, table th {
+  color: #2b686e;
+  padding: 10px;
+}
+.tableSupplier table td {
+  text-align: center;
+  vertical-align: middle;
+}
+.tableSupplier table td:last-child {
+  font-size: 0.95em;
+  line-height: 1.4;
+  text-align: left;
+}
+.tableSupplier table th {
+  background-color: #daeff1;
+  font-weight: 300;
+}
+.tableSupplier table tr:nth-child(2n) {
+  background-color: white;
+}
+.tableSupplier table tr:nth-child(2n+1) {
+  background-color: #edf7f8;
 }
 
 .tableUser table th {
@@ -664,10 +696,11 @@ button.supplier:focus{
 .tableUser .topbutton {
   width: 14%;
   height: 3%;
-  position: absolute;
-  margin-top: -13%;
-  margin-left: 50%;
+  position: fixed;
+  margin-top: -21%;
+  margin-left: 45%;
 }
+
 .tableUser .topbutton button{
   cursor: pointer;
   height: 100%;
@@ -676,6 +709,7 @@ button.supplier:focus{
   background-color: #fff;
   border: 0px;
 }
+
 .tableUser .topbutton #prev, .topbutton #succ{
   background-color: #fff;
   border: 0px;
@@ -684,6 +718,34 @@ button.supplier:focus{
 }
 
 .tableUser .topbutton #prev:hover, .topbutton #succ:hover{
+  color: #42a5f5;
+}
+
+.tableSupplier .topbutton {
+  width: 14%;
+  height: 3%;
+  position: fixed;
+  margin-top: -13%;
+  margin-left: 50%;
+}
+
+.tableSupplier .topbutton button{
+  cursor: pointer;
+  height: 100%;
+  width: 10%;
+  font-size: 1.1em;
+  background-color: #fff;
+  border: 0px;
+}
+
+.tableSupplier .topbutton #prev, .topbutton #succ{
+  background-color: #fff;
+  border: 0px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.tableSupplier .topbutton #prev:hover, .topbutton #succ:hover{
   color: #42a5f5;
 }
 
@@ -1036,8 +1098,7 @@ button.supplier:focus{
 
     .topbutton {
       height: 4%;
-      width: 35%;
-      margin-left: 22%;
+      width: 15%;
     }
 
     .topbutton button{
@@ -1085,7 +1146,7 @@ button.supplier:focus{
     }
 
     .tableUser .topbutton {
-      margin-top: -17.5%;
+      margin-top: -28.5%;
       margin-left: 45%;
     }
 
