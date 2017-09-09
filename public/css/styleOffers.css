@@ -157,6 +157,7 @@
 
     .product {
       height: 220px;
+      border-width: 1px;
     }
 
    .product .nome {
