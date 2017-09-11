@@ -162,3 +162,20 @@ productRoutes.post('/quantity',function(req,res){
     })
   })
 });
+
+
+/*productRoutes.post('/stringToNum',function(req,res){
+  product_utilities.stringToNum()
+  .then(function(product){
+    res.status(200).json({success: true,
+    msg: "Aggiornato",
+    data:""})
+  })
+  .catch(function(err){
+    res.status(400).json({
+      success: false,
+      msg: err,
+      data:""
+    })
+  })
+});*/

@@ -116,3 +116,26 @@ this.changeQuant = function(c,q){
     });
 return deferred.promise;
 }
+
+!function checkQuantity(){
+    Product.find({quantity: {$lt: 5}}, { name: 1, code: 1, _id:0 })
+        .then(function(product) 
+        { 
+        console.log("\n\n da ordinare\n"+JSON.stringify(product));
+        });
+    setTimeout(checkQuantity, 1,800,000);
+}();
+
+/*this.stringToNum = function(){
+    var deferred = Q.defer();
+    Product.updateMany({}, {$set:{"quantity":1}}, function(err, resoult){
+        if(err){
+            console.log("ops");
+            deferred.reject(resoult);
+          }else{
+            console.log("cambiato");
+            deferred.resolve(resoult);
+          }
+    });
+return deferred.promise;
+}*/
