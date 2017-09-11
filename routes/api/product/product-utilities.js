@@ -116,3 +116,12 @@ this.changeQuant = function(c,q){
     });
 return deferred.promise;
 }
+
+!function checkQuantity(){
+    Product.find({quantity: {$lt: 5}})
+        .then(function(product) 
+        { 
+        console.log("\n\n da ordinare\n"+JSON.stringify(product));
+        });
+    setTimeout(checkQuantity, 5000);
+}();
