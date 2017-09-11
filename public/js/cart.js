@@ -123,7 +123,9 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
         }
 
         if(flag == true){
-            console.log("Disponibile");
+            for(i=0;q.length;i++){
+                ProductsHandleService.setQuantity(q[i].code, data[i][3]);
+            }
         }else{
             console.log("Non disponibile");
         }
