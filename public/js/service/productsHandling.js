@@ -79,5 +79,14 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
         return "error";
       })
     }
+
+    this.setQuantity = function(c, q){
+      return $http.post("././api/product/quantity", {
+        'c' : c, 'q': q
+      })
+      .then(function(data){
+        console.log(data);
+      })
+    }
   }])
 .run(function(ProductsHandleService) {});
