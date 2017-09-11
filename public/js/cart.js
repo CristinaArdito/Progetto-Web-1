@@ -1,13 +1,14 @@
 angular.module('myApp.controllers')
-.controller('cartController', ['$scope', '$compile', 'CartStorage',
-function($scope, $compile, CartStorage) {
+.controller('cartController', ['$scope', '$compile', 'CartStorage', 'DataService', 'ProductsHandleService',
+function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
 
     $scope.getCart = function(){
         var prodotti = "";
         var remove = "";
         var somma = 0;
 
-        
+        angular.element(document.getElementById('checkoutForm')).empty();
+
         if(CartStorage.isEmpty() == true){
 
             prodotti = "<div class='noproduct'>Nessun prodotto nel carrello</div>"
@@ -50,15 +51,6 @@ function($scope, $compile, CartStorage) {
         }
     }
 
-    $scope.inizializza = function(){
-
-        data = [['Samsung Galaxy s8', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', '549,00','2'],
-                ['Notebook', 'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', '456,00','1'],
-                ['TV Samsung', 'Ut enim ad minim veniam, quis nostrud exercitation ullamco', '560.00', '1']];
-
-        CartStorage.set(data);
-    }
-
     $scope.adjustPrice = function(number){
 
         var newSomma = parseFloat(angular.element(document.getElementById(('price'+number)))[0].innerHTML);
@@ -74,7 +66,7 @@ function($scope, $compile, CartStorage) {
         $scope.total = ((partialSum+newSomma)*1.22)+8;
 
         angular.element(document.getElementById(('grantotatalPrice'+number))).empty();
-        angular.element(document.getElementById(('grantotatalPrice'+number))).append(newSomma.toString());
+        angular.element(document.getElementById(('grantotatalPrice'+number))).append(newSomma.toFixed(2));
         CartStorage.setQuantity(number,q);
          
     }
@@ -85,5 +77,55 @@ function($scope, $compile, CartStorage) {
         angular.element(document.getElementById('showProduct')).empty();
         CartStorage.remove(parseInt(nome));
         this.getCart();
+    }
+
+    $scope.getQuantityForCheckOut = function(){
+
+        var data = CartStorage.get();
+        
+        DataService.reset();
+
+        for(i=0;i<data.length;i++){
+            ProductsHandleService.getSingleProduct(data[i][0])
+            .then(function(data){
+                data = data.data;
+
+                DataService.add(data);
+            })
+        }
+    }
+
+    $scope.checkOut = function(){
+
+        html = '<div>Indirizzo: <input type="text"></input></div>'+
+               '<div>Città: <input type="text"></input></div>'+
+               '<div>CAP: <input type="text"></input></div>'+
+               '<button type="submit" ng-click="buy()">Acquista</button>';
+        
+        angular.element(document.getElementById('checkoutForm')).empty();
+        angular.element(document.getElementById('checkoutForm')).append($compile(html)($scope));
+    }
+
+    $scope.buy = function(){
+
+        var data = CartStorage.get();
+        var q = DataService.get_nonreset();
+        var flag = true;
+
+        for(i=0;i<data.length;i++){
+            console.log(q[i].quantity);
+            console.log(data[i][3]);
+            if(q[i].quantity < data[i][3]){
+                flag = false;
+                alert("Il prodotto "+data[i][0]+" non è più disponibile nella quantità richiesta\nDisponibilità: "+q[i].quantity);
+                break;
+            }
+        }
+
+        if(flag == true){
+            console.log("Disponibile");
+        }else{
+            console.log("Non disponibile");
+        }
     }
 }]);

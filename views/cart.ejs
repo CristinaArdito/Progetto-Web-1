@@ -15,7 +15,9 @@
       <div class="taxtit">Tasse (22%)</div><div class="tax" ng-model="tax">&euro; {{ tax.toFixed(2) }}</div>
       <div class="shippingtit">Spese di spedizione</div><div class="shipping">&euro; 8</div>
       <div class="grantotaltit">Prezzo finale</div><div class="grantotal" ng-model="total">&euro; {{ total.toFixed(2) }}</div>
-      <div class="buttoncontainer2"><button type="submit" id="submitbutton" ng-click="checkout()">Acquista</button></div></hr>
+      <div class="buttoncontainer2"><button type="submit" id="submitbutton" ng-click="checkOut()">Prosegui</button></div></hr>
+  </div>
+  <div id="checkoutForm" ng-init="getQuantityForCheckOut()">
   </div>
   <footer class="footer">
       <div class="titlefooter">Master Cart Record</div>

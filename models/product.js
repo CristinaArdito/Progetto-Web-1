@@ -11,7 +11,7 @@ var Product = mongoose.model('Product', new Schema({
     code: Number,
     url: [{type:String , default:"0"}], //for img refer
     categories : [{ type:String }],
-    quantity   : {type:String , default:"0"}
+    quantity   : {type:Number , default:"0"}
 }));
 
 module.exports = Product;
