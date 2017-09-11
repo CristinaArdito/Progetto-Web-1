@@ -102,3 +102,17 @@ this.deleteProduct = function(q){
         })
     return deferred.promise;
 }
+
+this.changeQuant = function(c,q){
+    var deferred = Q.defer();
+    Product.update({"code":c}, {$set:{"quantity":q}}, function(err, resoult){
+        if(err){
+            console.log("ops");
+            deferred.reject(resoult);
+          }else{
+            console.log("cambiato");
+            deferred.resolve(resoult);
+          }
+    });
+return deferred.promise;
+}
