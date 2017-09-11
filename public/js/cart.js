@@ -97,10 +97,11 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
 
     $scope.checkOut = function(){
 
-        html = '<div>Indirizzo: <input type="text"></input></div>'+
-               '<div>Città: <input type="text"></input></div>'+
-               '<div>CAP: <input type="text"></input></div>'+
-               '<button type="submit" ng-click="buy()">Acquista</button>';
+        html = '<div class="contcheckout"><h4>Indirizzo di consegna</h4>'+
+               '<div class="inputcheck">Via: <input type="text"></input></div>'+
+               '<div class="inputcheck">Città: <input type="text"></input></div>'+
+               '<div class="capcheck">CAP: <input type="text"></input></div>'+
+               '<button type="submit" ng-click="buy()">Acquista</button></div>';
         
         angular.element(document.getElementById('checkoutForm')).empty();
         angular.element(document.getElementById('checkoutForm')).append($compile(html)($scope));
@@ -117,7 +118,7 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
             console.log(data[i][3]);
             if(q[i].quantity < data[i][3]){
                 flag = false;
-                alert("Il prodotto "+data[i][0]+" non è più disponibile nella quantità richiesta\nDisponibilità: "+q[i].quantity);
+                alert("Il prodotto "+data[i][0]+" non è più disponibile nella quantità richiesta.\nDisponibilità: "+q[i].quantity);
                 break;
             }
         }
