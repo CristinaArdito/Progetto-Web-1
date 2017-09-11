@@ -110,6 +110,7 @@ h1 {
   margin-left: 89%;
   margin-top: 2%;
 }
+
 .buttoncontainer button, .buttoncontainer2 button {
   background: rgb(254,231,154);
   background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
@@ -138,6 +139,7 @@ h1 {
   text-shadow: 0 1px 0 rgba(255,255,255,0.5);
   width: 75px;
 }
+
 .buttoncontainer button:hover, .buttoncontainer2 button:hover{
   background: rgb(254,193,81);
   background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
@@ -184,6 +186,7 @@ hr {
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
 }
+
 .titlefooter {
     font-size: 1.2em;
 }
@@ -311,20 +314,25 @@ hr {
 
   .prod .nomeprod {
     margin-left: 22%;
+    margin-top: -10.7%;
   }
 
   .prezzoprod {
     margin-left: 49%;
+    margin-top: -9.5%;
   }
 
   .qtacart {
+    margin-top: -9.5%;  	
   }
 
   .buttoncontainer {
+  	  margin-top: -11%;
       margin-left: 73%;
   }
 
   .tot {
+  	  margin-top: -9.5%;
   }
 
   .subtotaltit, .taxtit, .shippingtit, .grantotaltit {
@@ -343,6 +351,6 @@ hr {
 
   .footer {
       margin-top: 95%;
-
   }
+
 }  
