@@ -37,14 +37,16 @@ productRoutes.post('/all', function(req, res){
 productRoutes.post('/add', function(req,res){
   console.log("Body: ");
 
+  console.log(req.body);
+  
   var name = req.body.data[0];
-  var code = req.body.data[1];
-  var categories = req.body.data[2].split(",");
-  var weight = req.body.data[3];
-  var price = req.body.data[4];
-  var quantity =  req.body.data[5];
-  var url = req.body.data[6];
-  var desc  = req.body.data[7];
+  var code = parseInt(fs.readFileSync("././public/img/product_2 (TEST)/index.txt"));
+  var categories = req.body.data[1].split(",");
+  var weight = req.body.data[2];
+  var price = req.body.data[3];
+  var quantity =  req.body.data[4];
+  var url = req.body.data[5];
+  var desc  = req.body.data[6];
 
   console.log(name);
 

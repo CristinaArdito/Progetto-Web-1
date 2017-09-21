@@ -242,30 +242,28 @@ function($scope, ProductsHandleService, FileUpload, DataService){
         data[0] = angular.element(document.getElementById("name"))[0].value;
         angular.element(document.getElementById("name"))[0].value = "";
         data[0] = data[0].charAt(0).toUpperCase() + data[0].slice(1);
-        data[1] = angular.element(document.getElementById("code"))[0].value;
-        angular.element(document.getElementById("code"))[0].value = "";
-        data[2] = angular.element(document.getElementById("selectionForm"))[0].value;
-        if(data[2].includes(",") == false) data[2] = data[2]+",";
+        data[1] = angular.element(document.getElementById("selectionForm"))[0].value;
+        if(data[1].includes(",") == false) data[1] = data[1]+",";
         angular.element(document.getElementById("selectionForm"))[0].value = "Hardware";
-        data[3] = angular.element(document.getElementById("peso"))[0].value;
+        data[2] = angular.element(document.getElementById("peso"))[0].value;
         angular.element(document.getElementById("peso"))[0].value = "";
-        data[4] = angular.element(document.getElementById("price"))[0].value;
+        data[3] = angular.element(document.getElementById("price"))[0].value;
         angular.element(document.getElementById("price"))[0].value = "";
-        data[5] = angular.element(document.getElementById("q"))[0].value;
+        data[4] = angular.element(document.getElementById("q"))[0].value;
         angular.element(document.getElementById("q"))[0].value = 0;
-        data[6] = angular.element(document.getElementById("img"))[0].files[0];
+        data[5] = angular.element(document.getElementById("img"))[0].files[0];
         angular.element(document.getElementById("img"))[0].files[0] = null;
-        data[7] = angular.element(document.getElementById("desc"))[0].value;
+        data[6] = angular.element(document.getElementById("desc"))[0].value;
         angular.element(document.getElementById("desc"))[0].value = "";
 
         
-        if(data[6] == null){
+        if(data[5] == null){
             alert("Dati non completi");
         }
         else
         ProductsHandleService.storeImage(DataService.get_nonreset())
         .then(function(urlValue){
-            data[6] = urlValue.data.urlName;
+            data[5] = urlValue.data.urlName;
             for(i=0;i<data.length;i++){
                 if(data[i] == ""){
                     alert("Dati non completi");
@@ -274,6 +272,7 @@ function($scope, ProductsHandleService, FileUpload, DataService){
                 }
             }
             
+            console.log(data);
             if(flag == false){
                 ProductsHandleService.addProduct(data);
             }
