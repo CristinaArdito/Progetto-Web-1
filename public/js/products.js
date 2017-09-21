@@ -45,7 +45,10 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
 
                 nParam = 'redirectToOrder("'+i+'");';
                 remove = 'removeProduct("'+value[i].code+'","'+value[i].url+'")';
-                prodotti = prodotti + "<div class='product'><h2><span style='color:Black;' id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
+                modify = 'modifyProduct("'+value[i].name+'")';
+
+                prodotti = prodotti + "<div class='product' ng-click='"+modify+"'>"+
+                                        "<h2><span style='color:Black;' id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                         "<ul><li style='"+background+"'></li>"+
                                         "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                         "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
@@ -109,6 +112,11 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
         })
 
 
+    }
+
+    $scope.modifyProduct = function(name){
+        DataService.set(name);
+        $location.path('/editProduct');
     }
 
     //=============================================================================================
