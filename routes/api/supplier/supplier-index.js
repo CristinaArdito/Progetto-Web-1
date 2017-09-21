@@ -14,8 +14,7 @@ supplierRoutes.use(bodyParser.json());
 // parse application/vnd.api+json as json
 supplierRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));     
 
-supplierRoutes.post('/add', function(req, res)
-            {
+supplierRoutes.post('/add', function(req, res){
               console.log("Body: ");
               console.log(req.body);
 
@@ -49,7 +48,7 @@ supplierRoutes.post('/add', function(req, res)
                                                 msg:err.msg, 
                                                 data:""}); 
                       });
-            });
+});
 
 supplierRoutes.post('/all', function(req,res){
   supplier_utilities.getAllSupplier()
@@ -86,4 +85,28 @@ supplierRoutes.post('/remove', function(req, res){
         data: ""
       })
     })
+});
+
+supplierRoutes.post('/update', function(req,res){
+  var name = req.body.name;
+  var ntel  = req.body.ntel;
+  var email = req.body.email;
+  var city = req.body.city;
+  var via = req.body.via;
+  var cap = req.body.cap;
+  var emailP = req.body.emailp;
+
+  supplier_utilities.update(name, ntel, email, city, via, cap, emailP)
+  .then(function(supplier)
+    {
+     Console.log("In teoria è salvato");
+     res.status(201).json({ success: true , msg:"fornitore aggiornato", data:supplier});
+    })
+  .catch(function(err)
+    {
+       res.status(400).json({ success: false , 
+                              code:err.code,
+                              msg:err.msg, 
+                              data:""}); 
+    });
 });

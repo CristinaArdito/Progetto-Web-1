@@ -157,6 +157,31 @@ productRoutes.post('/quantity',function(req,res){
   })
 });
 
+productRoutes.post('/update',function(req,res){
+  
+  var name = req.body.data[0];
+  var categories = req.body.data[1].split(",");
+  var weight = req.body.data[2];
+  var price = req.body.data[3];
+  var url = req.body.data[4];
+  var desc  = req.body.data[5];
+  var c = req.body.c;
+
+  product_utilities.update(name, categories, weight, price, url, desc, c)
+  .then(function(product){
+    res.status(200).json({success: true,
+    msg: "Aggiornato",
+    data:""})
+  })
+  .catch(function(err){
+    res.status(400).json({
+      success: false,
+      msg: err,
+      data:""
+    })
+  })
+});
+
 
 /*productRoutes.post('/stringToNum',function(req,res){
   product_utilities.stringToNum()

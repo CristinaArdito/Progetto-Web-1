@@ -61,3 +61,17 @@ this.deleteSupplier = function(q){
     });
   return deferred.resolve;
 }
+
+this.update = function(name, ntel, email, city, via, cap, emailP){
+  var deferred = Q.defer();
+  Supplier.update({"email":emailP},{$set:{"name":name,"ntel":ntel,"email":email,"city":city,"cap":cap,"via":via}}, function(err,resoult){
+    if(err){
+      console.log("ops");
+      deferred.reject(resoult);
+    }else{
+      console.log("cambiato");
+      deferred.resolve(resoult);
+    }
+});
+return deferred.promise;
+}
