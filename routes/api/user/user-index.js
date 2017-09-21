@@ -173,3 +173,39 @@ userRoutes.post('/reminderPush', function(req,res){
     })
   })
 });
+
+userRoutes.post('/changePassword', function(req,res){
+  user_utilities.changePassword(req.body.email, req.body.pass)
+  .then(function(user){
+    res.status(200).json({
+      success: true,
+      msg: "Password Cambiata",
+      data: ""
+    })
+  })
+  .catch(function(err){
+    res.status(400).json({
+      success: false,
+      msg: err,
+      data: ""
+    })
+  })
+});
+
+userRoutes.post('/update', function(req,res){
+  user_utilities.update(req.body.name, req.body.email, req.body.password, req.body.emailP)
+  .then(function(user){
+    res.status(200).json({
+      success: true,
+      msg: "Info Cambiate",
+      data: ""
+    })
+  })
+  .catch(function(err){
+    res.status(400).json({
+      success: false,
+      msg: err,
+      data: ""
+    })
+  })
+});
