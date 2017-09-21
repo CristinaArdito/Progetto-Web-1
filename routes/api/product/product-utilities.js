@@ -1,6 +1,9 @@
 var jwt         = require('jsonwebtoken');    // used to create, sign, and verify tokens
 var Product     = require('../../../models/product') // get our mongoose Product model
 var Q           = require('q');  // Q promise
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+var Admin       = require('../../../models/user');
 
 var db_utilities_product=require('./db-utilities-product');
 
@@ -83,12 +86,6 @@ this.searchProduct = function(q){
     return deferred.promise;
 }
 
-this.orderProducts = function(){
-  var deferred = Q.defer();
-  console.log("ordine prodotti");
-  return deferred.promise;
-}
-
 this.deleteProduct = function(q){
     var deferred = Q.defer();
     Product.remove({"code":q})
@@ -116,15 +113,6 @@ this.changeQuant = function(c,q){
     });
 return deferred.promise;
 }
-
-!function checkQuantity(){
-    Product.find({quantity: {$lt: 5}}, { name: 1, code: 1, _id:0 })
-        .then(function(product) 
-        { 
-        console.log("\n\n da ordinare\n"+JSON.stringify(product));
-        });
-    setTimeout(checkQuantity, 1,800,000);
-}();
 
 /*this.stringToNum = function(){
     var deferred = Q.defer();

@@ -1,6 +1,7 @@
 var jwt         = require('jsonwebtoken');    // used to create, sign, and verify tokens
 var User        = require('../../../models/user');   // get our mongoose User model
 var Q           = require('q');  // Q promise
+var Reminder    = require('../../../models/reminder')
 
 var db_utilities=require('./db-utilities-user');
 
@@ -136,3 +137,7 @@ this.deOp = function(q){
   return deferred.promise;
 }
 
+this.push = function(e, c){
+  return db_utilities.pushRem({email:e, 
+                               code:c}); 
+}

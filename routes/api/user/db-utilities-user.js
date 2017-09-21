@@ -1,5 +1,6 @@
 var User        = require('../../../models/user');   // get our mongoose User model
 var Q           = require('q');  // Q promise
+var Reminder    = require('../../../models/reminder')
 
 var db_utilities_user = this;
 module.exports = db_utilities_user;
@@ -72,3 +73,28 @@ this.addUser = function(user)
         deferred.reject;
       })
   }
+
+this.pushRem() = function(reminder){
+  var deferred = Q.defer();
+
+  var rem = new Reminder(reminder);
+
+  rem.save()
+  .then(function(reminder)
+  {
+   console.log("Dovrebbe essere salvato");
+   logger.debug('reminder salvato '+JSON.stringify(reminder));
+   /* eventuale invio email */
+   deferred.resolve(reminder);
+  })
+.catch(function(err)
+   {
+    if (err.code == ERR_DB_DUPLICATE_KEY)
+        {deferred.reject({code:'ERR_DB_DUPLICATE_KEY', 
+                          msg:'questo utente esiste gia'}); }
+    else
+        {logger.error('[pushRem] errore salvataggio utente '+err.errmsg);}
+    deferred.reject(err.errmsg);   
+   });
+return deferred.promise;
+}

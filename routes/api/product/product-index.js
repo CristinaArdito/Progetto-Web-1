@@ -73,14 +73,6 @@ productRoutes.post('/add', function(req,res){
           });
 })
 
-productRoutes.post('/orders', function(req, res)
-          {
-            console.log("Sono l'handler degli ordini");
-            console.log(req.body.data);
-            var data = JSON.parse(req.body.data);
-            console.log(data);
-          });
-
 productRoutes.post('/search', function(req, res){
     console.log(req.body.q);
     product_utilities.searchProduct(req.body.q)
