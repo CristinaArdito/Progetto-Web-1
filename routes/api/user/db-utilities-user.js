@@ -74,7 +74,7 @@ this.addUser = function(user)
       })
   }
 
-this.pushRem() = function(reminder){
+this.pushRem = function(reminder){
   var deferred = Q.defer();
 
   var rem = new Reminder(reminder);
