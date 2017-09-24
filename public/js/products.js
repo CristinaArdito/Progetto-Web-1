@@ -269,7 +269,7 @@ function($scope, ProductsHandleService, FileUpload, DataService){
             alert("Dati non completi");
         }
         else
-        ProductsHandleService.storeImage(DataService.get_nonreset())
+        ProductsHandleService.storeImage(DataService.get_nonreset(), null)
         .then(function(urlValue){
             data[5] = urlValue.data.urlName;
             for(i=0;i<data.length;i++){

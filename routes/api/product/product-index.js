@@ -89,33 +89,40 @@ productRoutes.post('/loadImg', function(req, res){
     console.log("Load Image");
     var names = [];
     var i=0;
+    var url = req.body.url;
 
-    fs.readdirSync("././public/img/product_2 (TEST)").forEach(file => {
-      names[i] = file;
-      i++;
-    });
+    if(url == null){
+      fs.readdirSync("././public/img/product_2 (TEST)").forEach(file => {
+        names[i] = file;
+        i++;
+      });
 
-    var imgData = req.body.data.replace(/^data:image\/\w+;base64,/, "");
+      var imgData = req.body.data.replace(/^data:image\/\w+;base64,/, "");
 
-    if(names[0] == undefined){
-      res.status(200).json({ success: true , 
-        msg: "url file", 
-        urlName: "././public/img/product_2 (TEST)/0.jpg"});
-      fs.writeFile("././public/img/product_2 (TEST)/0.jpg", new Buffer(imgData,"base64"));
+      if(names[0] == undefined){
+        res.status(200).json({ success: true , 
+          msg: "url file", 
+          urlName: "././public/img/product_2 (TEST)/0.jpg"});
+        fs.writeFile("././public/img/product_2 (TEST)/0.jpg", new Buffer(imgData,"base64"));
+      }else{
+
+        var numero = fs.readFileSync("././public/img/product_2 (TEST)/index.txt");
+        console.log("Numero letto: "+numero);
+        nome = "././public/img/product_2 (TEST)/"+(parseInt(numero)+1)+".jpg";
+
+        res.status(200).json({ success: true , 
+          msg: "url file",
+          urlName: nome});
+        
+        fs.writeFileSync(nome, new Buffer(imgData,"base64"));
+          var n = (parseInt(numero)+1);
+          console.log(n);
+          fs.writeFileSync("././public/img/product_2 (TEST)/index.txt", ""+n);
+      }
     }else{
+      var imgData = req.body.data.replace(/^data:image\/\w+;base64,/, "");
+      fs.writeFileSync(url, new Buffer(imgData,"base64"));
 
-      var numero = fs.readFileSync("././public/img/product_2 (TEST)/index.txt");
-      console.log("Numero letto: "+numero);
-      nome = "././public/img/product_2 (TEST)/"+(parseInt(numero)+1)+".jpg";
-
-      res.status(200).json({ success: true , 
-        msg: "url file",
-        urlName: nome});
-      
-      fs.writeFileSync(nome, new Buffer(imgData,"base64"));
-      var n = (parseInt(numero)+1);
-      console.log(n);
-      fs.writeFileSync("././public/img/product_2 (TEST)/index.txt", ""+n);
     }
 });
 

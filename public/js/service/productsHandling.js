@@ -43,15 +43,24 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
       return deferred.promise;
     }
 
-    this.storeImage = function(data){
+    this.storeImage = function(data, url){
       var deferred = $q.defer();
 
-      $http.post("././api/product/loadImg", {
-        'data' : data
-      })
-      .then(function(urlName){
-        deferred.resolve(urlName);
-      })
+      if(url == null){
+        $http.post("././api/product/loadImg", {
+          'data' : data, 'url' : null
+        })
+        .then(function(urlName){
+          deferred.resolve(urlName);
+        })
+      }else{
+        $http.post("././api/product/loadImg", {
+          'data' : data, 'url' : url
+        })
+        .then(function(urlName){
+          deferred.resolve(urlName);
+        })
+      }
 
       return deferred.promise;
     }
@@ -86,6 +95,18 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
       })
       .then(function(data){
         console.log(data);
+      })
+    }
+
+    this.update = function(data, c){
+      
+      console.log(c);
+      
+      $http.post("././api/product/update", {
+        'data' : data, 'c' : c
+      })
+      .then(function(value){
+        console.log(value);
       })
     }
   }])
