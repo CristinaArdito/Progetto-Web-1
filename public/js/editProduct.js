@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-.controller('editProductController', ['$scope', '$compile', '$http' , '$location' ,'DataService','ProductsHandleService',
-function($scope, $compile, $http, $location, DataService, ProductsHandleService) {
+.controller('editProductController', ['$scope', '$compile', '$http' , '$location' ,'DataService','ProductsHandleService', 'FileUpload',
+function($scope, $compile, $http, $location, DataService, ProductsHandleService, FileUpload) {
     
 
     $scope.init = function(){
@@ -26,13 +26,74 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
             
             angular.element(document.getElementById('addProducts')).append($compile(part1)($scope));
             angular.element(document.getElementById('selectionForm'))[0].value = data.categories[0];
+            DataService.setIndice([data.code, data.url]);
         })
         
         
     }
 
-    
-/*
-    
-        */
+    $scope.loadFile = function(){
+        var file = angular.element(document.getElementById("img"))[0].files[0];
+        if(file.size>2097152) alert("File troppo grande, dimensione massima 2MB");
+        else FileUpload.fileReader(file);
+    }
+
+    $scope.modify = function(){
+        var data = [];
+        var flag = false;
+        var info = DataService.getIndice();
+
+        data[0] = angular.element(document.getElementById("name"))[0].value;
+        angular.element(document.getElementById("name"))[0].value = "";
+        data[0] = data[0].charAt(0).toUpperCase() + data[0].slice(1);
+        data[1] = angular.element(document.getElementById("selectionForm"))[0].value;
+        if(data[1].includes(",") == false) data[1] = data[1]+",";
+        angular.element(document.getElementById("selectionForm"))[0].value = "Hardware";
+        data[2] = angular.element(document.getElementById("peso"))[0].value;
+        angular.element(document.getElementById("peso"))[0].value = "";
+        data[3] = angular.element(document.getElementById("price"))[0].value;
+        angular.element(document.getElementById("price"))[0].value = "";
+        data[4] = angular.element(document.getElementById("img"))[0].files[0];
+        angular.element(document.getElementById("img"))[0].files[0] = null;
+        data[5] = angular.element(document.getElementById("desc"))[0].value;
+        angular.element(document.getElementById("desc"))[0].value = "";
+
+        
+        if(data[4] == null){
+            data[4] = info[1][0];
+
+            for(i=0;i<data.length;i++){
+                if(data[i] == ""){
+                    alert("Dati non completi");
+                    flag = true;
+                    break;
+                }
+            }
+            
+            console.log(data);
+            console.log(info);
+            
+            if(flag == false){
+                ProductsHandleService.update(data, info[0]);
+            }
+        }else{
+
+            ProductsHandleService.storeImage(DataService.get_nonreset(), url)
+            .then(function(urlValue){
+                data[4] = urlValue.data.urlName;
+                for(i=0;i<data.length;i++){
+                    if(data[i] == ""){
+                        alert("Dati non completi");
+                        flag = true;
+                        break;
+                    }
+                }
+                
+                console.log(data);
+                if(flag == false){
+                    ProductsHandleService.update(data, info[0]);
+                }
+            });
+        }
+    }
 }])
