@@ -454,6 +454,7 @@ button.btnremove:focus {
   position: relative;
   top: -40px;
 }
+
 #addProducts textarea{
   border-radius: 3px;
   border-width: 1px;
@@ -492,6 +493,7 @@ button.btnremove:focus {
   margin-left: 20%;
   margin-top: 1%;
 }
+
 .title {
   margin-top: 1%;
 }
@@ -500,12 +502,14 @@ button.btnremove:focus {
   text-decoration: none;
   color: Black;
 }
+
 .num {
   width: 40px;
   border-radius: 3px;
   border-style: solid;
   border-color: #3f51b5;
 }
+
 .ordbutton{
   cursor: pointer;
   float: left;
@@ -570,18 +574,29 @@ button.btnremove:focus {
 }
 
 #contSupplier {
-  width: 95%;
+  width: 90%;
   margin-left: 9%;
   height: auto;
 }
 
-.tableUser, .tableSupplier {
+.tableUser {
   border: 1px solid #327a81;
   border-radius: 10px;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
   max-width: calc(100% - 2em);
   margin-top: 5%;
   margin-left: 17%;
+  overflow: hidden;
+  width: 65%;
+}
+
+.tableSupplier {
+  border: 1px solid #327a81;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 2em);
+  margin-top: 5%;
+  margin-left: 22%;
   overflow: hidden;
   width: 65%;
 }
@@ -606,22 +621,27 @@ button.btnremove:focus {
   color: #2b686e;
   padding: 10px;
 }
+
 .tableSupplier table td {
   text-align: center;
   vertical-align: middle;
 }
+
 .tableSupplier table td:last-child {
   font-size: 0.95em;
   line-height: 1.4;
   text-align: left;
 }
+
 .tableSupplier table th {
   background-color: #daeff1;
   font-weight: 300;
 }
+
 .tableSupplier table tr:nth-child(2n) {
   background-color: white;
 }
+
 .tableSupplier table tr:nth-child(2n+1) {
   background-color: #edf7f8;
 }
@@ -634,22 +654,27 @@ button.btnremove:focus {
   color: #2b686e;
   padding: 10px;
 }
+
 .tableUser table td {
   text-align: center;
   vertical-align: middle;
 }
+
 .tableUser table td:last-child {
   font-size: 0.95em;
   line-height: 1.4;
   text-align: left;
 }
+
 .tableUser table th {
   background-color: #daeff1;
   font-weight: 300;
 }
+
 .tableUser table tr:nth-child(2n) {
   background-color: white;
 }
+
 .tableUser table tr:nth-child(2n+1) {
   background-color: #edf7f8;
 }
@@ -699,7 +724,7 @@ button.supplier:focus{
   width: 14%;
   height: 3%;
   position: fixed;
-  margin-top: -21%;
+  margin-top: -17%;
   margin-left: 45%;
 }
 
@@ -727,7 +752,7 @@ button.supplier:focus{
   width: 14%;
   height: 3%;
   position: fixed;
-  margin-top: -13%;
+  margin-top: -17%;
   margin-left: 50%;
 }
 
@@ -967,7 +992,7 @@ button.supplier:focus{
     }
 
     .menu ul li:hover ul {
-     width: 90%;
+     width: 97.5%;
     }
 
     ul.menuordini{
@@ -1054,11 +1079,25 @@ button.supplier:focus{
        margin-left: 12%;
     }
 
+    .tableSupplier {
+      margin-top: 5%;
+      margin-left: 10%;
+      width: 79%;
+    }
+
     .tableUser .topbutton {
-      margin-top: -17.5%;
+      margin-top: -25%;
       margin-left: 45%;
     }
 
+    .tableSupplier .topbutton {
+      margin-top: -18.5%;
+      margin-left: 45%;
+    }
+
+    button.supplier{
+        margin-left: 13%;
+    }
 }
 
 @media screen and (min-device-width: 1300px) and (max-device-width: 1400px){
@@ -1157,8 +1196,23 @@ button.supplier:focus{
     }
 
     .tableUser .topbutton {
-      margin-top: -28.5%;
+      margin-top: -21.5%;
       margin-left: 45%;
+    }
+
+    .tableSupplier {
+      margin-top: 5%;
+      margin-left: 14%;
+      width: 79%;
+    }
+
+    .tableSupplier .topbutton {
+      margin-top: -20.5%;
+      margin-left: 55%;
+    }
+
+    button.supplier{
+        margin-left: 8.5%;
     }
 
 }
@@ -1474,7 +1528,7 @@ button.supplier:focus{
 
     .tableUser {
         width: 75%;
-          margin-left: 12%;
+        margin-left: 12%;
     }
 } 
 
