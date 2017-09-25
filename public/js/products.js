@@ -165,6 +165,8 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
     $scope.showProducts = function(data){
         if(data == 0){
             this.Delete();
+            DataService.reset();
+            
             ProductsHandleService.getAllProducts()
             .then(function(value){
 

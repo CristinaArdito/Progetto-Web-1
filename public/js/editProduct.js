@@ -59,8 +59,11 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
         angular.element(document.getElementById("desc"))[0].value = "";
 
         
+        console.log("Aggiorno");
+
         if(data[4] == null){
             data[4] = info[1][0];
+            console.log("Nessuna immagine");
 
             for(i=0;i<data.length;i++){
                 if(data[i] == ""){
@@ -70,16 +73,21 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
                 }
             }
             
-            console.log(data);
-            console.log(info);
-            
             if(flag == false){
                 ProductsHandleService.update(data, info[0]);
             }
         }else{
 
-            ProductsHandleService.storeImage(DataService.get_nonreset(), url)
+            flag = false;
+            console.log("Immagine presente");
+
+            ProductsHandleService.storeImage(DataService.get_nonreset(), info[1][0])
             .then(function(urlValue){
+
+                console.log("Then");
+                console.log(urlValue);
+                console.log("Aggiornamento");
+
                 data[4] = urlValue.data.urlName;
                 for(i=0;i<data.length;i++){
                     if(data[i] == ""){
@@ -89,7 +97,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
                     }
                 }
                 
-                console.log(data);
+                
                 if(flag == false){
                     ProductsHandleService.update(data, info[0]);
                 }

@@ -20,7 +20,7 @@ productRoutes.post('/all', function(req, res){
     .then(function(products)
       {
 
-        console.log("\n\nProdotti: "+products);
+        //console.log("\n\nProdotti: "+products);
 
         res.status(200).json({ success: true , 
                                msg: "lista di tutti i prodotti", 
@@ -35,9 +35,9 @@ productRoutes.post('/all', function(req, res){
 });
 
 productRoutes.post('/add', function(req,res){
-  console.log("Body: ");
-
-  console.log(req.body);
+  
+  //console.log("Body: ");
+  //console.log(req.body);
   
   var name = req.body.data[0];
   var code = parseInt(fs.readFileSync("././public/img/product_2 (TEST)/index.txt"));
@@ -48,7 +48,7 @@ productRoutes.post('/add', function(req,res){
   var url = req.body.data[5];
   var desc  = req.body.data[6];
 
-  console.log(name);
+  //console.log(name);
 
   // controllo parametri
   if (!name || !desc || !categories)
@@ -59,7 +59,7 @@ productRoutes.post('/add', function(req,res){
                                       message: 'Bad Request name desc or categories missing' });  
       } 
    // esecuzione funzione    
-  console.log("Dati (api_index): "+desc+" "+name+" "+price+" "+categories);
+  //console.log("Dati (api_index): "+desc+" "+name+" "+price+" "+categories);
   product_utilities.addProduct(name, desc, price, categories, code, url, weight, quantity)
         .then(function(product)
           {
@@ -76,7 +76,7 @@ productRoutes.post('/add', function(req,res){
 })
 
 productRoutes.post('/search', function(req, res){
-    console.log(req.body.q);
+   // console.log(req.body.q);
     product_utilities.searchProduct(req.body.q)
       .then(function(product){
         res.status(201).json({ success: true , 
@@ -91,6 +91,8 @@ productRoutes.post('/loadImg', function(req, res){
     var i=0;
     var url = req.body.url;
 
+    console.log("URL: "+url);
+
     if(url == null){
       fs.readdirSync("././public/img/product_2 (TEST)").forEach(file => {
         names[i] = file;
@@ -100,14 +102,13 @@ productRoutes.post('/loadImg', function(req, res){
       var imgData = req.body.data.replace(/^data:image\/\w+;base64,/, "");
 
       if(names[0] == undefined){
-        res.status(200).json({ success: true , 
+        res.status(200).json({ success: true ,
           msg: "url file", 
           urlName: "././public/img/product_2 (TEST)/0.jpg"});
-        fs.writeFile("././public/img/product_2 (TEST)/0.jpg", new Buffer(imgData,"base64"));
+        fs.writeFileSync("././public/img/product_2 (TEST)/0.jpg", new Buffer(imgData,"base64"));
       }else{
 
         var numero = fs.readFileSync("././public/img/product_2 (TEST)/index.txt");
-        console.log("Numero letto: "+numero);
         nome = "././public/img/product_2 (TEST)/"+(parseInt(numero)+1)+".jpg";
 
         res.status(200).json({ success: true , 
@@ -116,18 +117,20 @@ productRoutes.post('/loadImg', function(req, res){
         
         fs.writeFileSync(nome, new Buffer(imgData,"base64"));
           var n = (parseInt(numero)+1);
-          console.log(n);
           fs.writeFileSync("././public/img/product_2 (TEST)/index.txt", ""+n);
       }
     }else{
       var imgData = req.body.data.replace(/^data:image\/\w+;base64,/, "");
       fs.writeFileSync(url, new Buffer(imgData,"base64"));
 
+      res.status(200).json({ success: true , 
+        msg: "url file",
+        urlName: url});
     }
 });
 
 productRoutes.post('/remove',function(req,res){
-    console.log(req.body.q);
+    //console.log(req.body.q);
 
     if(fs.existsSync(req.body.url)){
       fs.unlinkSync(req.body.url);

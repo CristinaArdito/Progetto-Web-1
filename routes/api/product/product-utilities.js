@@ -40,7 +40,7 @@ this.getAllProducts = function(){
     Product.find({})
         .then(function(product) 
             { 
-             console.log("\n\ngetAllProducts "+JSON.stringify(product));
+             //console.log("\n\ngetAllProducts "+JSON.stringify(product));
              deferred.resolve(product);
             })
         .catch(function(err)

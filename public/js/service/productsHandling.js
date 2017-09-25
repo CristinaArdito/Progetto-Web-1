@@ -46,11 +46,15 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
     this.storeImage = function(data, url){
       var deferred = $q.defer();
 
+      console.log(url);
+
       if(url == null){
         $http.post("././api/product/loadImg", {
           'data' : data, 'url' : null
         })
         .then(function(urlName){
+          console.log("success");
+          
           deferred.resolve(urlName);
         })
       }else{
