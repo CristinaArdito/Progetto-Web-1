@@ -31,5 +31,13 @@ pwApp.service('SupplierService', ['$q','$http',function ($q, $http)
     return deferred.promise;
   }
 
+  this.updateSupplier = function(data){
+    var deferred = $q.defer();
+
+    $http.post("././api/supplier/update", {
+      
+    })
+  }
+
   }])
   .run(function(SupplierService) {});
