@@ -21,6 +21,8 @@ orderRoutes.post('supplierOrder', function(req,res){});
 
 orderRoutes.get('uOrderStory', function(req,res){});
 
-orderRoutes.get('orderNumber', function(req,res){});
+orderRoutes.get('orderTnumber', function(req,res){});
 
 orderRoutes.get('orderTable',function(req,res){});
+
+orderRoutes.get('orderByNumber', function(req,res){});
