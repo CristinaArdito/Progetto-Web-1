@@ -60,7 +60,7 @@ function($scope, SupplierService, $compile, DataService, $location){
 
         if(i>=data.length) break;
 
-        removeSupplier = 'removeSupplier("'+data[i].name+'","'+data[i].email+'")';
+        removeSupplier = 'removeSupplier("'+data[i].email+'")';
         modifySupplier = 'updateSupplier("'+i+'")';
 
         table = table + "<tr><td>"+data[i].name+"</td>"+
@@ -82,6 +82,8 @@ function($scope, SupplierService, $compile, DataService, $location){
 
     $scope.showSupplier = function(){
 
+        angular.element(document.getElementById('showSupplierDiv')).empty();
+        
         console.log("ShowSupplier");
         SupplierService.getAllSupplier()
         .then(function(data){
@@ -93,17 +95,14 @@ function($scope, SupplierService, $compile, DataService, $location){
         })
     }
 
-    $scope.removeSupplier = function(par1,par2){
+    $scope.removeSupplier = function(email){
 
-        console.log(par1);
-        console.log(par2);
-
-        /*
-        CurrentUserService.removeUser(par1, par2)
-        .then(function(data){
-            console.log(data);
+        SupplierService.removeSupplier(email)
+        .then(function(result){
+            
+            $scope.showSupplier();
         })
-        */
+
     }
 
     $scope.updateSupplier = function(n){
@@ -111,6 +110,5 @@ function($scope, SupplierService, $compile, DataService, $location){
         var data = DataService.getIndex(n);
         DataService.set(data);
         $location.path("/editSupplier");
-
     }
 }]);
