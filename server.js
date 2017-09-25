@@ -54,6 +54,9 @@ app.use('/api/product', productRoutes);
 var supplierRoutes = require('./routes/api/supplier/supplier-index');
 app.use('/api/supplier', supplierRoutes);
 
+var orderRoutes = require('./routes/api/order/order-index');
+app.use('/api/order', orderRoutes);
+
 app.post('/login', function(req, res){
 	res.write("Nome: "+req.username+" e Password: "+req.password);
 	res.end();
