@@ -133,9 +133,10 @@ this.deOp = function(q){
   return deferred.promise;
 }
 
-this.push = function(e, c){
+this.pushRem = function(e,c){
+  console.log("email: "+ e + " code: " + c);
   return db_utilities.pushRem({email:e, 
-                               code:c}); 
+                               codeProduct:c}); 
 }
 
 this.changePassword = function(e, p){

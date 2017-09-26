@@ -57,6 +57,10 @@ app.use('/api/supplier', supplierRoutes);
 var orderRoutes = require('./routes/api/order/order-index');
 app.use('/api/order', orderRoutes);
 
+// ========================
+// SITE ROUTES
+// ========================
+
 app.post('/login', function(req, res){
 	res.write("Nome: "+req.username+" e Password: "+req.password);
 	res.end();

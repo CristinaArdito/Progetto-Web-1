@@ -157,8 +157,9 @@ userRoutes.post('/deop', function(req, res){
 });
 
 userRoutes.post('/reminderPush', function(req,res){
-  user_utilities.push(req.body.e, req.body.c)
-  .then(function(user){
+  console.log(req.body.e + " " + req.body.c )
+  user_utilities.pushRem(req.body.e, req.body.c)
+  .then(function(reminder){
     res.status(200).json({
       success: true,
       msg: "Added reminder",

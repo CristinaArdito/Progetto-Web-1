@@ -83,8 +83,7 @@ this.pushRem = function(reminder){
   .then(function(reminder)
   {
    console.log("Dovrebbe essere salvato");
-   logger.debug('reminder salvato '+JSON.stringify(reminder));
-   /* eventuale invio email */
+   console.log('reminder salvato '+JSON.stringify(reminder));
    deferred.resolve(reminder);
   })
 .catch(function(err)
