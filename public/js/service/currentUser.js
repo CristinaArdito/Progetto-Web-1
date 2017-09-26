@@ -120,6 +120,20 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
         })
         return deferred.promise;
     }
+
+    this.reminder = function(email, code){
+        var deferred = $q.defer();
+
+        $http.post("././api/user/reminderPush", {
+            'e' : email, 'c' : parseInt(code)
+        })
+        .then(function(data){
+            console.log(data);
+           deferred.resolve(data);
+        })
+
+        return deferred.promise;
+    }
   }])
 
 .run(function(CurrentUserService) {});
