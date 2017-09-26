@@ -47,9 +47,9 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                 remove = 'removeProduct("'+value[i].code+'","'+value[i].url+'")';
                 modify = 'modifyProduct("'+value[i].name+'")';
 
-                prodotti = prodotti + "<div class='product' ng-click='"+modify+"'>"+
+                prodotti = prodotti + "<div class='product' >"+
                                         "<h2><span style='color:Black;' id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
-                                        "<ul><li style='"+background+"'></li>"+
+                                        "<ul><li ng-click='"+modify+"' style='"+background+"'></li>"+
                                         "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                         "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
                                         "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
@@ -85,9 +85,9 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                 numbers[x] = true;
 
                 background = "'"+data[x].url+"'";
-                html += '<div class="product"><a ng-click="Details('+x+')">'+
+                html += '<div class="product">'+
                         '<div class="nome">'+data[x].name+'</div>'+
-                        '<ul><li style="background: url('+background+') no-repeat;  background-size: 68%;'+
+                        '<ul><li ng-click="Details('+x+')" style="background: url('+background+') no-repeat;  background-size: 68%;'+
                         'height: 160px; margin-left: 25%;"></li>'+
                         '<li><div class="prezzo">&euro;'+data[x].price+'</div></li>'+
                         '</ul></a></div>';
@@ -291,8 +291,10 @@ function($scope, ProductsHandleService, FileUpload, DataService){
 }])
 //================================================================================================================================================
 // Singolo prodotto (dettaglio)
-.controller('singleController', ['$scope', '$compile', '$location', 'DataService', 'CartStorage', 
-function($scope, $compile, $location, DataService, CartStorage) {
+.controller('singleController', ['$scope', '$compile', '$location', 'DataService', 'CartStorage', 'CurrentUserService', 'ProductsHandleService',
+function($scope, $compile, $location, DataService, CartStorage, CurrentUserService, ProductsHandleService) {
+
+    var item = [];
 
     $scope.showSingleProduct = function(){
 
@@ -302,6 +304,8 @@ function($scope, $compile, $location, DataService, CartStorage) {
         console.log("PRODOTTO SINGOLO");
 
         background = "'"+data.url+"'";
+        item = data;
+
         html = '<div class="nomeprod">'+data.name+'</div>'+
                '<div class="img" style="background: url('+background+') no-repeat; margin-left: 20%; width: 20%;'+
                                        'height: 380px; margin-left: 15%; background-size: 100%;'+
@@ -316,7 +320,7 @@ function($scope, $compile, $location, DataService, CartStorage) {
                             '<div class="addtitolo">Aggiungi al carrello:</div>'+
                             '<div class="addproduct"><input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
                             '<div class="but"><button type="submit" id="submitbutton" class="idbutton" ng-click="addToCart('+indice+')"></button></div>'
-               else html += '<div class="iconavv"></div><div class="avviso">Avvisami quando ritornerà disponibile</div>';
+               else html += '<div class="iconavv" ng-click="reminder()"></div><div class="avviso" ng-click="reminder()">Avvisami quando ritornerà disponibile</div>';
 
                angular.element(document.getElementById('signleProduct')).append($compile(html)($scope));
     }
@@ -327,15 +331,22 @@ function($scope, $compile, $location, DataService, CartStorage) {
         n = angular.element(document.getElementById('addproduct'))[0].value;
         var toLoad = [item.name,item.desc,item.price,n,item.url];
 
-        console.log(index);
-        console.log(toLoad);
-        console.log(n);
-
         var element = CartStorage.getItem(item.name, item.desc);
         if(element > -1){
             CartStorage.setQuantity(element,parseInt(CartStorage.getQuantity(element))+parseInt(n));
         }else CartStorage.add(toLoad);
         $location.path('/cart');
+    }
+
+    $scope.reminder = function(){
+
+        if(CurrentUserService.isLogged() == false){
+            alert("Devi essere autenticato per poter utilizzare questa opzione");
+        }else{
+            var mail = CurrentUserService.getSelf();
+            CurrentUserService.reminder(mail,item.code);
+        }
+
     }
 }])
 //===================================================================================================================================================
