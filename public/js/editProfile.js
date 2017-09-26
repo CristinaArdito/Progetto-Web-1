@@ -34,10 +34,10 @@ function($scope, $compile, CurrentUserService){
     $scope.modify = function(){
         angular.element(document.getElementById('profile')).empty();
 
-        html = '<div>Nome utente: <input type="text" id="name" value="'+user.name+'"></input></div>'+
-               '<div>Password precedente: <input type="password" id="oldPass"></input></div>'+
-               '<div>Nuova password: <input type="password" id="newPass"></input>'+
-               '<div><button type="submit" ng-click="edit()">Modifica profilo</button>';
+        html = '<div class="name">Nome utente: <input type="text" class="input" id="name" value="'+user.name+'"></input></div>'+
+               '<div class="pass">Password precedente: <input type="password" class="input" id="oldPass"></input></div>'+
+               '<div>Nuova password: <input type="password" class="input" id="newPass"></input>'+
+               '<div><button class="btn" type="submit" ng-click="edit()">Modifica profilo</button>';
 
 
         angular.element(document.getElementById('profile')).append($compile(html)($scope));

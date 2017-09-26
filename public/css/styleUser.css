@@ -26,6 +26,7 @@
     width: 400px;
     height: 45%;
 }
+
 .container:after,
 .container:before {
     background: #f9f9f9;
@@ -43,6 +44,7 @@
     position: absolute;
     width: 100%;
 }
+
 .container:after {
     -webkit-transform: rotate(2deg);
     -moz-transform: rotate(2deg);
@@ -52,6 +54,7 @@
     top: 0;
     z-index: -1;
 }
+
 .container:before {
     -webkit-transform: rotate(-3deg);
     -moz-transform: rotate(-3deg);
@@ -61,6 +64,7 @@
     top: 0;
     z-index: -2;
 }
+
 .container h1{
     color: #7E7E7E;
     font: bold 25px Helvetica, Arial, sans-serif;
@@ -77,6 +81,7 @@
     top: 45px;
     width: 27%;
 }
+
 .container h1:after {
     background: rgb(126,126,126);
     background: -moz-linear-gradient(left,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
@@ -86,6 +91,7 @@
     background: linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     right: 0;
 }
+
 .container h1:before {
     background: rgb(126,126,126);
     background: -moz-linear-gradient(right,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
@@ -95,6 +101,7 @@
     background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     left: 0;
 }
+
 .container span {
     color: #3476B6;
 }
@@ -111,8 +118,7 @@
 .title {
     position: absolute;
     margin-left: 28%;
-    margin-top: -5%;
-
+    margin-top: -10%;
 }
 
 .nome {
@@ -126,6 +132,21 @@
     margin-top: 2%;
     margin-left: 0;
 
+}
+
+.input {
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: Black;
+  padding: 2px;
+}
+
+.pass {
+    margin-bottom: 2%;
+}
+
+.name {
+    margin-bottom: 2%;
 }
 
 button.btn{

@@ -1,11 +1,11 @@
 # Master Cart Record 
 
-## Studenti:
+### Studenti
 * ARDITO CRISTINA       095052    cristina.ardito@studenti.unicam.it
 * CONTIGIANI MATTIA     096141    mattia.contigiani@studenti.unicam.it
-* RIBERA MARCO          ?         marco.ribera@studenti.unicam.it
+* RIBERA MARCO          095802    marco.ribera@studenti.unicam.it
 
-## User Story:
+### User Story
 1.  come admin voglio poter accedere ad un’area privata tramite username e password
 2.  come admin voglio gestire le rimanenze e i re-ordini dei prodotti
 3.  il server deve inviare una email all’admin quando sta per terminare un prodotto
@@ -15,9 +15,9 @@
 7.  come user voglio essere avvertito quando un prodotto terminato, risulta nuovamente disponibile
 8.  come user voglio gestire carrello e prodotti
 9.  come user voglio modificare le informazioni account
-10. 
+10. come user voglio visualizzare gli ordini effettuati
  
-## Link
+### Link
 * Link all'app deployata su heroku:  https://progetto-web.herokuapp.com
 * Link ai wireframe:  https://drive.google.com/drive/u/1/folders/0B3ZA60kWMWCeTmZ2MDFlazhVMkE
 
@@ -27,24 +27,26 @@
 * Installare le dipendenze:  npm install
 * Avviare l'appicazione:  npm start
 
-## Procedura per deployare
+### Procedura per deployare
+* Spostarsi all'interno della cartella Progetto-Web:  cd Progetto-Web
+* Eseguire il login:  heroku login
+* Creare l'applicazione:  heroku create
+* Deployare l'applicazione:  git push heroku master
+* Aprire l'applicazione:  heroku open
 
-
-
-
-## Descrizione dell’architettura del codice e delle cartelle
+### Descrizione dell’architettura del codice e delle cartelle
 ```
---+ libs                                //Librerie
-  |--- angular-google-maps.min.js       //Libreria per Google Maps
-  |--- angular-simple-logger.js         //Libreria per Google Maps
-  |--- lodash.js                        //Libreria per Google Maps
-  |--- TweenMax.min.js                  //Libreria per Google Maps
---+ models                              //schemi modelli Mongoose
-  |--- order.js                         //Modelli per il db
-  |--- product.js                       //Ordini
-  |--- reminder.js                      //Prodotti
-  |--- supplier.js                      //Fornitori
-  |--- user.js                          //Utenti
+--+ libs                                 //Librerie
+  |--- angular-google-maps.min.js        //Libreria per Google Maps
+  |--- angular-simple-logger.js          //Libreria per Google Maps
+  |--- lodash.js                         //Libreria per Google Maps
+  |--- TweenMax.min.js                   //Libreria per Google Maps
+--+ models                               //schemi modelli Mongoose
+  |--- order.js                          //Modelli per il db
+  |--- product.js                        //Ordini
+  |--- reminder.js                       //Prodotti
+  |--- supplier.js                       //Fornitori
+  |--- user.js                           //Utenti
 --+ public
   |--+ css
      |--- style.css                      //Foglio di stile per il layout principale del front-end
@@ -63,26 +65,81 @@
      |---- ...
   |--+ js
      |--+ core
-        |--- ui.router.js               //Standard per il routing in AngularJS
-     |--+ service                       //Servizi 
-        |--- cartStorage.js             //
-        |--- currentUser.js             //
-        |--- dataStore.js               // 
-        |--- fileLoad.js                //
-        |--- productsHandling.js        //
-        |--- supplierService.js         //
+        |--- ui.router.js                //Standard per il routing in AngularJS
+     |--+ service                        //Servizi 
+        |--- cartStorage.js              //Carrello
+        |--- currentUser.js              //Utente
+        |--- dataStore.js                //Caricamento dati
+        |--- fileLoad.js                 //Caricamento dei file
+        |--- productsHandling.js         //Gestione dei prodotti
+        |--- supplierService.js          //Gestione dei fornitori
      |--- cart.js                        //Controller per il carrello
      |--- dashboard.js                   //Controller per la dashboard
+     |--- editProduct.js                 //Controller per la modifica dei prodotti
+     |--- editProfile.js                 //Controller per la modifica del profilo dell'utente
+     |--- editSupplier.js                //Controller per la modifica dei fornitori
+     |--- login.js                       //Controller per il login
+     |--- main.js                        //Controller per la homepage 
+     |--- ngFader.js                     //Controller per la slideshow
+     |--- products.js                    //Controller per i prodotti
+     |--- route.js                       //Controller per le route
+     |--- searchProductHome.js           //Controller per la ricerca del prodotto nella homepage
+     |--- signup.js                      //Controller per la registrazione
+     |--- supplier.js                    //Controller per i fornitori
+     |--- supplierForm.js                //Controller per la gestione dei fornitori dashboard
+     |--- toOrder.js                     //Controller per gli ordini
+     |--- userForm.js                    //Controller per la gestione degli utenti dashboard
+     |--- where.js                       //Controller per la mappa
 --+ routes
   |--+ api
-     |--+
+     |--+ order
+        |--- db-utilities-order.js       //Interfaccia delle api con il db per gli ordini
+        |--- order-index.js              //Route api 
+        |--- order-utilities.js          //Funzioni dell'api per gli ordini
+     |--+ product
+        |--- db-utilities-product.js     //Interfaccia delle api con il db per i prodotti
+        |--- product-index.js            //Route api  
+        |--- product-utilities.js        //Funzioni dell'api per i prodotti
+     |--+ supplier
+        |--- db-utilities-supplier       //Interfaccia delle api con il db per i fornitori
+        |--- supplier-index.js           //Route api  
+        |--- supplier-utilities          //Funzioni dell'api per i fornitori
+     |--+ user
+        |--- db-utilities-user           //Interfaccia delle api con il db per gli utenti
+        |--- user-index                  //Route api
+        |--- user-utilities              //Funzioni dell'api per gli utenti
+     |--- pdfgenerator.js                //Generazione dei pdf
 --+ views                                //Template 
   |--+ admin
-  |--+
+     |--- dashboard.ejs                  //Layout dashboard
+  |--- addProduct.ejs                    //Template per aggiungere un prodotto
+  |--- addSupplier.ejs                   //Template per aggiungere un fornitore
+  |--- cart.ejs                          //Template del carrello
+  |--- categ.ejs                         //Template per le categorie   
+  |--- dashome.ejs                       //Template per la homepage della dashboard
+  |--- editProduct.ejs                   //Template per la modifica del prodotto
+  |--- editSupplier.ejs                  //Template per la modifica del fornitore
+  |--- home.ejs                          //Template per la homepage del front-end
+  |--- index.ejs                         //Layout generale
+  |--- indexLogin.ejs                    //Layout utente loggato
+  |--- indexLogout.ejs                   //Layout utente non loggato
+  |--- login.ejs                         //Template per il login
+  |--- offers.ejs                        //Template per le offerte
+  |--- order.ejs                         //Template per gli ordini
+  |--- orderS.ejs                        //Template per gli ordini
+  |--- products.ejs                      //Template per i prodotti
+  |--- searchForm.ejs                    //Template per la ricerca
+  |--- showSupplier.ejs                  //Template per la visualizzazione dei fornitori
+  |--- showUser.ejs                      //Template per la visualizzazione degli utenti
+  |--- signup.ejs                        //Template per la registrazione
+  |--- singleproduct.ejs                 //Template per i singoli prodotti
+  |--- user.ejs                          //Template per gli utenti
+  |--- where.ejs                         //Template per la pagina dove siamo
+  |--- who.ejs                           //Template per la pagina chi siamo
 --- .gitignore
 --- package.json                         
 --- package-lock.js                      
---- server.js                            
+--- server.js                            //File principale da eseguire                          
 --- README.md
 ```
    
