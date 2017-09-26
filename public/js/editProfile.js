@@ -59,7 +59,9 @@ function($scope, $compile, CurrentUserService){
             data[2] = user.password;
             CurrentUserService.update(data)
             .then(function(value){
-                console.log(value);
+                angular.element(document.getElementById('profile')).empty();
+                $scope.init();
+                alert("Informazioni profilo modificate");
             })
         }else if(data[3] != user.password){
             alert("Password corrente errata");
