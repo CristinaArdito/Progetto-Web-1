@@ -125,7 +125,7 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
         var deferred = $q.defer();
 
         $http.post("././api/user/reminderPush", {
-            'e' : email, 'c' : code
+            'e' : email, 'c' : parseInt(code)
         })
         .then(function(data){
             console.log(data);
