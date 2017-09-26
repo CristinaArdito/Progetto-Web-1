@@ -98,8 +98,7 @@ function($scope, SupplierService, $compile, DataService, $location){
     $scope.removeSupplier = function(email){
 
         SupplierService.removeSupplier(email)
-        .then(function(result){
-            
+        .then(function(result){  
             $scope.showSupplier();
         })
 
