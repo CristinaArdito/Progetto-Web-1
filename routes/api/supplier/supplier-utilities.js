@@ -50,16 +50,18 @@ this.getAllSupplier = function(){
 
 this.deleteSupplier = function(q){
   var deferred = Q.defer();
-  Supplier.remove({"email":q})
-    .then(function(supplier){
+
+  Supplier.remove({"email":q}, function(err,resoult){
+    if(!err){
       console.log("Rimosso");
-      deferred.resolve(supplier);
-    })
-    .catch(function(err){
-      logger.error("Errore forse da qualche parte");
-      deferred.reject(supplier);
-    });
-  return deferred.resolve;
+      deferred.resolve(resoult);
+    }else{
+      console.log("Errore forse da qualche parte");
+      deferred.reject(resoult);
+    }
+  });
+
+  return deferred.promise;
 }
 
 this.update = function(name, ntel, email, city, via, cap, emailP){

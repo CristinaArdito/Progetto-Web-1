@@ -4,6 +4,7 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
   {   // initialization
     console.log('ciao sono il CurrentUserService');
     var self = null;
+    var mail = "";
 
  
 /* ========================================
@@ -19,6 +20,14 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
         self=null;
     }
 
+    this.getSelf = function(){
+        if(this.isLogged){
+            return mail;
+        }else{
+            return -1;
+        }
+    }
+
 
     this.login = function(email, psw)
 	    {
@@ -29,6 +38,7 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
              .then(function(data) 
                  {
                   self = data.data.data.token;      // mi salvo l'utente corrente
+                  mail = email;
                   deferred.resolve(self);
                  })
              .catch(function(err, code) 
@@ -98,6 +108,18 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
         return deferred.promise;
     } 
     
+    this.update = function(data){
+        var deferred = $q.defer();
+        
+        $http.post("././api/user/update", {
+            'name' : data[0], 'password' : data[2], 'email' : data[1], 'emailP' : data[1]
+        })
+        .then(function(data){
+            console.log(data);
+            deferred.resolve(data);
+        })
+        return deferred.promise;
+    }
   }])
 
 .run(function(CurrentUserService) {});

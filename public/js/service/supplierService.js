@@ -35,8 +35,34 @@ pwApp.service('SupplierService', ['$q','$http',function ($q, $http)
     var deferred = $q.defer();
 
     $http.post("././api/supplier/update", {
-      
+      'name' : data['name'], 'email' : data['email'], 'ntel' : data['ntel'],
+      'via' : data['via'], 'city' : data['city'], 'cap' : data['cap'],
+      'emailp' : data['emailp']
     })
+    .then(function(result){
+      deferred.resolve(result);
+    })
+    .catch(function(result){
+      deferred.resolve(result);
+    })
+
+    return deferred.promise;
+  }
+
+  this.removeSupplier = function(email){
+    var deferred = $q.defer();
+
+    $http.post("././api/supplier/remove", {
+      'q' : email
+    })
+    .then(function(result){
+      deferred.resolve(result);
+    })
+    .catch(function(result){
+      deferred.resolve(result);
+    })
+
+    return deferred.promise;
   }
 
   }])

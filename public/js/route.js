@@ -96,6 +96,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/searchForm.ejs',
                 controller  : 'searchProductHomeController'
             })
+            .when('/useraccount', {
+                templateUrl : 'views/user.ejs',
+                controller  : 'userEditController'
+            })
             
 
         //======================================================================
