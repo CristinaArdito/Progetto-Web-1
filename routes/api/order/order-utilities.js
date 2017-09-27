@@ -4,6 +4,9 @@ var Q           = require('q');  // Q promise
 //var nodemailer = require('nodemailer');
 //var smtpTransport = require('nodemailer-smtp-transport');
 var Admin       = require('../../../models/user');
+var Order     = require('../../../models/order');
+
+var db_utilities=require('./db-utilities-order');
 
 var order_utilities = this;
 // esporto api_utilities così posso utilizzare i suoi metodi e attributi,
@@ -20,3 +23,48 @@ this.ERR_MISSING_DATA  = 'ERR_MISSING_DATA';
 // =======================
 // FUNCTIONS
 // =======================
+
+this.supplierOrder = function(data,codevect, email){
+
+    var deferredP = Q.defer();
+
+    var total = 0;
+
+    for(var i = 0; i<codevect.length;i++){
+        Product.find({ "code" : codevect[i]})
+        .then(function(product){
+            console.log(product[0].price);
+            total = total + parseInt(product[0].price); 
+            console.log("totale " + total);
+        });
+    }
+
+    setTimeout(function(){
+        deferredP.resolve(db_utilities.saveData(total, data, email, codevect,"false"));
+    },2000);
+    
+    return deferredP.promise;
+};
+
+this.userOrder = function(data,codevect, email){
+    
+        var deferredP = Q.defer();
+    
+        var total = 0;
+    
+        for(var i = 0; i<codevect.length;i++){
+            Product.find({ "code" : codevect[i]})
+            .then(function(product){
+                console.log(product[0].price);
+                total = total + parseInt(product[0].price); 
+                console.log("totale " + total);
+            });
+        }
+    
+        setTimeout(function(){
+            deferredP.resolve(db_utilities.saveData(total, data, email, codevect,"true"));
+        },2000);
+        
+        return deferredP.promise;
+    };
+    
