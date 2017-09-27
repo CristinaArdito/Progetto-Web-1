@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 // set up a mongoose model and pass it using module.exports
 var Order = mongoose.model('Order', new Schema({ 
-    productCode: [[{type:Number}][{ type:Number }]],
+    productCode: [[Number]],
     email: {type:String},
     user: {type:Boolean},
     totalPrice: {type:Number}
