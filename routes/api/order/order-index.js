@@ -19,7 +19,7 @@ orderRoutes.post('/userOrder', function(req,res){
     var codevect = req.body.codes;
 
     console.log(codevect);
-    order_utilities.supplierOrder(req.body.date, codevect, req.body.quantity, req.body.e)
+    order_utilities.userOrder(req.body.date, codevect, req.body.quantity, req.body.e)
     .then(function(order){
         res.status(201).json({ 
             success: true ,

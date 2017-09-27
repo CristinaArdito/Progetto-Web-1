@@ -46,7 +46,7 @@ this.supplierOrder = function(data, codevect, quantity, email){
     return deferredP.promise;
 };
 
-this.userOrder = function(data,codevect, email){
+this.userOrder = function(data, codevect, quantity, email){
     
         var deferredP = Q.defer();
     
@@ -56,13 +56,13 @@ this.userOrder = function(data,codevect, email){
             Product.find({ "code" : codevect[i]})
             .then(function(product){
                 console.log(product[0].price);
-                total = total + parseInt(product[0].price); 
+                total = total + parseInt(product[0].price);
                 console.log("totale " + total);
             });
         }
     
         setTimeout(function(){
-            deferredP.resolve(db_utilities.saveData(total, data, email, codevect,"true"));
+            deferredP.resolve(db_utilities.saveData(total, data, email, quantity, codevect,"true"));
         },2000);
         
         return deferredP.promise;
