@@ -66,5 +66,34 @@ this.userOrder = function(data,codevect, email){
         },2000);
         
         return deferredP.promise;
-    };
+};
     
+this.getAllOrder = function(){
+    var deferred = Q.defer();
+    Order.find({})
+        .then(function(order) 
+            { 
+             deferred.resolve(order);
+            })
+        .catch(function(err)
+            {
+             logger.error('[getAllOrders] '+err);
+             deferred.reject({code:"", msg:err});  
+            });
+    return deferred.promise;
+}
+
+this.getUserOrderStory = function(email){
+    var deferred = Q.defer();
+    Order.find({"email":email})
+        .then(function(order) 
+            { 
+             deferred.resolve(order);
+            })
+        .catch(function(err)
+            {
+             logger.error('[getAllOrders] '+err);
+             deferred.reject({code:"", msg:err});  
+            });
+    return deferred.promise;
+}

@@ -16,7 +16,7 @@ orderRoutes.use(bodyParser.json());
 orderRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 orderRoutes.post('/userOrder', function(req,res){
-    var codevect = [];
+    var codevect = []; // sarebbe req.data lo ho impostato per testare l'API tramite ARC
     codevect[0] = 1;
     codevect[1] = 2;
 
@@ -32,7 +32,7 @@ orderRoutes.post('/userOrder', function(req,res){
     {
         res.status(400).json({ success: false , 
                                code:err.code,
-                               msg:"qui l'erroe index", 
+                               msg:err.msg, 
                                data:""});
     }) 
 });
@@ -54,13 +54,24 @@ orderRoutes.post('/supplierOrder', function(req,res){
     {
         res.status(400).json({ success: false , 
                                code:err.code,
-                               msg:"qui l'erroe index", 
+                               msg:err.msg, 
                                data:""});
     }) 
 });
 
 orderRoutes.get('/uOrderStory', function(req,res){
-    
+    order_utilities.getUserOrderStory(req.body.e)
+    .then(function(orders){
+        res.status(200).json({ success: true , 
+                               msg: "lista di tutti gli ordini del'utente", 
+                               data: products});
+      })
+      .catch(function(err)
+      {
+        res.status(400).json({ success: false , 
+        msg:err, 
+        data:""}); 
+      });
 });
 
 orderRoutes.get('/all', function(req,res){
@@ -76,6 +87,5 @@ orderRoutes.get('/all', function(req,res){
         res.status(400).json({ success: false , 
         msg:err, 
         data:""}); 
-      });});
-
-orderRoutes.get('/orderByNumber', function(req,res){});
+      });
+});
