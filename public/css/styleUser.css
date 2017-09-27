@@ -131,7 +131,6 @@
     position: relative;
     margin-top: 2%;
     margin-left: 0;
-
 }
 
 .input {
@@ -196,6 +195,7 @@ button.btn:focus {
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
 }
+
 .titlefooter {
     font-size: 1.2em;
 }
@@ -207,3 +207,5 @@ button.btn:focus {
         margin-top: 3%;
         margin-left: 35%;
     }    
+
+}    

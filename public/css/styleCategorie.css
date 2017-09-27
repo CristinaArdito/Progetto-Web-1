@@ -11,7 +11,6 @@
   width: 14%;
   margin-left: 8%;
   margin-top: 3%;
-
 }
 
 .panel .title {
@@ -29,15 +28,15 @@
 
 .panel li {
     padding: 5px;
-  list-style: none;
+    list-style: none;
 }
 
 .panel li a{
-width: 100%;
-height: 100%;
-color: Black;
-display: block;
-text-decoration: none;
+	width: 100%;
+	height: 100%;
+	color: Black;
+	display: block;
+	text-decoration: none;
 }
 
 .panel li:hover {
@@ -142,6 +141,7 @@ text-decoration: none;
   background-color: #fff;
   border: 0px;
 }
+
 .topbutton #prev, .topbutton #succ{
   background-color: #fff;
   border: 0px;
@@ -166,6 +166,7 @@ text-decoration: none;
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
 }
+
 .titlefooter {
     font-size: 1.2em;
 }
@@ -177,55 +178,55 @@ text-decoration: none;
       width: 20%;
     }
 
-  .productcat {
-    width: 93%;
-  }
+	.productcat {
+	    width: 93%;
+	  }
 
-  .productcat .img {
-    background-size: 15%;
-    height: 120px;
-    margin-left: 1%;
-    margin-top: 2%;
-  }
+	.productcat .img {
+	    background-size: 15%;
+	    height: 120px;
+	    margin-left: 1%;
+	    margin-top: 2%;
+	  }
 
-  .productcat .nome, .descr, .prezzoprod, .disp {
-    margin-left: 16%;
-  }
+	.productcat .nome, .descr, .prezzoprod, .disp {
+	    margin-left: 16%;
+	  }
 
-  .productcat .nome {
-    position: absolute;
-    margin-top: -15%;
-  }
+	.productcat .nome {
+	    position: absolute;
+	    margin-top: -15%;
+	  }
 
-  .productcat .prezzoprod {
-    position: absolute;
-    margin-top: -6%;
-  }
+	.productcat .prezzoprod {
+	    position: absolute;
+	    margin-top: -6%;
+	  }
 
-  .productcat .disp {
-    background: url("../img/icon/checked.png") 95px no-repeat;
-    background-size: 10%;
-    width: 25%;
-    position: absolute;
-    margin-top: -3%;
-  }
+	.productcat .disp {
+	    background: url("../img/icon/checked.png") 95px no-repeat;
+	    background-size: 10%;
+	    width: 25%;
+	    position: absolute;
+	    margin-top: -3%;
+	  }
 
-  .productcat .nodisp {
-    background: url("../img/icon/unchecked.png") 95px no-repeat;
-    background-size: 10%;
-    width: 25%;
-    position: absolute;
-    margin-top: -3%;
-  }
+	.productcat .nodisp {
+	    background: url("../img/icon/unchecked.png") 95px no-repeat;
+	    background-size: 10%;
+	    width: 25%;
+	    position: absolute;
+	    margin-top: -3%;
+	  }
 
-  .productcat .descr {
-      width: 75%;
-      margin-top: -11.5%;
-    }
+	.productcat .descr {
+	      width: 75%;
+	      margin-top: -11.5%;
+	    }
 
     .footer {
       margin-top: 93%;
-  }
+    }
 
 }  
 

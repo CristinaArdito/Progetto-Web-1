@@ -1,4 +1,3 @@
-
 h1
 {
 	font-size: 3.5em
@@ -42,6 +41,7 @@ form:after {
 	line-height: 20px;
 	margin: 10px 0 30px;
 }
+
 #cont h1:before,
 #cont h1:after {
 	content: "";
@@ -50,6 +50,7 @@ form:after {
 	top: 10px;
 	width: 27%;
 }
+
 #cont h1:after {
 	background: rgb(126,126,126);
 	background: -moz-linear-gradient(left,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
@@ -59,6 +60,7 @@ form:after {
 	background: linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     right: 0;
 }
+
 #cont h1:before {
 	background: rgb(126,126,126);
 	background: -moz-linear-gradient(right,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
@@ -68,6 +70,7 @@ form:after {
 	background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     left: 0;
 }
+
 #cont:after,
 #cont:before {
 	background: #f9f9f9;
@@ -85,6 +88,7 @@ form:after {
 	position: absolute;
 	width: 100%;
 }
+
 #cont:after {
 	-webkit-transform: rotate(2deg);
 	-moz-transform: rotate(2deg);
@@ -94,6 +98,7 @@ form:after {
 	top: 0;
 	z-index: -1;
 }
+
 #cont:before {
 	-webkit-transform: rotate(-3deg);
 	-moz-transform: rotate(-3deg);
@@ -103,6 +108,7 @@ form:after {
 	top: 0;
 	z-index: -2;
 }
+
 #cont form { margin: 0 20px; position: relative }
 #cont form input[type="text"] {
 	-webkit-border-radius: 3px;
@@ -128,6 +134,7 @@ form:after {
 	padding: 15px 15px 15px 40px;
 	width: 80%;
 }
+
 #cont form input[type="password"] {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -152,6 +159,7 @@ form:after {
 	padding: 15px 10px 15px 40px;
 	width: 80%;
 }
+
 #cont form input[type="text"]:focus,
 #cont form input[type="password"]:focus {
 	-webkit-box-shadow: 0 0 2px #ed1c24 inset;
@@ -163,6 +171,7 @@ form:after {
 	border: 1px solid #ed1c24;
 	outline: none;
 }
+
 #username { background-position: 10px 10px !important }
 #password { background-position: 10px -53px !important }
 #cont button[type="submit"] {
@@ -193,6 +202,7 @@ form:after {
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	width: 120px;
 }
+
 #cont button[type="submit"]:hover {
 	background: rgb(254,193,81);
 	background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
@@ -202,6 +212,7 @@ form:after {
 	background: linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
 }
+
 #cont form div a {
 	color: #004a80;
     float: right;
@@ -231,6 +242,7 @@ form:after {
 	border-top: 1px solid #CFD5D9;
 	padding: 15px 0;
 }
+
 .button a {
 	background: url(../img/icon/icons.png) 0 -112px no-repeat;
 	color: #7E7E7E;
@@ -243,6 +255,7 @@ form:after {
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
+
 .button a:hover {
 	background-position: 0 -135px;
 	color: #00aeef;
@@ -261,6 +274,7 @@ form:after {
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
 }
+
 .titlefooter {
     font-size: 1.2em;
 }

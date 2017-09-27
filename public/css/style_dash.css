@@ -69,9 +69,9 @@
   padding-left: 0%;
 }
 
-    .menu ul li{ 
+.menu ul li{ 
       font-size: 1.0em; 
-    }
+}
 
 .main .nav .menu ul li {
   cursor: pointer;
@@ -94,19 +94,23 @@
 .menu .iconproduct {
     background: url(../img/icon/producticon.png) 10px no-repeat;
 }
+
 .menu .iconuser {
     background: url(../img/icon/usersicon.png) 10px no-repeat;
 }
+
 .menu .iconprovider {
     background: url(../img/icon/providericon.png) 10px no-repeat;
 }
+
 .menu .iconorder {
     background: url(../img/icon/ordersicon.png) 10px no-repeat;
 }
+
 .main .nav .menu ul li:hover {
   background-color: #3f51b5;
-
 }
+
 .main .nav .menu ul li i {
   font-size: 1.4em;
   margin-right: 10px;

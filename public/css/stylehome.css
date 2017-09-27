@@ -1,5 +1,4 @@
 /* ------ Slideshow ------- */
-
 .cont .ng-fader {
         background-color: #fff;
         position: relative;
@@ -7,11 +6,13 @@
         margin-top: 3%;
         width: 40%;
 }
+
 .ng-fader ul {
     height: 100%;
     margin: 0;
     padding: 0
 }
+
 .ng-fader li {
     height: 100%;
     margin: 0;
@@ -19,6 +20,7 @@
     list-style: none;
     width: 100%
 }
+
 .ng-fader li img {
     border: medium none;
     margin: 0;
@@ -31,12 +33,14 @@
     -o-transition: opacity 1s ease 0s;
     transition: opacity 1s ease 0s;
 }
+
 .ng-fader li img.show {
     opacity: 1;
     width: 100%;
     height: auto;
     position: relative;
 }
+
 .ng-fader-pagination {
     bottom: 15px;
     height: 20px;
@@ -44,6 +48,7 @@
     position: absolute;
     width: auto
 }
+
 .ng-fader-pagination li {
     background-color: Black;
     border-radius: 10px;
@@ -55,18 +60,22 @@
     width: 12px;
     cursor: pointer
 }
+
 .ng-fader-pagination li:first-child {
     margin: 4px 4px 4px 20px;
 }
+
 .ng-fader-pagination li.current {
     background-color: #666;
 }
+
 .ng-fader-controls {
     bottom: 10px;
     height: 20px;
     position: absolute;
     right: 20px
 }
+
 .ng-fader-controls li {
     color: #FFF;
     display: inline;
@@ -75,12 +84,15 @@
     position: relative;
     cursor: pointer
 }
+
 .ng-fader-controls li:nth-child(3) {
     padding-right: 0
 }
+
 .ng-fader-controls li.active {
     color: #666
 }
+
 .ngfader-play {
     width: 0;
     height: 0;
@@ -91,9 +103,11 @@
     border-left: 15px solid #000000;
     cursor: pointer
 }
+
 .ngfader-play.active {
     border-left: 15px solid #666
 }
+
 .ngfader-stop {
     background-color: #000000;
     height: 15px;
@@ -102,9 +116,11 @@
     width: 15px;
     cursor: pointer
 }
+
 .ngfader-stop.active {
     background-color: #666
 }
+
 .ngfader-pause {
     background-color: #000000;
     height: 15px;
@@ -113,6 +129,7 @@
     cursor: pointer;
     display: inline-block
 }
+
 .ngfader-pause:after {
     background-color: #000000;
     height: 15px;
@@ -123,10 +140,12 @@
     position: relative;
     left: 5px
 }
+
 .ngfader-pause.active,
 .ngfader-pause.active:after {
     background-color: #666
 }
+
 .ngfader-forward {
     border-bottom: 8px solid transparent;
     border-left: 8px solid #000000;
@@ -137,6 +156,7 @@
     cursor: pointer;
     display: inline-block
 }
+
 .ngfader-forward:after {
     border-bottom: 8px solid transparent;
     border-left: 8px solid #000000;
@@ -150,10 +170,12 @@
     right: 0;
     width: 0
 }
+
 .ngfader-forward.active,
 .ngfader-forward.active:after {
     border-left: 8px solid #666
 }
+
 .ngfader-back {
     border-bottom: 8px solid transparent;
     border-right: 8px solid #000000;
@@ -164,6 +186,7 @@
     cursor: pointer;
     display: inline-block
 }
+
 .ngfader-back:after {
     border-bottom: 8px solid transparent;
     border-right: 8px solid #000000;
@@ -176,11 +199,13 @@
     left: 8px;
     width: 0
 }
+
 .ngfader-back.active,
 .ngfader-back.active:after {
     border-right: 8px solid #666
 }
 
+/**** SLIDESHOW ****/
 @media screen and (max-width: 740px) {
     .ng-fader-controls {
         display: none
@@ -330,6 +355,7 @@
   font-size: 1.3em;
   margin-top: -1%;
 }
+
 .product .nome {
     color: Black;
     padding-top: 7px;
@@ -362,7 +388,7 @@
     border-top: 2px solid #ccc;
     border-bottom: 2px solid #ccc;
     margin-bottom: 5px;
-    }
+}
 
  /* ------ FOOTER ------- */   
 .footer {
