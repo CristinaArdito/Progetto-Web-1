@@ -24,23 +24,23 @@ this.ERR_MISSING_DATA  = 'ERR_MISSING_DATA';
 // FUNCTIONS
 // =======================
 
-this.supplierOrder = function(data,codevect, email){
+this.supplierOrder = function(data, codevect, quantity, email){
 
     var deferredP = Q.defer();
 
     var total = 0;
-
-    for(var i = 0; i<codevect.length;i++){
-        Product.find({ "code" : codevect[i]})
-        .then(function(product){
-            console.log(product[0].price);
-            total = total + parseInt(product[0].price); 
-            console.log("totale " + total);
-        });
-    }
-
+    
+        for(var i = 0; i<codevect.length;i++){
+            Product.find({ "code" : codevect[i]})
+            .then(function(product){
+                //console.log(product[0].price);
+                total = total + parseInt(product[0].price); 
+                //console.log("totale " + total);
+            });
+        }
+    
     setTimeout(function(){
-        deferredP.resolve(db_utilities.saveData(total, data, email, codevect,"false"));
+        deferredP.resolve(db_utilities.saveData(total, data, email, quantity, codevect,"false"));
     },2000);
     
     return deferredP.promise;
@@ -70,6 +70,8 @@ this.userOrder = function(data,codevect, email){
     
 this.getAllOrder = function(){
     var deferred = Q.defer();
+
+    console.log("Get all orders");
     Order.find({})
         .then(function(order) 
             { 
@@ -80,6 +82,7 @@ this.getAllOrder = function(){
              logger.error('[getAllOrders] '+err);
              deferred.reject({code:"", msg:err});  
             });
+
     return deferred.promise;
 }
 

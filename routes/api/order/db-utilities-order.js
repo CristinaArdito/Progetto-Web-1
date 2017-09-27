@@ -19,20 +19,20 @@ this.totalPrice = function(codevect){
     for(var i = 0; i<codevect.length;i++){
         Product.find({ "code" : codevect[i]})
         .then(function(product){
-            console.log(product[0].price);
+            //console.log(product[0].price);
             total = total + parseInt(product[0].price); 
-            console.log("totale " + total);
+           // console.log("totale " + total);
         });
     }
     
     return total;
 }
 
-this.saveData = function(total, data, email, codevect, flag){
+this.saveData = function(total, data, email, quantity, codevect, flag){
     var deferred = Q.defer();
 
     console.log("entro " + total);
-    var order = {data:data, product:codevect, email:email ,user:flag, totalPrice:total};
+    var order = {data:data, productCode:codevect, quantity:quantity, email:email ,user:flag, totalPrice:total};
     var orders = new Order(order);
     
     orders.save()

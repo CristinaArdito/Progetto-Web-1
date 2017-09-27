@@ -16,12 +16,10 @@ orderRoutes.use(bodyParser.json());
 orderRoutes.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 orderRoutes.post('/userOrder', function(req,res){
-    var codevect = []; // sarebbe req.data lo ho impostato per testare l'API tramite ARC
-    codevect[0] = 1;
-    codevect[1] = 2;
+    var codevect = req.body.codes;
 
     console.log(codevect);
-    order_utilities.supplierOrder(req.body.date, codevect, req.body.e)
+    order_utilities.supplierOrder(req.body.date, codevect, req.body.quantity, req.body.e)
     .then(function(order){
         res.status(201).json({ 
             success: true ,
@@ -38,12 +36,11 @@ orderRoutes.post('/userOrder', function(req,res){
 });
 
 orderRoutes.post('/supplierOrder', function(req,res){
-    var codevect = [];
-    codevect[0] = 1;
-    codevect[1] = 2;
+
+    var codevect = req.body.codes;
 
     console.log(codevect);
-    order_utilities.supplierOrder(req.body.date, codevect, req.body.e)
+    order_utilities.supplierOrder(req.body.date, codevect, req.body.quantity, req.body.e)
     .then(function(order){
         res.status(201).json({ 
             success: true ,
@@ -59,7 +56,7 @@ orderRoutes.post('/supplierOrder', function(req,res){
     }) 
 });
 
-orderRoutes.get('/uOrderStory', function(req,res){
+orderRoutes.post('/uOrderStory', function(req,res){
     order_utilities.getUserOrderStory(req.body.e)
     .then(function(orders){
         res.status(200).json({ success: true , 
@@ -74,13 +71,15 @@ orderRoutes.get('/uOrderStory', function(req,res){
       });
 });
 
-orderRoutes.get('/all', function(req,res){
-    order_utilities.getAllorder()
+orderRoutes.post('/allOrder', function(req,res){
+    console.log("All order");
+    order_utilities.getAllOrder()
     .then(function(orders)
       {
+        console.log(orders);
         res.status(200).json({ success: true , 
                                msg: "lista di tutti gli ordini", 
-                               data: products});
+                               data: orders});
       })
       .catch(function(err)
       {

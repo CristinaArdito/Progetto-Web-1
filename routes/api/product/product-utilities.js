@@ -94,7 +94,7 @@ this.deleteProduct = function(q){
             deferred.resolve(product);
         })
         .catch(function(product){
-            console.log("Qualcosa è andato stroto");
+            console.log("Qualcosa è andato storto");
             deferred.reject(product);
         })
     return deferred.promise;
