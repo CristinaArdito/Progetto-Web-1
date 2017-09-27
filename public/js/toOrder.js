@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-.controller('orderController', [ '$scope', '$compile', '$http', '$location', 'DataService', 'ProductsHandleService',
-        function($scope, $compile, $http, $location, DataService, ProductsHandleService) {
+.controller('orderController', [ '$scope', '$compile', '$http', '$location', 'DataService', 'ProductsHandleService', 'OrderService', 'CurrentUserService',
+function($scope, $compile, $http, $location, DataService, ProductsHandleService, OrderService, CurrentUserService) {
     
 
     //=======================================================================================
@@ -47,18 +47,20 @@ angular.module('myApp.controllers')
     $scope.showOrder = function(value,x,y){
         var prodotti = "";
         var n = 5;
+        var k=0;
 
             for (i = x; i < y; i++) {
 
                 if(i>= value.length) break;
 
                 prodotti = prodotti + "<div class='orderproduct'><ul>"+
-                                      "<li>Nome prodotto: <span id='nProd"+i+"'>"+value[i].name+"</span></li>"+
-                                      "<li>Codice:  <span id='nCod"+i+"'>"+value[i].code+"</span>"+
+                                      "<li>Nome prodotto: <span id='nProd"+k+"'>"+value[i].name+"</span></li>"+
+                                      "<li>Codice:  <span id='nCod"+k+"'>"+value[i].code+"</span>"+
                                       "<li>Prezzo prodotto:"+value[i].price+"</li>"+
-                                      "<li>Quantità rimanente: <span id='nQ"+i+"'>"+value[i].quantity+"</li>"+
+                                      "<li>Quantità rimanente: <span id='quantity"+k+"'>"+value[i].quantity+"</li>"+
                                       "</ul></div><div class='ord'><a class='reorders' href='#!/orders'>Riordina: </a>"+
-                                      "<input id='prodotto"+i+"' class='num' type='number' min='0' value='0'></input></div><br>";
+                                      "<input id='prodotto"+k+"' class='num' type='number' min='0' value='0'></input></div><br>";
+                k++;
             }
         prodotti = prodotti + "<br><button type='submit' class='ordbutton' ng-click = 'ordinaProdotto()'>Ordina</button>";
 
@@ -85,13 +87,14 @@ angular.module('myApp.controllers')
 
         var prodotti = "";
         var i=0;
+        var k=0;
         var numProd = 'ordinaProdotto("'+i+'")';
 
-        prodotti = prodotti + "<div class='orderproduct'><ul><li>Nome prodotto: <span id='nProd"+i+"'>"+data[0]+"</span></li>"+
+        prodotti = prodotti + "<div class='orderproduct'><ul><li>Nome prodotto: <span id='nProd"+k+"'>"+data[0]+"</span></li>"+
                                             "<li>Prezzo prodotto: "+data[1]+"</li>"+
-                                            "<li>Quantità rimanente: "+data[2]+"</li>"+
+                                            "<li>Quantità rimanente: <span id='quantity"+k+"'>"+data[2]+"</span></li>"+
                                             "</ul></div><div class='ord'><a class='reorders' href='#!/orders'>Riordina: </a>"+
-                                            "<input name='prodotto"+i+"' class='num' type='number' min='0' value='0'></input></div><br>";
+                                            "<input name='prodotto"+k+"' class='num' type='number' min='0' value='0'></input></div><br>";
                 
         prodotti = prodotti + "<br><button type='submit' class='ordbutton' ng-click = '"+numProd+"'>Ordina</button>";
 
@@ -100,8 +103,10 @@ angular.module('myApp.controllers')
    
     $scope.ordinaProdotto = function()
     {
-       m = [];
-       var code, quantity;
+       codes = [];
+       quantity = [];
+       remain = [];
+       var code;
 
        for(i=0;i<6;i++){
           code = angular.element(document.getElementById('nCod'+i));
@@ -109,9 +114,25 @@ angular.module('myApp.controllers')
           q1 = angular.element(document.getElementById('prodotto'+i))[0].value;
 
           if(parseInt(q1) > 0){
-            m.push(code[0].innerHTML,parseInt(q1));
+            codes.push(parseInt(code[0].innerHTML));
+            quantity.push(parseInt(q1));
+            remain.push(parseInt(angular.element(document.getElementById('quantity'+i))[0].innerHTML));
           }
        }
+
+       dataTime = new Date();
+       dataTime = ""+dataTime.getDate() + '/' + (dataTime.getMonth() + 1) + '/' +  dataTime.getFullYear();
+
+       console.log(remain);
+       
+       OrderService.supplierOrder(codes,quantity,dataTime,CurrentUserService.getSelf())
+       .then(function(response){
+           console.log("Modifica prodotti");
+            for(i=0;i<codes.length;i++){
+                ProductsHandleService.setQuantity(codes[i], quantity[i]+remain[i]);
+            }
+       })
+       
     }      
 }])
 .controller('orderSuccessController', ['$scope' , function($scope){
