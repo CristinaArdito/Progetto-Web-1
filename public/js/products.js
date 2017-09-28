@@ -311,6 +311,7 @@ function($scope, $compile, $location, DataService, CartStorage, CurrentUserServi
                                        'height: 380px; margin-left: 15%; background-size: 100%;'+
                                        'position: relative"></div>'+
                '<div class="titolodesc">DESCRIZIONE: </div>'+
+               'div hidden="true" id="productCode">'+data.code+'</div>'+
                '<div class="descr">'+data.desc+'</div>'+
                '<div class="titolocat">CATEGORIA: </div><div class="cat">'+data.categories[0]+'</div>'+
                '<div class="titolopeso">PESO: </div> <div class="peso">'+data.weight+'</div>'+

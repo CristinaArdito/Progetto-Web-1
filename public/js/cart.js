@@ -114,8 +114,6 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
         var flag = true;
 
         for(i=0;i<data.length;i++){
-            console.log(q[i].quantity);
-            console.log(data[i][3]);
             if(q[i].quantity < data[i][3]){
                 flag = false;
                 alert("Il prodotto "+data[i][0]+" non è più disponibile nella quantità richiesta.\nDisponibilità: "+q[i].quantity);
@@ -124,6 +122,11 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
         }
 
         if(flag == true){
+
+            
+
+
+
             for(i=0;q.length;i++){
                 ProductsHandleService.setQuantity(q[i].code, data[i][3]);
             }
