@@ -1,7 +1,11 @@
 angular.module('myApp.controllers')
-.controller("dashomeController", ['$scope', '$compile', 'CurrentUserService', 'ProductsHandleService', 
-function ($scope, $compile, CurrentUserService, ProductsHandleService) {
+.controller("dashomeController", ['$scope', '$compile', 'CurrentUserService', 'ProductsHandleService', '$location',
+function ($scope, $compile, CurrentUserService, ProductsHandleService, $location) {
 
+  if(CurrentUserService.isLogged() == false || CurrentUserService.isAdmin() == false){
+    alert("Non puoi accedere a questa area, autenticati come amministratore e riprova");
+    $location.path("/");
+  }
 
   $scope.chartOne = function() {
     $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
