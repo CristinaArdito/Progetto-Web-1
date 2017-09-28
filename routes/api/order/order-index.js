@@ -200,10 +200,13 @@ orderRoutes.post('/sendMail', function(req, res){
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.log(error);
+            res.status(400).json({ success: false , 
+            msg:err, 
+            data:""}); 
         }else{
-            console.log("Inviata");
-            emails = "";
+            res.status(200).json({ success: true , 
+                msg: "mail inviata", 
+                data: orders});
         }
     });
-})
+});
