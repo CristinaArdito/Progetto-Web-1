@@ -5,6 +5,7 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
     console.log('ciao sono il CurrentUserService');
     var self = null;
     var mail = "";
+    var isAdmin = false;
 
  
 /* ========================================
@@ -28,6 +29,10 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
         }
     }
 
+    this.isAdmin = function(){
+        if(isAdmin == true) return true;
+        else return false;
+    }
 
     this.login = function(email, psw)
 	    {
@@ -39,6 +44,7 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
                  {
                   self = data.data.data.token;      // mi salvo l'utente corrente
                   mail = email;
+                  isAdmin = data.data.data.admin;
                   deferred.resolve(self);
                  })
              .catch(function(err, code) 

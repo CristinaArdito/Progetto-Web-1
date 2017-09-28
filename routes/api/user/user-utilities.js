@@ -64,8 +64,9 @@ this.login = function(email, psw){
                                     '!La|R5Rb1sp^V8VKrWqiQw£z\cb&/WJ#7FUSvC8rvyLtY\ZTwrF4bstRt@x!XN&', 
                                     {expiresIn: 1440}
                                  );
+               var admin = User.admin;
                // return the information including token as JSON
-               deferred.resolve(token);
+               deferred.resolve([token,admin]);
           }   
         }
       })

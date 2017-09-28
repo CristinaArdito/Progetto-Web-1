@@ -2,6 +2,9 @@ angular.module('myApp.controllers', ['ngAnimate', 'ngTouch', 'ngFader', 'uiGmapg
 .controller('mainController',['$scope', 'DataService','$location', 'CurrentUserService','$state', 
 function($scope, DataService, $location,CurrentUserService, $state) {
     
+    isLogged = false;
+    
+
     $scope.logout = function(){
         CurrentUserService.logout();
         $state.go('home');
@@ -11,10 +14,16 @@ function($scope, DataService, $location,CurrentUserService, $state) {
         DataService.set(data);
     }
 
-    if(CurrentUserService.isLogged() == true){
-        $state.go('loggedHome');
-    }else{
-        $state.go('home');
+    if(isLogged == false){
+        if(CurrentUserService.isLogged() == true){
+            if(CurrentUserService.isAdmin() == true){
+                $state.go('loggedHomeAdmin');
+            }else{
+                $state.go('loggedHome');
+            }
+        }else{
+            $state.go('home');
+        }
     }
 }]);
 

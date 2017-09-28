@@ -35,7 +35,7 @@ userRoutes.post('/authenticate', function(req, res)
                       {
                         return res.status(201).json({success: true, 
                                               message: 'Enjoy your token!', 
-                                              data: {'token':token}});
+                                              data: {'token':token[0], 'admin':token[1]}});
                       })
                     .catch(function(err)
                       { 
