@@ -318,11 +318,16 @@ function($scope, $compile, $location, DataService, CartStorage, CurrentUserServi
                '<div class="titolocat">CATEGORIA: </div><div class="cat">'+data.categories[0]+'</div>'+
                '<div class="titolopeso">PESO: </div> <div class="peso">'+data.weight+'</div>'+
                '<div class="titoloprez">PREZZO: </div><div class="prezzoprod">&euro;'+data.price+'</div>';
-               if(data.quantity > 0)
-                    html += '<div class="titoloprez">QUANTIT&#193;: </div><div class="prezzoprod">'+data.quantity+'</div>'+
+               if(data.quantity > 5)
+                    html += '<div class="titoloprez">Disponibile</div><div hidden="true" class="prezzoprod">'+data.quantity+'</div>'+
                             '<div class="addtitolo">Aggiungi al carrello:</div>'+
                             '<div class="addproduct"><input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
-                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton" ng-click="addToCart('+indice+')"></button></div>'
+                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton" ng-click="addToCart('+indice+')"></button></div>';
+               else if(data.quantity<=5 || data.quantity>0)
+                    html += '<div class="titoloprez">QUANTIT&#193;:</div><div class="prezzoprod">'+data.quantity+'</div>'+
+                            '<div class="addtitolo">Aggiungi al carrello:</div>'+
+                            '<div class="addproduct"><input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
+                            '<div class="but"><button type="submit" id="submitbutton" class="idbutton" ng-click="addToCart('+indice+')"></button></div>';
                else html += '<div class="iconavv" ng-click="reminder()"></div><div class="avviso" ng-click="reminder()">Avvisami quando ritornerà disponibile</div>';
 
                angular.element(document.getElementById('signleProduct')).append($compile(html)($scope));
