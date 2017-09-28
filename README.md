@@ -113,19 +113,19 @@
   |--+ admin
       |--- dashboard.ejs                  //Layout dashboard
       |--- addProduct.ejs                    //Template per aggiungere un prodotto
-  	  |--- addSupplier.ejs                   //Template per aggiungere un fornitore
-  	  |--- categ.ejs                         //Template per le categorie   
-	  |--- dashome.ejs                       //Template per la homepage della dashboard
-	  |--- editProduct.ejs                   //Template per la modifica del prodotto
-	  |--- editSupplier.ejs                  //Template per la modifica del fornitore
-	  |--- order.ejs                         //Template per gli ordini
-	  |--- orderS.ejs                        //Template per gli ordini
-	  |--- products.ejs                      //Template per i prodotti	
-	  |--- showSupplier.ejs                  //Template per la visualizzazione dei fornitori
+      |--- addSupplier.ejs                   //Template per aggiungere un fornitore
+      |--- categ.ejs                         //Template per le categorie   
+      |--- dashome.ejs                       //Template per la homepage della dashboard
+      |--- editProduct.ejs                   //Template per la modifica del prodotto
+      |--- editSupplier.ejs                  //Template per la modifica del fornitore
+      |--- order.ejs                         //Template per gli ordini
+      |--- orderS.ejs                        //Template per gli ordini
+      |--- products.ejs                      //Template per i prodotti	
+      |--- showSupplier.ejs                  //Template per la visualizzazione dei fornitori
       |--- showUser.ejs                      //Template per la visualizzazione degli utenti  
   |--+ front-end   
-   	  |--- cart.ejs                          //Template del carrello
-  	  |--- home.ejs                          //Template per la homepage del front-end 
+      |--- cart.ejs                          //Template del carrello
+      |--- home.ejs                          //Template per la homepage del front-end 
       |--- login.ejs                         //Template per il login
       |--- offers.ejs                        //Template per le offerte
       |--- searchForm.ejs                    //Template per la ricerca
