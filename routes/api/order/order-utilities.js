@@ -38,6 +38,8 @@ this.supplierOrder = function(data, codevect, quantity, email){
                 //console.log("totale " + total);
             });
         }
+
+        total = (total*1.22);
     
     setTimeout(function(){
         deferredP.resolve(db_utilities.saveData(total, data, email, quantity, codevect,"false"));
@@ -55,11 +57,13 @@ this.userOrder = function(data, codevect, quantity, email){
         for(var i = 0; i<codevect.length;i++){
             Product.find({ "code" : codevect[i]})
             .then(function(product){
-                console.log(product[0].price);
+                //console.log(product[0].price);
                 total = total + parseInt(product[0].price);
-                console.log("totale " + total);
+                //console.log("totale " + total);
             });
         }
+
+        total = (total*1.22)+8;
     
         setTimeout(function(){
             deferredP.resolve(db_utilities.saveData(total, data, email, quantity, codevect,"true"));
