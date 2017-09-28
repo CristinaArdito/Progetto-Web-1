@@ -105,9 +105,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
     $scope.removeProduct = function(code,url){
 
         ProductsHandleService.removeProduct(code,url)
-        .then(function(response){
-            console.log(response);
-        })
         .catch(function(err){
             console.log(err);
         })
@@ -284,7 +281,6 @@ function($scope, ProductsHandleService, FileUpload, DataService){
                 }
             }
             
-            console.log(data);
             if(flag == false){
                 ProductsHandleService.addProduct(data);
             }
@@ -303,7 +299,6 @@ function($scope, $compile, $location, DataService, CartStorage, CurrentUserServi
         var indice = DataService.getIndice();
         var data = DataService.getIndex(indice);
 
-        console.log("PRODOTTO SINGOLO");
 
         background = "'"+data.url+"'";
         item = data;

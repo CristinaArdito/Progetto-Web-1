@@ -141,7 +141,6 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
     //Controller delle UI-VIEW
     .controller('MyCtrl', ['$state', 'CurrentUserService', function($state, CurrentUserService) {
 
-    console.log(CurrentUserService.isLogged());
     if(CurrentUserService.isLogged() == true){
         $state.go('loggedHome');
     }

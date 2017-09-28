@@ -1,7 +1,6 @@
 angular.module('myApp.controllers')
 .controller('showSupplierController', ['$scope', 'SupplierService','$compile', 'DataService','$location', 
 function($scope, SupplierService, $compile, DataService, $location){
-    console.log("showSupplierController");
 
         //=======================================================================================
     //Pager per creazione pagine
@@ -53,9 +52,6 @@ function($scope, SupplierService, $compile, DataService, $location){
         "<th>Modifica fornitore</th>"+
         "<th>Rimuovi fornitore</th></tr>";
 
-        console.log("showSupplierForm");
-        console.log(data);
-
         for(i=x;i<y;i++){
 
         if(i>=data.length) break;
@@ -84,7 +80,6 @@ function($scope, SupplierService, $compile, DataService, $location){
 
         angular.element(document.getElementById('showSupplierDiv')).empty();
         
-        console.log("ShowSupplier");
         SupplierService.getAllSupplier()
         .then(function(data){
 

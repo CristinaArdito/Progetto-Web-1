@@ -7,8 +7,6 @@ function($scope, $compile, $http, $location, DataService, SupplierService) {
 
         var data = DataService.get();
 
-        console.log(data);
-
         html = '<div id="addSupplier"><span>Nome fornitore: </span><input type="text" id="name" value="'+data.name+'"></input><br>'+
                '<span id="oldmail" hidden="true">'+data.email+'</span>'+
                '<span>Nuova Email: </span><input type="text" id="email"></input><br>'+

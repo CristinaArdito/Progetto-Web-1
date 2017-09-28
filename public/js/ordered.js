@@ -7,7 +7,6 @@ function($scope, $compile, $http, $location, DataService, OrderService) {
     //Pager per creazione pagine
     $scope.showPager = function(index){
         
-        console.log("pager");
         var total = DataService.get_nonreset().length;
         var pages = Math.ceil(total/6);
 
@@ -81,8 +80,6 @@ function($scope, $compile, $http, $location, DataService, OrderService) {
         .then(function(value){
            
             adminOrder = [];
-
-            console.log(value.data.data);
             data = value.data.data;
 
             for(i=0;i<data.length;i++){
@@ -102,7 +99,6 @@ function($scope, $compile, $http, $location, DataService, OrderService) {
            
             adminOrder = [];
 
-            console.log(value.data.data);
             data = value.data.data;
 
             for(i=0;i<data.length;i++){

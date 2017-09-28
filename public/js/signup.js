@@ -6,12 +6,9 @@ var pwApp = angular.module('pwApp');
     $scope.password;
     $scope.email;
 
-    console.log("Scope: ");
-    console.log($scope);
 
     $scope.signup = function()
       {
-      console.log("signUp");
 
       CurrentUserService.getAllUser()
       .then(function(data){
@@ -30,7 +27,6 @@ var pwApp = angular.module('pwApp');
           CurrentUserService.signup($scope.username, $scope.password, $scope.email)
           .then(function(data)
                {
-                console.log("Data");
                 $state.go('home');
                })
           .catch(function(err)

@@ -15,13 +15,10 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
     this.getSingleProduct = function(product){
       var deferred = $q.defer();
 
-      console.log("Ricerca");
-
       $http.post('././api/product/search', {
         'q': product
       })
       .then(function(data){
-        console.log(data);
         deferred.resolve(data.data);
       })
 
@@ -29,8 +26,6 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
     }
 
     this.getCategory = function(product){
-      console.log(product);
-      
       var deferred = $q.defer();
 
       $http.post('././api/product/search', {
@@ -46,15 +41,11 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
     this.storeImage = function(data, url){
       var deferred = $q.defer();
 
-      console.log(url);
-
       if(url == null){
         $http.post("././api/product/loadImg", {
           'data' : data, 'url' : null
         })
         .then(function(urlName){
-          console.log("success");
-          
           deferred.resolve(urlName);
         })
       }else{
@@ -97,18 +88,12 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
       return $http.post("././api/product/quantity", {
         'c' : c, 'q': q
       })
-      .then(function(data){
-        console.log(data);
-      })
     }
 
     this.update = function(data, c){
       
       $http.post("././api/product/update", {
         'data' : data, 'c' : c
-      })
-      .then(function(value){
-        console.log(value);
       })
     }
 
@@ -117,13 +102,6 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
       $http.post("././api/order/sendMail", {
         'email' : mail, 'product' : product, 'quant' : quantity, 'total' : total, 'indirizzo' : indirizzo,
       })
-      /*
-      console.log(mail);
-      console.log(product);
-      console.log(quantity);
-      console.log(total);
-      console.log(indirizzo);
-      */
     }
   }])
 .run(function(ProductsHandleService) {});

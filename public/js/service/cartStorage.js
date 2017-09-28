@@ -2,13 +2,11 @@ var pwApp = angular.module('pwApp');
 
 pwApp.factory('CartStorage', function() {
 
-    console.log("Sono il cart storer");
 
     var savedData = [];
     
     function set(data) {
       savedData = data;
-      console.log(savedData);
     }
     function get() {
      return savedData;
@@ -16,10 +14,8 @@ pwApp.factory('CartStorage', function() {
     function add(data){
         if(savedData.length == 0){
             savedData[0] = data;
-            console.log(savedData);
         }else{
             savedData[savedData.length] = data;
-            console.log(savedData);
         }
     }
     function remove(index){

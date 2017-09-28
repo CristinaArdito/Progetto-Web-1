@@ -15,7 +15,7 @@ function ($scope, $compile, CurrentUserService, ProductsHandleService, $location
       [28, 48, 40, 19, 86, 27, 90]
     ];
     $scope.onClick = function (points, evt) {
-      console.log(points, evt);
+      //console.log(points, evt);
     };
     $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     $scope.options = {
@@ -110,8 +110,6 @@ function ($scope, $compile, CurrentUserService, ProductsHandleService, $location
     
     ProductsHandleService.getAllProducts()
     .then(function(data){
-
-      console.log(data);
       var number = "<h2>"+data.length+"</h2>Products";
       angular.element(document.getElementById('productCount')).append($compile(number)($scope));
     })

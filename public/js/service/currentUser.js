@@ -2,7 +2,6 @@ var pwApp = angular.module('pwApp');
 
 pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http) 
   {   // initialization
-    console.log('ciao sono il CurrentUserService');
     var self = null;
     var mail = "";
     var isAdmin = false;
@@ -94,7 +93,6 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
             'q' : par
         })
         .then(function(data){
-              console.log(data);
               deferred.resolve(data);
         })
         
@@ -108,7 +106,6 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
             'q' : par
         })
         .then(function(data){
-            console.log(data);
             deferred.resolve(data);
         })
         return deferred.promise;
@@ -121,7 +118,6 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
             'name' : data[0], 'password' : data[2], 'email' : data[1], 'emailP' : data[1]
         })
         .then(function(data){
-            console.log(data);
             deferred.resolve(data);
         })
         return deferred.promise;
@@ -134,7 +130,6 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
             'e' : email, 'c' : parseInt(code)
         })
         .then(function(data){
-            console.log(data);
            deferred.resolve(data);
         })
 

@@ -8,7 +8,6 @@ pwApp.service('OrderService', ['$q','$http',function ($q, $http)
 
         $http.post("././api/order/allOrder")
         .then(function(value){
-            console.log(value);
             deferred.resolve(value);
         })
 
@@ -23,7 +22,6 @@ pwApp.service('OrderService', ['$q','$http',function ($q, $http)
             'codes' : codes, 'date' : data, 'e' : mail, 'quantity' : quantity
         })
         .then(function(value){
-            console.log(value);
             deferred.resolve(value);
         })
 
@@ -37,7 +35,6 @@ pwApp.service('OrderService', ['$q','$http',function ($q, $http)
                     'codes' : codes, 'date' : data, 'e' : mail, 'quantity' : quantity
                 })
                 .then(function(value){
-                    console.log(value);
                     deferred.resolve(value);
                 })
         

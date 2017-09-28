@@ -166,7 +166,6 @@ orderRoutes.post('/uOrderStory', function(req,res){
 });
 
 orderRoutes.post('/allOrder', function(req,res){
-    console.log("All order");
     order_utilities.getAllOrder()
     .then(function(orders)
       {

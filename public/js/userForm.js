@@ -1,14 +1,12 @@
 angular.module('myApp.controllers')
 .controller('showUserController', ['$scope', 'CurrentUserService','$compile', 'DataService', 
 function($scope, CurrentUserService, $compile, DataService){
-    console.log("showUserController");
 
 
     //=======================================================================================
     //Pager per creazione pagine
     $scope.showPager = function(index){
         
-        console.log("pager");
         var total = DataService.get_nonreset().length;
         var pages = Math.ceil(total/10);
 
@@ -75,7 +73,6 @@ function($scope, CurrentUserService, $compile, DataService){
 
     $scope.showUser = function(){
 
-        console.log("ShowUser");
         angular.element(document.getElementById('showUserDiv')).empty();
 
         CurrentUserService.getAllUser()
@@ -91,11 +88,9 @@ function($scope, CurrentUserService, $compile, DataService){
 
     $scope.removeUser = function(par){
 
-        console.log(par);
 
         CurrentUserService.removeUser(par)
         .then(function(data){
-            console.log(data);
             $scope.showUser();
         })
     }
@@ -104,11 +99,9 @@ function($scope, CurrentUserService, $compile, DataService){
         
         CurrentUserService.promoteAdmin(par)
         .then(function(data){
-            console.log(data);
             $scope.showUser();
         })
         .catch(function(data){
-            console.log(data);
             $scope.showUser();
         })
         

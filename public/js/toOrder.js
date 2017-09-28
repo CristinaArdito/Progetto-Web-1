@@ -7,7 +7,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
     //Pager per creazione pagine
     $scope.showPager = function(index){
         
-        console.log("pager");
         var total = DataService.get_nonreset().length;
         var pages = Math.ceil(total/6);
 
@@ -128,7 +127,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
             
             OrderService.supplierOrder(codes,quantity,dataTime,CurrentUserService.getSelf())
             .then(function(response){
-                console.log("Modifica prodotti");
                     for(i=0;i<codes.length;i++){
                         ProductsHandleService.setQuantity(codes[i], quantity[i]+remain[i]);
                     }
@@ -139,5 +137,5 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
     }      
 }])
 .controller('orderSuccessController', ['$scope' , function($scope){
-    console.log("entro in orderSuccessController");
+    //console.log("entro in orderSuccessController");
 }]);;

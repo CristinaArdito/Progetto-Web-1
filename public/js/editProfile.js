@@ -20,8 +20,6 @@ function($scope, $compile, CurrentUserService){
                 } 
             }
 
-            console.log(user);
-
             html = '<div class="title"><h3>Contact Information</h3></div>'+
                    '<div class="nome"> Nome: <span>'+user.name+'</span> </div>'+
                    '<div class="email"> E-mail: <span>'+user.email+'</span></div>'+

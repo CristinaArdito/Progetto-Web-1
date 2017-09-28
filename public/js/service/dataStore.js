@@ -2,8 +2,6 @@ var pwApp = angular.module('pwApp');
 
 pwApp.factory('DataService', function() {
 
-    console.log("Sono il data storer");
-
     var savedData = null;
     var indice = -1;
     

@@ -10,7 +10,6 @@ var pwApp = angular.module('pwApp');
        CurrentUserService.login($scope.email, $scope.password)
           .then(function(token)
                {
-                console.log("Data "+token);
                 //alert('utente loggato '+token);
                 $state.go('loggedHome');
                })
