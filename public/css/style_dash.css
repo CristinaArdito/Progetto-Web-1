@@ -310,7 +310,7 @@ ul.menufornitori{
 }
 
 .product li:first-child{
- padding: 2.1em;
+  padding: 2.1em;
   font-size: 1.6em;
   text-shadow: 0px -1px 1px #000;
 }

@@ -41,7 +41,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
             if(i>=value.length) break;
 
             background = 'background: url("'+value[i].url+'") no-repeat;'+
-                            '  background-size: 55%; margin-left: 32%;';
+                            '  background-size: 60%; margin-left: 32%;';
 
                 nParam = 'redirectToOrder("'+i+'");';
                 remove = 'removeProduct("'+value[i].code+'","'+value[i].url+'")';
@@ -50,7 +50,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                 prodotti = prodotti + "<div class='product' >"+
                                         "<h2><span style='color:Black;' id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                         "<ul><li ng-click='"+modify+"' style='"+background+"'></li>"+
-                                        "'<div id='code"+i+"' hidden='true'>"+value[i].code+"</div>"+
+                                        "<div style='visibility:hidden; width:0px; height:0px;' id='code"+i+"'>"+value[i].code+"</div>"+
                                         "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                         "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
                                         "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
@@ -313,7 +313,7 @@ function($scope, $compile, $location, DataService, CartStorage, CurrentUserServi
                                        'height: 380px; margin-left: 15%; background-size: 100%;'+
                                        'position: relative"></div>'+
                '<div class="titolodesc">DESCRIZIONE: </div>'+
-               '<div hidden="true" id="productCode">'+data.code+'</div>'+
+               '<div style="visibility:hidden;" id="productCode">'+data.code+'</div>'+
                '<div class="descr">'+data.desc+'</div>'+
                '<div class="titolocat">CATEGORIA: </div><div class="cat">'+data.categories[0]+'</div>'+
                '<div class="titolopeso">PESO: </div> <div class="peso">'+data.weight+'</div>'+
