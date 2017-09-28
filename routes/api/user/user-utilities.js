@@ -140,6 +140,35 @@ this.pushRem = function(e,c){
                                codeProduct:c}); 
 }
 
+this.getRem = function(c){
+  var deferred = Q.defer();
+  console.log("entro nel reminder");
+  Reminder.find({"codeProduct":c},{"email":1})
+    .then(function (reminder){
+      deferred.resolve(reminder);
+    })
+    .catch(function(err){
+      deferred.reject();
+    });
+  return deferred.promise;
+}
+
+this.delRem = function(c){
+  var deferred = Q.defer();
+  Reminder.remove({"codeProduct":c})
+  .then(function(reminder){
+    console.log("qui entro");
+    deferred.resolve(reminder);
+    console.log("qui esco");
+  })
+  .catch(function(err){
+    console.log("entro qui? pd")
+    deferred.reject(err);
+  });
+  console.log("ritorno");
+  return deferred.promise;
+}
+
 this.changePassword = function(e, p){
   var deferred = Q.defer();
   User.update({"email":p}, {$set:{"password":p}}, function(err, resoult){

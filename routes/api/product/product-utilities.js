@@ -51,6 +51,18 @@ this.getAllProducts = function(){
     return deferred.promise;
 }
 
+this.searchProductById = function(c){
+    var deferred = Q.defer();
+    Product.findOne({"code":c})
+        .then(function(product){
+            var name = product.name;
+        })
+        .catch(function(err){
+            console.log("errore");
+        });
+    return name;
+}
+
 this.searchProduct = function(q){
     var deferred = Q.defer();
     Product.findOne({"name":q})
