@@ -100,9 +100,9 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService, Curr
         if(CurrentUserService.isLogged() == true){
 
             html = '<div class="contcheckout"><h4>Indirizzo di consegna</h4>'+
-                '<div class="inputcheck">Via: <input type="text"></input></div>'+
-                '<div class="inputcheck">Città: <input type="text"></input></div>'+
-                '<div class="capcheck">CAP: <input type="text"></input></div>'+
+                '<div class="inputcheck">Via: <input id="via" type="text"></input></div>'+
+                '<div class="inputcheck">Città: <input id="city" type="text"></input></div>'+
+                '<div class="capcheck">CAP: <input id="cap" type="text"></input></div>'+
                 '<button type="submit" ng-click="buy()">Acquista</button></div>';
             
             angular.element(document.getElementById('checkoutForm')).empty();
@@ -119,6 +119,7 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService, Curr
         var flag = true;
         var codes = [];
         var quantity = [];
+        var products = [];
 
         dataTime = new Date();
         dataTime = ""+dataTime.getDate() + '/' + (dataTime.getMonth() + 1) + '/' +  dataTime.getFullYear();
@@ -131,12 +132,21 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService, Curr
             }
         }
 
+
         for(i=0;i<data.length;i++){
             codes[i] = data[i][5];
             quantity[i] = data[i][3];
+            products[i] = data[i][0];
         }
 
+        indirizzo = ""+angular.element(document.getElementById('via'))[0].value+", "+
+                    angular.element(document.getElementById('city'))[0].value+", "+
+                    angular.element(document.getElementById('cap'))[0].value;
 
+        ProductsHandleService.sendMail(CurrentUserService.getSelf(), products, quantity, $scope.total, indirizzo);
+
+
+        /*
         if(flag == true){
             OrderService.userOrder(codes,quantity,dataTime,CurrentUserService.getSelf())
             .then(function(response){
@@ -144,6 +154,8 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService, Curr
                     for(i=0;i<codes.length;i++){
                         ProductsHandleService.setQuantity(codes[i], q[i].quantity-quantity[i]);
                     }
+
+                ProductsHandleService
             })
 
             CartStorage.reset();
@@ -151,6 +163,6 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService, Curr
         }else{
             console.log("Non disponibile");
         }
-
+        */
     }
 }]);

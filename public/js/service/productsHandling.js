@@ -104,14 +104,26 @@ pwApp.service('ProductsHandleService', ['$q','$http', function ($q, $http)
 
     this.update = function(data, c){
       
-      console.log(c);
-      
       $http.post("././api/product/update", {
         'data' : data, 'c' : c
       })
       .then(function(value){
         console.log(value);
       })
+    }
+
+    this.sendMail = function(mail, product, quantity, total, indirizzo){
+
+      $http.post("././api/order/sendMail", {
+        'email' : mail, 'product' : product, 'quant' : quantity, 'total' : total, 'indirizzo' : indirizzo,
+      })
+      /*
+      console.log(mail);
+      console.log(product);
+      console.log(quantity);
+      console.log(total);
+      console.log(indirizzo);
+      */
     }
   }])
 .run(function(ProductsHandleService) {});

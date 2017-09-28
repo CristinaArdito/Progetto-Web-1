@@ -188,7 +188,7 @@ orderRoutes.post('/sendMail', function(req, res){
     var prodotti = ""
 
     for(var i = 0; i< req.body.product.length; i++){
-        prodotti = prodotti + " " + req.body.product[i] + " " + req.body.quant[i] + "<br>"
+        prodotti = prodotti + " " + req.body.product[i] + " : " + req.body.quant[i] + "<br>"
     }
 
     let mailOptions = {
