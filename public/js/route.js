@@ -11,97 +11,97 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
 
             // route for the home page
             .when('/', {
-                templateUrl : 'views/home.ejs',
+                templateUrl : 'views/front-end/home.ejs',
                 controller  : 'mainController'
             })
 
             // route for the login page
             .when('/login', {
-                templateUrl : 'views/login.ejs',
+                templateUrl : 'views/front-end/login.ejs',
                 controller  : 'loginController'
             })
             .when('/who', {
-                templateUrl : 'views/who.ejs'
+                templateUrl : 'views/front-end/who.ejs'
             })
             .when('/useraccount', {
-                templateUrl : 'views/user.ejs',
+                templateUrl : 'views/front-end/user.ejs',
                 controller  : 'userController'
             })
             .when('/cart', {
-                templateUrl : 'views/cart.ejs',
+                templateUrl : 'views/front-end/cart.ejs',
                 controller  : 'cartController'
             })
             .when('/categ', {
-                templateUrl : 'views/categ.ejs',
+                templateUrl : 'views/front-end/categ.ejs',
                 controller  : 'categoryController'
             })
             // route for the about page
             .when('/signup', {
-                templateUrl : 'views/signup.ejs',
+                templateUrl : 'views/front-end/signup.ejs',
                 controller  : 'signupController'
             })
             .when('/dashboard', {
-                templateUrl : 'views/dashome.ejs',
+                templateUrl : 'views/admin/dashome.ejs',
                 controller  : 'dashomeController'
             }) 
             .when('/where', {
-                templateUrl : 'views/where.ejs',
+                templateUrl : 'views/front-end/where.ejs',
                 controller  : 'whereController'
             })
             .when('/singleproduct', {
-                templateUrl : 'views/singleproduct.ejs',
+                templateUrl : 'views/front-end/singleproduct.ejs',
                 controller  : 'singleController'
             })   
             .when('/offers', {
-                templateUrl : 'views/offers.ejs',
+                templateUrl : 'views/front-end/offers.ejs',
                 controller  : 'productsController'
             })         
             .when('/offerts', {
-                templateUrl : 'views/products.ejs',
+                templateUrl : 'views/admin/products.ejs',
                 controller  : 'productsController'
             })
             .when('/orders', {
-                templateUrl : 'views/order.ejs',
+                templateUrl : 'views/admin/order.ejs',
                 controller  : 'orderController'
             })
             .when('/orderSuccess', {
-                templateUrl : 'views/orderS.ejs',
+                templateUrl : 'views/admin/orderS.ejs',
                 controller  : 'orderSuccessController'
             })
             .when('/addProduct', {
-                templateUrl : 'views/addProduct.ejs',
+                templateUrl : 'views/admin/addProduct.ejs',
                 controller  : 'addProductController'
             })
             .when('/editProduct', {
-                templateUrl : 'views/editProduct.ejs',
+                templateUrl : 'views/admin/editProduct.ejs',
                 controller  : 'editProductController'
             })
             .when('/editSupplier', {
-                templateUrl : 'views/editSupplier.ejs',
+                templateUrl : 'views/admin/editSupplier.ejs',
                 controller  : 'editSupplierController'
             })
             .when('/user', {
-                templateUrl : 'views/showUser.ejs',
+                templateUrl : 'views/admin/showUser.ejs',
                 controller  : 'showUserController'
             })
             .when('/supplier', {
-                templateUrl : 'views/showSupplier.ejs',
+                templateUrl : 'views/admin/showSupplier.ejs',
                 controller  : 'showSupplierController'
             })
             .when('/addSupplier', {
-                templateUrl : 'views/addSupplier.ejs',
+                templateUrl : 'views/admin/addSupplier.ejs',
                 controller  : 'addSupplierController'
             })
             .when('/searchprod', {
-                templateUrl : 'views/searchForm.ejs',
+                templateUrl : 'views/front-end/searchForm.ejs',
                 controller  : 'searchProductHomeController'
             })
             .when('/useraccount', {
-                templateUrl : 'views/user.ejs',
+                templateUrl : 'views/front-end/user.ejs',
                 controller  : 'userEditController'
             })
             .when('/ordered', {
-                templateUrl : 'views/ordered.ejs',
+                templateUrl : 'views/admin/ordered.ejs',
                 controller  : 'orderedController'
             })
             

@@ -12,10 +12,10 @@
 4.  come admin voglio poter creare e inserire un nuovo prodotto (con proprietà come nome, descrizione, peso, codiceProdotto, categoria, prezzo, quantità, img)
 5.  come admin voglio gestire i fornitori
 6.  come admin voglio gestiore gli utenti
-7.  come user voglio essere avvertito quando un prodotto terminato, risulta nuovamente disponibile
-8.  come user voglio gestire carrello e prodotti
-9.  come user voglio modificare le informazioni account
-10. come user voglio visualizzare gli ordini effettuati
+7.  come admin voglio visualizzare gli ordini effettuati dagli utenti
+8.  come user voglio essere avvertito quando un prodotto terminato, risulta nuovamente disponibile
+9.  come user voglio gestire carrello e prodotti
+10. come user voglio modificare le informazioni account
  
 ### Link
 * Link all'app deployata su heroku:  https://progetto-web.herokuapp.com
@@ -111,31 +111,32 @@
      |--- pdfgenerator.js                //Generazione dei pdf
 --+ views                                //Template 
   |--+ admin
-     |--- dashboard.ejs                  //Layout dashboard
-  |--- addProduct.ejs                    //Template per aggiungere un prodotto
-  |--- addSupplier.ejs                   //Template per aggiungere un fornitore
-  |--- cart.ejs                          //Template del carrello
-  |--- categ.ejs                         //Template per le categorie   
-  |--- dashome.ejs                       //Template per la homepage della dashboard
-  |--- editProduct.ejs                   //Template per la modifica del prodotto
-  |--- editSupplier.ejs                  //Template per la modifica del fornitore
-  |--- home.ejs                          //Template per la homepage del front-end
+      |--- dashboard.ejs                  //Layout dashboard
+      |--- addProduct.ejs                    //Template per aggiungere un prodotto
+  	  |--- addSupplier.ejs                   //Template per aggiungere un fornitore
+  	  |--- categ.ejs                         //Template per le categorie   
+	  |--- dashome.ejs                       //Template per la homepage della dashboard
+	  |--- editProduct.ejs                   //Template per la modifica del prodotto
+	  |--- editSupplier.ejs                  //Template per la modifica del fornitore
+	  |--- order.ejs                         //Template per gli ordini
+	  |--- orderS.ejs                        //Template per gli ordini
+	  |--- products.ejs                      //Template per i prodotti	
+	  |--- showSupplier.ejs                  //Template per la visualizzazione dei fornitori
+      |--- showUser.ejs                      //Template per la visualizzazione degli utenti  
+  |--+ front-end   
+   	  |--- cart.ejs                          //Template del carrello
+  	  |--- home.ejs                          //Template per la homepage del front-end 
+      |--- login.ejs                         //Template per il login
+      |--- offers.ejs                        //Template per le offerte
+      |--- searchForm.ejs                    //Template per la ricerca
+      |--- signup.ejs                        //Template per la registrazione
+      |--- singleproduct.ejs                 //Template per i singoli prodotti
+      |--- user.ejs                          //Template per gli utenti
+      |--- where.ejs                         //Template per la pagina dove siamo
+      |--- who.ejs                           //Template per la pagina chi siamo
   |--- index.ejs                         //Layout generale
   |--- indexLogin.ejs                    //Layout utente loggato
   |--- indexLogout.ejs                   //Layout utente non loggato
-  |--- login.ejs                         //Template per il login
-  |--- offers.ejs                        //Template per le offerte
-  |--- order.ejs                         //Template per gli ordini
-  |--- orderS.ejs                        //Template per gli ordini
-  |--- products.ejs                      //Template per i prodotti
-  |--- searchForm.ejs                    //Template per la ricerca
-  |--- showSupplier.ejs                  //Template per la visualizzazione dei fornitori
-  |--- showUser.ejs                      //Template per la visualizzazione degli utenti
-  |--- signup.ejs                        //Template per la registrazione
-  |--- singleproduct.ejs                 //Template per i singoli prodotti
-  |--- user.ejs                          //Template per gli utenti
-  |--- where.ejs                         //Template per la pagina dove siamo
-  |--- who.ejs                           //Template per la pagina chi siamo
 --- .gitignore
 --- package.json                         
 --- package-lock.js                      
