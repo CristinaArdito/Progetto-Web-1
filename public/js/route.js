@@ -84,10 +84,6 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/showUser.ejs',
                 controller  : 'showUserController'
             })
-            .when('/ordered', {
-                templateUrl : 'views/ordered.ejs',
-                controller  : 'orderedController'
-            })
             .when('/supplier', {
                 templateUrl : 'views/showSupplier.ejs',
                 controller  : 'showSupplierController'
