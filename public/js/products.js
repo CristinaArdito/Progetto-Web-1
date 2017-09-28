@@ -323,12 +323,13 @@ function($scope, $compile, $location, DataService, CartStorage, CurrentUserServi
                             '<div class="addtitolo">Aggiungi al carrello:</div>'+
                             '<div class="addproduct"><input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
                             '<div class="but"><button type="submit" id="submitbutton" class="idbutton" ng-click="addToCart('+indice+')"></button></div>';
-               else if(data.quantity<=5 || data.quantity>0)
+               else if(data.quantity<=5 && data.quantity>0)
                     html += '<div class="titoloprez">QUANTIT&#193;:</div><div class="prezzoprod">'+data.quantity+'</div>'+
                             '<div class="addtitolo">Aggiungi al carrello:</div>'+
                             '<div class="addproduct"><input id="addproduct" class="inputprod" type="number" min="1" value="1"></input></div>'+
                             '<div class="but"><button type="submit" id="submitbutton" class="idbutton" ng-click="addToCart('+indice+')"></button></div>';
-               else html += '<div class="iconavv" ng-click="reminder()"></div><div class="avviso" ng-click="reminder()">Avvisami quando ritornerà disponibile</div>';
+               else if(data.quantity== 0) 
+                    html += '<div class="iconavv" ng-click="reminder()"></div><div class="avviso" ng-click="reminder()">Avvisami quando ritornerà disponibile</div>';
 
                angular.element(document.getElementById('signleProduct')).append($compile(html)($scope));
     }
