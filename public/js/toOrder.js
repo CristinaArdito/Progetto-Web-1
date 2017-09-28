@@ -103,36 +103,40 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
    
     $scope.ordinaProdotto = function()
     {
-       codes = [];
-       quantity = [];
-       remain = [];
-       var code;
 
-       for(i=0;i<6;i++){
-          code = angular.element(document.getElementById('nCod'+i));
-          if(code == undefined) break;
-          q1 = angular.element(document.getElementById('prodotto'+i))[0].value;
+       if(CurrentUserService.isLogged() && CurrentUserService.isAdmin()){ 
+            codes = [];
+            quantity = [];
+            remain = [];
+            var code;
 
-          if(parseInt(q1) > 0){
-            codes.push(parseInt(code[0].innerHTML));
-            quantity.push(parseInt(q1));
-            remain.push(parseInt(angular.element(document.getElementById('quantity'+i))[0].innerHTML));
-          }
-       }
+            for(i=0;i<6;i++){
+                code = angular.element(document.getElementById('nCod'+i));
+                if(code == undefined) break;
+                q1 = angular.element(document.getElementById('prodotto'+i))[0].value;
 
-       dataTime = new Date();
-       dataTime = ""+dataTime.getDate() + '/' + (dataTime.getMonth() + 1) + '/' +  dataTime.getFullYear();
-
-       console.log(remain);
-       
-       OrderService.supplierOrder(codes,quantity,dataTime,CurrentUserService.getSelf())
-       .then(function(response){
-           console.log("Modifica prodotti");
-            for(i=0;i<codes.length;i++){
-                ProductsHandleService.setQuantity(codes[i], quantity[i]+remain[i]);
+                if(parseInt(q1) > 0){
+                    codes.push(parseInt(code[0].innerHTML));
+                    quantity.push(parseInt(q1));
+                    remain.push(parseInt(angular.element(document.getElementById('quantity'+i))[0].innerHTML));
+                }
             }
-       })
-       
+
+            dataTime = new Date();
+            dataTime = ""+dataTime.getDate() + '/' + (dataTime.getMonth() + 1) + '/' +  dataTime.getFullYear();
+
+            console.log(remain);
+            
+            OrderService.supplierOrder(codes,quantity,dataTime,CurrentUserService.getSelf())
+            .then(function(response){
+                console.log("Modifica prodotti");
+                    for(i=0;i<codes.length;i++){
+                        ProductsHandleService.setQuantity(codes[i], quantity[i]+remain[i]);
+                    }
+            })
+    }else{
+        alert("Non dovresti essere qui");
+    }
     }      
 }])
 .controller('orderSuccessController', ['$scope' , function($scope){

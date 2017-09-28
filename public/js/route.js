@@ -126,6 +126,11 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
             url: '/',
             templateUrl: 'views/indexLogin.ejs',
             controller: 'mainController'
+        })
+        .state('loggedHomeAdmin', {
+            url: '/',
+            templateUrl: 'views/indexLoginAdmin.ejs',
+            controller: 'mainController'
         });
     })
 
