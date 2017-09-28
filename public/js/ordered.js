@@ -80,15 +80,40 @@ function($scope, $compile, $http, $location, DataService, OrderService) {
         OrderService.getAllOrder()
         .then(function(value){
            
+            adminOrder = [];
+
             console.log(value.data.data);
             data = value.data.data;
 
-            DataService.set(data);
-            $scope.showOrders(data,0,6);
+            for(i=0;i<data.length;i++){
+                if(data[i].user == false)
+                adminOrder.push(data[i]);
+            }
+
+            DataService.set(adminOrder);
+            $scope.showOrders(adminOrder,0,6);
             $scope.showPager(0);
         })
     }
 
+    $scope.initUser = function(){
+        OrderService.getAllOrder()
+        .then(function(value){
+           
+            adminOrder = [];
 
+            console.log(value.data.data);
+            data = value.data.data;
+
+            for(i=0;i<data.length;i++){
+                if(data[i].user == true)
+                adminOrder.push(data[i]);
+            }
+
+            DataService.set(adminOrder);
+            $scope.showOrders(adminOrder,0,6);
+            $scope.showPager(0);
+        })
+    }
     
 }])

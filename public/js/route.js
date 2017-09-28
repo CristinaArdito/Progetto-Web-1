@@ -104,6 +104,10 @@ angular.module('pwApp', ['myApp.services', 'myApp.controllers', 'ngRoute','ui.ro
                 templateUrl : 'views/admin/ordered.ejs',
                 controller  : 'orderedController'
             })
+            .when('/orderedUser', {
+                templateUrl : 'views/admin/orderedUser.ejs',
+                controller  : 'orderedController'
+            })
             
 
         //======================================================================
