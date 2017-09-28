@@ -132,6 +132,7 @@ button:hover {
 	position: relative;
 	margin-left: 42%;
 	margin-top: -1.1%;
+	cursor: pointer;
 }
 
 .iconavv {
