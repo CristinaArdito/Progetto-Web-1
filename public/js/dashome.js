@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-.controller("dashomeController", ['$scope', '$compile', 'CurrentUserService', 'ProductsHandleService', '$location',
-function ($scope, $compile, CurrentUserService, ProductsHandleService, $location) {
+.controller("dashomeController", ['$scope', '$compile', 'CurrentUserService', 'ProductsHandleService', '$location', 'OrderService',
+function ($scope, $compile, CurrentUserService, ProductsHandleService, $location, OrderService) {
 
   if(CurrentUserService.isLogged() == false || CurrentUserService.isAdmin() == false){
     alert("Non puoi accedere a questa area, autenticati come amministratore e riprova");
@@ -112,6 +112,14 @@ function ($scope, $compile, CurrentUserService, ProductsHandleService, $location
     .then(function(data){
       var number = "<h2>"+data.length+"</h2>Products";
       angular.element(document.getElementById('productCount')).append($compile(number)($scope));
+    })
+  }
+
+  $scope.countOrders = function(){
+    OrderService.getAllOrder()
+    .then(function(value){
+      var number = "<h2>"+value.data.data.length+"</h2>Orders";
+      angular.element(document.getElementById('ordersCount')).append($compile(number)($scope));
     })
   }
 
