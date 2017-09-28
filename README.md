@@ -136,7 +136,8 @@
       |--- who.ejs                           //Template per la pagina chi siamo
   |--- index.ejs                         //Layout generale
   |--- indexLogin.ejs                    //Layout utente loggato
-  |--- indexLogout.ejs                   //Layout utente non loggato
+  |--- indexLogout.ejs                   //Layout utente/admin non loggato
+  |--- indexLoginAdmin.ejs               //Layout admin loggato
 --- .gitignore
 --- package.json                         
 --- package-lock.js                      
