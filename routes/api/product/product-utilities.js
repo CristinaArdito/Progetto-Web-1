@@ -55,12 +55,12 @@ this.searchProductById = function(c){
     var deferred = Q.defer();
     Product.findOne({"code":c})
         .then(function(product){
-            var name = product.name;
+            deferred.resolve(product);
         })
         .catch(function(err){
-            console.log("errore");
+            deferred.reject(err);
         });
-    return name;
+    return deferred.promise;
 }
 
 this.searchProduct = function(q){

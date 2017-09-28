@@ -62,35 +62,43 @@ orderRoutes.post('/supplierOrder', function(req,res){
     order_utilities.supplierOrder(req.body.date, codevect, req.body.quantity, req.body.e)
     .then(function(order){
         codevect.forEach(function(element) {
-            var nomeprodotto = product_utilities.searchProductById(element);
             user_utilities.getRem(element)
             .then(function(reminder){
                 var reminderl = Object.keys(reminder).length;
-                var emails = "";
+                if(reminderl!=0){
+                    var emails = "";
+                    var nomeprodotto;
 
-                for(var i = 0; i<reminderl; i++){
-                    emails = emails + reminder[i].email;
-                    if(i!=reminderl-1)
-                        emails = emails +",";
-                }
-
-                console.log(emails);
-                
-                let mailOptions = {
-                        from: 'Mailer Daemon', // sender address
-                        to: emails, // list of receivers
-                        subject: '[REMINDER] Un prodotto nella tua lista è tornato disponibile', // Subject line
-                        html: 'Il prodotto: <b>' + nomeprodotto + '</b> è nuovamente disponibile. <a href="progetto-web.herokuapp.com">Entra a comprarlo ora!</a>' // html body
-                };
-        
-                transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                        console.log(error);
-                    }else{
-                        console.log("Inviata");
-                        emails = "";
+                    for(var i = 0; i<reminderl; i++){
+                        emails = emails + reminder[i].email;
+                        if(i!=reminderl-1)
+                            emails = emails +",";
                     }
-                }); 
+
+                    console.log(emails);
+                    product_utilities.searchProductById(element)
+                    .then(function(product){
+                        
+                        nomeprodotto = product.name;
+                
+                        let mailOptions = {
+                            from: 'Mailer Daemon', // sender address
+                            to: emails, // list of receivers
+                            subject: '[REMINDER] Un prodotto nella tua lista è tornato disponibile', // Subject line
+                            html: 'Il prodotto: <b>' + nomeprodotto + '</b> è nuovamente disponibile. <a href="https://progetto-web.herokuapp.com/">Entra ora e compralo!</a>' // html body
+                        };
+        
+                        transporter.sendMail(mailOptions, (error, info) => {
+                            if (error) {
+                                console.log(error);
+                            }else{
+                                console.log("Inviata");
+                                emails = "";
+                            }
+                        });
+                    });
+                    user_utilities.delRem(element);
+                } 
             });  
         });
         
