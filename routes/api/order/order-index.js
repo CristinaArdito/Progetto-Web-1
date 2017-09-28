@@ -182,3 +182,28 @@ orderRoutes.post('/allOrder', function(req,res){
         data:""}); 
       });
 });
+
+orderRoutes.post('/sendMail', function(req, res){
+
+    var prodotti = ""
+
+    for(var i = 0; i< req.body.product.length; i++){
+        prodotti = prodotti + req.body.product[i] + req.body.quant + "<br>"
+    }
+
+    let mailOptions = {
+        from: 'Mailer Daemon', // sender address
+        to: req.body.email, // list of receivers
+        subject: '[INFO] Master Cart Record Order', // Subject line
+        html: 'Il suo ordine è stato ricevuto e preso in considerazione<br>Prodotti ordinati: ' + prodotti + '<br>Costo totale: '+ req.body.total // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        }else{
+            console.log("Inviata");
+            emails = "";
+        }
+    });
+})
