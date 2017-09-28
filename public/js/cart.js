@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-.controller('cartController', ['$scope', '$compile', 'CartStorage', 'DataService', 'ProductsHandleService',
-function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
+.controller('cartController', ['$scope', '$compile', 'CartStorage', 'DataService', 'ProductsHandleService', 'CurrentUserService', 'OrderService',
+function($scope, $compile, CartStorage, DataService, ProductsHandleService, CurrentUserService, OrderService) {
 
     $scope.getCart = function(){
         var prodotti = "";
@@ -97,14 +97,19 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
 
     $scope.checkOut = function(){
 
-        html = '<div class="contcheckout"><h4>Indirizzo di consegna</h4>'+
-               '<div class="inputcheck">Via: <input type="text"></input></div>'+
-               '<div class="inputcheck">Città: <input type="text"></input></div>'+
-               '<div class="capcheck">CAP: <input type="text"></input></div>'+
-               '<button type="submit" ng-click="buy()">Acquista</button></div>';
-        
-        angular.element(document.getElementById('checkoutForm')).empty();
-        angular.element(document.getElementById('checkoutForm')).append($compile(html)($scope));
+        if(CurrentUserService.isLogged() == true){
+
+            html = '<div class="contcheckout"><h4>Indirizzo di consegna</h4>'+
+                '<div class="inputcheck">Via: <input type="text"></input></div>'+
+                '<div class="inputcheck">Città: <input type="text"></input></div>'+
+                '<div class="capcheck">CAP: <input type="text"></input></div>'+
+                '<button type="submit" ng-click="buy()">Acquista</button></div>';
+            
+            angular.element(document.getElementById('checkoutForm')).empty();
+            angular.element(document.getElementById('checkoutForm')).append($compile(html)($scope));
+        }else{
+            alert("Devi essere autenticato per poter acquistare i nostri prodotti");
+        }
     }
 
     $scope.buy = function(){
@@ -112,6 +117,11 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
         var data = CartStorage.get();
         var q = DataService.get_nonreset();
         var flag = true;
+        var codes = [];
+        var quantity = [];
+
+        dataTime = new Date();
+        dataTime = ""+dataTime.getDate() + '/' + (dataTime.getMonth() + 1) + '/' +  dataTime.getFullYear();
 
         for(i=0;i<data.length;i++){
             if(q[i].quantity < data[i][3]){
@@ -121,17 +131,25 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService) {
             }
         }
 
+        for(i=0;i<data.length;i++){
+            codes[i] = data[i][5];
+            quantity[i] = data[i][3];
+        }
+
+
         if(flag == true){
+            OrderService.userOrder(codes,quantity,dataTime,CurrentUserService.getSelf())
+            .then(function(response){
+                console.log("Modifica prodotti");
+                    for(i=0;i<codes.length;i++){
+                        ProductsHandleService.setQuantity(codes[i], q[i].quantity-quantity[i]);
+                    }
+            })
 
-            
-
-
-
-            for(i=0;q.length;i++){
-                ProductsHandleService.setQuantity(q[i].code, data[i][3]);
-            }
+            console.log("Yeee");
         }else{
             console.log("Non disponibile");
         }
+
     }
 }]);

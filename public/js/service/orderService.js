@@ -29,6 +29,19 @@ pwApp.service('OrderService', ['$q','$http',function ($q, $http)
 
         return deferred.promise;
     }
-    
+
+    this.userOrder = function(codes, quantity, data, mail){
+        var deferred = $q.defer();
+        
+                $http.post("././api/order/userOrder",{
+                    'codes' : codes, 'date' : data, 'e' : mail, 'quantity' : quantity
+                })
+                .then(function(value){
+                    console.log(value);
+                    deferred.resolve(value);
+                })
+        
+                return deferred.promise;
+    }
 }])
 .run(function(OrderService) {});
