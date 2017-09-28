@@ -54,6 +54,9 @@ pwApp.factory('CartStorage', function() {
         }
         return -1;
     }
+    function reset(){
+        savedData = [];
+    }
     
    
     return {
@@ -65,6 +68,7 @@ pwApp.factory('CartStorage', function() {
      setQuantity: setQuantity,
      getQuantity: getQuantity,
      getItem: getItem,
+     reset: reset,
     }
    
    })

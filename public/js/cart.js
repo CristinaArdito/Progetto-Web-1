@@ -146,6 +146,7 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService, Curr
                     }
             })
 
+            CartStorage.reset();
             console.log("Yeee");
         }else{
             console.log("Non disponibile");
