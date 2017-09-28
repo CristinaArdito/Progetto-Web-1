@@ -34,7 +34,7 @@ function ($scope, $compile, CurrentUserService, ProductsHandleService) {
     };
 
     var chart = "";
-    chart = "<div class='chart-header'>Titolo</div>"+
+    chart = "<div class='chart-header'>Vendite ultimo semestre</div>"+
     "<canvas id='line' class='chart chart-line' chart-data='data'"+
     "chart-labels='labels' chart-series='series' chart-options='options'"+
     "chart-dataset-override='datasetOverride' chart-click='onClick'>"+
@@ -47,7 +47,7 @@ function ($scope, $compile, CurrentUserService, ProductsHandleService) {
       $scope.datatwo = [300, 500, 100];
 
       var chart = "";
-      chart = "<div class='chart-header'>Titolo</div>"+
+      chart = "<div class='chart-header'>Ordini</div>"+
               "<canvas id='pie' class='chart chart-pie'"+
               "chart-data='datatwo' chart-labels='labelstwo' chart-options='options'>"+
               "</canvas>";
@@ -64,7 +64,7 @@ function ($scope, $compile, CurrentUserService, ProductsHandleService) {
     $scope.colorsthree = ['rgba(247,70,74,1)', 'rgba(70,191,189,1)'];
 
     var chart = "";
-    chart = "<div class='chart-header'>Titolo</div>"+
+    chart = "<div class='chart-header'>Vendite totali</div>"+
             "<canvas id='bar' class='chart chart-bar'"+
             "chart-data='datathree' chart-labels='labelsthree' chart-series='seriesthree'"+  
             "chart-colors='colorsthree'>"+
@@ -83,7 +83,7 @@ function ($scope, $compile, CurrentUserService, ProductsHandleService) {
     $scope.colorsfour = ['rgba(49,237,133,1)', 'rgba(64,49,237,1)'];
 
     var chart = "";
-    chart = "<div class='chart-header'>Titolo</div>"+
+    chart = "<div class='chart-header'>Bestseller</div>"+
             "<canvas id='radar' class='chart chart-radar'"+
             "chart-data='datafour' chart-options='options' chart-labels='labelsfour'"+
             "chart-colors='colorsfour'>"+
