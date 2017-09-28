@@ -39,13 +39,10 @@ orderRoutes.post('/userOrder', function(req,res){
     console.log(codevect);
     order_utilities.userOrder(req.body.date, codevect, req.body.quantity, req.body.e)
     .then(function(order){
-        codevect.forEach(function(element){
-            console.log("entro nel forech");
+        codevect.forEach(function(element, index){
             product_utilities.getQuantity(element)
             .then(function(product){
-                console.log("qui entro");
-                if(product.quantity<3){
-                    console.log("qui entro1");
+                if((product[0].quantity-req.body.quantity[index])<=3){
                     user_utilities.getAdminMail()
                     .then(function(admin){
                         var adminl = Object.keys(admin).length;
@@ -61,8 +58,8 @@ orderRoutes.post('/userOrder', function(req,res){
                     let mailOptions = {
                         from: 'Mailer Daemon', // sender address
                         to: adminMail, // list of receivers
-                        subject: '[ALLERT] Un prodotto in magazzino sta per terminare', // Subject line
-                        html: 'Il prodotto: <b>' + product.name + '</b> con codice: <b>'+ product.quantity +' sta per terminare. <a href="https://progetto-web.herokuapp.com/">Entra ora e riordinalo</a>' // html body
+                        subject: '[ALERT] Un prodotto in magazzino sta per terminare', // Subject line
+                        html: 'Il prodotto: <b>' + product[0].name + '</b> con codice: <b>'+ product[0].quantity +'</b> sta per terminare. <a href="https://progetto-web.herokuapp.com/">Entra ora e riordinalo</a>' // html body
                     };
     
                     transporter.sendMail(mailOptions, (error, info) => {

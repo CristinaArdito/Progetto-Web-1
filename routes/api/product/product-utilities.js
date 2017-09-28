@@ -140,12 +140,14 @@ return deferred.promise;
 
 this.getQuantity = function(c){
     var deferred = Q.defer();
-    Product.findOne({"code":c})
+    
+    Product.find({"code":c},{"code":1,"name":1,"quantity":1})
     .then(function(product){
         deferred.resolve(product);
     })
-    .cathc(function(err){
-        deferred.reject(product);
+    .catch(function(err){
+        deferred.reject();
     });
+
     return deferred.promise;
 }
