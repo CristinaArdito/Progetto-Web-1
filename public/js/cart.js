@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-.controller('cartController', ['$scope', '$compile', 'CartStorage', 'DataService', 'ProductsHandleService', 'CurrentUserService', 'OrderService',
-function($scope, $compile, CartStorage, DataService, ProductsHandleService, CurrentUserService, OrderService) {
+.controller('cartController', ['$scope', '$compile', '$location', 'CartStorage', 'DataService', 'ProductsHandleService', 'CurrentUserService', 'OrderService',
+function($scope, $compile, $location, CartStorage, DataService, ProductsHandleService, CurrentUserService, OrderService) {
 
     $scope.getCart = function(){
         var prodotti = "";
@@ -20,11 +20,6 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService, Curr
         }
         else{
         var data = CartStorage.get();
-
-        console.log("Carrello");
-        console.log(data);
-
-        
 
             for(i=0;i<data.length;i++){
                 remove = "remove('"+i+"')";
@@ -142,27 +137,21 @@ function($scope, $compile, CartStorage, DataService, ProductsHandleService, Curr
         indirizzo = ""+angular.element(document.getElementById('via'))[0].value+", "+
                     angular.element(document.getElementById('city'))[0].value+", "+
                     angular.element(document.getElementById('cap'))[0].value;
-
-        ProductsHandleService.sendMail(CurrentUserService.getSelf(), products, quantity, $scope.total, indirizzo);
-
-
-        /*
+ 
         if(flag == true){
             OrderService.userOrder(codes,quantity,dataTime,CurrentUserService.getSelf())
             .then(function(response){
-                console.log("Modifica prodotti");
                     for(i=0;i<codes.length;i++){
                         ProductsHandleService.setQuantity(codes[i], q[i].quantity-quantity[i]);
                     }
+                    
+                    ProductsHandleService.sendMail(CurrentUserService.getSelf(), products, quantity, $scope.total, indirizzo);
+                    CartStorage.reset();
+                    alert("Ordine effettuato con successo");
+                    $location.path('/');
 
-                ProductsHandleService
             })
-
-            CartStorage.reset();
-            console.log("Yeee");
-        }else{
-            console.log("Non disponibile");
         }
-        */
+        
     }
 }]);
