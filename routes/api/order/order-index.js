@@ -9,7 +9,6 @@ var user_utilities = require('../user/user-utilities');
 var fs = require('fs');
 
 var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
 
 var adminRoutes = express.Router(); 
 var orderRoutes = express.Router();
@@ -40,6 +39,44 @@ orderRoutes.post('/userOrder', function(req,res){
     console.log(codevect);
     order_utilities.userOrder(req.body.date, codevect, req.body.quantity, req.body.e)
     .then(function(order){
+        codevect.forEach(function(element){
+            console.log("entro nel forech");
+            product_utilities.getQuantity(element)
+            .then(function(product){
+                console.log("qui entro");
+                if(product.quantity<3){
+                    console.log("qui entro1");
+                    user_utilities.getAdminMail()
+                    .then(function(admin){
+                        var adminl = Object.keys(admin).length;
+
+                        var adminMail = "";
+
+                        for(var i = 0; i<adminl; i++){
+                            adminMail = adminMail + admin[i].email;
+                            if(i!=admin-1)
+                            adminMail = adminMail +",";
+                        }
+
+                    let mailOptions = {
+                        from: 'Mailer Daemon', // sender address
+                        to: adminMail, // list of receivers
+                        subject: '[ALLERT] Un prodotto in magazzino sta per terminare', // Subject line
+                        html: 'Il prodotto: <b>' + product.name + '</b> con codice: <b>'+ product.quantity +' sta per terminare. <a href="https://progetto-web.herokuapp.com/">Entra ora e riordinalo</a>' // html body
+                    };
+    
+                    transporter.sendMail(mailOptions, (error, info) => {
+                        if (error) {
+                            console.log(error);
+                        }else{
+                            console.log("Inviata");
+                            adminMail = "";
+                        }
+                    });
+                })
+                }
+            })
+        })
         res.status(201).json({ 
             success: true ,
             msg:order,

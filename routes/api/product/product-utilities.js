@@ -1,8 +1,6 @@
 var jwt         = require('jsonwebtoken');    // used to create, sign, and verify tokens
 var Product     = require('../../../models/product') // get our mongoose Product model
 var Q           = require('q');  // Q promise
-//var nodemailer = require('nodemailer');
-//var smtpTransport = require('nodemailer-smtp-transport');
 var Admin       = require('../../../models/user');
 
 var db_utilities_product=require('./db-utilities-product');
@@ -140,16 +138,14 @@ this.update = function(name, categories, weight, price, url, desc, c){
 return deferred.promise;
 }
 
-/*this.stringToNum = function(){
+this.getQuantity = function(c){
     var deferred = Q.defer();
-    Product.updateMany({}, {$set:{"quantity":1}}, function(err, resoult){
-        if(err){
-            console.log("ops");
-            deferred.reject(resoult);
-          }else{
-            console.log("cambiato");
-            deferred.resolve(resoult);
-          }
+    Product.findOne({"code":c})
+    .then(function(product){
+        deferred.resolve(product);
+    })
+    .cathc(function(err){
+        deferred.reject(product);
     });
-return deferred.promise;
-}*/
+    return deferred.promise;
+}

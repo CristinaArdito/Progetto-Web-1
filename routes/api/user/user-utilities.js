@@ -196,3 +196,15 @@ this.update = function(n, e, p, ep){
   });
   return deferred.promise;
 }
+
+this.getAdminMail = function(){
+  var deferred = Q.defer();
+  User.find({"admin":true},{"email":1})
+  .then(function(user){
+    deferred.resolve(user);
+  })
+  .catch(function(user){
+    deferred.reject(user);
+  });
+  return deferred.promise;
+}
