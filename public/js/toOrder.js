@@ -88,13 +88,14 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
         var prodotti = "";
         var i=0;
         var k=0;
-        var numProd = 'ordinaProdotto("'+i+'")';
+        var numProd = 'ordinaProdotto()';
 
         prodotti = prodotti + "<div class='orderproduct'><ul><li>Nome prodotto: <span id='nProd"+k+"'>"+data[0]+"</span></li>"+
                                             "<li>Prezzo prodotto: "+data[1]+"</li>"+
+                                            "<li>Codice: <span id='nCod"+k+"'>"+data[3]+"</span></li>"+
                                             "<li>Quantità rimanente: <span id='quantity"+k+"'>"+data[2]+"</span></li>"+
                                             "</ul></div><div class='ord'><a class='reorders' href='#!/orders'>Riordina: </a>"+
-                                            "<input name='prodotto"+k+"' class='num' type='number' min='0' value='0'></input></div><br>";
+                                            "<input id='prodotto"+k+"' class='num' type='number' min='0' value='0'></input></div><br>";
                 
         prodotti = prodotti + "<br><button type='submit' class='ordbutton' ng-click = '"+numProd+"'>Ordina</button>";
 
@@ -104,7 +105,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
     $scope.ordinaProdotto = function()
     {
 
-       if(CurrentUserService.isLogged() && CurrentUserService.isAdmin()){ 
+       if(CurrentUserService.isLogged() && CurrentUserService.isAdmin()){
             codes = [];
             quantity = [];
             remain = [];
@@ -112,7 +113,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
 
             for(i=0;i<6;i++){
                 code = angular.element(document.getElementById('nCod'+i));
-                if(code == undefined) break;
+                if(code.length == 0 || code == undefined) break;
                 q1 = angular.element(document.getElementById('prodotto'+i))[0].value;
 
                 if(parseInt(q1) > 0){
@@ -124,8 +125,6 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService,
 
             dataTime = new Date();
             dataTime = ""+dataTime.getDate() + '/' + (dataTime.getMonth() + 1) + '/' +  dataTime.getFullYear();
-
-            console.log(remain);
             
             OrderService.supplierOrder(codes,quantity,dataTime,CurrentUserService.getSelf())
             .then(function(response){

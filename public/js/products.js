@@ -50,6 +50,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
                 prodotti = prodotti + "<div class='product' >"+
                                         "<h2><span style='color:Black;' id='nNome"+i+"'>"+value[i].name+"</span></h2>"+
                                         "<ul><li ng-click='"+modify+"' style='"+background+"'></li>"+
+                                        "'<div id='code"+i+"' hidden='true'>"+value[i].code+"</div>"+
                                         "<li>Prezzo : <span id='nPrice"+i+"'>"+value[i].price+"</span></li>"+
                                         "<li>Categoria: <span>"+value[i].categories[0]+"</span></li>"+
                                         "<li>Quantità rimanente: <span id='nQuantity"+i+"'>"+value[i].quantity+"</span></li>"+
@@ -199,6 +200,7 @@ function($scope, $compile, $http, $location, DataService, ProductsHandleService)
        param[0] = angular.element(document.getElementById("nNome"+n))[0].innerHTML;
        param[1] = angular.element(document.getElementById("nPrice"+n))[0].innerHTML;
        param[2] = angular.element(document.getElementById("nQuantity"+n))[0].innerHTML;
+       param[3] = angular.element(document.getElementById("code"+n))[0].innerHTML;
        $location.path("/orders");
        DataService.set(JSON.stringify(param));
    }
