@@ -28,6 +28,7 @@ var pwApp = angular.module('pwApp');
           CurrentUserService.signup($scope.username, $scope.password, $scope.email)
           .then(function(data)
                {
+               	console.log("signup");
                	$location.path("/");
                 $state.go('home');
                })
