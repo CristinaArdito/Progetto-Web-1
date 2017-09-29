@@ -1,6 +1,7 @@
 var pwApp = angular.module('pwApp');
 // create the controller and inject Angular's $scope
- pwApp.controller('signupController', ['$scope', 'CurrentUserService','$state', function($scope, CurrentUserService, $state)
+ pwApp.controller('signupController', ['$scope', 'CurrentUserService','$state', '$location',
+ function($scope, CurrentUserService, $state,$location)
    {
     $scope.username;
     $scope.password;
@@ -27,6 +28,7 @@ var pwApp = angular.module('pwApp');
           CurrentUserService.signup($scope.username, $scope.password, $scope.email)
           .then(function(data)
                {
+               	$location.path("/");
                 $state.go('home');
                })
           .catch(function(err)
