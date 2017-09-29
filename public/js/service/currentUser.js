@@ -89,7 +89,7 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
     this.removeUser = function(par){
         var deferred = $q.defer();
         
-        return $http.post("././api/user/remove", {
+        $http.post("././api/user/remove", {
             'q' : par
         })
         .then(function(data){
@@ -102,7 +102,7 @@ pwApp.service('CurrentUserService', ['$q','$http', function ($q, $http)
     this.promoteAdmin = function(par){
         var deferred = $q.defer();
         
-        return $http.post("././api/user/op", {
+        $http.post("././api/user/op", {
             'q' : par
         })
         .then(function(data){
